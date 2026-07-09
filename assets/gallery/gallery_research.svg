@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B" />
+      <stop offset="100%" stop-color="#1C2541" />
+    </linearGradient>
+    <linearGradient id="paper-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-grad)" />
+  <rect width="800" height="600" fill="url(#grid)" />
+
+  <!-- Research Paper Page Representation -->
+  <g transform="translate(280, 80)">
+    <!-- Behind shadow -->
+    <rect x="-10" y="-10" width="260" height="320" rx="6" fill="#000000" opacity="0.4" />
+    
+    <!-- Paper Page -->
+    <rect x="0" y="0" width="240" height="300" rx="4" fill="url(#paper-grad)" />
+    
+    <!-- Title Lines -->
+    <rect x="25" y="25" width="190" height="12" rx="2" fill="#0F172A" />
+    <rect x="25" y="45" width="120" height="10" rx="2" fill="#475569" />
+    
+    <!-- Underline -->
+    <line x1="25" y1="65" x2="215" y2="65" stroke="#E2E8F0" stroke-width="2" />
+    
+    <!-- Column Text Blocks -->
+    <!-- Column 1 -->
+    <rect x="25" y="80" width="90" height="6" rx="1" fill="#94A3B8" />
+    <rect x="25" y="92" width="90" height="6" rx="1" fill="#94A3B8" />
+    <rect x="25" y="104" width="70" height="6" rx="1" fill="#94A3B8" />
+    
+    <!-- Column 2 -->
+    <rect x="125" y="80" width="90" height="6" rx="1" fill="#94A3B8" />
+    <rect x="125" y="92" width="80" height="6" rx="1" fill="#94A3B8" />
+    
+    <!-- Figure Block (Central image on paper) -->
+    <rect x="25" y="125" width="190" height="90" rx="3" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2" />
+    
+    <!-- Molecule/Atom illustration inside figure -->
+    <circle cx="120" cy="170" r="16" fill="none" stroke="#00629B" stroke-width="2" />
+    <circle cx="120" cy="170" r="4" fill="#00629B" />
+    <!-- Electron Rings -->
+    <ellipse cx="120" cy="170" rx="30" ry="10" fill="none" stroke="#00B4D8" stroke-width="1.5" transform="rotate(30, 120, 170)" />
+    <ellipse cx="120" cy="170" rx="30" ry="10" fill="none" stroke="#00B4D8" stroke-width="1.5" transform="rotate(-30, 120, 170)" />
+    
+    <!-- Text lines under figure -->
+    <rect x="25" y="235" width="190" height="6" rx="1" fill="#94A3B8" />
+    <rect x="25" y="247" width="190" height="6" rx="1" fill="#94A3B8" />
+    <rect x="25" y="259" width="150" height="6" rx="1" fill="#94A3B8" />
+    
+    <!-- Mini Stamp (IEEE style badge) -->
+    <rect x="175" y="275" width="40" height="15" fill="#00629B" rx="2" />
+    <rect x="180" y="279" width="30" height="7" fill="#FFFFFF" rx="1" />
+  </g>
+
+  <!-- Typography -->
+  <text x="400" y="450" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" letter-spacing="1">RESEARCH &amp; PUBLICATIONS</text>
+  <text x="400" y="490" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" fill="#00B4D8" font-weight="500">IEEE EDS Research Work &amp; Journals</text>
+  <text x="400" y="525" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" fill="#9CA3AF" opacity="0.8">PMEC Student Branch Chapter</text>
+</svg>
