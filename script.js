@@ -342,7 +342,7 @@ function bindLazyLoading() {
    9. Gallery Lightbox Modal
    ========================================================================== */
 function initGalleryLightbox() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  const galleryItems = document.querySelectorAll('.gallery-item:not(.gallery-link-item)');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxCaption = document.getElementById('lightbox-caption');

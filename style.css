@@ -1870,6 +1870,16 @@ body.dark-mode .footer {
   margin-top: 40px;
 }
 
+@media (min-width: 1200px) {
+  .associates-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .associates-grid .associate-card {
+    max-width: none;
+  }
+}
+
 .associate-card {
   flex: 1 1 180px;
   max-width: 220px;
@@ -2152,4 +2162,145 @@ body.dark-mode .interest-theme .statement-icon-box {
 .carousel-indicators .indicator.active {
   background-color: var(--secondary);
   transform: scale(1.2);
+}
+
+.gallery-link-item {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* ==========================================================================
+   Featured Event Section Styles
+   ========================================================================== */
+.event-banner-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+  padding: 40px;
+}
+
+.event-banner-card:hover {
+  border-color: var(--secondary);
+}
+
+.event-banner-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.event-poster-wrapper {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--card-border);
+}
+
+.event-poster-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.event-banner-card:hover .event-poster-img {
+  transform: scale(1.03);
+}
+
+.event-banner-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.event-badge {
+  background-color: rgba(0, 98, 155, 0.08);
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+body.dark-mode .event-badge {
+  background-color: rgba(0, 180, 216, 0.15);
+  color: var(--secondary);
+}
+
+.event-banner-details h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.event-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.event-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.event-meta i {
+  color: var(--primary);
+}
+
+body.dark-mode .event-meta i {
+  color: var(--secondary);
+}
+
+.event-brief {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.event-focus-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.event-focus-badges span {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  border: 1px solid var(--card-border);
+}
+
+@media (max-width: 992px) {
+  .event-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .event-banner-card {
+    padding: 30px 20px;
+  }
+  
+  .event-banner-poster {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
