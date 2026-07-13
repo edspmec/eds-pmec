@@ -3,37 +3,53 @@
    ========================================================================== */
 
 /* 1. Imports & Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 /* 2. Custom CSS Variables */
 :root {
-  /* Color Palette */
-  --primary: #00629B;       /* Official IEEE Blue */
-  --primary-rgb: 0, 98, 155;
-  --secondary: #00B4D8;     /* Tech Cyan Accent */
-  --secondary-rgb: 0, 180, 216;
+  /* Color Palette — Edge-AI Hackathon "circuit board" identity */
+  --primary: #0A5FC2;       /* Electric IEEE Blue */
+  --primary-rgb: 10, 95, 194;
+  --primary-deep: #052a5e;  /* Deep navy PCB base */
+  --primary-deep-rgb: 5, 42, 94;
+  --secondary: #12C4E8;     /* Electric Cyan glow */
+  --secondary-rgb: 18, 196, 232;
+  --glow: #35E4FF;          /* Bright chip-glow cyan */
+  --glow-rgb: 53, 228, 255;
+  --accent: #FFC53D;        /* Prize-pool Gold */
+  --accent-rgb: 255, 197, 61;
+  --accent-deep: #F5A623;
   --white: #FFFFFF;
   --dark-gray: #1F2937;
-  
+
+  /* Signature gradients */
+  --grad-primary: linear-gradient(135deg, #0A5FC2 0%, #12C4E8 100%);
+  --grad-chip: linear-gradient(135deg, #052a5e 0%, #0A5FC2 45%, #35E4FF 100%);
+  --grad-gold: linear-gradient(135deg, #FFC53D 0%, #F5A623 100%);
+
   /* Theme Colors - Light Mode (Default) */
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F7F9FB;
-  --bg-tertiary: #EEF2F6;
-  --text-primary: #1F2937;
-  --text-secondary: #4B5563;
+  --bg-secondary: #F4F8FD;
+  --bg-tertiary: #E8F1FB;
+  --text-primary: #0E1B2E;
+  --text-secondary: #45566B;
   --text-muted: #9CA3AF;
   --card-bg: #FFFFFF;
-  --card-border: rgba(0, 98, 155, 0.08);
+  --card-border: rgba(10, 95, 194, 0.10);
   --navbar-bg: rgba(255, 255, 255, 0.85);
-  --navbar-border: rgba(229, 231, 235, 0.5);
+  --navbar-border: rgba(10, 95, 194, 0.10);
   --glass-bg: rgba(255, 255, 255, 0.45);
   --glass-border: rgba(255, 255, 255, 0.4);
-  
+  --circuit-line: rgba(10, 95, 194, 0.22);
+  --circuit-node: rgba(18, 196, 232, 0.55);
+  --primary-glow: rgba(18, 196, 232, 0.45);
+
   /* Shadow Levels */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 25px rgba(0, 98, 155, 0.06);
-  --shadow-lg: 0 20px 40px rgba(0, 98, 155, 0.1);
-  --shadow-hover: 0 25px 50px rgba(0, 180, 216, 0.15);
+  --shadow-md: 0 10px 25px rgba(10, 95, 194, 0.08);
+  --shadow-lg: 0 20px 40px rgba(10, 95, 194, 0.12);
+  --shadow-hover: 0 25px 50px rgba(18, 196, 232, 0.22);
+  --glow-shadow: 0 0 24px rgba(53, 228, 255, 0.45);
   
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -47,25 +63,29 @@
   --border-radius-lg: 24px;
 }
 
-/* Dark Mode Theme Overrides */
+/* Dark Mode Theme Overrides — deep PCB navy from the brochure */
 body.dark-mode {
-  --bg-primary: #0F172A;     /* Slate 900 */
-  --bg-secondary: #1E293B;   /* Slate 800 */
-  --bg-tertiary: #334155;    /* Slate 700 */
-  --text-primary: #F8FAFC;   /* Slate 50 */
-  --text-secondary: #CBD5E1; /* Slate 300 */
-  --text-muted: #64748B;     /* Slate 500 */
-  --card-bg: #1E293B;
-  --card-border: rgba(255, 255, 255, 0.05);
-  --navbar-bg: rgba(15, 23, 42, 0.85);
-  --navbar-border: rgba(255, 255, 255, 0.05);
-  --glass-bg: rgba(30, 41, 59, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 25px 50px rgba(0, 180, 216, 0.2);
+  --primary: #2E8BE6;        /* brighter electric blue on dark */
+  --bg-primary: #061024;     /* Deep circuit navy */
+  --bg-secondary: #0A1A38;   /* Navy panel */
+  --bg-tertiary: #12294F;    /* Navy raised */
+  --text-primary: #EAF4FF;
+  --text-secondary: #A9C2DD;
+  --text-muted: #64748B;
+  --card-bg: #0C1F42;
+  --card-border: rgba(53, 228, 255, 0.14);
+  --navbar-bg: rgba(6, 16, 36, 0.82);
+  --navbar-border: rgba(53, 228, 255, 0.12);
+  --glass-bg: rgba(12, 31, 66, 0.55);
+  --glass-border: rgba(53, 228, 255, 0.12);
+  --circuit-line: rgba(53, 228, 255, 0.28);
+  --circuit-node: rgba(53, 228, 255, 0.75);
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 25px 50px rgba(18, 196, 232, 0.28);
+  --glow-shadow: 0 0 26px rgba(53, 228, 255, 0.55);
 }
 
 /* 3. Base Reset */
@@ -136,7 +156,11 @@ button {
 }
 
 .section-bg {
-  background-color: var(--bg-secondary);
+  background-color: rgba(var(--primary-rgb), 0.045);
+}
+
+body.dark-mode .section-bg {
+  background-color: rgba(var(--glow-rgb), 0.05);
 }
 
 .section-header {
@@ -157,15 +181,26 @@ button {
   left: 50%;
   bottom: -8px;
   transform: translateX(-50%);
-  width: 60px;
+  width: 64px;
   height: 4px;
-  background-color: var(--primary);
+  background: var(--grad-primary);
   border-radius: 2px;
+  box-shadow: 0 0 14px rgba(var(--secondary-rgb), 0.6);
   transition: var(--transition-normal);
 }
 
-body.dark-mode .section-header h2::after {
-  background-color: var(--secondary);
+.section-header h2::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(calc(-50% + 42px));
+  width: 8px;
+  height: 8px;
+  margin-bottom: -2px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.9);
 }
 
 .section-header p {
@@ -189,40 +224,63 @@ body.dark-mode .section-header h2::after {
   gap: 8px;
 }
 
+/* Shared shine sweep for filled buttons */
+.btn-primary, .btn-accent {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-primary::before, .btn-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+.btn-primary:hover::before, .btn-accent:hover::before {
+  left: 140%;
+}
+
 .btn-primary {
-  background-color: var(--primary);
+  background: var(--grad-primary);
   color: var(--white);
-  box-shadow: 0 4px 15px rgba(0, 98, 155, 0.3);
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.35);
 }
 
 .btn-primary:hover {
-  background-color: #004F7C;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 98, 155, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(var(--secondary-rgb), 0.45), var(--glow-shadow);
 }
 
 .btn-secondary {
   background-color: transparent;
   color: var(--text-primary);
-  border: 2px solid var(--text-primary);
+  border: 2px solid var(--primary);
 }
 
 .btn-secondary:hover {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
-  transform: translateY(-2px);
+  background: var(--grad-primary);
+  border-color: transparent;
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(var(--primary-rgb), 0.35);
 }
 
 .btn-accent {
-  background-color: var(--secondary);
-  color: var(--white);
-  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+  background: var(--grad-gold);
+  color: #3a2600;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.4);
 }
 
 .btn-accent:hover {
-  background-color: #0096B4;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(var(--accent-rgb), 0.55);
 }
 
 /* Scroll Progress Bar */
@@ -467,21 +525,29 @@ body.dark-mode .nav-link.active {
   padding-top: calc(var(--nav-height) + 40px);
   display: flex;
   align-items: center;
-  background-image: linear-gradient(rgba(247, 249, 251, 0.92), rgba(247, 249, 251, 0.92)), 
-                    url('assets/logos_banners/banner_bg.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  transition: background-image var(--transition-normal);
+  background: radial-gradient(ellipse at 72% 28%, rgba(var(--secondary-rgb), 0.08) 0%, transparent 55%),
+              radial-gradient(ellipse at 8% 85%, rgba(var(--primary-rgb), 0.08) 0%, transparent 55%);
+  transition: background var(--transition-normal);
   position: relative;
+  overflow: hidden;
 }
 
 body.dark-mode .hero {
-  background-image: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), 
-                    url('assets/logos_banners/banner_bg.png');
+  background: radial-gradient(ellipse at 72% 28%, rgba(var(--secondary-rgb), 0.14) 0%, transparent 55%),
+              radial-gradient(ellipse at 8% 85%, rgba(var(--primary-rgb), 0.16) 0%, transparent 55%);
 }
 
-/* Circuit overlay for extra style */
+/* Interactive circuit-board canvas — fixed behind the WHOLE page */
+.circuit-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Chip-glow accent sweeping across the hero */
 .hero::after {
   content: '';
   position: absolute;
@@ -489,9 +555,9 @@ body.dark-mode .hero {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 70% 30%, rgba(0, 180, 216, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 10% 80%, rgba(0, 98, 155, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 70% 30%, rgba(var(--glow-rgb), 0.06) 0%, transparent 45%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero .container {
@@ -510,8 +576,8 @@ body.dark-mode .hero {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: rgba(0, 98, 155, 0.08);
-  border: 1px solid rgba(0, 98, 155, 0.15);
+  background-color: rgba(var(--primary-rgb), 0.08);
+  border: 1px solid rgba(var(--secondary-rgb), 0.35);
   color: var(--primary);
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -521,11 +587,27 @@ body.dark-mode .hero {
   padding: 6px 16px;
   border-radius: 50px;
   margin-bottom: 24px;
+  box-shadow: inset 0 0 0 1px rgba(var(--secondary-rgb), 0.05), 0 0 18px rgba(var(--secondary-rgb), 0.12);
+}
+
+.hero-subtitle-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.9);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
 }
 
 body.dark-mode .hero-subtitle-badge {
-  background-color: rgba(56, 189, 248, 0.1);
-  border-color: rgba(56, 189, 248, 0.2);
+  background-color: rgba(var(--secondary-rgb), 0.1);
+  border-color: rgba(var(--secondary-rgb), 0.3);
   color: var(--secondary);
 }
 
@@ -538,12 +620,19 @@ body.dark-mode .hero-subtitle-badge {
 }
 
 .hero h1 span.chapter-text {
-  color: var(--primary);
   display: block;
+  background: var(--grad-chip);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--primary);
 }
 
 body.dark-mode .hero h1 span.chapter-text {
-  color: var(--secondary);
+  background: linear-gradient(135deg, #2E8BE6 0%, #35E4FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-typing-container {
@@ -599,7 +688,7 @@ body.dark-mode .hero-typing-container span.typed-text {
   background-color: var(--white);
   border-radius: 24px;
   padding: 30px;
-  box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 98, 155, 0.1);
+  box-shadow: var(--shadow-lg), 0 0 45px rgba(var(--secondary-rgb), 0.25);
   border: 1px solid var(--card-border);
   animation: float 6s ease-in-out infinite;
   transition: background-color var(--transition-normal), border-color var(--transition-normal);
@@ -610,7 +699,23 @@ body.dark-mode .hero-typing-container span.typed-text {
 
 body.dark-mode .hero-logo-wrapper {
   background-color: var(--bg-secondary);
-  box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 180, 216, 0.1);
+  box-shadow: var(--shadow-lg), 0 0 55px rgba(var(--glow-rgb), 0.3);
+}
+
+/* Rotating conic "chip halo" glow */
+.hero-logo-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 27px;
+  padding: 3px;
+  background: conic-gradient(from 0deg, transparent 0deg, var(--secondary) 90deg, var(--accent) 180deg, var(--primary) 270deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin 8s linear infinite;
+  opacity: 0.9;
+  pointer-events: none;
 }
 
 .hero-logo-wrapper::before {
@@ -868,7 +973,21 @@ body.dark-mode .vision-mission-header svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform var(--transition-slow);
+}
+
+/* These portraits sit high in frame — focus the crop upward so faces are centred */
+.member-img[alt="Swadhin Roul"] {
+  object-position: center 20%;
+}
+
+.member-img[alt="Seikh Mustakim"] {
+  object-position: center 12%;
+}
+
+.member-img[alt="Dr. Suryalok Dash"] {
+  object-position: center 12%;
 }
 
 .member-card:hover .member-img {
@@ -956,9 +1075,28 @@ body.dark-mode .member-role {
   padding: 40px 30px;
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  transition: box-shadow var(--transition-normal), border-color var(--transition-normal), transform var(--transition-normal);
   position: relative;
   overflow: hidden;
+}
+
+/* Glowing circuit top-edge that lights up on hover */
+.activity-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+  box-shadow: 0 0 12px rgba(var(--secondary-rgb), 0.7);
+}
+
+.activity-card:hover::before {
+  transform: scaleX(1);
 }
 
 .activity-card::after {
@@ -979,7 +1117,7 @@ body.dark-mode .member-role {
 
 .activity-card:hover {
   transform: translateY(-5px) scale(1.01);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-hover);
   border-color: var(--secondary);
 }
 
@@ -987,7 +1125,7 @@ body.dark-mode .member-role {
   width: 60px;
   height: 60px;
   border-radius: var(--border-radius-sm);
-  background-color: rgba(0, 98, 155, 0.08);
+  background-color: rgba(var(--primary-rgb), 0.08);
   color: var(--primary);
   display: flex;
   align-items: center;
@@ -997,14 +1135,15 @@ body.dark-mode .member-role {
 }
 
 body.dark-mode .activity-icon-box {
-  background-color: rgba(0, 180, 216, 0.1);
+  background-color: rgba(var(--secondary-rgb), 0.12);
   color: var(--secondary);
 }
 
 .activity-card:hover .activity-icon-box {
-  background-color: var(--primary);
+  background: var(--grad-primary);
   color: var(--white);
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: var(--glow-shadow);
 }
 
 body.dark-mode .activity-card:hover .activity-icon-box {
@@ -1139,6 +1278,13 @@ body.dark-mode .activity-card:hover .activity-icon-box {
   border-radius: var(--border-radius-sm);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.1);
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y; /* keep vertical scroll, let horizontal swipes reach our handler */
+}
+
+.lightbox-img:active {
+  cursor: grabbing;
 }
 
 .lightbox-caption {
@@ -1168,26 +1314,33 @@ body.dark-mode .activity-card:hover .activity-icon-box {
   transform: translateY(-50%);
   color: var(--white);
   font-size: 2.5rem;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.1);
+  width: 54px;
+  height: 54px;
+  background-color: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
+  z-index: 10;
 }
 
 .lightbox-nav:hover {
-  background-color: var(--primary);
+  background: var(--grad-primary);
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(var(--secondary-rgb), 0.6);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .lightbox-prev {
-  left: -80px;
+  left: 24px;
 }
 
 .lightbox-next {
-  right: -80px;
+  right: 24px;
 }
 
 /* ==========================================================================
@@ -1813,17 +1966,17 @@ body.dark-mode .footer {
   }
   
   .lightbox-nav {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     font-size: 1.8rem;
   }
-  
+
   .lightbox-prev {
-    left: -15px;
+    left: 10px;
   }
-  
+
   .lightbox-next {
-    right: -15px;
+    right: 10px;
   }
 }
 
@@ -2302,5 +2455,519 @@ body.dark-mode .event-meta i {
     max-width: 400px;
     margin: 0 auto;
     width: 100%;
+  }
+}
+
+/* ==========================================================================
+   FX LAYER — site-wide attractive effects (circuit theme)
+   ========================================================================== */
+
+/* Text selection in brand colors */
+::selection {
+  background: rgba(var(--secondary-rgb), 0.35);
+  color: var(--text-primary);
+}
+
+/* Custom scrollbar — gradient "data bus" thumb */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  border-radius: 8px;
+  border: 2px solid var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--secondary), var(--glow));
+}
+
+/* Nav links — gradient underline with glow */
+.nav-link::after {
+  background: var(--grad-primary);
+  box-shadow: 0 0 10px rgba(var(--secondary-rgb), 0.7);
+}
+
+/* Scroll progress bar — glowing data stream */
+.scroll-progress {
+  background: linear-gradient(to right, var(--primary), var(--secondary), var(--glow));
+  box-shadow: 0 0 12px rgba(var(--glow-rgb), 0.8);
+}
+
+/* Section heading underline grows in when the section reveals */
+.section-header.reveal h2::after {
+  transform: translateX(-50%) scaleX(0);
+}
+.section-header.reveal.active h2::after {
+  animation: underline-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+}
+@keyframes underline-grow {
+  from { transform: translateX(-50%) scaleX(0); }
+  to   { transform: translateX(-50%) scaleX(1); }
+}
+.section-header.reveal h2::before {
+  opacity: 0;
+}
+.section-header.reveal.active h2::before {
+  animation: node-pop 0.5s ease 1s forwards;
+}
+@keyframes node-pop {
+  0%   { opacity: 0; transform: translateX(calc(-50% + 42px)) scale(0); }
+  70%  { opacity: 1; transform: translateX(calc(-50% + 42px)) scale(1.6); }
+  100% { opacity: 1; transform: translateX(calc(-50% + 42px)) scale(1); }
+}
+
+/* Cursor-following spotlight on cards (JS sets --mx / --my) */
+.fx-spotlight {
+  position: relative;
+}
+.fx-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(var(--secondary-rgb), 0.10), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.fx-spotlight:hover::after {
+  opacity: 1;
+}
+body.dark-mode .fx-spotlight::after {
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+              rgba(var(--glow-rgb), 0.12), transparent 65%);
+}
+
+/* Gallery — light-beam shine sweep on hover */
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  z-index: 2;
+  pointer-events: none;
+  transition: left 0.7s ease;
+}
+.gallery-item:hover::before {
+  left: 130%;
+}
+
+/* Featured event card — flowing gradient border */
+.event-banner-card {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    linear-gradient(120deg, var(--primary), var(--secondary), var(--accent), var(--primary)) border-box;
+  background-size: 100% 100%, 300% 300%;
+  animation: border-flow 7s linear infinite;
+}
+@keyframes border-flow {
+  0%   { background-position: 0 0, 0% 50%; }
+  50%  { background-position: 0 0, 100% 50%; }
+  100% { background-position: 0 0, 0% 50%; }
+}
+.event-banner-card:hover {
+  box-shadow: var(--shadow-hover), 0 0 30px rgba(var(--secondary-rgb), 0.25);
+}
+
+/* Event badge — gold shimmer */
+.event-badge {
+  background: var(--grad-gold) !important;
+  color: #3a2600 !important;
+  box-shadow: 0 0 16px rgba(var(--accent-rgb), 0.5);
+  animation: badge-pulse 2.4s ease-in-out infinite;
+}
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.35); }
+  50%      { box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.75); }
+}
+
+/* Back-to-top — gradient chip with radar pulse ring */
+.back-to-top {
+  background: var(--grad-primary);
+}
+.back-to-top.show::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--secondary-rgb), 0.7);
+  animation: radar-ring 2s ease-out infinite;
+}
+@keyframes radar-ring {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+.back-to-top:hover {
+  background: var(--grad-gold);
+  color: #3a2600;
+  box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.6);
+}
+
+/* Footer — animated circuit power-rail on top edge */
+.footer {
+  position: relative;
+  border-top: none;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--glow), var(--accent), var(--primary), transparent);
+  background-size: 200% 100%;
+  animation: rail-flow 6s linear infinite;
+}
+@keyframes rail-flow {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+.footer-social-link:hover {
+  transform: translateY(-4px) scale(1.1);
+  color: var(--glow);
+  text-shadow: 0 0 14px rgba(var(--glow-rgb), 0.8);
+}
+
+/* Join section — slow aurora drift */
+.join-section::before {
+  background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 90% 90%, rgba(var(--glow-rgb), 0.18) 0%, transparent 40%),
+              radial-gradient(circle at 60% 20%, rgba(var(--accent-rgb), 0.08) 0%, transparent 35%);
+  background-size: 160% 160%;
+  animation: aurora-drift 12s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift {
+  from { background-position: 0% 0%; }
+  to   { background-position: 100% 100%; }
+}
+
+/* Form inputs — glow focus ring */
+.form-control:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), 0.18), 0 0 14px rgba(var(--secondary-rgb), 0.25);
+}
+
+/* Focus tags — light up on hover */
+.about-focus-tags .tag {
+  transition: all var(--transition-fast);
+}
+.about-focus-tags .tag:hover {
+  background: var(--grad-primary);
+  color: var(--white);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(var(--secondary-rgb), 0.35);
+}
+
+/* Associate logos — grayscale to full color + glow */
+.associate-logo {
+  filter: grayscale(35%);
+  transition: filter var(--transition-normal), transform var(--transition-normal);
+}
+.associate-card:hover .associate-logo {
+  filter: grayscale(0%) drop-shadow(0 0 10px rgba(var(--secondary-rgb), 0.5));
+  transform: scale(1.08);
+}
+
+/* Member role — gold flicker on card hover */
+.member-card:hover .member-role {
+  color: var(--accent-deep);
+  text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.5);
+}
+
+/* Button ripple (spawned by effects.js) */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.fx-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: ripple-out 0.6s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes ripple-out {
+  to { transform: scale(3); opacity: 0; }
+}
+
+/* Cursor ambient glow (desktop only, injected by effects.js) —
+   a soft light that drifts with the pointer; native cursor untouched */
+.fx-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+              rgba(var(--secondary-rgb), 0.09) 0%,
+              rgba(var(--secondary-rgb), 0.04) 40%,
+              transparent 70%);
+  pointer-events: none;
+  z-index: 9998;
+  transition: opacity 0.4s ease;
+}
+
+body.dark-mode .fx-cursor-glow {
+  background: radial-gradient(circle,
+              rgba(var(--glow-rgb), 0.12) 0%,
+              rgba(var(--glow-rgb), 0.05) 40%,
+              transparent 70%);
+}
+
+/* Respect reduced motion — disable decorative animation */
+@media (prefers-reduced-motion: reduce) {
+  .event-banner-card,
+  .footer::before,
+  .join-section::before,
+  .event-badge,
+  .back-to-top.show::before,
+  .hero-logo-wrapper::after,
+  .hero-logo-wrapper::before,
+  .hero-subtitle-badge::before {
+    animation: none !important;
+  }
+  .fx-cursor-glow {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   FX LAYER 2 — refinements
+   ========================================================================== */
+
+/* Hero headline — slow shimmer across the gradient text */
+.hero h1 span.chapter-text {
+  background-size: 200% auto;
+  animation: text-shimmer 6s ease-in-out infinite alternate;
+}
+@keyframes text-shimmer {
+  from { background-position: 0% center; }
+  to   { background-position: 100% center; }
+}
+
+/* Sticky header — glowing gradient hairline under the glass */
+.header.sticky {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(var(--secondary-rgb), 0.5), transparent) 1;
+}
+
+/* Member & associate cards — same glowing top edge as activity cards */
+.member-card::before,
+.associate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+  box-shadow: 0 0 12px rgba(var(--secondary-rgb), 0.7);
+  z-index: 2;
+}
+.member-card:hover::before,
+.associate-card:hover::before {
+  transform: scaleX(1);
+}
+.associate-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Member photo — soft cyan inner glow on hover */
+.member-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 0 transparent;
+  transition: box-shadow var(--transition-normal);
+  pointer-events: none;
+}
+.member-card:hover .member-image-wrapper::after {
+  box-shadow: inset 0 -40px 40px -30px rgba(var(--secondary-rgb), 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 span.chapter-text {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   ✦ DESIGN V2 — "Premium Dark-Glass Circuit"
+   A classy, editorial redesign layer: display typography, floating glass
+   navbar, glassmorphism cards, numbered sections, dot-grid canvas backdrop.
+   Overrides earlier rules by cascade; structure untouched.
+   ========================================================================== */
+
+/* ---- 1. Design tokens refresh ---- */
+:root {
+  --border-radius-sm: 12px;
+  --border-radius-md: 20px;
+  --border-radius-lg: 28px;
+  --font-display: 'Space Grotesk', 'Poppins', sans-serif;
+  --glass-card-bg: rgba(255, 255, 255, 0.62);
+  --glass-card-border: rgba(255, 255, 255, 0.75);
+}
+
+body.dark-mode {
+  --glass-card-bg: rgba(12, 31, 66, 0.48);
+  --glass-card-border: rgba(53, 228, 255, 0.14);
+}
+
+/* ---- 2. Typography — editorial display headings ---- */
+h1, h2, h3, h4,
+.brand-name,
+.member-name,
+.associate-name {
+  font-family: var(--font-display);
+}
+
+.hero h1 {
+  font-size: clamp(2.9rem, 5.4vw, 4.2rem);
+  letter-spacing: -2px;
+  line-height: 1.08;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 3.6vw, 2.6rem);
+  letter-spacing: -1px;
+}
+
+/* ---- 3. Dot-grid backdrop under the circuit canvas ---- */
+body {
+  background-image: radial-gradient(rgba(var(--primary-rgb), 0.10) 1px, transparent 1.5px);
+  background-size: 30px 30px;
+}
+
+body.dark-mode {
+  background-image: radial-gradient(rgba(var(--glow-rgb), 0.07) 1px, transparent 1.5px);
+}
+
+/* ---- 4. Floating glass pill navbar (desktop) ---- */
+@media (min-width: 769px) {
+  .header {
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1160px, calc(100% - 40px));
+    height: 66px;
+    border-radius: 999px;
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(var(--primary-deep-rgb), 0.10);
+    padding: 0 10px;
+  }
+
+  .header.sticky {
+    height: 62px;
+    background-color: var(--navbar-bg);
+    border: 1px solid var(--navbar-border);
+    border-image: none;
+    box-shadow: 0 10px 36px rgba(var(--primary-deep-rgb), 0.16),
+                0 0 20px rgba(var(--secondary-rgb), 0.08);
+  }
+}
+
+/* ---- 6. Glassmorphism cards ---- */
+.activity-card,
+.member-card,
+.associate-card,
+.statement-panel,
+.contact-form-card,
+.contact-method,
+.gallery-item {
+  background-color: var(--glass-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-card-border);
+}
+
+body.dark-mode .activity-card,
+body.dark-mode .member-card,
+body.dark-mode .associate-card,
+body.dark-mode .statement-panel,
+body.dark-mode .contact-form-card,
+body.dark-mode .contact-method {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ---- 7. Pill buttons ---- */
+.btn {
+  border-radius: 999px;
+  padding: 13px 30px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* ---- 8. Softer inputs ---- */
+.form-control {
+  border-radius: 14px;
+  background-color: var(--glass-card-bg);
+}
+
+/* ---- 9. Reveal upgrade — blur-to-sharp entrance ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px) scale(0.99);
+  filter: blur(10px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* ---- 10. Footer — deep-navy circuit slab in both themes ---- */
+.footer {
+  background: linear-gradient(180deg, #081530 0%, #040b1d 100%);
+}
+
+body.dark-mode .footer {
+  background: linear-gradient(180deg, #071228 0%, #030816 100%);
+}
+
+/* ---- 11. Hero badge — glass chip ---- */
+.hero-subtitle-badge {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ---- 12. Section rhythm ---- */
+.section {
+  padding: 110px 0;
+}
+
+/* ---- Reduced motion: skip the blur entrance ---- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    filter: none;
+    transform: none;
+    opacity: 1;
+    transition: none;
   }
 }

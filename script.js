@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackToTop();
   initScrollSpy();
+  initCircuitCanvas();
+  // Tilt, magnetic buttons, cursor FX, spotlights & ripples live in effects.js
 
   // Always return to the top (home section) on every page load/refresh
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -69,13 +71,13 @@ function initDarkMode() {
     console.warn("localStorage is not accessible in this context:", e);
   }
 
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    updateThemeIcon(true);
-  } else {
-    // Default: light theme
+  if (savedTheme === 'light') {
     document.body.classList.remove('dark-mode');
     updateThemeIcon(false);
+  } else {
+    // Default: dark theme — the site's signature circuit look
+    document.body.classList.add('dark-mode');
+    updateThemeIcon(true);
   }
 }
 
@@ -349,48 +351,41 @@ function initGalleryLightbox() {
   const lightboxClose = document.getElementById('lightbox-close');
   const lightboxPrev = document.getElementById('lightbox-prev');
   const lightboxNext = document.getElementById('lightbox-next');
-  
+
   if (galleryItems.length === 0 || !lightbox) return;
 
+  // Flat list of EVERY image across all gallery cards, so prev/next also
+  // steps through each slide of multi-image (carousel) cards.
+  const slides = [];
   let currentIndex = 0;
-  const imageSources = [];
-  const imageCaptions = [];
 
-  // Gather image sources and captions
-  galleryItems.forEach((item, index) => {
-    const img = item.querySelector('.gallery-thumb');
+  galleryItems.forEach((item) => {
+    const imgs = Array.from(item.querySelectorAll('.gallery-thumb'));
     const title = item.querySelector('.gallery-title').textContent;
     const cat = item.querySelector('.gallery-cat').textContent;
     const descEl = item.querySelector('.gallery-desc');
     const desc = descEl ? descEl.textContent.trim() : '';
-    
-    imageSources.push(img.getAttribute('data-src') || img.src);
-    
-    const captionHtml = `
-      <div style="text-align: center; max-width: 600px; margin: 0 auto; padding: 0 10px;">
-        <h4 style="margin: 0 0 4px 0; font-size: 1.15rem; color: #ffffff; font-weight: 600;">${title}</h4>
-        <span style="color: var(--secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; margin-bottom: 6px;">${cat}</span>
-        ${desc ? `<p style="margin: 8px 0 0 0; font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.45; font-weight: 400; text-align: center;">${desc}</p>` : ''}
-      </div>
-    `;
-    imageCaptions.push(captionHtml);
-    
+    const startIndex = slides.length;
+
+    imgs.forEach((img, slideIdx) => {
+      slides.push({ img, title, cat, desc, slideIdx, groupSize: imgs.length });
+    });
+
     item.addEventListener('click', () => {
-      if (item.classList.contains('gallery-carousel-item')) {
-        const activeImg = item.querySelector('.gallery-thumb.active');
-        if (activeImg) {
-          imageSources[index] = activeImg.getAttribute('data-src') || activeImg.src;
-        }
-      }
-      currentIndex = index;
+      // Open on the slide currently visible in the card's carousel
+      const activeImg = item.querySelector('.gallery-thumb.active');
+      const offset = activeImg ? Math.max(0, imgs.indexOf(activeImg)) : 0;
+      currentIndex = startIndex + offset;
       openLightbox();
     });
   });
 
+  const srcOf = (img) => img.getAttribute('data-src') || img.src;
+
   const openLightbox = () => {
     lightbox.classList.add('active');
     document.body.classList.add('no-scroll');
-    updateLightboxContent();
+    updateLightboxContent(0);
   };
 
   const closeLightbox = () => {
@@ -398,28 +393,52 @@ function initGalleryLightbox() {
     document.body.classList.remove('no-scroll');
   };
 
-  const updateLightboxContent = () => {
-    lightboxImg.src = imageSources[currentIndex];
-    lightboxCaption.innerHTML = imageCaptions[currentIndex];
+  // direction: 1 = came from the right (next), -1 = from the left (prev), 0 = none
+  const updateLightboxContent = (direction) => {
+    const slide = slides[currentIndex];
+    lightboxImg.src = srcOf(slide.img);
+
+    const counter = slide.groupSize > 1
+      ? `<span style="display: inline-block; margin-left: 10px; padding: 2px 10px; border-radius: 50px; background: rgba(255,255,255,0.12); color: #fff; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; vertical-align: middle;">${slide.slideIdx + 1} / ${slide.groupSize}</span>`
+      : '';
+
+    lightboxCaption.innerHTML = `
+      <div style="text-align: center; max-width: 600px; margin: 0 auto; padding: 0 10px;">
+        <h4 style="margin: 0 0 4px 0; font-size: 1.15rem; color: #ffffff; font-weight: 600;">${slide.title}${counter}</h4>
+        <span style="color: var(--secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; margin-bottom: 6px;">${slide.cat}</span>
+        ${slide.desc ? `<p style="margin: 8px 0 0 0; font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.45; font-weight: 400; text-align: center;">${slide.desc}</p>` : ''}
+      </div>
+    `;
+
+    // Quick slide-in animation matching the travel direction
+    if (direction) {
+      lightboxImg.style.transition = 'none';
+      lightboxImg.style.opacity = '0';
+      lightboxImg.style.transform = `translateX(${direction * 42}px)`;
+      void lightboxImg.offsetWidth; // reflow so the transition below applies
+      lightboxImg.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      lightboxImg.style.opacity = '1';
+      lightboxImg.style.transform = 'translateX(0)';
+    }
   };
 
   const showNext = (e) => {
     if (e) e.stopPropagation();
-    currentIndex = (currentIndex + 1) % imageSources.length;
-    updateLightboxContent();
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateLightboxContent(1);
   };
 
   const showPrev = (e) => {
     if (e) e.stopPropagation();
-    currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
-    updateLightboxContent();
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateLightboxContent(-1);
   };
 
   // Bind Events
   lightboxClose.addEventListener('click', closeLightbox);
   lightboxNext.addEventListener('click', showNext);
   lightboxPrev.addEventListener('click', showPrev);
-  
+
   // Close on backdrop click
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
@@ -430,11 +449,51 @@ function initGalleryLightbox() {
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
-    
+
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowRight') showNext();
     if (e.key === 'ArrowLeft') showPrev();
   });
+
+  // --- Swipe navigation (touch) — swipe left = next, swipe right = prev ---
+  const SWIPE_MIN = 45; // px of horizontal travel to count as a swipe
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > SWIPE_MIN && Math.abs(dx) > Math.abs(dy)) {
+      dx < 0 ? showNext() : showPrev();
+    }
+  }, { passive: true });
+
+  // --- Drag-to-swipe with the mouse (desktop) ---
+  let mouseDownX = null;
+
+  lightboxImg.addEventListener('mousedown', (e) => {
+    mouseDownX = e.clientX;
+    e.preventDefault(); // stop native image drag
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    if (mouseDownX === null || !lightbox.classList.contains('active')) {
+      mouseDownX = null;
+      return;
+    }
+    const dx = e.clientX - mouseDownX;
+    mouseDownX = null;
+    if (Math.abs(dx) > SWIPE_MIN) {
+      dx < 0 ? showNext() : showPrev();
+    }
+  });
+
+  lightboxImg.addEventListener('dragstart', (e) => e.preventDefault());
 }
 
 /* ==========================================================================
@@ -611,3 +670,204 @@ function initGalleryCarousel() {
     }, 3000);
   });
 }
+
+/* ==========================================================================
+   14. Interactive Circuit-Board Canvas (Hero Background)
+   Nodes wired like a PCB, with data pulses travelling the traces and a
+   mouse-reactive "chip" field — echoing the Edge-AI Hackathon brochure.
+   ========================================================================== */
+function initCircuitCanvas() {
+  const canvas = document.getElementById('circuit-canvas');
+  if (!canvas) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ctx = canvas.getContext('2d');
+  let width, height, dpr;
+  let nodes = [];
+  let pulses = [];
+  const mouse = { x: -9999, y: -9999, active: false };
+
+  // Pull live theme colours from CSS variables so it matches light/dark mode
+  const themeColors = () => {
+    const s = getComputedStyle(document.body);
+    return {
+      line: s.getPropertyValue('--circuit-line').trim() || 'rgba(10,95,194,0.22)',
+      node: s.getPropertyValue('--circuit-node').trim() || 'rgba(18,196,232,0.55)',
+      glow: (s.getPropertyValue('--glow') || '#35E4FF').trim(),
+      accent: (s.getPropertyValue('--accent') || '#FFC53D').trim()
+    };
+  };
+  let colors = themeColors();
+
+  const resize = () => {
+    const rect = canvas.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildNodes();
+  };
+
+  const buildNodes = () => {
+    // Density scales with area but stays capped for performance
+    const target = Math.min(90, Math.floor((width * height) / 16000));
+    nodes = [];
+    for (let i = 0; i < target; i++) {
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        r: Math.random() * 1.6 + 1
+      });
+    }
+  };
+
+  const spawnPulse = () => {
+    if (nodes.length < 2 || pulses.length > 14) return;
+    const a = nodes[Math.floor(Math.random() * nodes.length)];
+    // find a near neighbour to travel to
+    let best = null, bestD = Infinity;
+    for (const b of nodes) {
+      if (b === a) continue;
+      const d = (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
+      if (d < bestD && d > 400) { bestD = d; best = b; }
+    }
+    if (best && bestD < 26000) {
+      pulses.push({ a, b: best, t: 0, speed: 0.008 + Math.random() * 0.012 });
+    }
+  };
+
+  const CONNECT_DIST = 130;
+
+  const draw = () => {
+    ctx.clearRect(0, 0, width, height);
+
+    // Update + draw connecting traces
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < 0 || n.x > width) n.vx *= -1;
+      if (n.y < 0 || n.y > height) n.vy *= -1;
+
+      // Mouse repulsion — the field "parts" around the cursor
+      if (mouse.active) {
+        const dx = n.x - mouse.x;
+        const dy = n.y - mouse.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 120 && dist > 0) {
+          const force = (120 - dist) / 120 * 0.8;
+          n.x += (dx / dist) * force;
+          n.y += (dy / dist) * force;
+        }
+      }
+
+      for (let j = i + 1; j < nodes.length; j++) {
+        const m = nodes[j];
+        const dx = n.x - m.x;
+        const dy = n.y - m.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < CONNECT_DIST) {
+          const alpha = 1 - dist / CONNECT_DIST;
+          ctx.strokeStyle = colors.line;
+          ctx.globalAlpha = alpha * 0.9;
+          // right-angle "PCB traces" instead of straight diagonals
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(m.x, n.y);
+          ctx.lineTo(m.x, m.y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    // Nodes (solder pads)
+    for (const n of nodes) {
+      ctx.beginPath();
+      ctx.fillStyle = colors.node;
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Glow around the cursor — the "chip"
+    if (mouse.active) {
+      const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 110);
+      g.addColorStop(0, hexToRgba(colors.glow, 0.16));
+      g.addColorStop(1, hexToRgba(colors.glow, 0));
+      ctx.fillStyle = g;
+      ctx.fillRect(mouse.x - 110, mouse.y - 110, 220, 220);
+    }
+
+    // Data pulses travelling the traces
+    for (let i = pulses.length - 1; i >= 0; i--) {
+      const p = pulses[i];
+      p.t += p.speed;
+      if (p.t >= 1) { pulses.splice(i, 1); continue; }
+      // L-shaped path (matches the traces)
+      const midx = p.b.x, midy = p.a.y;
+      let px, py;
+      if (p.t < 0.5) {
+        const k = p.t / 0.5;
+        px = p.a.x + (midx - p.a.x) * k;
+        py = p.a.y;
+      } else {
+        const k = (p.t - 0.5) / 0.5;
+        px = midx;
+        py = midy + (p.b.y - midy) * k;
+      }
+      ctx.beginPath();
+      ctx.fillStyle = i % 3 === 0 ? colors.accent : colors.glow;
+      ctx.shadowColor = ctx.fillStyle;
+      ctx.shadowBlur = 8;
+      ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    animId = requestAnimationFrame(draw);
+  };
+
+  function hexToRgba(hex, a) {
+    const h = hex.replace('#', '');
+    const full = h.length === 3 ? h.split('').map(c => c + c).join('') : h;
+    const n = parseInt(full, 16);
+    return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`;
+  }
+
+  let animId = null;
+  const heroSection = document.getElementById('home');
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = mouse.y >= 0 && mouse.y <= rect.height;
+  });
+  window.addEventListener('mouseout', () => { mouse.active = false; });
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  if (prefersReduced) {
+    // Static single frame — no animation loop or pulses
+    draw();
+    cancelAnimationFrame(animId);
+  } else {
+    draw();
+    setInterval(spawnPulse, 700);
+  }
+
+  // Keep colours in sync when the user toggles dark mode
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      setTimeout(() => { colors = themeColors(); }, 50);
+    });
+  }
+}
+
+/* Tilt cards & magnetic buttons moved to effects.js (shared across pages) */

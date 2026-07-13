@@ -27,6 +27,12 @@
 
 <body>
 
+  <!-- Apply saved/dark-first theme before paint to avoid a flash -->
+  <script>try { if (localStorage.getItem('theme') !== 'light') document.body.classList.add('dark-mode'); } catch (e) {}</script>
+
+  <!-- Site-wide interactive circuit-board background -->
+  <canvas id="circuit-canvas" class="circuit-canvas" aria-hidden="true"></canvas>
+
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress"></div>
 
@@ -92,8 +98,8 @@
             <h4>Organized by:</h4>
             <ul>
               <li><i data-lucide="shield-check"></i> <strong>Organizer:</strong> IEEE EDS PMEC SBC</li>
-              <li><i data-lucide="shield-check"></i> <strong>Co-organizers:</strong> IEEE SBC PMEC &amp; IEEE BBSR Section</li>
-              <li><i data-lucide="shield-check"></i> <strong>Technical Sponsors:</strong> Microchip, Renesas &amp; ETIOS Society</li>
+              <li><i data-lucide="shield-check"></i> <strong>Sponsors:</strong> IEEE BBSR Section &amp; ETIOS Society</li>
+              <li><i data-lucide="shield-check"></i> <strong>Technical Sponsors:</strong> Microchip &amp; Renesas</li>
             </ul>
           </div>
         </div>
@@ -569,6 +575,7 @@
 
   <!-- Script files -->
   <script src="hackathon.js"></script>
+  <script src="effects.js"></script>
 </body>
 
 </html>

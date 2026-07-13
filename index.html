@@ -42,6 +42,12 @@
 
 <body>
 
+  <!-- Apply saved/dark-first theme before paint to avoid a flash -->
+  <script>try { if (localStorage.getItem('theme') !== 'light') document.body.classList.add('dark-mode'); } catch (e) {}</script>
+
+  <!-- Site-wide interactive circuit-board background -->
+  <canvas id="circuit-canvas" class="circuit-canvas" aria-hidden="true"></canvas>
+
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress"></div>
 
@@ -842,6 +848,7 @@
   <!-- Member Data & Scripts -->
   <script src="members.js"></script>
   <script src="script.js"></script>
+  <script src="effects.js"></script>
 </body>
 
 </html>

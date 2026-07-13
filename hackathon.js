@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQAccordion();
   initScrollAnimations();
   initScrollSpy();
+  initCircuitCanvas();
 
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
@@ -55,12 +56,13 @@ function initDarkMode() {
     console.warn("localStorage not accessible:", e);
   }
 
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    updateThemeIcon(true);
-  } else {
+  if (savedTheme === 'light') {
     document.body.classList.remove('dark-mode');
     updateThemeIcon(false);
+  } else {
+    // Default: dark theme — the site's signature circuit look
+    document.body.classList.add('dark-mode');
+    updateThemeIcon(true);
   }
 }
 
@@ -221,4 +223,189 @@ function initScrollSpy() {
       }
     });
   });
+}
+
+/* ==========================================================================
+   Interactive Circuit-Board Canvas (Hero Background)
+   Mirrors the main site — PCB traces, travelling data pulses, and a
+   mouse-reactive chip glow, matching the Edge-AI Hackathon brochure.
+   ========================================================================== */
+function initCircuitCanvas() {
+  const canvas = document.getElementById('circuit-canvas');
+  if (!canvas) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ctx = canvas.getContext('2d');
+  let width, height, dpr;
+  let nodes = [];
+  let pulses = [];
+  const mouse = { x: -9999, y: -9999, active: false };
+
+  const themeColors = () => {
+    const s = getComputedStyle(document.body);
+    return {
+      line: s.getPropertyValue('--circuit-line').trim() || 'rgba(10,95,194,0.22)',
+      node: s.getPropertyValue('--circuit-node').trim() || 'rgba(18,196,232,0.55)',
+      glow: (s.getPropertyValue('--glow') || '#35E4FF').trim(),
+      accent: (s.getPropertyValue('--accent') || '#FFC53D').trim()
+    };
+  };
+  let colors = themeColors();
+
+  const resize = () => {
+    const rect = canvas.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildNodes();
+  };
+
+  const buildNodes = () => {
+    const target = Math.min(90, Math.floor((width * height) / 16000));
+    nodes = [];
+    for (let i = 0; i < target; i++) {
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        r: Math.random() * 1.6 + 1
+      });
+    }
+  };
+
+  const spawnPulse = () => {
+    if (nodes.length < 2 || pulses.length > 14) return;
+    const a = nodes[Math.floor(Math.random() * nodes.length)];
+    let best = null, bestD = Infinity;
+    for (const b of nodes) {
+      if (b === a) continue;
+      const d = (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
+      if (d < bestD && d > 400) { bestD = d; best = b; }
+    }
+    if (best && bestD < 26000) {
+      pulses.push({ a, b: best, t: 0, speed: 0.008 + Math.random() * 0.012 });
+    }
+  };
+
+  const CONNECT_DIST = 130;
+
+  const draw = () => {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < 0 || n.x > width) n.vx *= -1;
+      if (n.y < 0 || n.y > height) n.vy *= -1;
+
+      if (mouse.active) {
+        const dx = n.x - mouse.x;
+        const dy = n.y - mouse.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 120 && dist > 0) {
+          const force = (120 - dist) / 120 * 0.8;
+          n.x += (dx / dist) * force;
+          n.y += (dy / dist) * force;
+        }
+      }
+
+      for (let j = i + 1; j < nodes.length; j++) {
+        const m = nodes[j];
+        const dx = n.x - m.x;
+        const dy = n.y - m.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < CONNECT_DIST) {
+          const alpha = 1 - dist / CONNECT_DIST;
+          ctx.strokeStyle = colors.line;
+          ctx.globalAlpha = alpha * 0.9;
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(m.x, n.y);
+          ctx.lineTo(m.x, m.y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    for (const n of nodes) {
+      ctx.beginPath();
+      ctx.fillStyle = colors.node;
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    if (mouse.active) {
+      const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 110);
+      g.addColorStop(0, hexToRgba(colors.glow, 0.16));
+      g.addColorStop(1, hexToRgba(colors.glow, 0));
+      ctx.fillStyle = g;
+      ctx.fillRect(mouse.x - 110, mouse.y - 110, 220, 220);
+    }
+
+    for (let i = pulses.length - 1; i >= 0; i--) {
+      const p = pulses[i];
+      p.t += p.speed;
+      if (p.t >= 1) { pulses.splice(i, 1); continue; }
+      const midx = p.b.x, midy = p.a.y;
+      let px, py;
+      if (p.t < 0.5) {
+        const k = p.t / 0.5;
+        px = p.a.x + (midx - p.a.x) * k;
+        py = p.a.y;
+      } else {
+        const k = (p.t - 0.5) / 0.5;
+        px = midx;
+        py = midy + (p.b.y - midy) * k;
+      }
+      ctx.beginPath();
+      ctx.fillStyle = i % 3 === 0 ? colors.accent : colors.glow;
+      ctx.shadowColor = ctx.fillStyle;
+      ctx.shadowBlur = 8;
+      ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    animId = requestAnimationFrame(draw);
+  };
+
+  function hexToRgba(hex, a) {
+    const h = hex.replace('#', '');
+    const full = h.length === 3 ? h.split('').map(c => c + c).join('') : h;
+    const n = parseInt(full, 16);
+    return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`;
+  }
+
+  let animId = null;
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = mouse.y >= 0 && mouse.y <= rect.height;
+  });
+  window.addEventListener('mouseout', () => { mouse.active = false; });
+  window.addEventListener('resize', resize);
+  resize();
+
+  if (prefersReduced) {
+    draw();
+    cancelAnimationFrame(animId);
+  } else {
+    draw();
+    setInterval(spawnPulse, 700);
+  }
+
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      setTimeout(() => { colors = themeColors(); }, 50);
+    });
+  }
 }
