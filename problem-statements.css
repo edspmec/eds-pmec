@@ -994,4 +994,139 @@ body.dark-mode .tab-btn.active {
   }
 }
 
+/* ==========================================================================
+   Responsive Utilities & Layout Switching
+   ========================================================================== */
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+/* Stats Grid Responsive Wraps */
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  /* Hero Font Size Adjustment */
+  .ps-hero {
+    padding: 60px 0;
+  }
+  
+  .ps-hero h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  .hero-tagline {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Card Styling for Problem Statements */
+.mobile-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.ps-mobile-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.ps-mobile-card:hover {
+  border-color: var(--primary);
+}
+
+body.dark-mode .ps-mobile-card:hover {
+  border-color: var(--secondary);
+}
+
+.ps-mobile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 8px;
+}
+
+.ps-mobile-card-domain {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body.dark-mode .ps-mobile-card-domain {
+  color: var(--secondary);
+}
+
+.ps-mobile-card-psno {
+  display: inline-block;
+  background-color: rgba(0, 98, 155, 0.06);
+  color: var(--primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 98, 155, 0.1);
+}
+
+body.dark-mode .ps-mobile-card-psno {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--secondary);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.ps-mobile-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.ps-mobile-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.ps-mobile-card-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid var(--card-border);
+  padding-top: 12px;
+}
+
+
 

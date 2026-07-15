@@ -444,12 +444,16 @@ function initHeaderScroll() {
   });
 }
 
-// 5. Render Problem Statements Table
+// 5. Render Problem Statements Table & Mobile Cards
 function renderProblemStatements(filteredData = problemStatements) {
   const tableBody = document.getElementById("ps-table-body");
+  const mobileCardsContainer = document.getElementById("ps-mobile-cards");
   if (!tableBody) return;
 
   tableBody.innerHTML = "";
+  if (mobileCardsContainer) {
+    mobileCardsContainer.innerHTML = "";
+  }
 
   if (filteredData.length === 0) {
     const emptyRow = document.createElement("tr");
@@ -459,12 +463,18 @@ function renderProblemStatements(filteredData = problemStatements) {
       </td>
     `;
     tableBody.appendChild(emptyRow);
+
+    if (mobileCardsContainer) {
+      mobileCardsContainer.innerHTML = `
+        <div style="text-align: center; padding: 40px; color: var(--text-muted); font-style: italic; background-color: var(--card-bg); border: 1px dashed var(--card-border); border-radius: var(--border-radius-md);">
+          No problem statements found matching your filter criteria.
+        </div>
+      `;
+    }
     return;
   }
 
   filteredData.forEach(ps => {
-    const row = document.createElement("tr");
-    
     // Map tracks into HTML tag pills
     const trackBadges = ps.tracks.map(track => {
       let badgeClass = "badge-esp";
@@ -474,6 +484,8 @@ function renderProblemStatements(filteredData = problemStatements) {
       return `<span class="track-tag-badge ${badgeClass}">${track}</span>`;
     }).join(" ");
 
+    // 1. Render Desktop Table Row
+    const row = document.createElement("tr");
     row.innerHTML = `
       <td>${ps.slNo}</td>
       <td class="domain-col">
@@ -485,6 +497,25 @@ function renderProblemStatements(filteredData = problemStatements) {
       <td class="desc-col">${ps.description}</td>
     `;
     tableBody.appendChild(row);
+
+    // 2. Render Mobile Card
+    if (mobileCardsContainer) {
+      const card = document.createElement("div");
+      card.className = "ps-mobile-card";
+      card.innerHTML = `
+        <div class="ps-mobile-card-header">
+          <span class="ps-mobile-card-domain">${ps.domain}</span>
+          <span class="ps-mobile-card-psno">${ps.psNo}</span>
+        </div>
+        <h4 class="ps-mobile-card-title">${ps.slNo}. ${ps.title}</h4>
+        <p class="ps-mobile-card-desc">${ps.description}</p>
+        <div class="ps-mobile-card-footer">
+          <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-right:4px;">Tracks:</span>
+          ${trackBadges}
+        </div>
+      `;
+      mobileCardsContainer.appendChild(card);
+    }
   });
 
   if (typeof lucide !== "undefined") {
