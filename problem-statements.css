@@ -861,3 +861,14 @@ body.dark-mode .channel i {
     align-items: center;
   }
 }
+
+/* Padding overrides to decrease gap between download booklet and database table */
+.ps-download-section {
+  padding-top: 60px;
+  padding-bottom: 25px;
+}
+
+.ps-database-section {
+  padding-top: 40px;
+}
+
