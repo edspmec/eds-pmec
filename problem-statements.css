@@ -873,6 +873,27 @@ body.dark-mode .channel i {
 }
 
 /* ==========================================================================
+   Grid & Layout Utilities
+   ========================================================================== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.align-start {
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+
+/* ==========================================================================
    Tab Navigation Styling
    ========================================================================== */
 .tabs-section {
