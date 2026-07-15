@@ -453,7 +453,7 @@ function renderProblemStatements(filteredData = problemStatements) {
   if (filteredData.length === 0) {
     const emptyRow = document.createElement("tr");
     emptyRow.innerHTML = `
-      <td colspan="6" style="text-align: center; padding: 40px; color: var(--text-muted); font-style: italic;">
+      <td colspan="5" style="text-align: center; padding: 40px; color: var(--text-muted); font-style: italic;">
         No problem statements found matching your filter criteria.
       </td>
     `;
@@ -482,11 +482,6 @@ function renderProblemStatements(filteredData = problemStatements) {
       <td><span class="ps-number-tag">${ps.psNo}</span></td>
       <td class="title-col">${ps.title}</td>
       <td class="desc-col">${ps.description}</td>
-      <td>
-        <a href="${ps.downloadUrl}" target="_blank" class="table-btn">
-          View PDF <i data-lucide="file-text" style="width: 14px; height: 14px; vertical-align: middle; margin-left: 4px; display: inline;"></i>
-        </a>
-      </td>
     `;
     tableBody.appendChild(row);
   });

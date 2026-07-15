@@ -402,12 +402,11 @@ body.dark-mode .ps-table tbody tr:hover {
 }
 
 /* Specific Column Sizing */
-.ps-table th:nth-child(1), .ps-table td:nth-child(1) { width: 70px; text-align: center; } /* Sl. No. */
-.ps-table th:nth-child(2), .ps-table td:nth-child(2) { width: 220px; } /* Domain */
-.ps-table th:nth-child(3), .ps-table td:nth-child(3) { width: 100px; text-align: center; } /* PS No. */
-.ps-table th:nth-child(4), .ps-table td:nth-child(4) { width: 250px; } /* Problem Statement Title */
-.ps-table th:nth-child(5), .ps-table td:nth-child(5) { min-width: 320px; } /* Description */
-.ps-table th:nth-child(6), .ps-table td:nth-child(6) { width: 140px; text-align: center; } /* Action */
+.ps-table th:nth-child(1), .ps-table td:nth-child(1) { width: 80px; text-align: center; } /* Sl. No. */
+.ps-table th:nth-child(2), .ps-table td:nth-child(2) { width: 240px; } /* Domain */
+.ps-table th:nth-child(3), .ps-table td:nth-child(3) { width: 120px; text-align: center; } /* PS No. */
+.ps-table th:nth-child(4), .ps-table td:nth-child(4) { width: 280px; } /* Problem Statement Title */
+.ps-table th:nth-child(5), .ps-table td:nth-child(5) { min-width: 400px; } /* Description */
 
 /* Badge Styles inside Table */
 .ps-number-tag {
