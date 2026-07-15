@@ -141,238 +141,269 @@
       </div>
     </section>
 
-    <!-- Filters and Table Section -->
-    <section class="section ps-database-section">
+    <!-- Tab Navigation Bar -->
+    <section class="tabs-section">
       <div class="container">
-        <div class="section-header text-center reveal">
-          <h2>Problem Statements Database</h2>
-          <p>Search and filter statements dynamically to find the perfect project for your team.</p>
-        </div>
-
-        <!-- Filter Box (SIH Style) -->
-        <div class="filter-box reveal">
-          <div class="search-input-wrapper">
-            <i data-lucide="search" class="search-icon"></i>
-            <input type="text" id="search-input" placeholder="Search by PS number, title or keyword..." aria-label="Search Problem Statement">
-          </div>
-          
-          <div class="filter-dropdowns">
-            <div class="select-wrapper">
-              <select id="domain-select" aria-label="All Domains">
-                <option value="all">All Domains</option>
-                <option value="Indian Knowledge System">Indian Knowledge System</option>
-                <option value="Defence & Security">Defence & Security</option>
-                <option value="Processors">Processors</option>
-                <option value="Communication Systems">Communication Systems</option>
-                <option value="Image & Signal Processing">Image & Signal Processing</option>
-                <option value="Biomedical Engineering">Biomedical Engineering</option>
-              </select>
-              <i data-lucide="chevron-down" class="dropdown-chevron"></i>
-            </div>
-
-            <div class="select-wrapper">
-              <select id="track-select" aria-label="All Tracks">
-                <option value="all">All Tracks</option>
-                <option value="FPGA">FPGA Track</option>
-                <option value="Raspberry">Raspberry Pi / Renesas Track</option>
-                <option value="ESP32">ESP32 / Arduino Track</option>
-              </select>
-              <i data-lucide="chevron-down" class="dropdown-chevron"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dynamic Table Section -->
-        <div class="table-outer-wrapper reveal">
-          <div class="table-responsive">
-            <table class="ps-table">
-              <thead>
-                <tr>
-                  <th>Sl. No.</th>
-                  <th>Domain</th>
-                  <th>PS No.</th>
-                  <th>Problem Statement</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody id="ps-table-body">
-                <!-- Rows will be injected dynamically by JS -->
-              </tbody>
-            </table>
-          </div>
+        <div class="tabs-nav" role="tablist">
+          <button class="tab-btn active" data-tab="tab-database" role="tab" aria-selected="true">
+            <i data-lucide="database"></i> Problem Statements
+          </button>
+          <button class="tab-btn" data-tab="tab-tracks" role="tab" aria-selected="false">
+            <i data-lucide="cpu"></i> Hardware Tracks
+          </button>
+          <button class="tab-btn" data-tab="tab-criteria" role="tab" aria-selected="false">
+            <i data-lucide="bar-chart-2"></i> Judging Criteria
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Hardware Tracks Grid Section -->
-    <section class="section section-gray">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <h2>Hardware Tracks</h2>
-          <p>Select your track and check its judging parameters below.</p>
-        </div>
+    <!-- Tab Panels Container -->
+    <div class="tabs-container">
 
-        <div class="tracks-grid">
-          <!-- FPGA Track -->
-          <a href="#judging-criteria" class="track-card-link reveal">
-            <div class="track-card">
-              <div class="track-card-header">
-                <i data-lucide="layers" class="track-icon"></i>
-                <span class="track-prize-badge">₹15,000 Prize</span>
-              </div>
-              <h3>FPGA Track</h3>
-              <p class="track-subtitle">Hardware Design &amp; Optimization</p>
-              <p class="track-desc">Implement parallel structures, pipelining, and optimization algorithms on FPGA boards.</p>
-              <span class="track-card-btn">View Criteria <i data-lucide="arrow-right"></i></span>
+      <!-- Panel 1: Problem Statements -->
+      <div id="tab-database" class="tab-panel active">
+        <!-- Filters and Table Section -->
+        <section class="section ps-database-section">
+          <div class="container">
+            <div class="section-header text-center reveal">
+              <h2>Problem Statements Database</h2>
+              <p>Search and filter statements dynamically to find the perfect project for your team.</p>
             </div>
-          </a>
 
-          <!-- Raspberry Pi / Renesas -->
-          <a href="#judging-criteria" class="track-card-link reveal delay-1">
-            <div class="track-card">
-              <div class="track-card-header">
-                <i data-lucide="cpu" class="track-icon"></i>
-                <span class="track-prize-badge">₹10,000 Prize</span>
+            <!-- Filter Box (SIH Style) -->
+            <div class="filter-box reveal">
+              <div class="search-input-wrapper">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search by PS number, title or keyword..." aria-label="Search Problem Statement">
               </div>
-              <h3>Raspberry Pi / Renesas</h3>
-              <p class="track-subtitle">Embedded Edge Computing</p>
-              <p class="track-desc">Deploy TinyML models, real-time filters, and processing codes directly at the edge.</p>
-              <span class="track-card-btn">View Criteria <i data-lucide="arrow-right"></i></span>
-            </div>
-          </a>
+              
+              <div class="filter-dropdowns">
+                <div class="select-wrapper">
+                  <select id="domain-select" aria-label="All Domains">
+                    <option value="all">All Domains</option>
+                    <option value="Indian Knowledge System">Indian Knowledge System</option>
+                    <option value="Defence & Security">Defence & Security</option>
+                    <option value="Processors">Processors</option>
+                    <option value="Communication Systems">Communication Systems</option>
+                    <option value="Image & Signal Processing">Image & Signal Processing</option>
+                    <option value="Biomedical Engineering">Biomedical Engineering</option>
+                  </select>
+                  <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                </div>
 
-          <!-- ESP32 / Arduino -->
-          <a href="#judging-criteria" class="track-card-link reveal delay-2">
-            <div class="track-card">
-              <div class="track-card-header">
-                <i data-lucide="network" class="track-icon"></i>
-                <span class="track-prize-badge">₹5,000 Prize</span>
+                <div class="select-wrapper">
+                  <select id="track-select" aria-label="All Tracks">
+                    <option value="all">All Tracks</option>
+                    <option value="FPGA">FPGA Track</option>
+                    <option value="Raspberry">Raspberry Pi / Renesas Track</option>
+                    <option value="ESP32">ESP32 / Arduino Track</option>
+                  </select>
+                  <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                </div>
               </div>
-              <h3>ESP32 / Arduino</h3>
-              <p class="track-subtitle">Intelligent Embedded Systems</p>
-              <p class="track-desc">Design low-power, efficient system nodes and sensors networks for on-device compute.</p>
-              <span class="track-card-btn">View Criteria <i data-lucide="arrow-right"></i></span>
             </div>
-          </a>
-        </div>
+
+            <!-- Dynamic Table Section -->
+            <div class="table-outer-wrapper reveal">
+              <div class="table-responsive">
+                <table class="ps-table">
+                  <thead>
+                    <tr>
+                      <th>Sl. No.</th>
+                      <th>Domain</th>
+                      <th>PS No.</th>
+                      <th>Problem Statement</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ps-table-body">
+                    <!-- Rows will be injected dynamically by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <!-- Judging Criteria Accordions Section -->
-    <section id="judging-criteria" class="section">
-      <div class="container grid-2 align-start">
-        
-        <!-- Accordion Section -->
-        <div class="criteria-accordion reveal">
-          <div class="section-title-wrapper">
-            <i data-lucide="bar-chart-2" class="section-title-icon"></i>
-            <h3>Judging Criteria by Track</h3>
-          </div>
-
-          <div class="criteria-container">
-            <!-- Accordion Item 1: FPGA -->
-            <div class="criteria-item">
-              <button class="criteria-header">
-                <span>FPGA Track - Evaluation Parameters</span>
-                <i data-lucide="chevron-down" class="criteria-arrow"></i>
-              </button>
-              <div class="criteria-content">
-                <ul class="criteria-list">
-                  <li><strong>Hardware Resource Utilization:</strong> Efficient use of LUTs, Flip-Flops, DSPs, BRAMs, and routing resources.</li>
-                  <li><strong>Latency:</strong> Processing cycle overhead from sample inputs to outputs.</li>
-                  <li><strong>Throughput:</strong> Data bytes or execution counts processed per unit time.</li>
-                  <li><strong>Power Efficiency:</strong> Overall operating power levels for execution.</li>
-                  <li><strong>Hardware Parallelism:</strong> Utilization of pipelined arithmetic, parallel structures, and SIMD principles.</li>
-                  <li><strong>Timing Performance:</strong> Ability to satisfy timing constraints and clock boundaries without hazards.</li>
-                  <li><strong>Scalability:</strong> Expandable design structures for broader datasets.</li>
-                  <li><strong>System Integration:</strong> Interfacing with external displays, memories, cameras, or ADCs.</li>
-                </ul>
-              </div>
+      <!-- Panel 2: Hardware Tracks -->
+      <div id="tab-tracks" class="tab-panel">
+        <!-- Hardware Tracks Grid Section -->
+        <section class="section section-gray">
+          <div class="container">
+            <div class="section-header text-center reveal">
+              <h2>Hardware Tracks</h2>
+              <p>Select your track and check its judging parameters below.</p>
             </div>
 
-            <!-- Accordion Item 2: Rpi / Renesas -->
-            <div class="criteria-item">
-              <button class="criteria-header">
-                <span>Raspberry Pi / Renesas Track - Evaluation Parameters</span>
-                <i data-lucide="chevron-down" class="criteria-arrow"></i>
-              </button>
-              <div class="criteria-content">
-                <ul class="criteria-list">
-                  <li><strong>Real-Time Performance:</strong> Latency thresholds and runtime responsiveness.</li>
-                  <li><strong>Edge Intelligence:</strong> Efficient execution of calculations on-device without network lookups.</li>
-                  <li><strong>System Reliability:</strong> Steady execution, memory leaks handling, and backup safety routines.</li>
-                  <li><strong>Resource Optimization:</strong> System parameters checks for CPU, system memory, and memory buffers.</li>
-                  <li><strong>Power Efficiency:</strong> Optimized runtime clock management for energy conservation.</li>
-                  <li><strong>Peripheral Integration:</strong> Interfacing with actuators, networking modules, and high-frequency sensors.</li>
-                  <li><strong>Software Architecture:</strong> Logical software hierarchies, clean structural divisions, and comments.</li>
-                  <li><strong>Scalability &amp; Deployment:</strong> Adaptability for field testing and packaging.</li>
-                </ul>
-              </div>
-            </div>
+            <div class="tracks-grid">
+              <!-- FPGA Track -->
+              <a href="#judging-criteria" class="track-card-link reveal">
+                <div class="track-card">
+                  <div class="track-card-header">
+                    <i data-lucide="layers" class="track-icon"></i>
+                    <span class="track-prize-badge">₹15,000 Prize</span>
+                  </div>
+                  <h3>FPGA Track</h3>
+                  <p class="track-subtitle">Hardware Design &amp; Optimization</p>
+                  <p class="track-desc">Implement parallel structures, pipelining, and optimization algorithms on FPGA boards.</p>
+                  <span class="track-card-btn">View Criteria <i data-lucide="arrow-right"></i></span>
+                </div>
+              </a>
 
-            <!-- Accordion Item 3: ESP32 / Arduino -->
-            <div class="criteria-item">
-              <button class="criteria-header">
-                <span>ESP32 / Arduino Track - Evaluation Parameters</span>
-                <i data-lucide="chevron-down" class="criteria-arrow"></i>
-              </button>
-              <div class="criteria-content">
-                <ul class="criteria-list">
-                  <li><strong>Embedded System Design:</strong> Efficient codes fitting low-resource environments.</li>
-                  <li><strong>Real-Time Response:</strong> Interruption loops handling and immediate sensor registers updates.</li>
-                  <li><strong>Power Consumption:</strong> Deep-sleep optimization and low battery operating limits.</li>
-                  <li><strong>Sensor &amp; Peripheral Integration:</strong> Proper utilization of SPI, I2C, and UART registers.</li>
-                  <li><strong>Communication Reliability:</strong> Consistent network packet relays over Wi-Fi, BLE, or LoRa.</li>
-                  <li><strong>Code Efficiency:</strong> RAM/Flash footprint reduction and modular structures.</li>
-                  <li><strong>Practical Deployment:</strong> Structural sturdiness, user UI accessibility, and design usability.</li>
-                  <li><strong>Cost Effectiveness:</strong> Cost margins for overall components selection.</li>
-                </ul>
-              </div>
+              <!-- Raspberry Pi / Renesas -->
+              <a href="#judging-criteria" class="track-card-link reveal delay-1">
+                <div class="track-card">
+                  <div class="track-card-header">
+                    <i data-lucide="cpu" class="track-icon"></i>
+                    <span class="track-prize-badge">₹10,000 Prize</span>
+                  </div>
+                  <h3>Raspberry Pi / Renesas</h3>
+                  <p class="track-subtitle">Embedded Edge Computing</p>
+                  <p class="track-desc">Deploy TinyML models, real-time filters, and processing codes directly at the edge.</p>
+                  <span class="track-card-btn">View Criteria <i data-lucide="arrow-right"></i></span>
+                </div>
+              </a>
+
+              <!-- ESP32 / Arduino -->
+              <a href="#judging-criteria" class="track-card-link reveal delay-2">
+                <div class="track-card">
+                  <div class="track-card-header">
+                    <i data-lucide="network" class="track-icon"></i>
+                    <span class="track-prize-badge">₹5,000 Prize</span>
+                  </div>
+                  <h3>ESP32 / Arduino</h3>
+                  <p class="track-subtitle">Intelligent Embedded Systems</p>
+                  <p class="track-desc">Design low-power, efficient system nodes and sensors networks for on-device compute.</p>
+                  <span class="track-card-btn">View Criteria <i data-lucide="arrow-right"></i></span>
+                </div>
+              </a>
             </div>
           </div>
-        </div>
-
-        <!-- Evaluation Weightage Card -->
-        <div class="weightage-card reveal delay-1">
-          <div class="weightage-header">
-            <i data-lucide="pie-chart" class="weightage-title-icon"></i>
-            <h3>Common Evaluation Weightage</h3>
-          </div>
-          <p class="weightage-intro">Regardless of the hardware track chosen, all projects are graded on these core values:</p>
-          <table class="weightage-table">
-            <thead>
-              <tr>
-                <th>Evaluation Parameter</th>
-                <th>Weightage</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Innovation &amp; Originality</strong></td>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <td><strong>Technical Complexity</strong></td>
-                <td>15%</td>
-              </tr>
-              <tr>
-                <td><strong>Functionality &amp; Demonstration</strong></td>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <td><strong>Track-Specific Technical Performance</strong></td>
-                <td>30%</td>
-              </tr>
-              <tr>
-                <td><strong>Presentation &amp; Documentation</strong></td>
-                <td>15%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
+        </section>
       </div>
-    </section>
+
+      <!-- Panel 3: Judging Criteria -->
+      <div id="tab-criteria" class="tab-panel">
+        <!-- Judging Criteria Accordions Section -->
+        <section id="judging-criteria" class="section">
+          <div class="container grid-2 align-start">
+            
+            <!-- Accordion Section -->
+            <div class="criteria-accordion reveal">
+              <div class="section-title-wrapper">
+                <i data-lucide="bar-chart-2" class="section-title-icon"></i>
+                <h3>Judging Criteria by Track</h3>
+              </div>
+
+              <div class="criteria-container">
+                <!-- Accordion Item 1: FPGA -->
+                <div class="criteria-item">
+                  <button class="criteria-header">
+                    <span>FPGA Track - Evaluation Parameters</span>
+                    <i data-lucide="chevron-down" class="criteria-arrow"></i>
+                  </button>
+                  <div class="criteria-content">
+                    <ul class="criteria-list">
+                      <li><strong>Hardware Resource Utilization:</strong> Efficient use of LUTs, Flip-Flops, DSPs, BRAMs, and routing resources.</li>
+                      <li><strong>Latency:</strong> Processing cycle overhead from sample inputs to outputs.</li>
+                      <li><strong>Throughput:</strong> Data bytes or execution counts processed per unit time.</li>
+                      <li><strong>Power Efficiency:</strong> Overall operating power levels for execution.</li>
+                      <li><strong>Hardware Parallelism:</strong> Utilization of pipelined arithmetic, parallel structures, and SIMD principles.</li>
+                      <li><strong>Timing Performance:</strong> Ability to satisfy timing constraints and clock boundaries without hazards.</li>
+                      <li><strong>Scalability:</strong> Expandable design structures for broader datasets.</li>
+                      <li><strong>System Integration:</strong> Interfacing with external displays, memories, cameras, or ADCs.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Accordion Item 2: Rpi / Renesas -->
+                <div class="criteria-item">
+                  <button class="criteria-header">
+                    <span>Raspberry Pi / Renesas Track - Evaluation Parameters</span>
+                    <i data-lucide="chevron-down" class="criteria-arrow"></i>
+                  </button>
+                  <div class="criteria-content">
+                    <ul class="criteria-list">
+                      <li><strong>Real-Time Performance:</strong> Latency thresholds and runtime responsiveness.</li>
+                      <li><strong>Edge Intelligence:</strong> Efficient execution of calculations on-device without network lookups.</li>
+                      <li><strong>System Reliability:</strong> Steady execution, memory leaks handling, and backup safety routines.</li>
+                      <li><strong>Resource Optimization:</strong> System parameters checks for CPU, system memory, and memory buffers.</li>
+                      <li><strong>Power Efficiency:</strong> Optimized runtime clock management for energy conservation.</li>
+                      <li><strong>Peripheral Integration:</strong> Interfacing with actuators, networking modules, and high-frequency sensors.</li>
+                      <li><strong>Software Architecture:</strong> Logical software hierarchies, clean structural divisions, and comments.</li>
+                      <li><strong>Scalability &amp; Deployment:</strong> Adaptability for field testing and packaging.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Accordion Item 3: ESP32 / Arduino -->
+                <div class="criteria-item">
+                  <button class="criteria-header">
+                    <span>ESP32 / Arduino Track - Evaluation Parameters</span>
+                    <i data-lucide="chevron-down" class="criteria-arrow"></i>
+                  </button>
+                  <div class="criteria-content">
+                    <ul class="criteria-list">
+                      <li><strong>Embedded System Design:</strong> Efficient codes fitting low-resource environments.</li>
+                      <li><strong>Real-Time Response:</strong> Interruption loops handling and immediate sensor registers updates.</li>
+                      <li><strong>Power Consumption:</strong> Deep-sleep optimization and low battery operating limits.</li>
+                      <li><strong>Sensor &amp; Peripheral Integration:</strong> Proper utilization of SPI, I2C, and UART registers.</li>
+                      <li><strong>Communication Reliability:</strong> Consistent network packet relays over Wi-Fi, BLE, or LoRa.</li>
+                      <li><strong>Code Efficiency:</strong> RAM/Flash footprint reduction and modular structures.</li>
+                      <li><strong>Practical Deployment:</strong> Structural sturdiness, user UI accessibility, and design usability.</li>
+                      <li><strong>Cost Effectiveness:</strong> Cost margins for overall components selection.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Evaluation Weightage Card -->
+            <div class="weightage-card reveal delay-1">
+              <div class="weightage-header">
+                <i data-lucide="pie-chart" class="weightage-title-icon"></i>
+                <h3>Common Evaluation Weightage</h3>
+              </div>
+              <p class="weightage-intro">Regardless of the hardware track chosen, all projects are graded on these core values:</p>
+              <table class="weightage-table">
+                <thead>
+                  <tr>
+                    <th>Evaluation Parameter</th>
+                    <th>Weightage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Innovation &amp; Originality</strong></td>
+                    <td>20%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Technical Complexity</strong></td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Functionality &amp; Demonstration</strong></td>
+                    <td>20%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Track-Specific Technical Performance</strong></td>
+                    <td>30%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Presentation &amp; Documentation</strong></td>
+                    <td>15%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+    </div>
 
     <!-- Clarification Contact Card -->
     <section class="section section-gray">

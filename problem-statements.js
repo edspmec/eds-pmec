@@ -351,6 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSearchAndFilters();
   initCriteriaAccordions();
   initScrollAnimations();
+  initTabSwitcher();
 });
 
 // 3. Theme Synchronization (Light/Dark Mode)
@@ -582,3 +583,76 @@ function initScrollAnimations() {
 
   reveals.forEach(reveal => observer.observe(reveal));
 }
+
+// 9. Tab Switcher Logic
+function initTabSwitcher() {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetTab = btn.getAttribute("data-tab");
+
+      // Set active button
+      tabButtons.forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+
+      // Show target panel
+      tabPanels.forEach(panel => {
+        if (panel.id === targetTab) {
+          panel.classList.add("active");
+        } else {
+          panel.classList.remove("active");
+        }
+      });
+      
+      // Auto-trigger reflow of animations/intersection elements
+      const activeReveals = document.querySelectorAll(`#${targetTab} .reveal`);
+      activeReveals.forEach(el => {
+        el.classList.add("active"); // Force reveal on switch to make it responsive
+      });
+    });
+  });
+
+  // Handle Track card click to switch to Criteria tab automatically
+  const trackCardLinks = document.querySelectorAll(".track-card-link");
+  trackCardLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      // Find the Criteria tab button and click it
+      const criteriaTabBtn = document.querySelector('.tab-btn[data-tab="tab-criteria"]');
+      if (criteriaTabBtn) {
+        criteriaTabBtn.click();
+      }
+      
+      // Smooth scroll to the judging section
+      const target = document.getElementById("judging-criteria");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      
+      // Open the corresponding accordion block based on link clicked
+      let criteriaHeaderIndex = 0; // Default to FPGA
+      if (link.innerHTML.includes("Raspberry") || link.innerHTML.includes("Renesas")) {
+        criteriaHeaderIndex = 1;
+      } else if (link.innerHTML.includes("ESP32") || link.innerHTML.includes("Arduino")) {
+        criteriaHeaderIndex = 2;
+      }
+      
+      const accordionHeaders = document.querySelectorAll(".criteria-header");
+      if (accordionHeaders[criteriaHeaderIndex]) {
+        // Trigger click if not already active
+        const item = accordionHeaders[criteriaHeaderIndex].parentElement;
+        if (!item.classList.contains("active")) {
+          accordionHeaders[criteriaHeaderIndex].click();
+        }
+      }
+    });
+  });
+}
+

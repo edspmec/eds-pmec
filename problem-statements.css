@@ -872,3 +872,105 @@ body.dark-mode .channel i {
   padding-top: 40px;
 }
 
+/* ==========================================================================
+   Tab Navigation Styling
+   ========================================================================== */
+.tabs-section {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  position: sticky;
+  top: 79px; /* Sticky below header! */
+  z-index: 99;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition: all var(--transition-normal);
+}
+
+body.dark-mode .tabs-section {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tab-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn i {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tab-btn:hover {
+  color: var(--primary);
+  background-color: rgba(0, 98, 155, 0.06);
+}
+
+body.dark-mode .tab-btn:hover {
+  color: var(--secondary);
+  background-color: rgba(56, 189, 248, 0.1);
+}
+
+.tab-btn.active {
+  background-color: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+body.dark-mode .tab-btn.active {
+  background-color: var(--secondary);
+  color: #0f172a;
+}
+
+/* Tab Panels Visibility */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: fadeInTab 0.35s ease;
+}
+
+@keyframes fadeInTab {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs-nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
