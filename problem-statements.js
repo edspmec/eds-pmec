@@ -685,5 +685,15 @@ function initTabSwitcher() {
       }
     });
   });
+
+  // Force reveal elements in the default active tab panel on load
+  const defaultActiveTab = document.querySelector(".tab-btn.active");
+  if (defaultActiveTab) {
+    const defaultTabId = defaultActiveTab.getAttribute("data-tab");
+    const activeReveals = document.querySelectorAll(`#${defaultTabId} .reveal`);
+    activeReveals.forEach(el => {
+      el.classList.add("active");
+    });
+  }
 }
 
