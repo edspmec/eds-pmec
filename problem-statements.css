@@ -1,0 +1,864 @@
+/**
+ * IEEE EDS PMEC Student Branch Chapter
+ * Edge AI Hackathon 2026 - Problem Statements Portal CSS
+ */
+
+/* ==========================================================================
+   1. Hero Section
+   ========================================================================== */
+.ps-hero {
+  position: relative;
+  padding: 100px 0;
+  background: linear-gradient(135deg, #020617 0%, #0b1528 50%, #092140 100%);
+  color: var(--white);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 180, 216, 0.15);
+}
+
+.ps-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: 
+    radial-gradient(rgba(0, 180, 216, 0.15) 1px, transparent 0),
+    radial-gradient(rgba(0, 180, 216, 0.15) 1px, transparent 0);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+.ps-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -10%;
+  width: 120%;
+  height: 100px;
+  background-color: var(--bg-primary);
+  transform: rotate(-2deg);
+  z-index: 1;
+  transition: background-color var(--transition-normal);
+}
+
+body.dark-mode .ps-hero::after {
+  background-color: var(--bg-primary);
+}
+
+.ps-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-tag-badge {
+  display: inline-block;
+  background-color: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: var(--secondary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.ps-hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  line-height: 1.15;
+  background: linear-gradient(to right, #ffffff 30%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. Statistics Section
+   ========================================================================== */
+.ps-stats-section {
+  position: relative;
+  z-index: 5;
+  margin-top: -40px;
+  margin-bottom: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-md);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-lg), 0 10px 20px rgba(0, 98, 155, 0.08);
+}
+
+body.dark-mode .stat-card:hover {
+  box-shadow: var(--shadow-lg), 0 10px 20px rgba(0, 180, 216, 0.08);
+}
+
+.stat-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(0, 98, 155, 0.06);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.dark-mode .stat-icon-box {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--secondary);
+}
+
+.stat-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.stat-info h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.stat-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   3. Download Booklet Card
+   ========================================================================== */
+.download-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.download-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.download-file-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+body.dark-mode .download-file-icon {
+  color: var(--secondary);
+}
+
+.download-info h3 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.download-info p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.btn-download-book {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .download-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+  .download-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn-download-book {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   4. Filter/Search Section (SIH Portal Style)
+   ========================================================================== */
+.filter-box {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.search-input-wrapper input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 98, 155, 0.15);
+}
+
+body.dark-mode .search-input-wrapper input:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.filter-dropdowns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  appearance: none; /* Hide default browser arrow */
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+body.dark-mode .select-wrapper select:focus {
+  border-color: var(--secondary);
+}
+
+.dropdown-chevron {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+@media (max-width: 992px) {
+  .filter-box {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-dropdowns {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ==========================================================================
+   5. Dynamic Problem Statements Table
+   ========================================================================== */
+.table-outer-wrapper {
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  background-color: var(--card-bg);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ps-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ps-table th {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  padding: 18px 16px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.ps-table td {
+  padding: 18px 16px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.ps-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.ps-table tbody tr:nth-child(even) {
+  background-color: rgba(0, 98, 155, 0.015);
+}
+
+body.dark-mode .ps-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.ps-table tbody tr:hover {
+  background-color: rgba(0, 98, 155, 0.03);
+}
+
+body.dark-mode .ps-table tbody tr:hover {
+  background-color: rgba(56, 189, 248, 0.03);
+}
+
+/* Specific Column Sizing */
+.ps-table th:nth-child(1), .ps-table td:nth-child(1) { width: 70px; text-align: center; } /* Sl. No. */
+.ps-table th:nth-child(2), .ps-table td:nth-child(2) { width: 220px; } /* Domain */
+.ps-table th:nth-child(3), .ps-table td:nth-child(3) { width: 100px; text-align: center; } /* PS No. */
+.ps-table th:nth-child(4), .ps-table td:nth-child(4) { width: 250px; } /* Problem Statement Title */
+.ps-table th:nth-child(5), .ps-table td:nth-child(5) { min-width: 320px; } /* Description */
+.ps-table th:nth-child(6), .ps-table td:nth-child(6) { width: 140px; text-align: center; } /* Action */
+
+/* Badge Styles inside Table */
+.ps-number-tag {
+  display: inline-block;
+  background-color: rgba(0, 98, 155, 0.06);
+  color: var(--primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 98, 155, 0.12);
+  white-space: nowrap;
+}
+
+body.dark-mode .ps-number-tag {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--secondary);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.domain-col strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.row-tracks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.track-tag-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.badge-fpga { background-color: #e0f2fe; color: #0369a1; border: 1px solid rgba(3, 105, 161, 0.1); }
+.badge-rpi { background-color: #fdf2f8; color: #be185d; border: 1px solid rgba(190, 24, 93, 0.1); }
+.badge-esp { background-color: #ecfdf5; color: #047857; border: 1px solid rgba(4, 120, 87, 0.1); }
+
+body.dark-mode .badge-fpga { background-color: rgba(3, 105, 161, 0.25); color: #7dd3fc; border-color: rgba(125, 211, 252, 0.2); }
+body.dark-mode .badge-rpi { background-color: rgba(190, 24, 93, 0.25); color: #fbcfe8; border-color: rgba(251, 207, 232, 0.2); }
+body.dark-mode .badge-esp { background-color: rgba(4, 120, 87, 0.25); color: #a7f3d0; border-color: rgba(167, 243, 208, 0.2); }
+
+.table-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.table-btn:hover {
+  background-color: #004d7c;
+  color: var(--white) !important;
+}
+
+body.dark-mode .table-btn {
+  background-color: var(--secondary);
+  color: #0f172a;
+}
+
+body.dark-mode .table-btn:hover {
+  background-color: #00b4d8;
+  color: #0f172a !important;
+}
+
+/* ==========================================================================
+   6. Track Cards Section
+   ========================================================================== */
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.track-card-link {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.track-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.track-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-lg), 0 15px 30px rgba(0, 98, 155, 0.08);
+}
+
+body.dark-mode .track-card:hover {
+  box-shadow: var(--shadow-lg), 0 15px 30px rgba(0, 180, 216, 0.08);
+}
+
+.track-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.track-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--primary);
+}
+
+body.dark-mode .track-icon {
+  color: var(--secondary);
+}
+
+.track-prize-badge {
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+body.dark-mode .track-prize-badge {
+  background-color: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+}
+
+.track-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.track-subtitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+
+body.dark-mode .track-subtitle {
+  color: var(--secondary);
+}
+
+.track-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.track-card-btn {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap var(--transition-fast);
+}
+
+body.dark-mode .track-card-btn {
+  color: var(--secondary);
+}
+
+.track-card:hover .track-card-btn {
+  gap: 12px;
+}
+
+@media (max-width: 992px) {
+  .tracks-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ==========================================================================
+   7. Accordions and Weightage Layout
+   ========================================================================== */
+.criteria-accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.criteria-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.criteria-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.criteria-item.active {
+  border-color: var(--primary);
+}
+
+body.dark-mode .criteria-item.active {
+  border-color: var(--secondary);
+}
+
+.criteria-header {
+  width: 100%;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.criteria-header:hover {
+  background-color: var(--bg-secondary);
+}
+
+.criteria-arrow {
+  color: var(--text-muted);
+  transition: transform var(--transition-normal);
+}
+
+.criteria-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal) ease-out;
+}
+
+.criteria-list {
+  list-style: none;
+  padding: 0 24px 24px 24px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--card-border);
+}
+
+.criteria-list li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.criteria-list li::before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+
+body.dark-mode .criteria-list li::before {
+  color: var(--secondary);
+}
+
+/* Weightage Card Layout */
+.weightage-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-lg);
+  padding: 40px 30px;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.weightage-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 15px;
+}
+
+.weightage-title-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--primary);
+}
+
+body.dark-mode .weightage-title-icon {
+  color: var(--secondary);
+}
+
+.weightage-header h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+}
+
+.weightage-intro {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.weightage-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.weightage-table th {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 2px solid var(--card-border);
+}
+
+.weightage-table td {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--text-secondary);
+}
+
+.weightage-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   8. Contact Section
+   ========================================================================== */
+.ps-contact-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ps-contact-icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(0, 98, 155, 0.08);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.dark-mode .ps-contact-icon-box {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--secondary);
+}
+
+.ps-contact-icon-box svg {
+  width: 30px;
+  height: 30px;
+}
+
+.ps-contact-details h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.ps-contact-details p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.ps-contact-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 30px;
+}
+
+.channel {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.channel i {
+  color: var(--primary);
+}
+
+body.dark-mode .channel i {
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .ps-contact-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  .ps-contact-channels {
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}
