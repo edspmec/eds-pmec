@@ -106,6 +106,25 @@ body.dark-mode .hero-subtitle-badge {
   color: var(--secondary);
 }
 
+.hero-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.hero-subtitle-badge.gold-badge {
+  background-color: rgba(194, 130, 0, 0.1);
+  color: #a86800;
+  border: 1px solid rgba(194, 130, 0, 0.25);
+}
+
+body.dark-mode .hero-subtitle-badge.gold-badge {
+  background-color: rgba(255, 193, 7, 0.12);
+  color: #ffc107;
+  border-color: rgba(255, 193, 7, 0.25);
+}
+
 .status-badge {
   display: inline-block;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
