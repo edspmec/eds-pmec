@@ -333,75 +333,98 @@
     </section>
 
     <!-- C2S Featured Initiative Section -->
-    <section id="c2s-initiative" class="section c2s-section">
-      <div class="container c2s-container">
-        <div class="c2s-card reveal">
+    <section id="c2s-initiative" class="section">
+      <div class="container">
+        <!-- Row 1: Image & Text -->
+        <div class="grid-2 align-center reveal">
 
-          <!-- Left: Logo + Badges -->
-          <div class="c2s-left">
-            <div class="c2s-logo-wrap">
-              <img src="assets/logos_banners/c2s.png" alt="Chips to Startup C2S Logo" class="c2s-logo">
+          <!-- Left Column: C2S Logo + Chip Image stacked -->
+          <div class="c2s-image-col">
+            <div class="c2s-logo-img-wrap">
+              <img src="assets/logos_banners/c2s.png" alt="Chips to Startup C2S Programme Logo" class="c2s-logo-img">
             </div>
-            <div class="c2s-badges">
-              <span class="c2s-badge"><i data-lucide="flag"></i> MeitY Initiative</span>
-              <span class="c2s-badge c2s-badge-green"><i data-lucide="indian-rupee"></i> ₹65.19 Lakh Grant</span>
-              <span class="c2s-badge c2s-badge-purple"><i data-lucide="cpu"></i> Semiconductor Design</span>
+            <div class="c2s-chip-img-wrap2">
+              <img src="assets/our_gallery/C2S@PMEC/c2s_chip_silicon_die_with_pcb.png" alt="PMEC IC-C2S0061 Silicon Die with PCB" class="c2s-chip-img2">
+              <div class="c2s-chip-img-caption">
+                <i data-lucide="cpu"></i> IC-C2S0061 — PMEC Silicon Die
+              </div>
             </div>
           </div>
 
-          <!-- Divider -->
-          <div class="c2s-divider"></div>
-
-          <!-- Middle: Content -->
-          <div class="c2s-right">
-            <div class="c2s-title-group">
-              <h2 class="c2s-title">Chips to Startup <span class="c2s-title-accent">(C2S) Programme</span></h2>
-              <p class="c2s-subtitle"><i data-lucide="landmark" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"></i> Ministry of Electronics &amp; Information Technology (MeitY), Government of India</p>
-            </div>
-
-            <p class="c2s-desc">The C2S Programme at PMEC empowers students with hands-on training in semiconductor chip design, VLSI, FPGA, ASIC, and SoC development through state-of-the-art laboratories and industry-standard EDA tools. Supported by a <strong>₹65.19 lakh grant</strong> from MeitY, it bridges classroom learning with real-world chip innovation.</p>
-
-            <!-- PMEC Chip Highlight -->
+          <!-- Right Column: Content -->
+          <div class="about-content-wrapper">
+            <span class="section-tag">National Initiative · MeitY, Govt. of India</span>
+            <h2>Chips to Startup <span style="color:var(--primary)">(C2S) Programme</span></h2>
+            <p>
+              The C2S Programme at PMEC empowers students with hands-on training in semiconductor chip design, VLSI, FPGA, ASIC, and SoC development. Supported by a <strong>₹65.19 lakh grant</strong> from MeitY, it bridges classroom learning with real-world chip innovation through state-of-the-art EDA labs.
+            </p>
+            <!-- Chip Callout -->
             <div class="c2s-chip-callout">
               <div class="c2s-chip-callout-header">
                 <i data-lucide="zap"></i>
                 <strong>PMEC's Indigenous Chip — IC-C2S0061</strong>
               </div>
-              <p>A <strong>High-Performance Multiplier IC</strong> designed by PMEC researchers — part of India's first fully indigenous semiconductor chip, developed under C2S. Used in hardware-based face recognition &amp; security systems using FPGA + ASIC architecture.</p>
+              <p>A <strong>High-Performance Multiplier IC</strong> designed by PMEC researchers — part of India's first fully indigenous semiconductor chip under C2S. Powers hardware-based face recognition &amp; security systems using FPGA + ASIC architecture. A proud contribution to <strong>#MakeInIndia &amp; #SemiconIndia</strong>.</p>
               <div class="c2s-chip-tags">
                 <span><i data-lucide="shield"></i> Face Recognition</span>
                 <span><i data-lucide="layers"></i> FPGA + ASIC</span>
                 <span><i data-lucide="flag"></i> #MakeInIndia</span>
+                <span><i data-lucide="zap"></i> #SemiconIndia</span>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div class="c2s-features">
-              <span class="c2s-feature-chip"><i data-lucide="flask-conical"></i> EDCSD Lab</span>
-              <span class="c2s-feature-chip"><i data-lucide="layers"></i> FPGA &amp; ASIC Design</span>
-              <span class="c2s-feature-chip"><i data-lucide="settings-2"></i> Industry EDA Tools</span>
-              <span class="c2s-feature-chip"><i data-lucide="microscope"></i> Semiconductor Research</span>
+        <!-- Row 2: Stats Cards -->
+        <div class="about-stats-grid reveal delay-1">
+          <div class="about-stat-card">
+            <i data-lucide="indian-rupee"></i>
+            <div>
+              <strong>₹65.19 Lakh</strong>
+              <span>MeitY Grant</span>
             </div>
           </div>
-
-          <!-- Divider -->
-          <div class="c2s-divider"></div>
-
-          <!-- Right: Chip Image -->
-          <div class="c2s-chip-showcase">
-            <div class="c2s-chip-img-wrap">
-              <img src="assets/our_gallery/C2S@PMEC/c2s_chip_silicon_die_with_pcb.png" alt="PMEC C2S Chip IC-C2S0061 Silicon Die" class="c2s-chip-img">
-            </div>
-            <div class="c2s-chip-label">
-              <i data-lucide="cpu"></i>
-              <span>IC-C2S0061<br><small>PMEC Silicon Die</small></span>
+          <div class="about-stat-card">
+            <i data-lucide="cpu"></i>
+            <div>
+              <strong>IC-C2S0061</strong>
+              <span>Indigenous Chip</span>
             </div>
           </div>
-
+          <div class="about-stat-card">
+            <i data-lucide="flask-conical"></i>
+            <div>
+              <strong>EDCSD Lab</strong>
+              <span>Chip Design Lab</span>
+            </div>
+          </div>
+          <div class="about-stat-card">
+            <i data-lucide="layers"></i>
+            <div>
+              <strong>FPGA &amp; ASIC</strong>
+              <span>Design Tracks</span>
+            </div>
+          </div>
+          <div class="about-stat-card">
+            <i data-lucide="settings-2"></i>
+            <div>
+              <strong>Industry EDA</strong>
+              <span>Tools &amp; Software</span>
+            </div>
+          </div>
+          <div class="about-stat-card">
+            <i data-lucide="flag"></i>
+            <div>
+              <strong>Make in India</strong>
+              <span>Semicon Initiative</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- IEEE Community at PMEC Section -->
+
     <section id="ieee-community" class="section section-gray">
       <div class="container">
         <div class="section-header text-center reveal">
