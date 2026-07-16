@@ -909,3 +909,23 @@ body.dark-mode .nav-btn-main:hover {
     text-align: center;
   }
 }
+
+/* Success status badge */
+.badge-success {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+body.dark-mode .badge-success {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+/* Red / Deadline text utility */
+.text-red {
+  color: #EF4444 !important;
+}
+
+body.dark-mode .text-red {
+  color: #F87171 !important;
+}
