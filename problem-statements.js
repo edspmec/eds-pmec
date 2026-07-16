@@ -661,8 +661,8 @@ function initTabSwitcher() {
         criteriaTabBtn.click();
       }
       
-      // Smooth scroll to the judging section
-      const target = document.getElementById("judging-criteria");
+      // Smooth scroll to the evaluation section
+      const target = document.getElementById("evaluation-criteria");
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
       }

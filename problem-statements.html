@@ -132,7 +132,7 @@
             <i data-lucide="file-text" class="download-file-icon"></i>
             <div>
               <h3>Download Complete Problem Statement Document</h3>
-              <p>Download the official Edge AI Hackathon 2026 Problem Statement Booklet containing all domains, tracks and judging criteria.</p>
+              <p>Download the official Edge AI Hackathon 2026 Problem Statement Booklet containing all domains, tracks and evaluation criteria.</p>
             </div>
           </div>
           <a href="docs/EDGE-AI_2026_PROBLEM_STATEMET.docx" download class="btn btn-secondary btn-lg btn-download-book">
@@ -153,7 +153,7 @@
             <i data-lucide="cpu"></i> Hardware Tracks
           </button>
           <button class="tab-btn" data-tab="tab-criteria" role="tab" aria-selected="false">
-            <i data-lucide="bar-chart-2"></i> Judging Criteria
+            <i data-lucide="bar-chart-2"></i> Evaluation Criteria
           </button>
         </div>
       </div>
@@ -240,12 +240,12 @@
           <div class="container">
             <div class="section-header text-center reveal">
               <h2>Hardware Tracks</h2>
-              <p>Select your track and check its judging parameters below.</p>
+              <p>Select your track and check its evaluation parameters below.</p>
             </div>
 
             <div class="tracks-grid">
               <!-- FPGA Track -->
-              <a href="#judging-criteria" class="track-card-link reveal">
+              <a href="#evaluation-criteria" class="track-card-link reveal">
                 <div class="track-card">
                   <div class="track-card-header">
                     <i data-lucide="layers" class="track-icon"></i>
@@ -259,7 +259,7 @@
               </a>
 
               <!-- Raspberry Pi / Renesas -->
-              <a href="#judging-criteria" class="track-card-link reveal delay-1">
+              <a href="#evaluation-criteria" class="track-card-link reveal delay-1">
                 <div class="track-card">
                   <div class="track-card-header">
                     <i data-lucide="cpu" class="track-icon"></i>
@@ -273,7 +273,7 @@
               </a>
 
               <!-- ESP32 / Arduino -->
-              <a href="#judging-criteria" class="track-card-link reveal delay-2">
+              <a href="#evaluation-criteria" class="track-card-link reveal delay-2">
                 <div class="track-card">
                   <div class="track-card-header">
                     <i data-lucide="network" class="track-icon"></i>
@@ -290,17 +290,17 @@
         </section>
       </div>
 
-      <!-- Panel 3: Judging Criteria -->
+      <!-- Panel 3: Evaluation Criteria -->
       <div id="tab-criteria" class="tab-panel">
-        <!-- Judging Criteria Accordions Section -->
-        <section id="judging-criteria" class="section">
+        <!-- Evaluation Criteria Accordions Section -->
+        <section id="evaluation-criteria" class="section">
           <div class="container grid-2 align-start">
             
             <!-- Accordion Section -->
             <div class="criteria-accordion reveal">
               <div class="section-title-wrapper">
                 <i data-lucide="bar-chart-2" class="section-title-icon"></i>
-                <h3>Judging Criteria by Track</h3>
+                <h3>Evaluation Criteria by Track</h3>
               </div>
 
               <div class="criteria-container">
@@ -370,9 +370,19 @@
             <div class="weightage-card reveal delay-1">
               <div class="weightage-header">
                 <i data-lucide="pie-chart" class="weightage-title-icon"></i>
-                <h3>Common Evaluation Weightage</h3>
+                <h3>Evaluation Weightage Scheme</h3>
               </div>
-              <p class="weightage-intro">Regardless of the hardware track chosen, all projects are graded on these core values:</p>
+              
+              <div class="weightage-rule-box">
+                <h4 class="weightage-rule-title">⚖️ The 40:60 Evaluation Rule</h4>
+                <p class="weightage-rule-desc">
+                  Every project's final score is calculated using a dual weightage scheme:
+                  <br>• <strong>40% Weightage</strong> goes to your chosen hardware track design &amp; optimizations (FPGA, Rpi/Renesas, or ESP32/Arduino parameters on the left).
+                  <br>• <strong>60% Weightage</strong> goes to the general parameters listed below:
+                </p>
+              </div>
+
+              <div class="weightage-sub-title">Core Parameters (Remaining 60%)</div>
               <table class="weightage-table">
                 <thead>
                   <tr>

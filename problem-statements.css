@@ -747,6 +747,55 @@ body.dark-mode .weightage-title-icon {
   margin-bottom: 24px;
 }
 
+/* 40:60 Rule Box Styles */
+.weightage-rule-box {
+  background-color: rgba(0, 98, 155, 0.04);
+  border: 1px dashed var(--primary);
+  border-radius: var(--border-radius-sm);
+  padding: 18px;
+  margin-bottom: 25px;
+}
+
+body.dark-mode .weightage-rule-box {
+  background-color: rgba(56, 189, 248, 0.04);
+  border-color: var(--secondary);
+}
+
+.weightage-rule-title {
+  margin: 0 0 8px 0;
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.dark-mode .weightage-rule-title {
+  color: var(--secondary);
+}
+
+.weightage-rule-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.weightage-rule-desc strong {
+  color: var(--text-primary);
+}
+
+.weightage-sub-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
 .weightage-table {
   width: 100%;
   border-collapse: collapse;
