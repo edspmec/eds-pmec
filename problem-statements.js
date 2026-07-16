@@ -5,177 +5,9 @@
 
 // 1. Problem Statements Dataset (36 Statements across 6 Domains)
 const problemStatements = [
-  // Indian Knowledge System (IKS)
-  {
-    slNo: 1,
-    domain: "Indian Knowledge System",
-    psNo: "IKS-01",
-    title: "Eclipse Prediction using Astronomical Calculations",
-    description: "Develop a system that predicts future solar and lunar eclipses using astronomical calculations. The solution should determine the eclipse type, approximate date, time, and duration, and validate the results using standard astronomical references.",
-    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-01.pdf"
-  },
-  {
-    slNo: 2,
-    domain: "Indian Knowledge System",
-    psNo: "IKS-02",
-    title: "Classification of Traditional Indian Design Arts",
-    description: "Develop a system that identifies and classifies traditional Indian art forms from images. The solution should recognize the artwork category and display the predicted class with high accuracy.",
-    tracks: ["Raspberry Pi / Renesas", "FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-02.pdf"
-  },
-  {
-    slNo: 3,
-    domain: "Indian Knowledge System",
-    psNo: "IKS-03",
-    title: "Sanskrit to Hindi Translation",
-    description: "Develop a system that translates Sanskrit sentences into meaningful Hindi text while preserving grammatical correctness and contextual meaning.",
-    tracks: ["Raspberry Pi / Renesas"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-03.pdf"
-  },
-  {
-    slNo: 4,
-    domain: "Indian Knowledge System",
-    psNo: "IKS-04",
-    title: "Vedic Multiplier-Based 8x8 Convolution Block Design",
-    description: "Develop an efficient 8x8 convolution block using Vedic multiplication principles. The solution should achieve faster computation with optimized resource utilization while maintaining correct outputs.",
-    tracks: ["FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-04.pdf"
-  },
-  {
-    slNo: 5,
-    domain: "Indian Knowledge System",
-    psNo: "IKS-05",
-    title: "Palm-Leaf Preservation Sensor Unit",
-    description: "Develop a monitoring system that measures environmental conditions affecting palm-leaf manuscripts and generates alerts whenever preservation conditions exceed safe limits.",
-    tracks: ["ESP32 / Arduino"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-05.pdf"
-  },
-  {
-    slNo: 6,
-    domain: "Indian Knowledge System",
-    psNo: "IKS-06",
-    title: "Detection of Medicinal Plants and Their Characteristics",
-    description: "Develop a system that identifies 15 medicinal plants from images and displays their name along with their medicinal properties with reliable classification accuracy.",
-    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-06.pdf"
-  },
-
-  // Defence & Security (DEF)
-  {
-    slNo: 7,
-    domain: "Defence & Security",
-    psNo: "DEF-01",
-    title: "Real-Time Drone Tracking",
-    description: "Develop a system that detects and tracks drones in real time while continuously displaying their position and movement.",
-    tracks: ["Raspberry Pi / Renesas", "FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-01.pdf"
-  },
-  {
-    slNo: 8,
-    domain: "Defence & Security",
-    psNo: "DEF-02",
-    title: "Underground Metal Detection",
-    description: "Develop a system capable of detecting buried metallic objects with minimum false detections and real-time indication.",
-    tracks: ["ESP32 / Arduino", "Raspberry Pi / Renesas"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-02.pdf"
-  },
-  {
-    slNo: 9,
-    domain: "Defence & Security",
-    psNo: "DEF-03",
-    title: "Hardware Trojan Scanner",
-    description: "Develop a system that detects abnormal hardware behaviour or malicious modifications and reports suspicious activities.",
-    tracks: ["FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-03.pdf"
-  },
-  {
-    slNo: 10,
-    domain: "Defence & Security",
-    psNo: "DEF-04",
-    title: "Detection of Gunshots",
-    description: "Develop a system that identifies gunshot sounds from audio inputs and generates immediate alerts while distinguishing them from environmental sounds.",
-    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-04.pdf"
-  },
-  {
-    slNo: 11,
-    domain: "Defence & Security",
-    psNo: "DEF-05",
-    title: "Secure Smart Storage Controller",
-    description: "Develop a secure storage system that protects sensitive information through authentication, secure storage, and automatic data protection during security threats.",
-    tracks: ["FPGA", "Raspberry Pi / Renesas"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-05.pdf"
-  },
-  {
-    slNo: 12,
-    domain: "Defence & Security",
-    psNo: "DEF-06",
-    title: "Human or Vehicle Detection in High-Density Fog or Dust",
-    description: "Develop a system that detects humans or vehicles under foggy or dusty conditions while maintaining reliable detection performance.",
-    tracks: ["Raspberry Pi / Renesas", "FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-06.pdf"
-  },
-
-  // Processors (PROC)
-  {
-    slNo: 13,
-    domain: "Processors",
-    psNo: "PROC-01",
-    title: "Fault-Tolerant Processor for Harsh Environments",
-    description: "Design a processor capable of reliable operation in harsh environments such as space, military, industrial automation, and nuclear plants where radiation, voltage fluctuations, and temperature variations can introduce hardware faults. The processor should detect and recover from transient and permanent faults while maintaining correct execution.",
-    tracks: ["FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-01.pdf"
-  },
-  {
-    slNo: 14,
-    domain: "Processors",
-    psNo: "PROC-02",
-    title: "Single-Cycle RISC-V Processor Design",
-    description: "Implement a complete single-cycle RISC-V processor supporting the RV32I instruction set. Every instruction should execute in exactly one clock cycle. (Supported Instructions: Arithmetic, Logic, Load, Store, Branch, Jump)",
-    tracks: ["FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-02.pdf"
-  },
-  {
-    slNo: 15,
-    domain: "Processors",
-    psNo: "PROC-03",
-    title: "Vector Processor Design for Machine Learning Inference",
-    description: "Design a vector processor capable of performing SIMD operations on multiple data elements simultaneously to accelerate machine learning inference workloads. (Supported Instructions: Vector Addition, Vector Multiplication, MAC, ReLU, Dot Product)",
-    tracks: ["FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-03.pdf"
-  },
-  {
-    slNo: 16,
-    domain: "Processors",
-    psNo: "PROC-04",
-    title: "32-bit Floating-Point ALU Design",
-    description: "Develop an IEEE-754 compliant 32-bit floating-point ALU capable of supporting arithmetic operations used in AI, DSP, and scientific computing.",
-    tracks: ["FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-04.pdf"
-  },
-  {
-    slNo: 17,
-    domain: "Processors",
-    psNo: "PROC-05",
-    title: "2D Systolic Array-Based Processing Element",
-    description: "Design a scalable 2D systolic array architecture to accelerate matrix-vector multiplication, which is the fundamental computation in deep learning, signal processing, and scientific computing. Each Processing Element (PE) performs multiply-accumulate (MAC) operations while passing data to neighbouring PEs in a pipelined manner.",
-    tracks: ["FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-05.pdf"
-  },
-  {
-    slNo: 18,
-    domain: "Processors",
-    psNo: "PROC-06",
-    title: "Energy-Aware Multi-Core Scheduler",
-    description: "Develop a scheduler that dynamically distributes tasks across multiple processor cores to minimize energy consumption while maintaining performance. The scheduler should consider task priority, processor utilization, deadlines, and power states. (Scheduling Policies: Earliest Deadline First, Dynamic Voltage and Frequency Scaling (DVFS), Load Balancing).",
-    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-06.pdf"
-  },
-
   // Communication Systems (COM)
   {
-    slNo: 19,
+    slNo: 1,
     domain: "Communication Systems",
     psNo: "COM-01",
     title: "Wireless Interference and Jamming Detection System",
@@ -184,7 +16,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/COM-01.pdf"
   },
   {
-    slNo: 20,
+    slNo: 2,
     domain: "Communication Systems",
     psNo: "COM-02",
     title: "Multi-Standard Software Defined Radio (SDR) System",
@@ -193,7 +25,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/COM-02.pdf"
   },
   {
-    slNo: 21,
+    slNo: 3,
     domain: "Communication Systems",
     psNo: "COM-03",
     title: "Smart Traffic Signal Communication System",
@@ -202,7 +34,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/COM-03.pdf"
   },
   {
-    slNo: 22,
+    slNo: 4,
     domain: "Communication Systems",
     psNo: "COM-04",
     title: "Secure Wireless Access Control and Intrusion Detection System",
@@ -211,7 +43,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/COM-04.pdf"
   },
   {
-    slNo: 23,
+    slNo: 5,
     domain: "Communication Systems",
     psNo: "COM-05",
     title: "Real-Time Communication System for Train-to-Train Collision Avoidance",
@@ -220,7 +52,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/COM-05.pdf"
   },
   {
-    slNo: 24,
+    slNo: 6,
     domain: "Communication Systems",
     psNo: "COM-06",
     title: "Self-Healing Mesh Communication Network for Emergency Response",
@@ -229,74 +61,18 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/COM-06.pdf"
   },
 
-  // Image & Signal Processing (ISP)
-  {
-    slNo: 25,
-    domain: "Image & Signal Processing",
-    psNo: "ISP-01",
-    title: "Real-Time Sign Language to Text Conversion",
-    description: "Develop a system that recognizes sign language gestures and converts them into readable text in real time.",
-    tracks: ["Raspberry Pi / Renesas", "FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-01.pdf"
-  },
-  {
-    slNo: 26,
-    domain: "Image & Signal Processing",
-    psNo: "ISP-02",
-    title: "Real-Time Vision Dehazing",
-    description: "Develop a system that enhances images captured under foggy or hazy conditions while preserving important visual details.",
-    tracks: ["Raspberry Pi / Renesas", "FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-02.pdf"
-  },
-  {
-    slNo: 27,
-    domain: "Image & Signal Processing",
-    psNo: "ISP-03",
-    title: "Smart Hearing Aid: Directional Blind Source Separation",
-    description: "Develop a hearing assistance system that isolates the desired speaker while reducing background noise.",
-    tracks: ["Raspberry Pi / Renesas", "FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-03.pdf"
-  },
-  {
-    slNo: 28,
-    domain: "Image & Signal Processing",
-    psNo: "ISP-04",
-    title: "Radar-Based Hand Gesture Recognition Interface",
-    description: "Develop a contactless hand gesture recognition system using radar signals for human-computer interaction.",
-    tracks: ["FPGA", "Raspberry Pi / Renesas"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-04.pdf"
-  },
-  {
-    slNo: 29,
-    domain: "Image & Signal Processing",
-    psNo: "ISP-05",
-    title: "Classification of Indian Ragas Based on Frequency",
-    description: "Develop a system that identifies Indian classical ragas from audio signals using frequency-based analysis.",
-    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-05.pdf"
-  },
-  {
-    slNo: 30,
-    domain: "Image & Signal Processing",
-    psNo: "ISP-06",
-    title: "Acoustic Sub-Vocal Silent Speech Recognition",
-    description: "Develop a system that converts silent or whispered speech into readable text using suitable sensing techniques.",
-    tracks: ["Raspberry Pi / Renesas", "FPGA"],
-    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-06.pdf"
-  },
-
   // Biomedical Engineering (BIO)
   {
-    slNo: 31,
+    slNo: 7,
     domain: "Biomedical Engineering",
     psNo: "BIO-01",
     title: "Tumour Detection and Segmentation",
-    description: "Develop a system that accurately detects and segments tumors in medical images for clinical analysis.",
+    description: "Develop a system that accurately detects and segments tumours in medical images for clinical analysis.",
     tracks: ["Raspberry Pi / Renesas", "FPGA"],
     downloadUrl: "assets/edge_ai_hackathon/problems/BIO-01.pdf"
   },
   {
-    slNo: 32,
+    slNo: 8,
     domain: "Biomedical Engineering",
     psNo: "BIO-02",
     title: "Real-Time Health Monitoring and Alerting System",
@@ -305,7 +81,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/BIO-02.pdf"
   },
   {
-    slNo: 33,
+    slNo: 9,
     domain: "Biomedical Engineering",
     psNo: "BIO-03",
     title: "Epilepsy Detection and Alerting",
@@ -314,7 +90,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/BIO-03.pdf"
   },
   {
-    slNo: 34,
+    slNo: 10,
     domain: "Biomedical Engineering",
     psNo: "BIO-04",
     title: "Crop Disease Detection",
@@ -323,7 +99,7 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/BIO-04.pdf"
   },
   {
-    slNo: 35,
+    slNo: 11,
     domain: "Biomedical Engineering",
     psNo: "BIO-05",
     title: "Medical Image Enhancement",
@@ -332,15 +108,239 @@ const problemStatements = [
     downloadUrl: "assets/edge_ai_hackathon/problems/BIO-05.pdf"
   },
   {
-    slNo: 36,
+    slNo: 12,
     domain: "Biomedical Engineering",
     psNo: "BIO-06",
     title: "Fall Detection and Emergency Alert System",
-    description: "Develop a system that automatically detects human falls and generates emergency alerts with minimum false alarms.",
+    description: "Develop a system that automatically detects human falls and generates emergency alerts with minimal false alarms.",
     tracks: ["ESP32 / Arduino", "Raspberry Pi / Renesas"],
     downloadUrl: "assets/edge_ai_hackathon/problems/BIO-06.pdf"
+  },
+
+  // Image & Signal Processing (ISP)
+  {
+    slNo: 13,
+    domain: "Image & Signal Processing",
+    psNo: "ISP-01",
+    title: "Real-Time Sign Language to Text Conversion",
+    description: "Develop a system that recognizes sign language gestures and converts them into readable text in real time.",
+    tracks: ["Raspberry Pi / Renesas", "FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-01.pdf"
+  },
+  {
+    slNo: 14,
+    domain: "Image & Signal Processing",
+    psNo: "ISP-02",
+    title: "Real-Time Vision Dehazing",
+    description: "Develop a system that enhances images captured under foggy or hazy conditions while preserving important visual details.",
+    tracks: ["Raspberry Pi / Renesas", "FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-02.pdf"
+  },
+  {
+    slNo: 15,
+    domain: "Image & Signal Processing",
+    psNo: "ISP-03",
+    title: "Smart Hearing Aid: Directional Blind Source Separation",
+    description: "Develop a hearing assistance system that isolates the desired speaker while reducing background noise.",
+    tracks: ["Raspberry Pi / Renesas", "FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-03.pdf"
+  },
+  {
+    slNo: 16,
+    domain: "Image & Signal Processing",
+    psNo: "ISP-04",
+    title: "Radar-Based Hand Gesture Recognition Interface",
+    description: "Develop a contactless hand gesture recognition system using radar signals for human-computer interaction.",
+    tracks: ["FPGA", "Raspberry Pi / Renesas"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-04.pdf"
+  },
+  {
+    slNo: 17,
+    domain: "Image & Signal Processing",
+    psNo: "ISP-05",
+    title: "Classification of Indian Ragas Based on Frequency",
+    description: "Develop a system that identifies Indian classical ragas from audio signals using frequency-based analysis.",
+    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-05.pdf"
+  },
+  {
+    slNo: 18,
+    domain: "Image & Signal Processing",
+    psNo: "ISP-06",
+    title: "Acoustic Sub-Vocal Silent Speech Recognition",
+    description: "Develop a system that converts silent or whispered speech into readable text using suitable sensing techniques.",
+    tracks: ["Raspberry Pi / Renesas", "FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/ISP-06.pdf"
+  },
+
+  // Processors (PROC)
+  {
+    slNo: 19,
+    domain: "Processors",
+    psNo: "PROC-01",
+    title: "Fault-Tolerant Processor for Harsh Environments",
+    description: "Design a processor capable of reliable operation in harsh environments such as space, military, industrial automation, and nuclear plants where radiation, voltage fluctuations, and temperature variations can introduce hardware faults. The processor should detect and recover from transient and permanent faults while maintaining correct execution.",
+    tracks: ["FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-01.pdf"
+  },
+  {
+    slNo: 20,
+    domain: "Processors",
+    psNo: "PROC-02",
+    title: "Single-Cycle RISC-V Processor Design",
+    description: "Implement a complete single-cycle RISC-V processor supporting the RV32I instruction set. Every instruction should execute in exactly one clock cycle. (Supported Instructions: Arithmetic, Logic, Load, Store, Branch, Jump)",
+    tracks: ["FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-02.pdf"
+  },
+  {
+    slNo: 21,
+    domain: "Processors",
+    psNo: "PROC-03",
+    title: "Vector Processor Design for Machine Learning Inference",
+    description: "Design a vector processor that performs SIMD operations on multiple data elements simultaneously to accelerate machine learning inference workloads. (Supported Instructions: Vector Addition, Vector Multiplication, MAC, ReLU, Dot Product)",
+    tracks: ["FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-03.pdf"
+  },
+  {
+    slNo: 22,
+    domain: "Processors",
+    psNo: "PROC-04",
+    title: "32-bit Floating-Point ALU Design",
+    description: "Develop an IEEE-754-compliant 32-bit floating-point ALU that supports arithmetic operations for AI, DSP, and scientific computing.",
+    tracks: ["FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-04.pdf"
+  },
+  {
+    slNo: 23,
+    domain: "Processors",
+    psNo: "PROC-05",
+    title: "2D Systolic Array-Based Processing Element",
+    description: "Design a scalable 2D systolic array architecture to accelerate matrix-vector multiplication, which is the fundamental computation in deep learning, signal processing, and scientific computing. Each Processing Element (PE) performs multiply-accumulate (MAC) operations while passing data to neighbouring PEs in a pipelined manner.",
+    tracks: ["FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-05.pdf"
+  },
+  {
+    slNo: 24,
+    domain: "Processors",
+    psNo: "PROC-06",
+    title: "Energy-Aware Multi-Core Scheduler",
+    description: "Develop a scheduler that dynamically distributes tasks across multiple processor cores to minimize energy consumption while maintaining performance. The scheduler should consider task priority, processor utilization, deadlines, and power states. (Scheduling Policies: Earliest Deadline First, Dynamic Voltage and Frequency Scaling (DVFS), Load Balancing).",
+    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/PROC-06.pdf"
+  },
+
+  // Defence & Security (DEF)
+  {
+    slNo: 25,
+    domain: "Defence & Security",
+    psNo: "DEF-01",
+    title: "Real-Time Drone Tracking",
+    description: "Develop a system that detects and tracks drones in real time and continuously displays their positions and movements.",
+    tracks: ["Raspberry Pi / Renesas", "FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-01.pdf"
+  },
+  {
+    slNo: 26,
+    domain: "Defence & Security",
+    psNo: "DEF-02",
+    title: "Underground Metal Detection",
+    description: "Develop a system capable of detecting buried metallic objects with minimal false detections and real-time indication.",
+    tracks: ["ESP32 / Arduino", "Raspberry Pi / Renesas"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-02.pdf"
+  },
+  {
+    slNo: 27,
+    domain: "Defence & Security",
+    psNo: "DEF-03",
+    title: "Hardware Trojan Scanner",
+    description: "Develop a system that detects abnormal hardware behaviour or malicious modifications and reports suspicious activities.",
+    tracks: ["FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-03.pdf"
+  },
+  {
+    slNo: 28,
+    domain: "Defence & Security",
+    psNo: "DEF-04",
+    title: "Detection of Gunshots",
+    description: "Develop a system that identifies gunshot sounds in audio input and generates immediate alerts, distinguishing them from environmental sounds.",
+    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-04.pdf"
+  },
+  {
+    slNo: 29,
+    domain: "Defence & Security",
+    psNo: "DEF-05",
+    title: "Secure Smart Storage Controller",
+    description: "Develop a secure storage system that protects sensitive information through authentication, secure storage, and automatic data protection in the event of security threats.",
+    tracks: ["FPGA", "Raspberry Pi / Renesas"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-05.pdf"
+  },
+  {
+    slNo: 30,
+    domain: "Defence & Security",
+    psNo: "DEF-06",
+    title: "Human or Vehicle Detection in High-Density Fog or Dust",
+    description: "Develop a system that detects humans or vehicles under foggy or dusty conditions while maintaining reliable detection performance.",
+    tracks: ["Raspberry Pi / Renesas", "FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/DEF-06.pdf"
+  },
+
+  // Indian Knowledge System (IKS)
+  {
+    slNo: 31,
+    domain: "Indian Knowledge System",
+    psNo: "IKS-01",
+    title: "Eclipse Prediction using Astronomical Calculations",
+    description: "Develop a system that predicts future solar and lunar eclipses using astronomical calculations. The solution should determine the eclipse type, approximate date, time, and duration, and validate the results using standard astronomical references.",
+    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-01.pdf"
+  },
+  {
+    slNo: 32,
+    domain: "Indian Knowledge System",
+    psNo: "IKS-02",
+    title: "Classification of Traditional Indian Design Arts",
+    description: "Develop a system that identifies and classifies traditional Indian art forms from images. The solution should recognize the artwork category and display the predicted class with high accuracy.",
+    tracks: ["Raspberry Pi / Renesas", "FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-02.pdf"
+  },
+  {
+    slNo: 33,
+    domain: "Indian Knowledge System",
+    psNo: "IKS-03",
+    title: "Sanskrit to Hindi Translation",
+    description: "Develop a system that translates Sanskrit sentences into meaningful Hindi text while preserving grammatical correctness and contextual meaning.",
+    tracks: ["Raspberry Pi / Renesas"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-03.pdf"
+  },
+  {
+    slNo: 34,
+    domain: "Indian Knowledge System",
+    psNo: "IKS-04",
+    title: "Vedic Multiplier-Based 8×8 Convolution Block Design",
+    description: "Develop an efficient 8×8 convolution block using Vedic multiplication principles. The solution should achieve faster computation with optimized resource utilization while maintaining correct outputs.",
+    tracks: ["FPGA"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-04.pdf"
+  },
+  {
+    slNo: 35,
+    domain: "Indian Knowledge System",
+    psNo: "IKS-05",
+    title: "Palm-Leaf Manuscript Preservation Sensor Unit",
+    description: "Develop a monitoring system that measures environmental conditions affecting palm-leaf manuscripts and generates alerts whenever preservation conditions exceed safe limits.",
+    tracks: ["ESP32 / Arduino"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-05.pdf"
+  },
+  {
+    slNo: 36,
+    domain: "Indian Knowledge System",
+    psNo: "IKS-06",
+    title: "Detection of Medicinal Plants and Their Characteristics",
+    description: "Develop a system that identifies medicinal plants from images and displays their names and medicinal properties with reliable classification accuracy.",
+    tracks: ["Raspberry Pi / Renesas", "ESP32 / Arduino"],
+    downloadUrl: "assets/edge_ai_hackathon/problems/IKS-06.pdf"
   }
-];
+];;
 
 // 2. DOM Elements and Event Initialization
 document.addEventListener("DOMContentLoaded", () => {
