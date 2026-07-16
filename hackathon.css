@@ -1425,3 +1425,8 @@ body.dark-mode .venue-icon-wrapper {
 .map-placeholder span {
   font-size: 0.9rem;
 }
+
+/* FAQ Answer link color dark mode override */
+body.dark-mode .faq-answer a {
+  color: var(--secondary) !important;
+}
