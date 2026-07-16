@@ -141,17 +141,20 @@ body.dark-mode .hero-subtitle-badge {
 
 .organizers-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   color: var(--text-secondary);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .organizers-list li svg {
   color: var(--secondary);
   width: 18px;
   height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* 3. Hero Poster Container */
