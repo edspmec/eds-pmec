@@ -360,8 +360,8 @@ function initThemeSync() {
   const themeToggle = document.getElementById("theme-toggle");
   
   // Set initial state from localStorage
-  const savedTheme = localStorage.getItem("theme") || "light-mode";
-  if (savedTheme === "dark-mode") {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
     body.classList.add("dark-mode");
   } else {
     body.classList.remove("dark-mode");
@@ -373,10 +373,10 @@ function initThemeSync() {
     themeToggle.addEventListener("click", () => {
       if (body.classList.contains("dark-mode")) {
         body.classList.remove("dark-mode");
-        localStorage.setItem("theme", "light-mode");
+        localStorage.setItem("theme", "light");
       } else {
         body.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark-mode");
+        localStorage.setItem("theme", "dark");
       }
       updateThemeIcon();
     });

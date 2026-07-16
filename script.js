@@ -71,13 +71,13 @@ function initDarkMode() {
     console.warn("localStorage is not accessible in this context:", e);
   }
 
-  if (savedTheme === 'light') {
-    document.body.classList.remove('dark-mode');
-    updateThemeIcon(false);
-  } else {
-    // Default: dark theme — the site's signature circuit look
+  if (savedTheme === 'dark') {
     document.body.classList.add('dark-mode');
     updateThemeIcon(true);
+  } else {
+    // Default: light theme
+    document.body.classList.remove('dark-mode');
+    updateThemeIcon(false);
   }
 }
 
