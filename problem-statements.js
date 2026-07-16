@@ -695,5 +695,31 @@ function initTabSwitcher() {
       el.classList.add("active");
     });
   }
+
+  // Handle URL hash or tab parameters on load
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabParam = urlParams.get('tab');
+  const hashParam = window.location.hash;
+
+  if (tabParam) {
+    const targetTabBtn = document.querySelector(`.tab-btn[data-tab="${tabParam}"]`);
+    if (targetTabBtn) {
+      targetTabBtn.click();
+    }
+  } else if (hashParam) {
+    const cleanedHash = hashParam.replace('#', '');
+    if (cleanedHash === 'evaluation-criteria' || cleanedHash === 'tab-criteria') {
+      const criteriaTabBtn = document.querySelector('.tab-btn[data-tab="tab-criteria"]');
+      if (criteriaTabBtn) {
+        criteriaTabBtn.click();
+        setTimeout(() => {
+          const target = document.getElementById("evaluation-criteria");
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
+    }
+  }
 }
 
