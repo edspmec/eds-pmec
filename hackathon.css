@@ -929,3 +929,179 @@ body.dark-mode .badge-success {
 body.dark-mode .text-red {
   color: #F87171 !important;
 }
+
+/* ==========================================================================
+   Header Navbar Scaling
+   ========================================================================== */
+@media (min-width: 992px) {
+  .header .container {
+    max-width: 1400px !important;
+    padding: 0 40px;
+  }
+  .nav-menu {
+    gap: 22px !important;
+  }
+}
+
+/* ==========================================================================
+   Linktree Section Styling
+   ========================================================================== */
+.linktree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 40px auto 0 auto;
+}
+
+.linktree-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-md);
+  padding: 18px 24px;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.linktree-item:not(.disabled):hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .linktree-item:not(.disabled):hover {
+  border-color: var(--secondary);
+}
+
+.linktree-item.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.linktree-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(0, 98, 155, 0.05);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 98, 155, 0.1);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.linktree-item:not(.disabled):hover .linktree-icon-box {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+body.dark-mode .linktree-icon-box {
+  background-color: rgba(56, 189, 248, 0.05);
+  color: var(--secondary);
+  border-color: rgba(56, 189, 248, 0.1);
+}
+
+body.dark-mode .linktree-item:not(.disabled):hover .linktree-icon-box {
+  background-color: var(--secondary);
+  color: #0f172a;
+  border-color: var(--secondary);
+}
+
+.linktree-icon-box i, .linktree-icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.linktree-info {
+  flex-grow: 1;
+}
+
+.linktree-info h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.linktree-info p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.linktree-action {
+  flex-shrink: 0;
+}
+
+.linktree-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.linktree-badge svg, .linktree-badge i {
+  width: 12px;
+  height: 12px;
+}
+
+/* Linktree Badge Colors */
+.badge-info {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--secondary);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+body.dark-mode .badge-info {
+  background-color: rgba(56, 189, 248, 0.15);
+}
+
+.badge-primary {
+  background-color: rgba(0, 98, 155, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(0, 98, 155, 0.15);
+}
+
+body.dark-mode .badge-primary {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--secondary);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.badge-locked {
+  background-color: rgba(107, 114, 128, 0.08);
+  color: var(--text-muted);
+  border: 1px solid rgba(107, 114, 128, 0.15);
+}
+
+.badge-blue {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+@media (max-width: 576px) {
+  .linktree-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  .linktree-action {
+    align-self: flex-end;
+  }
+}
