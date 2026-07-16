@@ -1430,3 +1430,340 @@ body.dark-mode .venue-icon-wrapper {
 body.dark-mode .faq-answer a {
   color: var(--secondary) !important;
 }
+
+/* ==========================================================================
+   IEEE Community at PMEC Section
+   ========================================================================== */
+
+/* --- Org Cards Grid (3 equal columns) --- */
+.ieee-org-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.ieee-org-card {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(var(--primary-rgb), 0.12);
+  border-top: 3px solid var(--primary);
+  border-radius: 18px;
+  padding: 30px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.ieee-org-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(var(--primary-rgb), 0.15);
+}
+
+.ieee-org-logo-wrap {
+  width: 72px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ieee-org-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));
+}
+
+.ieee-org-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.ieee-org-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.ieee-org-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(var(--primary-rgb), 0.1);
+  width: 100%;
+}
+
+.ieee-stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(var(--primary-rgb), 0.08);
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.chip-icon {
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px;
+  min-height: 12px;
+  stroke-width: 2.5;
+}
+
+/* Dark mode: org cards */
+body.dark-mode .ieee-org-card {
+  background: var(--card-bg);
+  border-color: rgba(var(--glow-rgb), 0.18);
+  border-top-color: var(--secondary);
+}
+
+body.dark-mode .ieee-stat-chip {
+  background: rgba(var(--glow-rgb), 0.12);
+  color: var(--secondary);
+}
+
+/* --- Faculty Leadership Row --- */
+.faculty-leadership-section {
+  margin-bottom: 56px;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title-wrapper h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.section-title-icon {
+  width: 26px !important;
+  height: 26px !important;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.faculty-cards-row {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.faculty-profile-card {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(var(--primary-rgb), 0.12);
+  border-top: 3px solid var(--primary);
+  border-radius: 20px;
+  padding: 36px 30px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+  max-width: 100%;
+  gap: 14px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.faculty-profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 40px rgba(var(--primary-rgb), 0.14);
+}
+
+.faculty-avatar-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(var(--primary-rgb), 0.25);
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.faculty-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.faculty-role-badge {
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+}
+
+.faculty-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.faculty-desc {
+  font-size: 0.845rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.faculty-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  padding: 9px 20px;
+  margin-top: 4px;
+}
+
+.faculty-btn svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Dark mode: faculty cards */
+body.dark-mode .faculty-profile-card {
+  background: var(--card-bg);
+  border-color: rgba(var(--glow-rgb), 0.18);
+  border-top-color: var(--secondary);
+}
+
+body.dark-mode .faculty-role-badge {
+  background: rgba(var(--glow-rgb), 0.12);
+  color: var(--secondary);
+}
+
+/* --- Community Highlight Strip --- */
+.ieee-community-strip {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.06) 0%, rgba(var(--primary-rgb), 0.02) 100%);
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+  border-left: 4px solid var(--primary);
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.community-strip-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.strip-icon {
+  width: 22px !important;
+  height: 22px !important;
+  flex-shrink: 0;
+}
+
+.community-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.comm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(var(--primary-rgb), 0.18);
+  color: var(--text-primary);
+  border-radius: 24px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 16px;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.comm-badge svg {
+  width: 14px !important;
+  height: 14px !important;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.comm-badge:hover {
+  background: rgba(var(--primary-rgb), 0.08);
+  color: var(--primary);
+}
+
+body.dark-mode .ieee-community-strip {
+  background: linear-gradient(135deg, rgba(var(--glow-rgb), 0.08) 0%, rgba(var(--glow-rgb), 0.02) 100%);
+  border-color: rgba(var(--glow-rgb), 0.2);
+  border-left-color: var(--secondary);
+}
+
+body.dark-mode .community-strip-header {
+  color: var(--secondary);
+}
+
+body.dark-mode .comm-badge {
+  background: var(--card-bg);
+  border-color: rgba(var(--glow-rgb), 0.2);
+}
+
+body.dark-mode .comm-badge svg {
+  color: var(--secondary);
+}
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1024px) {
+  .ieee-org-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .ieee-org-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+  }
+
+  .faculty-cards-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .faculty-profile-card {
+    width: 100%;
+  }
+
+  .ieee-community-strip {
+    padding: 22px 20px;
+  }
+}
