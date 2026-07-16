@@ -28,7 +28,7 @@
 <body>
 
   <!-- Apply saved/dark-first theme before paint to avoid a flash -->
-  <script>try { if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode'); } catch (e) {}</script>
+  <script>try { if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode'); } catch (e) { }</script>
 
   <!-- Site-wide interactive circuit-board background -->
   <canvas id="circuit-canvas" class="circuit-canvas" aria-hidden="true"></canvas>
@@ -50,11 +50,14 @@
       <nav id="nav-menu" class="nav-menu" role="navigation">
         <a href="#hackathon-home" class="nav-link active">Home</a>
         <a href="#timeline" class="nav-link">Timeline</a>
-        <a href="problem-statements.html" target="_blank" class="nav-link">Problem Statements <i data-lucide="arrow-up-right" style="width: 12px; height: 12px; display: inline-align; vertical-align: middle;"></i></a>
+        <a href="problem-statements.html" target="_blank" class="nav-link">Problem Statements <i
+            data-lucide="arrow-up-right"
+            style="width: 12px; height: 12px; display: inline-align; vertical-align: middle;"></i></a>
         <a href="#linktree" class="nav-link">Linktree</a>
         <a href="#faq" class="nav-link">FAQs</a>
         <a href="#partners" class="nav-link">Organizers</a>
-        <a href="index.html" class="nav-link nav-btn-main">Main Website <i data-lucide="arrow-up-right" style="width: 14px; height: 14px; display: inline; vertical-align: middle; margin-left: 2px;"></i></a>
+        <a href="index.html" class="nav-link nav-btn-main">Main Website <i data-lucide="arrow-up-right"
+            style="width: 14px; height: 14px; display: inline; vertical-align: middle; margin-left: 2px;"></i></a>
       </nav>
 
       <div class="controls-container">
@@ -90,24 +93,30 @@
             <span class="highlight-text">Hackathon 2026</span>
           </h1>
           <div class="status-badge">REGISTRATIONS OPEN</div>
-          
+
           <p class="hero-description">
-            Join the hardware-centric design revolution. Innovate at the edge, design low-power solutions, and implement machine learning applications on modern embedded systems at Parala Maharaja Engineering College.
+            Join the hardware-centric design revolution. Innovate at the edge, design low-power solutions, and implement
+            machine learning applications on modern embedded systems at Parala Maharaja Engineering College.
           </p>
 
           <div class="organizers-list">
             <h4>Organized by:</h4>
             <ul>
-              <li><i data-lucide="shield-check"></i> <span><strong>Organizer:</strong> IEEE Electron Devices Society PMEC SBC &amp; IEEE Council on Electronic Design Automation.</span></li>
-              <li><i data-lucide="shield-check"></i> <span><strong>Sponsors:</strong> IEEE Bhubaneswar Section, Chips to Start-up (C2S), ETIOS Society &amp; Dept. Of Electronics and Telecommunication Engineering.</span></li>
-              <li><i data-lucide="shield-check"></i> <span><strong>Technical Sponsors:</strong> AMD, Renesas &amp; Microchip</span></li>
+              <li><i data-lucide="shield-check"></i> <span><strong>Organizer:</strong> IEEE Electron Devices Society
+                  PMEC SBC &amp; IEEE Council on Electronic Design Automation.</span></li>
+              <li><i data-lucide="shield-check"></i> <span><strong>Sponsors:</strong> IEEE Bhubaneswar Section, Chips to
+                  Start-up (C2S), ETIOS Society &amp; Dept. Of Electronics and Telecommunication Engineering.</span>
+              </li>
+              <li><i data-lucide="shield-check"></i> <span><strong>Technical Sponsors:</strong> AMD, Renesas &amp;
+                  Microchip</span></li>
             </ul>
           </div>
         </div>
 
         <div class="hero-poster reveal delay-1">
           <div class="poster-container">
-            <img src="assets/our_gallery/hackathons/edge_comp_hackathon.png" alt="Edge AI Hackathon 2026 Poster" class="poster-img">
+            <img src="assets/our_gallery/hackathons/edge_comp_hackathon.png" alt="Edge AI Hackathon 2026 Poster"
+              class="poster-img">
             <div class="poster-overlay">
               <a href="assets/edge_ai_hackathon/EDGE AI brochure.pdf" target="_blank" class="btn btn-secondary">
                 <i data-lucide="file-text"></i> View Full Brochure PDF
@@ -121,7 +130,7 @@
     <!-- Overview Grid -->
     <section id="overview" class="section section-gray">
       <div class="container grid-2">
-        
+
         <!-- Quick Info Card -->
         <div class="info-card reveal">
           <div class="card-header">
@@ -151,11 +160,13 @@
             </tr>
             <tr>
               <td><strong>Registration:</strong></td>
-              <td><a href="https://forms.gle/Ai4ZrUFCrUX9fGFQA" target="_blank" rel="noopener noreferrer" style="color:var(--primary);font-weight:600;">Register Now ↗</a></td>
+              <td><a href="https://forms.gle/Ai4ZrUFCrUX9fGFQA" target="_blank" rel="noopener noreferrer"
+                  style="color:var(--primary);font-weight:600;">Register Now ↗</a></td>
             </tr>
           </table>
           <div class="card-footer-buttons">
-            <a href="assets/edge_ai_hackathon/EDGE AI brochure.pdf" download="Edge_AI_Hackathon_Brochure.pdf" class="btn btn-primary btn-full">
+            <a href="assets/edge_ai_hackathon/EDGE AI brochure.pdf" download="Edge_AI_Hackathon_Brochure.pdf"
+              class="btn btn-primary btn-full">
               <i data-lucide="download"></i> Download Brochure PDF
             </a>
           </div>
@@ -169,12 +180,15 @@
           </div>
           <div class="about-body">
             <p>
-              The Edge AI Hackathon 2026 is an elite hardware-centric sprint designed to foster local engineering innovation. Participating teams will work under time constraints to address real-world application challenges, creating optimized hardware solutions that utilize embedded intelligence at the sensor node.
+              The Edge AI Hackathon 2026 is an elite hardware-centric sprint designed to foster local engineering
+              innovation. Participating teams will work under time constraints to address real-world application
+              challenges, creating optimized hardware solutions that utilize embedded intelligence at the sensor node.
             </p>
             <p>
-              By combining FPGA, microcontrollers, and low-latency computer logic, students are encouraged to bridge the gap between high-level algorithms and resource-constrained silicon platforms.
+              By combining FPGA, microcontrollers, and low-latency computer logic, students are encouraged to bridge the
+              gap between high-level algorithms and resource-constrained silicon platforms.
             </p>
-            
+
             <h4 class="focus-title">Major Focus Themes:</h4>
             <div class="theme-tags">
               <span class="theme-tag">Edge AI</span>
@@ -199,16 +213,21 @@
           <div class="about-image-wrapper">
             <img src="assets/logos_banners/about_pmec.jpeg" alt="PMEC Campus" class="about-section-img">
           </div>
-          
+
           <!-- Right Column: Content -->
           <div class="about-content-wrapper">
             <span class="section-tag">Institution Overview</span>
             <h2>About Parala Maharaja Engineering College (PMEC)</h2>
             <p>
-              Parala Maharaja Engineering College (PMEC), Berhampur came into existence in the year 2009 on April 26th, with an area of nearly 80 acres. Now this college acts as an Autonomous college affiliated to BPUT, Odisha, from the year 2021. This college is one of the premier technical institutes in the state and is the only Government Engineering College in South Odisha. It offers 8 B.Tech programmes, 5 M.Tech programmes, and serves as a Nodal Centre for Ph.D. research under BPUT.
+              Parala Maharaja Engineering College (PMEC), Berhampur came into existence in the year 2009 on April 26th,
+              with an area of nearly 80 acres. Now this college acts as an Autonomous college affiliated to BPUT,
+              Odisha, from the year 2021. This college is one of the premier technical institutes in the state and is
+              the only Government Engineering College in South Odisha. It offers 8 B.Tech programmes, 5 M.Tech
+              programmes, and serves as a Nodal Centre for Ph.D. research under BPUT.
             </p>
             <p>
-              Government of Odisha has recognized PMEC as a leading institution with state-of-the-art academic infrastructure, laboratories, library, hostels, research facilities and continuous campus development.
+              Government of Odisha has recognized PMEC as a leading institution with state-of-the-art academic
+              infrastructure, laboratories, library, hostels, research facilities and continuous campus development.
             </p>
           </div>
         </div>
@@ -271,10 +290,15 @@
             <span class="section-tag">Academic Department</span>
             <h2>Department of Electronics &amp; Telecommunication Engineering</h2>
             <p>
-              The Department of Electronics and Telecommunication Engineering was established in 2013 with an intake of 60 students. The department has expertise in Communication Systems, Image Processing, Signal Processing, VLSI Design and Embedded Systems.
+              The Department of Electronics and Telecommunication Engineering was established in 2013 with an intake of
+              60 students. The department has expertise in Communication Systems, Image Processing, Signal Processing,
+              VLSI Design and Embedded Systems.
             </p>
             <p>
-              Students receive extensive laboratory exposure through modern facilities and project-based learning. The department has received ₹65.19 Lakhs under the Chips-to-Startup (C2S) scheme from MeitY, Government of India, enabling the establishment of advanced laboratories equipped with industry-standard FPGA boards and EDA software. Graduates pursue successful careers in both core electronics and IT industries.
+              Students receive extensive laboratory exposure through modern facilities and project-based learning. The
+              department has received ₹65.19 Lakhs under the Chips-to-Startup (C2S) scheme from MeitY, Government of
+              India, enabling the establishment of advanced laboratories equipped with industry-standard FPGA boards and
+              EDA software. Graduates pursue successful careers in both core electronics and IT industries.
             </p>
           </div>
 
@@ -333,103 +357,116 @@
     </section>
 
     <!-- C2S Featured Initiative Section -->
-    <section id="c2s-initiative" class="section">
-      <div class="container">
-        <!-- Row 1: Image & Text -->
-        <div class="grid-2 align-center reveal">
+   <section id="ieee-c2s-initiative" class="ieee-c2s-section">
+  <div class="ieee-c2s-container">
+    
+    <div class="ieee-c2s-header">
+      <h2 class="ieee-c2s-title">Chips to Startup (C2S) Programme</h2>
+      <p class="ieee-c2s-subtitle">National Semiconductor Initiative • Ministry of Electronics & Information Technology (MeitY) • Government of India</p>
+      <p class="ieee-c2s-intro">Parala Maharaja Engineering College (PMEC) is proudly selected under the national C2S Programme to foster indigenous chip design capabilities.</p>
+    </div>
 
-          <!-- Left Column: C2S Logo + Chip Image stacked -->
-          <div class="c2s-image-col">
-            <div class="c2s-logo-img-wrap">
-              <img src="assets/logos_banners/c2s.png" alt="Chips to Startup C2S Programme Logo" class="c2s-logo-img">
-            </div>
-            <div class="c2s-chip-img-wrap2">
-              <img src="assets/our_gallery/C2S@PMEC/c2s_chip_silicon_die_with_pcb.png" alt="PMEC IC-C2S0061 Silicon Die with PCB" class="c2s-chip-img2">
-              <div class="c2s-chip-img-caption">
-                <i data-lucide="cpu"></i> IC-C2S0061 — PMEC Silicon Die
-              </div>
-            </div>
+    <div class="ieee-c2s-main-card">
+      <div class="ieee-c2s-grid-layout">
+        
+        <div class="ieee-c2s-col ieee-c2s-col-center">
+          <div class="ieee-c2s-logo-box">
+            <img src="assets/logos_banners/c2s.png" alt="C2S Programme Logo" class="ieee-c2s-logo">
           </div>
+          <div class="ieee-c2s-badge-stack">
+            <span class="ieee-c2s-tag"><i data-lucide="building"></i> MeitY Initiative</span>
+            <span class="ieee-c2s-tag"><i data-lucide="indian-rupee"></i> ₹65.19 Lakh Grant</span>
+            <span class="ieee-c2s-tag"><i data-lucide="cpu"></i> Semiconductor Ecosystem</span>
+          </div>
+        </div>
 
-          <!-- Right Column: Content -->
-          <div class="about-content-wrapper">
-            <span class="section-tag">National Initiative · MeitY, Govt. of India</span>
-            <h2>Chips to Startup <span style="color:var(--primary)">(C2S) Programme</span></h2>
-            <p>
-              The C2S Programme at PMEC empowers students with hands-on training in semiconductor chip design, VLSI, FPGA, ASIC, and SoC development. Supported by a <strong>₹65.19 lakh grant</strong> from MeitY, it bridges classroom learning with real-world chip innovation through state-of-the-art EDA labs.
-            </p>
-            <!-- Chip Callout -->
-            <div class="c2s-chip-callout">
-              <div class="c2s-chip-callout-header">
-                <i data-lucide="zap"></i>
-                <strong>PMEC's Indigenous Chip — IC-C2S0061</strong>
-              </div>
-              <p>A <strong>High-Performance Multiplier IC</strong> designed by PMEC researchers — part of India's first fully indigenous semiconductor chip under C2S. Powers hardware-based face recognition &amp; security systems using FPGA + ASIC architecture. A proud contribution to <strong>#MakeInIndia &amp; #SemiconIndia</strong>.</p>
-              <div class="c2s-chip-tags">
-                <span><i data-lucide="shield"></i> Face Recognition</span>
-                <span><i data-lucide="layers"></i> FPGA + ASIC</span>
-                <span><i data-lucide="flag"></i> #MakeInIndia</span>
-                <span><i data-lucide="zap"></i> #SemiconIndia</span>
-              </div>
+        <div class="ieee-c2s-col">
+          <h3 class="ieee-c2s-col-title">About C2S</h3>
+          <p class="ieee-c2s-body-text">
+            A national initiative by MeitY to catalyze the domestic semiconductor ecosystem. The programme empowers engineering institutions with advanced training in Chip Design, FPGA, ASIC, and SoC development. Supported by a ₹65.19 lakh grant, PMEC bridges theoretical VLSI concepts with real-world silicon innovation through the state-of-the-art EDCSD Laboratory.
+          </p>
+        </div>
+
+        <div class="ieee-c2s-col">
+          <h3 class="ieee-c2s-col-title">PMEC's Indigenous Chip<br><span>IC-C2S0061</span></h3>
+          <p class="ieee-c2s-body-text">
+            A High-Performance Multiplier IC designed entirely by researchers at PMEC and presented under the national C2S Programme. Fabricated through SCL Chandigarh, it stands as one of India's indigenous semiconductor chips powering modern hardware applications.
+          </p>
+          <div class="ieee-c2s-chip-tags">
+            <span class="ieee-c2s-micro-tag"><i data-lucide="scan-face"></i> Face Recognition</span>
+            <span class="ieee-c2s-micro-tag"><i data-lucide="layers"></i> FPGA + ASIC</span>
+            <span class="ieee-c2s-micro-tag"><i data-lucide="zap"></i> Semicon India</span>
+            <span class="ieee-c2s-micro-tag"><i data-lucide="flag"></i> Make in India</span>
+          </div>
+        </div>
+
+        <div class="ieee-c2s-col ieee-c2s-col-visual">
+          <div class="ieee-c2s-image-container">
+            <img src="assets/our_gallery/C2S@PMEC/c2s_chip_silicon_die_with_pcb.png" alt="IC-C2S0061 Silicon Die" class="ieee-c2s-die-img">
+            <div class="ieee-c2s-image-caption">
+              <strong>IC-C2S0061</strong> • PMEC Silicon Die
             </div>
           </div>
         </div>
 
-        <!-- Row 2: Stats Cards -->
-        <div class="about-stats-grid reveal delay-1">
-          <div class="about-stat-card">
-            <i data-lucide="indian-rupee"></i>
-            <div>
-              <strong>₹65.19 Lakh</strong>
-              <span>MeitY Grant</span>
-            </div>
-          </div>
-          <div class="about-stat-card">
-            <i data-lucide="cpu"></i>
-            <div>
-              <strong>IC-C2S0061</strong>
-              <span>Indigenous Chip</span>
-            </div>
-          </div>
-          <div class="about-stat-card">
-            <i data-lucide="flask-conical"></i>
-            <div>
-              <strong>EDCSD Lab</strong>
-              <span>Chip Design Lab</span>
-            </div>
-          </div>
-          <div class="about-stat-card">
-            <i data-lucide="layers"></i>
-            <div>
-              <strong>FPGA &amp; ASIC</strong>
-              <span>Design Tracks</span>
-            </div>
-          </div>
-          <div class="about-stat-card">
-            <i data-lucide="settings-2"></i>
-            <div>
-              <strong>Industry EDA</strong>
-              <span>Tools &amp; Software</span>
-            </div>
-          </div>
-          <div class="about-stat-card">
-            <i data-lucide="flag"></i>
-            <div>
-              <strong>Make in India</strong>
-              <span>Semicon Initiative</span>
-            </div>
-          </div>
+      </div>
+    </div>
+
+    <div class="ieee-c2s-stats-grid">
+      <div class="ieee-c2s-stat-card">
+        <i data-lucide="indian-rupee"></i>
+        <div class="ieee-c2s-stat-data">
+          <strong>₹65.19 Lakh</strong>
+          <span>MeitY Grant</span>
         </div>
       </div>
-    </section>
+      <div class="ieee-c2s-stat-card">
+        <i data-lucide="flask-conical"></i>
+        <div class="ieee-c2s-stat-data">
+          <strong>EDCSD Lab</strong>
+          <span>Chip Design</span>
+        </div>
+      </div>
+      <div class="ieee-c2s-stat-card">
+        <i data-lucide="settings-2"></i>
+        <div class="ieee-c2s-stat-data">
+          <strong>Cadence + Vivado</strong>
+          <span>EDA Tools</span>
+        </div>
+      </div>
+      <div class="ieee-c2s-stat-card">
+        <i data-lucide="monitor-speaker"></i>
+        <div class="ieee-c2s-stat-data">
+          <strong>FPGA & ASIC</strong>
+          <span>Hardware Design</span>
+        </div>
+      </div>
+      <div class="ieee-c2s-stat-card">
+        <i data-lucide="cpu"></i>
+        <div class="ieee-c2s-stat-data">
+          <strong>IC-C2S0061</strong>
+          <span>Indigenous Chip</span>
+        </div>
+      </div>
+      <div class="ieee-c2s-stat-card">
+        <i data-lucide="flag"></i>
+        <div class="ieee-c2s-stat-data">
+          <strong>Semicon India</strong>
+          <span>National Mission</span>
+        </div>
+      </div>
+    </div>
 
+  </div>
+</section>
     <!-- IEEE Community at PMEC Section -->
 
     <section id="ieee-community" class="section section-gray">
       <div class="container">
         <div class="section-header text-center reveal">
           <h2>IEEE Community at PMEC</h2>
-          <p>A growing ecosystem of IEEE student professionals, researchers, and innovators at Parala Maharaja Engineering College</p>
+          <p>A growing ecosystem of IEEE student professionals, researchers, and innovators at Parala Maharaja
+            Engineering College</p>
         </div>
 
         <!-- Row 1: Three Organisation Cards -->
@@ -438,14 +475,17 @@
           <!-- Card 1: IEEE Student Branch -->
           <div class="ieee-org-card">
             <div class="ieee-org-logo-wrap">
-              <img src="assets/logos_banners/ieee_pmec_stb_logo.png" alt="IEEE Student Branch PMEC" class="ieee-org-logo">
+              <img src="assets/logos_banners/ieee_pmec_stb_logo.png" alt="IEEE Student Branch PMEC"
+                class="ieee-org-logo">
             </div>
             <h3 class="ieee-org-title">IEEE Student Branch PMEC</h3>
             <div class="sb-achievement-banner">
               <i data-lucide="trophy"></i>
               <span>Odisha's <strong>2nd Largest</strong> IEEE Student Branch</span>
             </div>
-            <p class="ieee-org-desc">Established in November 2024, the IEEE Student Branch at PMEC is one of the fastest-growing student communities in Odisha, promoting innovation through workshops, competitions, technical talks, and industry interaction.</p>
+            <p class="ieee-org-desc">Established in November 2024, the IEEE Student Branch at PMEC is one of the
+              fastest-growing student communities in Odisha, promoting innovation through workshops, competitions,
+              technical talks, and industry interaction.</p>
             <div class="ieee-org-stats">
               <span class="ieee-stat-chip"><i data-lucide="calendar" class="chip-icon"></i> Nov 2024</span>
               <span class="ieee-stat-chip"><i data-lucide="users" class="chip-icon"></i> 80+ Members</span>
@@ -458,7 +498,9 @@
               <img src="assets/logos_banners/IEEE-EDS-Logo.webp" alt="IEEE EDS PMEC SBC" class="ieee-org-logo">
             </div>
             <h3 class="ieee-org-title">IEEE Electron Devices Society PMEC SBC</h3>
-            <p class="ieee-org-desc">Established in April 2026, the IEEE EDS Student Branch Chapter focuses on semiconductor devices, VLSI, embedded systems, Edge AI, and hardware innovation through research, hackathons, and technical activities.</p>
+            <p class="ieee-org-desc">Established in April 2026, the IEEE EDS Student Branch Chapter focuses on
+              semiconductor devices, VLSI, embedded systems, Edge AI, and hardware innovation through research,
+              hackathons, and technical activities.</p>
             <div class="ieee-org-stats">
               <span class="ieee-stat-chip"><i data-lucide="calendar" class="chip-icon"></i> Apr 2026</span>
               <span class="ieee-stat-chip"><i data-lucide="users" class="chip-icon"></i> 44+ Members</span>
@@ -472,7 +514,8 @@
               <img src="assets/logos_banners/ceda.png" alt="IEEE CEDA PMEC" class="ieee-org-logo">
             </div>
             <h3 class="ieee-org-title">IEEE Council on Electronic Design Automation</h3>
-            <p class="ieee-org-desc">The IEEE CEDA chapter promotes Electronic Design Automation, FPGA, ASIC, SoC design, and hardware innovation while supporting the Chips to Startup (C2S) ecosystem at PMEC.</p>
+            <p class="ieee-org-desc">The IEEE CEDA chapter promotes Electronic Design Automation, FPGA, ASIC, SoC
+              design, and hardware innovation while supporting the Chips to Startup (C2S) ecosystem at PMEC.</p>
             <div class="ieee-org-stats">
               <span class="ieee-stat-chip"><i data-lucide="calendar" class="chip-icon"></i> Apr 2026</span>
               <span class="ieee-stat-chip"><i data-lucide="layers" class="chip-icon"></i> FPGA & ASIC</span>
@@ -494,12 +537,15 @@
             <!-- Faculty Advisor -->
             <div class="faculty-profile-card">
               <div class="faculty-avatar-wrap">
-                <img src="assets/committi_members/faculty_advisor.jpeg" alt="Dr. Raghunandan Swain" class="faculty-avatar-img">
+                <img src="assets/committi_members/faculty_advisor.jpeg" alt="Dr. Raghunandan Swain"
+                  class="faculty-avatar-img">
               </div>
               <div class="faculty-role-badge">Faculty Advisor</div>
               <h4 class="faculty-name">Dr. Raghunandan Swain</h4>
-              <p class="faculty-desc">Providing academic leadership and research guidance to the IEEE EDS PMEC Student Branch Chapter, fostering innovation in semiconductor devices, VLSI, and embedded systems.</p>
-              <a href="https://sites.google.com/site/drraghunandanswain/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary faculty-btn">
+              <p class="faculty-desc">Providing academic leadership and research guidance to the IEEE EDS PMEC Student
+                Branch Chapter, fostering innovation in semiconductor devices, VLSI, and embedded systems.</p>
+              <a href="https://sites.google.com/site/drraghunandanswain/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary faculty-btn">
                 <i data-lucide="external-link"></i> View Profile
               </a>
             </div>
@@ -507,12 +553,15 @@
             <!-- Branch Counselor -->
             <div class="faculty-profile-card">
               <div class="faculty-avatar-wrap">
-                <img src="assets/committi_members/branch_counselor.png" alt="Dr. Suryalok Dash" class="faculty-avatar-img">
+                <img src="assets/committi_members/branch_counselor.png" alt="Dr. Suryalok Dash"
+                  class="faculty-avatar-img">
               </div>
               <div class="faculty-role-badge">Branch Counselor</div>
               <h4 class="faculty-name">Dr. Suryalok Dash</h4>
-              <p class="faculty-desc">Mentoring IEEE student activities and fostering professional growth through technical and leadership initiatives across the IEEE Student Branch and EDS Chapter.</p>
-              <a href="https://www.linkedin.com/in/suryalok-dash-ph-d-14942637/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary faculty-btn">
+              <p class="faculty-desc">Mentoring IEEE student activities and fostering professional growth through
+                technical and leadership initiatives across the IEEE Student Branch and EDS Chapter.</p>
+              <a href="https://www.linkedin.com/in/suryalok-dash-ph-d-14942637/" target="_blank"
+                rel="noopener noreferrer" class="btn btn-secondary faculty-btn">
                 <i data-lucide="external-link"></i> View Profile
               </a>
             </div>
@@ -545,7 +594,8 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <h2>Why Build at PMEC?</h2>
-          <p>Unlocking potential through state-of-the-art silicon design labs and advanced embedded systems platforms</p>
+          <p>Unlocking potential through state-of-the-art silicon design labs and advanced embedded systems platforms
+          </p>
         </div>
 
         <div class="why-grid">
@@ -555,7 +605,8 @@
               <i data-lucide="cpu"></i>
             </div>
             <h3>Advanced FPGA Laboratory</h3>
-            <p>Access high-end AMD/Xilinx FPGA boards for real-time parallel computing and custom logic hardware design.</p>
+            <p>Access high-end AMD/Xilinx FPGA boards for real-time parallel computing and custom logic hardware design.
+            </p>
           </div>
 
           <!-- Card 2 -->
@@ -564,7 +615,8 @@
               <i data-lucide="wrench"></i>
             </div>
             <h3>Industry Standard EDA Tools</h3>
-            <p>Train on professional Electronic Design Automation software suites for schematic entry, circuit simulation, and layout design.</p>
+            <p>Train on professional Electronic Design Automation software suites for schematic entry, circuit
+              simulation, and layout design.</p>
           </div>
 
           <!-- Card 3 -->
@@ -573,7 +625,8 @@
               <i data-lucide="microchip"></i>
             </div>
             <h3>Renesas &amp; AMD Hardware</h3>
-            <p>Prototype on modern Edge AI hardware platforms, including Renesas microcontrollers and AMD system-on-chips.</p>
+            <p>Prototype on modern Edge AI hardware platforms, including Renesas microcontrollers and AMD
+              system-on-chips.</p>
           </div>
 
           <!-- Card 4 -->
@@ -582,7 +635,8 @@
               <i data-lucide="hard-drive"></i>
             </div>
             <h3>Embedded Systems Development</h3>
-            <p>Deploy low-power algorithms onto ARM Cortex and RISC-V development architectures using multi-sensor interfaces.</p>
+            <p>Deploy low-power algorithms onto ARM Cortex and RISC-V development architectures using multi-sensor
+              interfaces.</p>
           </div>
 
           <!-- Card 5 -->
@@ -591,7 +645,8 @@
               <i data-lucide="network"></i>
             </div>
             <h3>C2S Semiconductor Laboratory</h3>
-            <p>Leverage the MeitY-backed Chips-to-Startup laboratory ecosystem designed specifically for microelectronics and chip design.</p>
+            <p>Leverage the MeitY-backed Chips-to-Startup laboratory ecosystem designed specifically for
+              microelectronics and chip design.</p>
           </div>
 
           <!-- Card 6 -->
@@ -600,7 +655,8 @@
               <i data-lucide="lightbulb"></i>
             </div>
             <h3>Research Driven Environment</h3>
-            <p>Collaborate under academic mentors specializing in VLSI circuits, machine learning acceleration, and smart sensor nodes.</p>
+            <p>Collaborate under academic mentors specializing in VLSI circuits, machine learning acceleration, and
+              smart sensor nodes.</p>
           </div>
         </div>
       </div>
@@ -609,14 +665,14 @@
     <!-- Timeline & Eligibility -->
     <section id="timeline" class="section">
       <div class="container grid-2 align-start">
-        
+
         <!-- PMEC Style Notices Timeline -->
         <div class="timeline-section reveal">
           <div class="section-title-wrapper">
             <i data-lucide="calendar" class="section-title-icon"></i>
             <h3>Event Timeline</h3>
           </div>
-          
+
           <div class="notice-timeline">
             <!-- Timeline Item -->
             <div class="notice-item">
@@ -628,7 +684,7 @@
                 <span class="notice-status text-red">August 15, 2026 (Deadline)</span>
               </div>
             </div>
-            
+
             <!-- Timeline Item -->
             <div class="notice-item">
               <div class="notice-badge-container">
@@ -670,7 +726,7 @@
             <i data-lucide="user-check" class="section-title-icon"></i>
             <h3>Eligibility Criteria</h3>
           </div>
-          
+
           <div class="eligibility-body">
             <ul class="eligibility-list">
               <li>
@@ -691,7 +747,8 @@
                 <i data-lucide="user-plus"></i>
                 <div>
                   <strong>Maximum Team Size: 5 Members</strong>
-                  <p>Teams must contain 3 to 5 members to distribute work across architecture, programming and hardware implementation.</p>
+                  <p>Teams must contain 3 to 5 members to distribute work across architecture, programming and hardware
+                    implementation.</p>
                 </div>
               </li>
               <li>
@@ -719,12 +776,14 @@
             <h2>Problem Statements</h2>
             <p class="subtitle">Explore challenges across 6 different domains.</p>
           </div>
-          
+
           <div class="problem-body">
-            <p>The official problem statements list for the Edge AI Hackathon 2026 is now live. Analyze the statements, select your track, download the booklets, and build your prototypes.</p>
-            
+            <p>The official problem statements list for the Edge AI Hackathon 2026 is now live. Analyze the statements,
+              select your track, download the booklets, and build your prototypes.</p>
+
             <a href="problem-statements.html" target="_blank" class="btn btn-primary">
-              View Problem Statements <i data-lucide="external-link" style="width:16px;height:16px;margin-left:6px;vertical-align:middle;display:inline-block;"></i>
+              View Problem Statements <i data-lucide="external-link"
+                style="width:16px;height:16px;margin-left:6px;vertical-align:middle;display:inline-block;"></i>
             </a>
           </div>
         </div>
@@ -741,7 +800,8 @@
 
         <div class="linktree-container max-800 reveal">
           <!-- Link Item 1: Abstract Submission Format -->
-          <a href="https://docs.google.com/document/d/1sSmM1PGS0dNzzcng6j35CXnay64uW0ky3Ho9vgzL_k0/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="linktree-item">
+          <a href="https://docs.google.com/document/d/1sSmM1PGS0dNzzcng6j35CXnay64uW0ky3Ho9vgzL_k0/edit?tab=t.0"
+            target="_blank" rel="noopener noreferrer" class="linktree-item">
             <div class="linktree-icon-box">
               <i data-lucide="file-text"></i>
             </div>
@@ -769,7 +829,8 @@
           </a>
 
           <!-- Link Item 3: Brochure Link -->
-          <a href="assets/edge_ai_hackathon/EDGE AI brochure.pdf" target="_blank" rel="noopener noreferrer" class="linktree-item">
+          <a href="assets/edge_ai_hackathon/EDGE AI brochure.pdf" target="_blank" rel="noopener noreferrer"
+            class="linktree-item">
             <div class="linktree-icon-box">
               <i data-lucide="file-down"></i>
             </div>
@@ -831,7 +892,8 @@
             </div>
             <div class="linktree-info">
               <h4>Shortlisted Teams Registration Link</h4>
-              <p>Registration link for teams selected for Round 1 &amp; Round 2. To be shared after abstract results.</p>
+              <p>Registration link for teams selected for Round 1 &amp; Round 2. To be shared after abstract results.
+              </p>
             </div>
             <div class="linktree-action">
               <span class="linktree-badge badge-locked">To be shared Sept 18</span>
@@ -844,7 +906,7 @@
     <!-- PMEC ERP Notice queries & FAQ -->
     <section id="faq" class="section section-gray">
       <div class="container grid-2 align-start">
-        
+
         <!-- ERP Style Queries Notice -->
         <div class="queries-card reveal">
           <div class="erp-header">
@@ -857,11 +919,11 @@
               <span class="erp-label">FACULTY ORGANIZERS:</span>
               <div class="erp-contacts">
                 <div class="contact-row">
-                  <strong>Dr. Raghunandan Swain</strong> 
+                  <strong>Dr. Raghunandan Swain</strong>
                   <span><a href="tel:+919438801526"><i class="fas fa-phone"></i> +91-9438801526</a></span>
                 </div>
                 <div class="contact-row">
-                  <strong>Dr. Suryalok Dash</strong> 
+                  <strong>Dr. Suryalok Dash</strong>
                   <span><a href="tel:+919861135145"><i class="fas fa-phone"></i> +91-9861135145</a></span>
                 </div>
               </div>
@@ -897,7 +959,8 @@
             <!-- Official Office details -->
             <div class="erp-field">
               <span class="erp-label">OFFICE EMAIL:</span>
-              <span class="erp-value"><a href="mailto:ieee.eds@pmec.ac.in"><i class="fas fa-envelope"></i> ieee.eds@pmec.ac.in</a></span>
+              <span class="erp-value"><a href="mailto:ieee.eds@pmec.ac.in"><i class="fas fa-envelope"></i>
+                  ieee.eds@pmec.ac.in</a></span>
             </div>
             <div class="erp-field">
               <span class="erp-label">LOCATION:</span>
@@ -912,7 +975,7 @@
             <i data-lucide="help-circle" class="section-title-icon"></i>
             <h3>Frequently Asked Questions</h3>
           </div>
-          
+
           <div class="faq-container">
             <!-- FAQ Item -->
             <div class="faq-item">
@@ -921,7 +984,11 @@
                 <i data-lucide="chevron-down" class="faq-arrow"></i>
               </button>
               <div class="faq-answer">
-                <p>Online registration forms are active. <a href="https://forms.gle/Ai4ZrUFCrUX9fGFQA" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Click here to Register Now ↗</a> and submit your project proposal abstract before the Round 0 (Abstract Submission) deadline on August 15, 2026.</p>
+                <p>Online registration forms are active. <a href="https://forms.gle/Ai4ZrUFCrUX9fGFQA" target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: var(--primary); font-weight: 600; text-decoration: underline;">Click here to Register
+                    Now ↗</a> and submit your project proposal abstract before the Round 0 (Abstract Submission)
+                  deadline on August 15, 2026.</p>
               </div>
             </div>
 
@@ -932,7 +999,9 @@
                 <i data-lucide="chevron-down" class="faq-arrow"></i>
               </button>
               <div class="faq-answer">
-                <p>The hackathon is open to B.Tech, M.Tech, and PhD students. Participation must be in teams of 3 to 5 members. Only intra-college teams are allowed (inter-college teams are not permitted), though a team may contain members from different branches or degree streams.</p>
+                <p>The hackathon is open to B.Tech, M.Tech, and PhD students. Participation must be in teams of 3 to 5
+                  members. Only intra-college teams are allowed (inter-college teams are not permitted), though a team
+                  may contain members from different branches or degree streams.</p>
               </div>
             </div>
 
@@ -943,7 +1012,9 @@
                 <i data-lucide="chevron-down" class="faq-arrow"></i>
               </button>
               <div class="faq-answer">
-                <p>Yes, all participating teams that successfully submit their solutions and abstracts will receive official participation certificates. Winners of the respective tracks (FPGA, Raspberry Pi/Renesas, and ESP/Arduino) will receive certificates of merit alongside cash prizes from the ₹45,000 prize pool.</p>
+                <p>Yes, all participating teams that successfully submit their solutions and abstracts will receive
+                  official participation certificates. Winners of the respective tracks (FPGA, Raspberry Pi/Renesas, and
+                  ESP/Arduino) will receive certificates of merit alongside cash prizes from the ₹45,000 prize pool.</p>
               </div>
             </div>
 
@@ -954,7 +1025,9 @@
                 <i data-lucide="chevron-down" class="faq-arrow"></i>
               </button>
               <div class="faq-answer">
-                <p>Development boards (including FPGA, Raspberry Pi, ESP32, and Renesas kits) will be provided to the qualified teams by the organizers. However, teams must bring their own sensors, actuators, modules, and other peripherals required for their specific project implementations.</p>
+                <p>Development boards (including FPGA, Raspberry Pi, ESP32, and Renesas kits) will be provided to the
+                  qualified teams by the organizers. However, teams must bring their own sensors, actuators, modules,
+                  and other peripherals required for their specific project implementations.</p>
               </div>
             </div>
 
@@ -965,7 +1038,8 @@
                 <i data-lucide="chevron-down" class="faq-arrow"></i>
               </button>
               <div class="faq-answer">
-                <p>Yes! Students from all academic years (including first-year students) and branches are highly encouraged to participate and collaborate on hardware prototyping solutions.</p>
+                <p>Yes! Students from all academic years (including first-year students) and branches are highly
+                  encouraged to participate and collaborate on hardware prototyping solutions.</p>
               </div>
             </div>
 
@@ -976,7 +1050,13 @@
                 <i data-lucide="chevron-down" class="faq-arrow"></i>
               </button>
               <div class="faq-answer">
-                <p>Projects are graded according to the official <strong>40:60 Evaluation Rule</strong>. 40% of the score depends on your specific hardware track optimizations (FPGA, Raspberry Pi/Renesas, or ESP32/Arduino). The remaining 60% of the score is based on core factors like innovation, complexity, functionality, track-specific performance, and documentation. You can view the full breakdown of parameters in our <a href="problem-statements.html?tab=tab-criteria" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Evaluation Criteria Portal</a>.</p>
+                <p>Projects are graded according to the official <strong>40:60 Evaluation Rule</strong>. 40% of the
+                  score depends on your specific hardware track optimizations (FPGA, Raspberry Pi/Renesas, or
+                  ESP32/Arduino). The remaining 60% of the score is based on core factors like innovation, complexity,
+                  functionality, track-specific performance, and documentation. You can view the full breakdown of
+                  parameters in our <a href="problem-statements.html?tab=tab-criteria" target="_blank"
+                    style="color: var(--primary); font-weight: 600; text-decoration: underline;">Evaluation Criteria
+                    Portal</a>.</p>
               </div>
             </div>
           </div>
@@ -992,13 +1072,14 @@
           <h2>Organizers &amp; Partners</h2>
           <p>Collaborating organizations backing the Edge AI Hackathon 2026</p>
         </div>
-        
+
         <!-- Organizers -->
         <h3 class="sponsors-group-title text-center reveal">Organizers</h3>
         <div class="partners-grid reveal delay-1" style="margin-bottom: 50px;">
           <!-- Organizer Card 1 -->
           <div class="partner-card">
-            <img src="assets/logos_banners/eds_pmec_logo.png" alt="IEEE Electron Devices Society Logo" class="partner-logo">
+            <img src="assets/logos_banners/eds_pmec_logo.png" alt="IEEE Electron Devices Society Logo"
+              class="partner-logo">
             <h4>IEEE Electron Devices Society PMEC SBC</h4>
             <span class="partner-role">Organizer</span>
           </div>
@@ -1015,7 +1096,8 @@
         <div class="partners-grid reveal delay-1" style="margin-bottom: 50px;">
           <!-- Sponsor 1 -->
           <div class="partner-card">
-            <img src="assets/logos_banners/ieee_bbsr_section.png" alt="IEEE Bhubaneswar Section Logo" class="partner-logo">
+            <img src="assets/logos_banners/ieee_bbsr_section.png" alt="IEEE Bhubaneswar Section Logo"
+              class="partner-logo">
             <h4>IEEE Bhubaneswar Section</h4>
             <span class="partner-role">Sponsor</span>
           </div>
@@ -1074,11 +1156,14 @@
       <div class="container text-center reveal">
         <h2>Interested in Edge AI 2026?</h2>
         <p>Stay tuned</p>
-        <div class="cta-buttons" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-          <a href="https://www.linkedin.com/company/ieee-eds-pmec/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
+        <div class="cta-buttons"
+          style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+          <a href="https://www.linkedin.com/company/ieee-eds-pmec/" target="_blank" rel="noopener noreferrer"
+            class="btn btn-secondary btn-lg">
             Follow on LinkedIn <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://www.instagram.com/eds.pmec" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
+          <a href="https://www.instagram.com/eds.pmec" target="_blank" rel="noopener noreferrer"
+            class="btn btn-secondary btn-lg">
             Follow on Instagram <i class="fab fa-instagram"></i>
           </a>
         </div>
@@ -1132,7 +1217,8 @@
               </div>
               <div class="venue-details">
                 <strong>Event Venue Details</strong>
-                <span>Edge AI Hackathon 2026 will be conducted at the Department of Electronics &amp; Telecommunication Engineering, PMEC.</span>
+                <span>Edge AI Hackathon 2026 will be conducted at the Department of Electronics &amp; Telecommunication
+                  Engineering, PMEC.</span>
               </div>
             </div>
           </div>
@@ -1140,13 +1226,9 @@
           <!-- Right Column: Interactive Map Card -->
           <div class="venue-map-card">
             <!-- Paste Google Maps Embed iframe here -->
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d592871.8246649121!2d84.871777!3d19.357651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d571b3744d97b%3A0x8cf675a980f826d7!2sParala%20Maharaja%20Engineering%20College!5e1!3m2!1sen!2sin!4v1784188689107!5m2!1sen!2sin" 
-              width="100%" 
-              height="100%" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d592871.8246649121!2d84.871777!3d19.357651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d571b3744d97b%3A0x8cf675a980f826d7!2sParala%20Maharaja%20Engineering%20College!5e1!3m2!1sen!2sin!4v1784188689107!5m2!1sen!2sin"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
               referrerpolicy="strict-origin-when-cross-origin">
             </iframe>
           </div>
