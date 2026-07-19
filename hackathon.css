@@ -30,6 +30,12 @@ body.dark-mode .section-gray {
   gap: 40px;
 }
 
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
 .align-start {
   align-items: start;
 }
@@ -849,7 +855,7 @@ body.dark-mode .partner-logo {
     text-align: left;
   }
 
-  .grid-2 {
+  .grid-2, .grid-3 {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -2168,4 +2174,82 @@ body.dark-mode {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Prizes & Certificates Card Styles
+   ========================================================================== */
+
+.prize-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.prize-item:last-child {
+  margin-bottom: 0;
+}
+
+.prize-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+body.dark-mode .prize-icon-wrap {
+  background-color: rgba(var(--glow-rgb), 0.15);
+  color: var(--secondary);
+}
+
+.prize-icon-wrap.participant-cert {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+body.dark-mode .prize-icon-wrap.participant-cert {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+.prize-icon-wrap.sponsor-perks {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #8B5CF6;
+}
+
+body.dark-mode .prize-icon-wrap.sponsor-perks {
+  background-color: rgba(139, 92, 246, 0.2);
+  color: #A78BFA;
+}
+
+.prize-badge-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.prize-details h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.prize-details p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.prize-details .highlight-text-dark {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
 
