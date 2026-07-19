@@ -2176,80 +2176,129 @@ body.dark-mode {
 }
 
 /* ==========================================================================
-   Prizes & Certificates Card Styles
+   Prizes & Recognition Section Styles
    ========================================================================== */
 
-.prize-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 22px;
+.prizes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
 }
 
-.prize-item:last-child {
-  margin-bottom: 0;
-}
-
-.prize-icon-wrap {
+.prize-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-md);
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.prize-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.prize-card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
   background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
-  flex-shrink: 0;
+  letter-spacing: 0.5px;
 }
 
-body.dark-mode .prize-icon-wrap {
-  background-color: rgba(var(--glow-rgb), 0.15);
-  color: var(--secondary);
-}
-
-.prize-icon-wrap.participant-cert {
+.prize-card-badge.success-badge {
   background-color: rgba(16, 185, 129, 0.1);
   color: #10B981;
 }
 
-body.dark-mode .prize-icon-wrap.participant-cert {
-  background-color: rgba(16, 185, 129, 0.2);
-  color: #34D399;
-}
-
-.prize-icon-wrap.sponsor-perks {
+.prize-card-badge.info-badge {
   background-color: rgba(139, 92, 246, 0.1);
   color: #8B5CF6;
 }
 
-body.dark-mode .prize-icon-wrap.sponsor-perks {
-  background-color: rgba(139, 92, 246, 0.2);
-  color: #A78BFA;
+.prize-card-icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
 }
 
-.prize-badge-icon {
-  width: 22px;
-  height: 22px;
+.prize-card-icon-box svg, .prize-card-icon-box i {
+  width: 30px;
+  height: 30px;
 }
 
-.prize-details h4 {
+.prize-card-icon-box.success-icon {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+.prize-card-icon-box.info-icon {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #8B5CF6;
+}
+
+body.dark-mode .prize-card-badge {
+  background-color: rgba(var(--glow-rgb), 0.15);
+  color: var(--secondary);
+}
+
+body.dark-mode .prize-card-icon-box {
+  background-color: rgba(var(--glow-rgb), 0.15);
+  color: var(--secondary);
+}
+
+.prize-card h3 {
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0 0 4px 0;
+  margin-bottom: 15px;
 }
 
-.prize-details p {
-  font-size: 0.88rem;
-  line-height: 1.5;
+.prize-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
   color: var(--text-secondary);
-  margin: 0;
+  margin-bottom: 25px;
+  flex-grow: 1;
 }
 
-.prize-details .highlight-text-dark {
-  font-weight: 500;
-  color: var(--text-primary);
+.prize-card-footer {
+  width: 100%;
+  padding-top: 15px;
+  border-top: 1px solid var(--card-border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
+
+@media (max-width: 992px) {
+  .prizes-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
 
 
