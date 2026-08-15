@@ -2328,6 +2328,14 @@ body.dark-mode .deadline-alert-banner {
   flex-wrap: wrap;
 }
 
+.deadline-badge-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
 .deadline-badge-pill {
   display: inline-flex;
   align-items: center;
