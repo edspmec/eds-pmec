@@ -81,6 +81,31 @@
   <!-- Main Content -->
   <main style="padding-top: 80px;">
 
+    <!-- Top Announcement: Extended Deadline Banner -->
+    <div class="deadline-alert-banner reveal">
+      <div class="container">
+        <div class="deadline-alert-inner">
+          <div class="deadline-badge-pill">
+            <span class="deadline-pulse-dot"></span>
+            <i data-lucide="megaphone" class="deadline-icon"></i>
+            <span>DEADLINE EXTENDED</span>
+          </div>
+          <div class="deadline-details">
+            <span class="deadline-title">Round 0 – Abstract Submission</span>
+            <div class="deadline-date-flow">
+              <span class="old-deadline"><del>15 August 2026</del></span>
+              <span class="date-arrow">→</span>
+              <span class="new-deadline">15 September 2026</span>
+            </div>
+            <span class="deadline-subtext">Submit your abstract by the extended deadline.</span>
+          </div>
+          <a href="https://forms.gle/Ai4ZrUFCrUX9fGFQA" target="_blank" rel="noopener noreferrer" class="btn btn-primary deadline-cta-btn">
+            Submit Abstract <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- Hackathon Hero Section -->
     <section id="hackathon-home" class="hackathon-hero">
       <div class="container hero-grid">
@@ -145,6 +170,10 @@
             <tr>
               <td><strong>Status:</strong></td>
               <td><span class="badge badge-success">Round 0 (ongoing)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Abstract Deadline:</strong></td>
+              <td><del style="opacity:0.6; margin-right:4px;">15 Aug 2026</del> <strong style="color:var(--primary);">15 Sep 2026</strong> <span class="badge badge-warning" style="font-size:0.7rem; margin-left:4px;">Extended</span></td>
             </tr>
             <tr>
               <td><strong>Mode:</strong></td>
@@ -681,7 +710,10 @@
               </div>
               <div class="notice-card">
                 <h4>Round 0 (Abstract Submission)</h4>
-                <span class="notice-status text-red">August 15, 2026 (Deadline)</span>
+                <div class="timeline-deadline-wrap">
+                  <span class="timeline-old-date"><del>15 August 2026</del></span>
+                  <span class="notice-status text-red"><strong>Extended Deadline: 15 September 2026</strong></span>
+                </div>
               </div>
             </div>
 
@@ -1039,7 +1071,7 @@
                     rel="noopener noreferrer"
                     style="color: var(--primary); font-weight: 600; text-decoration: underline;">Click here to Register
                     Now ↗</a> and submit your project proposal abstract before the Round 0 (Abstract Submission)
-                  deadline on August 15, 2026.</p>
+                  extended deadline on <strong>15 September 2026</strong> (<del style="opacity: 0.7;">15 August 2026</del>).</p>
               </div>
             </div>
 
