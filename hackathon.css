@@ -2453,6 +2453,154 @@ body.dark-mode .deadline-date-flow .new-deadline {
   }
 }
 
+/* ==========================================================================
+   Free Abstract Submission Highlight Styles
+   ========================================================================== */
+
+.free-submission-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 50px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(16, 185, 129, 0.15);
+}
+
+body.dark-mode .free-submission-badge {
+  background: rgba(16, 185, 129, 0.22);
+  color: #34D399;
+  border-color: rgba(52, 211, 153, 0.45);
+}
+
+.free-submission-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hero-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 15px 0 20px;
+}
+
+.free-entry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #065F46;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+body.dark-mode .free-entry-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.free-entry-badge svg {
+  width: 15px;
+  height: 15px;
+  color: #10B981;
+}
+
+.notice-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.notice-card-top h4 {
+  margin: 0;
+}
+
+.timeline-free-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+body.dark-mode .timeline-free-tag {
+  background: rgba(16, 185, 129, 0.22);
+  color: #34D399;
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.timeline-free-tag svg {
+  width: 12px;
+  height: 12px;
+}
+
+.timeline-fee-note {
+  font-size: 0.8rem;
+  color: #059669;
+  font-weight: 600;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+body.dark-mode .timeline-fee-note {
+  color: #34D399;
+}
+
+.linktree-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.linktree-title-row h4 {
+  margin: 0;
+}
+
+.linktree-free-pill {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+}
+
+.linktree-featured-item {
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+
+body.dark-mode .linktree-featured-item {
+  border-color: rgba(52, 211, 153, 0.35) !important;
+}
+
+
 
 
 
