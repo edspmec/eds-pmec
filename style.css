@@ -2888,22 +2888,22 @@ body.dark-mode {
 /* ---- 4. Floating glass pill navbar (desktop) ---- */
 @media (min-width: 769px) {
   .header {
-    top: 12px;
+    top: 14px;
     left: 50%;
     transform: translateX(-50%);
-    width: min(1480px, calc(100% - 32px));
-    height: 68px;
+    width: min(1160px, calc(100% - 40px));
+    height: 66px;
     border-radius: 999px;
     background-color: var(--glass-bg);
     backdrop-filter: blur(18px) saturate(1.4);
     -webkit-backdrop-filter: blur(18px) saturate(1.4);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px rgba(var(--primary-deep-rgb), 0.10);
-    padding: 0 16px;
+    padding: 0 10px;
   }
 
   .header.sticky {
-    height: 64px;
+    height: 62px;
     background-color: var(--navbar-bg);
     border: 1px solid var(--navbar-border);
     border-image: none;
