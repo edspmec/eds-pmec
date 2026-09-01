@@ -949,8 +949,10 @@ body.dark-mode .contact-row span a {
 .nav-btn-main {
   border: 1px solid var(--primary);
   border-radius: 50px;
-  padding: 6px 16px !important;
-  margin-left: 15px;
+  padding: 5px 14px !important;
+  margin-left: 6px;
+  font-size: 0.88rem !important;
+  white-space: nowrap !important;
   transition: all var(--transition-fast) !important;
 }
 
@@ -1000,13 +1002,13 @@ body.dark-mode .text-red {
 /* ==========================================================================
    Header Navbar Scaling
    ========================================================================== */
-@media (min-width: 992px) {
+@media (min-width: 769px) {
   .header .container {
-    max-width: 1400px !important;
-    padding: 0 40px;
+    max-width: 100% !important;
+    padding: 0 12px !important;
   }
   .nav-menu {
-    gap: 22px !important;
+    gap: clamp(10px, 1.25vw, 22px) !important;
   }
 }
 
