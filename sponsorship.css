@@ -101,6 +101,24 @@
   flex-wrap: wrap;
 }
 
+.spons-hero-actions .btn-secondary,
+.spons-cta-actions .btn-secondary {
+  color: #FFFFFF !important;
+  border: 2px solid rgba(56, 189, 248, 0.7) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.spons-hero-actions .btn-secondary:hover,
+.spons-cta-actions .btn-secondary:hover {
+  background: var(--grad-primary) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 22px rgba(18, 196, 232, 0.4) !important;
+  transform: translateY(-3px) !important;
+}
+
+
 /* ==========================================================================
    2. Sponsorship Packages Grid
    ========================================================================== */
@@ -298,6 +316,50 @@ body.dark-mode .benefits-inheritance-label {
   font-weight: 600;
   padding: 12px 18px;
 }
+
+.package-card .btn-secondary {
+  color: var(--primary) !important;
+  border: 2px solid var(--primary) !important;
+  background: transparent !important;
+}
+
+.package-card .btn-secondary:hover {
+  background: var(--grad-primary) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+
+body.dark-mode .package-card .btn-secondary {
+  color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+
+body.dark-mode .package-card .btn-secondary:hover {
+  color: #0F172A !important;
+  background: var(--secondary) !important;
+}
+
+.inkind-cta-wrap .btn-secondary {
+  color: var(--primary) !important;
+  border: 2px solid var(--primary) !important;
+}
+
+.inkind-cta-wrap .btn-secondary:hover {
+  background: var(--grad-primary) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+
+body.dark-mode .inkind-cta-wrap .btn-secondary {
+  color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+
+body.dark-mode .inkind-cta-wrap .btn-secondary:hover {
+  color: #0F172A !important;
+  background: var(--secondary) !important;
+}
+
 
 /* ==========================================================================
    3. Technical / In-Kind Partnerships Grid
