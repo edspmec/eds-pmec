@@ -25,7 +25,7 @@ const membersData = [
   {
     "name": "Seikh Mustakim",
     "role": "Vice Chairperson",
-    "image": "assets/committi_members/vice_chair_person.png",
+    "image": "assets/committi_members/vice_chair_person.jpeg",
     "linkedin": "https://www.linkedin.com/in/seikh-mustakim/",
     "personal": "https://seikh05.github.io/mustakim/",
     "email": "seikhsouvagyamustakim@gmail.com"
