@@ -19,6 +19,7 @@ const membersData = [
     "role": "Chairperson",
     "image": "assets/committi_members/chair_person.png",
     "linkedin": "https://www.linkedin.com/in/spandana-behera-1583782b8/",
+    "personal": "https://spandanabehera.github.io/spandana-portfolio/",
     "email": "spandana2704@gmail.com"
   },
   {
