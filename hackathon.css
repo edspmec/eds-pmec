@@ -937,6 +937,28 @@ body.dark-mode .contact-row span a {
   letter-spacing: 0.5px;
 }
 
+.partner-role.principal-role {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+body.dark-mode .partner-role.principal-role {
+  color: var(--secondary);
+}
+
+.principal-sponsor-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.partner-card.principal-sponsor-card {
+  max-width: 320px;
+  width: 100%;
+}
+
 @media (max-width: 480px) {
   .contact-row {
     flex-direction: column;
