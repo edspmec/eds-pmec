@@ -82,15 +82,15 @@
   <!-- Main Content -->
   <main style="padding-top: 80px;">
 
-    <!-- Top Announcement: Extended Deadline Banner -->
+    <!-- Top Announcement: Urgent Deadline Approaching Banner -->
     <div class="deadline-alert-banner reveal">
       <div class="container">
         <div class="deadline-alert-inner">
           <div class="deadline-badge-col">
-            <div class="deadline-badge-pill">
+            <div class="deadline-badge-pill urgent-pill">
               <span class="deadline-pulse-dot"></span>
-              <i data-lucide="megaphone" class="deadline-icon"></i>
-              <span>DEADLINE EXTENDED</span>
+              <i data-lucide="clock" class="deadline-icon"></i>
+              <span>DEADLINE APPROACHING SOON!</span>
             </div>
             <span class="free-submission-badge">
               <i data-lucide="sparkles"></i> <strong>FREE ABSTRACT SUBMISSION (₹0)</strong>
@@ -98,14 +98,18 @@
           </div>
           <div class="deadline-details">
             <div class="deadline-main-row">
-              <span class="deadline-title">Round 0 – Abstract Submission:</span>
-              <div class="deadline-date-flow">
-                <span class="old-deadline"><del>15 August 2026</del></span>
-                <span class="date-arrow">→</span>
-                <span class="new-deadline">15 September 2026</span>
-              </div>
+              <span class="deadline-urgent-lead">ROUND-0 REGISTRATION CLOSING</span>
+              <span class="deadline-sep">|</span>
+              <span class="deadline-target-box">
+                <span class="deadline-lbl">ABSTRACT SUBMISSION DEADLINE:</span>
+                <strong class="deadline-val">15 SEPTEMBER 2026</strong>
+              </span>
+              <span class="deadline-sep">|</span>
+              <span class="deadline-results-box">
+                <span class="deadline-lbl">SHORTLISTED TEAM RESULTS:</span>
+                <strong class="deadline-val-blue">18 SEPTEMBER 2026</strong>
+              </span>
             </div>
-            <span class="deadline-subtext">Submit your abstract by the extended deadline.</span>
           </div>
           <a href="https://forms.gle/Ai4ZrUFCrUX9fGFQA" target="_blank" rel="noopener noreferrer" class="btn btn-primary deadline-cta-btn">
             Submit Abstract Free <i data-lucide="arrow-up-right"></i>
@@ -126,7 +130,7 @@
             <span class="highlight-text">Hackathon 2026</span>
           </h1>
           <div class="hero-badges-row">
-            <div class="status-badge">REGISTRATIONS OPEN</div>
+            <div class="status-badge urgent-status-badge">ROUND-0 CLOSING SOON</div>
             <div class="free-entry-badge">
               <i data-lucide="gift"></i> <strong>FREE ABSTRACT SUBMISSION</strong> — No fee for Round 0
             </div>
@@ -142,10 +146,10 @@
             <ul>
               <li><i data-lucide="shield-check"></i> <span><strong>Organizer:</strong> IEEE Electron Devices Society
                   PMEC SBC &amp; IEEE Council on Electronic Design Automation.</span></li>
+              <li><i data-lucide="shield-check"></i> <span><strong>Principal Sponsor:</strong> AMD</span></li>
               <li><i data-lucide="shield-check"></i> <span><strong>Sponsors:</strong> IEEE Bhubaneswar Section, Chips to
                   Start-up (C2S), ETIOS Society &amp; Dept. Of Electronics and Telecommunication Engineering.</span>
               </li>
-              <li><i data-lucide="shield-check"></i> <span><strong>Principal Sponsor:</strong> AMD</span></li>
               <li><i data-lucide="shield-check"></i> <span><strong>Technical Sponsors:</strong> Renesas &amp;
                   Microchip</span></li>
             </ul>
@@ -183,7 +187,7 @@
             </tr>
             <tr>
               <td><strong>Status:</strong></td>
-              <td><span class="badge badge-success">Round 0 (ongoing)</span></td>
+              <td><span class="badge badge-warning">Round 0 (Closing Soon)</span></td>
             </tr>
             <tr>
               <td><strong>Submission Fee:</strong></td>
@@ -191,18 +195,22 @@
             </tr>
             <tr>
               <td><strong>Abstract Deadline:</strong></td>
-              <td><del style="opacity:0.6; margin-right:4px;">15 Aug 2026</del> <strong style="color:var(--primary);">15 Sep 2026</strong> <span class="badge badge-warning" style="font-size:0.7rem; margin-left:4px;">Extended</span></td>
+              <td><strong style="color:var(--primary); font-size: 0.98rem;">15 September 2026</strong> <span class="badge badge-danger" style="font-size:0.7rem; margin-left:4px;">Closing Soon</span></td>
+            </tr>
+            <tr>
+              <td><strong>Result Announcement:</strong></td>
+              <td><strong style="color:var(--secondary); font-size: 0.95rem;">18 September 2026</strong> (Shortlisted Teams)</td>
             </tr>
             <tr>
               <td><strong>Mode:</strong></td>
-              <td>Offline</td>
+              <td>Offline / Hybrid Finals</td>
             </tr>
             <tr>
               <td><strong>Venue:</strong></td>
               <td>Parala Maharaja Engineering College, Berhampur, Odisha</td>
             </tr>
             <tr>
-              <td><strong>Date:</strong></td>
+              <td><strong>Dates:</strong></td>
               <td>4th, 5th, 6th October, 2026</td>
             </tr>
             <tr>
@@ -782,6 +790,7 @@
           <div class="hw-platform-card hw-card-featured">
             <div class="hw-card-top-badges">
               <span class="hw-badge-new">NEW</span>
+              <span class="hw-badge-sponsor hw-badge-tech">Technical Sponsor</span>
               <span class="hw-badge-category">SoC FPGA</span>
             </div>
             <div class="hw-card-mfg-row">
@@ -806,6 +815,7 @@
           <!-- Platform 2: AMD / Xilinx FPGA -->
           <div class="hw-platform-card">
             <div class="hw-card-top-badges">
+              <span class="hw-badge-sponsor hw-badge-principal">Principal Sponsor</span>
               <span class="hw-badge-category">FPGA Platform</span>
             </div>
             <div class="hw-card-mfg-row">
@@ -830,6 +840,7 @@
           <!-- Platform 3: Renesas Microcontrollers -->
           <div class="hw-platform-card">
             <div class="hw-card-top-badges">
+              <span class="hw-badge-sponsor hw-badge-tech">Technical Sponsor</span>
               <span class="hw-badge-category">Microcontroller / SoC</span>
             </div>
             <div class="hw-card-mfg-row">
@@ -914,55 +925,86 @@
           </div>
 
           <div class="notice-timeline">
-            <!-- Timeline Item -->
+            <!-- Timeline Item 1: Round 0 -->
+            <div class="notice-item active-timeline-item">
+              <div class="notice-badge-container">
+                <span class="notice-dot pulse-dot"></span>
+              </div>
+              <div class="notice-card">
+                <div class="notice-card-top">
+                  <h4>ROUND 0 — Registration &amp; Abstract Submission</h4>
+                  <span class="timeline-free-tag"><i data-lucide="check-circle-2"></i> FREE SUBMISSION</span>
+                </div>
+                <div class="timeline-deadline-wrap">
+                  <span class="notice-status text-red"><strong>16 July – 15 September 2026</strong></span>
+                  <span class="timeline-fee-note">₹0 Abstract Submission Fee • Deadline Approaching Soon</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2: Shortlisted Teams -->
             <div class="notice-item">
               <div class="notice-badge-container">
                 <span class="notice-dot"></span>
               </div>
               <div class="notice-card">
                 <div class="notice-card-top">
-                  <h4>Round 0 (Abstract Submission)</h4>
-                  <span class="timeline-free-tag"><i data-lucide="check-circle-2"></i> FREE SUBMISSION</span>
+                  <h4>SHORTLISTED TEAMS — Result Announcement</h4>
+                  <span class="timeline-stage-tag"><i data-lucide="bell"></i> UPCOMING</span>
                 </div>
-                <div class="timeline-deadline-wrap">
-                  <span class="timeline-old-date"><del>15 August 2026</del></span>
-                  <span class="notice-status text-red"><strong>Extended Deadline: 15 September 2026</strong></span>
-                  <span class="timeline-fee-note">₹0 Abstract Submission Fee • No fee required for Round 0</span>
+                <span class="notice-status text-blue"><strong>18 September 2026</strong></span>
+                <p class="timeline-sub-info">Selected teams advance to Round 1 Software Simulation stage.</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3: Round 1 -->
+            <div class="notice-item">
+              <div class="notice-badge-container">
+                <span class="notice-dot"></span>
+              </div>
+              <div class="notice-card">
+                <h4>ROUND 1 — Software Simulation</h4>
+                <span class="notice-status text-blue"><strong>18 September – 4 October 2026</strong></span>
+                <p class="timeline-sub-info">Online algorithm modeling, toolchain simulation, and software prototyping.</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 4: Round 2 -->
+            <div class="notice-item">
+              <div class="notice-badge-container">
+                <span class="notice-dot"></span>
+              </div>
+              <div class="notice-card">
+                <h4>ROUND 2 — Hardware Implementation &amp; Final Evaluation</h4>
+                <span class="notice-status text-blue"><strong>4 – 6 October 2026</strong></span>
+                <p class="timeline-sub-info">On-site hardware deployment, debugging, and live evaluation at PMEC.</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 5: Valedictory -->
+            <div class="notice-item">
+              <div class="notice-badge-container">
+                <span class="notice-dot"></span>
+              </div>
+              <div class="notice-card">
+                <div class="notice-card-top">
+                  <h4>VALEDICTORY — Prize Distribution</h4>
+                  <span class="timeline-prize-tag"><i data-lucide="trophy"></i> ₹45,000 POOL</span>
                 </div>
+                <span class="notice-status text-green"><strong>6 October 2026</strong></span>
+                <p class="timeline-sub-info">Grand valedictory ceremony, award presentations, and distribution of merit certificates.</p>
               </div>
             </div>
+          </div>
 
-            <!-- Timeline Item -->
-            <div class="notice-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot"></span>
-              </div>
-              <div class="notice-card">
-                <h4>Round 0 (Result Announcement)</h4>
-                <span class="notice-status text-blue">September 18, 2026</span>
-              </div>
+          <!-- Shortlisted Team Result Notice Block -->
+          <div class="results-announcement-callout">
+            <div class="results-callout-icon">
+              <i data-lucide="calendar-check"></i>
             </div>
-
-            <!-- Timeline Item -->
-            <div class="notice-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot"></span>
-              </div>
-              <div class="notice-card">
-                <h4>Round 1 (Software Simulation - Online)</h4>
-                <span class="notice-status text-blue">Sept 18 - Oct 04, 2026</span>
-              </div>
-            </div>
-
-            <!-- Timeline Item -->
-            <div class="notice-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot"></span>
-              </div>
-              <div class="notice-card">
-                <h4>Round 2 (Hardware Implementation - On Site)</h4>
-                <span class="notice-status text-blue">Oct 04 - Oct 06, 2026</span>
-              </div>
+            <div class="results-callout-content">
+              <strong>Shortlisted Team Results will be announced on 18 September 2026.</strong>
+              <p>Following Round-0 abstract evaluations, qualified teams advancing to Round 1 will be notified via email and published on the portal.</p>
             </div>
           </div>
         </div>
@@ -1207,11 +1249,11 @@
             </div>
             <div class="linktree-info">
               <h4>Shortlisted Teams Registration Link</h4>
-              <p>Registration link for teams selected for Round 1 &amp; Round 2. To be shared after abstract results.
+              <p>Registration link for teams selected for Round 1 &amp; Round 2. To be shared on 18 September 2026.
               </p>
             </div>
             <div class="linktree-action">
-              <span class="linktree-badge badge-locked">To be shared Sept 18</span>
+              <span class="linktree-badge badge-locked">Available 18 Sept</span>
             </div>
           </div>
         </div>
@@ -1303,7 +1345,7 @@
                     rel="noopener noreferrer"
                     style="color: var(--primary); font-weight: 600; text-decoration: underline;">Click here to Register
                     Now ↗</a> and submit your project proposal abstract before the Round 0 (Abstract Submission)
-                  extended deadline on <strong>15 September 2026</strong> (<del style="opacity: 0.7;">15 August 2026</del>).</p>
+                  deadline on <strong>15 September 2026</strong>.</p>
               </div>
             </div>
 

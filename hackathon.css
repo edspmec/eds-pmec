@@ -2434,30 +2434,30 @@ body.dark-mode .prize-card-icon-box {
 }
 
 /* ==========================================================================
-   Extended Deadline Alert Banner Styles
+   Urgent Deadline Approaching Banner Styles
    ========================================================================== */
 .deadline-alert-banner {
-  background: linear-gradient(135deg, rgba(10, 95, 194, 0.07) 0%, rgba(255, 197, 61, 0.14) 100%);
-  border-bottom: 1px solid rgba(245, 166, 35, 0.35);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(245, 158, 11, 0.12) 50%, rgba(10, 95, 194, 0.08) 100%);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.3);
   border-top: 1px solid rgba(10, 95, 194, 0.12);
-  padding: 14px 0;
+  padding: 12px 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.08);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.06);
 }
 
 body.dark-mode .deadline-alert-banner {
-  background: linear-gradient(135deg, rgba(5, 42, 94, 0.85) 0%, rgba(245, 166, 35, 0.16) 100%);
-  border-bottom: 1px solid rgba(255, 197, 61, 0.3);
+  background: linear-gradient(135deg, rgba(127, 29, 29, 0.8) 0%, rgba(120, 53, 15, 0.6) 50%, rgba(10, 95, 194, 0.3) 100%);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.4);
   border-top: 1px solid rgba(18, 196, 232, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .deadline-alert-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
@@ -2465,7 +2465,7 @@ body.dark-mode .deadline-alert-banner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 5px;
   flex-shrink: 0;
 }
 
@@ -2473,14 +2473,14 @@ body.dark-mode .deadline-alert-banner {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #FFC53D 0%, #F5A623 100%);
-  color: #0E1B2E;
+  background: linear-gradient(135deg, #EF4444 0%, #F59E0B 100%);
+  color: #FFFFFF;
   font-weight: 700;
   font-size: 0.82rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   padding: 6px 14px;
   border-radius: 50px;
-  box-shadow: 0 2px 10px rgba(245, 166, 35, 0.35);
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -2489,13 +2489,13 @@ body.dark-mode .deadline-alert-banner {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #B45309;
-  animation: deadlinePulse 1.5s infinite;
+  background-color: #FFFFFF;
+  animation: deadlinePulse 1.4s infinite;
 }
 
 @keyframes deadlinePulse {
   0% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 8px #B45309; }
+  50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 10px #FFFFFF; }
   100% { transform: scale(0.9); opacity: 0.8; }
 }
 
@@ -2503,7 +2503,7 @@ body.dark-mode .deadline-alert-banner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 4px;
   flex: 1;
 }
 
@@ -2512,56 +2512,53 @@ body.dark-mode .deadline-alert-banner {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  font-size: 0.92rem;
 }
 
-.deadline-sub-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+.deadline-urgent-lead {
+  font-weight: 800;
+  color: #DC2626;
+  letter-spacing: 0.5px;
 }
 
-.deadline-title {
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 0.95rem;
+body.dark-mode .deadline-urgent-lead {
+  color: #FCA5A5;
 }
 
-.deadline-date-flow {
+.deadline-sep {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.deadline-target-box,
+.deadline-results-box {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background-color: var(--card-bg);
-  padding: 4px 12px;
-  border-radius: var(--border-radius-sm);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow-sm);
+  gap: 5px;
 }
 
-.deadline-date-flow .old-deadline {
-  color: var(--text-muted);
-  font-size: 0.9rem;
+.deadline-lbl {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
-.deadline-date-flow .date-arrow {
-  color: var(--primary);
-  font-weight: bold;
-}
-
-.deadline-date-flow .new-deadline {
+.deadline-val {
   color: #DC2626;
   font-weight: 700;
-  font-size: 0.98rem;
 }
 
-body.dark-mode .deadline-date-flow .new-deadline {
+body.dark-mode .deadline-val {
   color: #F87171;
 }
 
-.deadline-subtext {
-  color: var(--text-secondary);
-  font-size: 0.88rem;
-  font-weight: 500;
+.deadline-val-blue {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+body.dark-mode .deadline-val-blue {
+  color: var(--secondary);
 }
 
 .deadline-cta-btn {
@@ -2575,7 +2572,20 @@ body.dark-mode .deadline-date-flow .new-deadline {
   gap: 6px;
 }
 
-/* Timeline deadline styling */
+/* Status Badge Urgent */
+.urgent-status-badge {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.15)) !important;
+  color: #DC2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+body.dark-mode .urgent-status-badge {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(245, 158, 11, 0.25)) !important;
+  color: #FCA5A5 !important;
+  border-color: rgba(239, 68, 68, 0.45) !important;
+}
+
+/* Timeline deadline & sub-info styling */
 .timeline-deadline-wrap {
   display: flex;
   flex-direction: column;
@@ -2583,9 +2593,128 @@ body.dark-mode .deadline-date-flow .new-deadline {
   margin-top: 4px;
 }
 
-.timeline-old-date {
+.timeline-sub-info {
+  font-size: 0.84rem;
   color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.timeline-stage-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: rgba(10, 95, 194, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(10, 95, 194, 0.2);
+}
+
+body.dark-mode .timeline-stage-tag {
+  background: rgba(18, 196, 232, 0.15);
+  color: var(--secondary);
+  border-color: rgba(18, 196, 232, 0.3);
+}
+
+.timeline-prize-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+body.dark-mode .timeline-prize-tag {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+/* Shortlisted Team Result Notice Callout */
+.results-announcement-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(10, 95, 194, 0.06);
+  border: 1px solid rgba(10, 95, 194, 0.2);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--border-radius-sm);
+  padding: 16px 18px;
+  margin-top: 24px;
+}
+
+body.dark-mode .results-announcement-callout {
+  background: rgba(18, 196, 232, 0.08);
+  border-color: rgba(18, 196, 232, 0.25);
+  border-left-color: var(--secondary);
+}
+
+.results-callout-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+body.dark-mode .results-callout-icon {
+  color: var(--secondary);
+}
+
+.results-callout-content strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.results-callout-content p {
   font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Hardware Platform Sponsor Badges */
+.hw-badge-sponsor {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.hw-badge-principal {
+  background: rgba(237, 28, 36, 0.12);
+  color: #ED1C24;
+  border: 1px solid rgba(237, 28, 36, 0.3);
+}
+
+body.dark-mode .hw-badge-principal {
+  background: rgba(237, 28, 36, 0.2);
+  color: #FF7B80;
+  border-color: rgba(237, 28, 36, 0.45);
+}
+
+.hw-badge-tech {
+  background: rgba(10, 95, 194, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(10, 95, 194, 0.25);
+}
+
+body.dark-mode .hw-badge-tech {
+  background: rgba(18, 196, 232, 0.15);
+  color: var(--secondary);
+  border-color: rgba(18, 196, 232, 0.3);
 }
 
 @media (max-width: 768px) {
