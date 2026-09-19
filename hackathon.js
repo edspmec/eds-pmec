@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initScrollSpy();
   initCircuitCanvas();
+  initFinalistCounters();
+  initFinalistSearch();
 
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
@@ -409,3 +411,114 @@ function initCircuitCanvas() {
     });
   }
 }
+
+/* ==========================================================================
+   Finalists Animated Counter (IntersectionObserver - Dynamically Derived)
+   ========================================================================== */
+function initFinalistCounters() {
+  const counterElements = document.querySelectorAll('.counter');
+  if (counterElements.length === 0) return;
+
+  // Determine dynamic count from actual finalist table rows
+  const finalistRows = document.querySelectorAll('.finalist-table tbody tr:not(#finalist-no-results)');
+  const dynamicTotal = finalistRows.length;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = dynamicTotal > 0 ? dynamicTotal : parseInt(el.getAttribute('data-target') || '0', 10);
+        const duration = 1400;
+        const startTime = performance.now();
+
+        const updateCount = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Easing function: easeOutExpo
+          const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const currentVal = Math.floor(easeOut * target);
+          el.innerText = currentVal;
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            el.innerText = target;
+          }
+        };
+
+        requestAnimationFrame(updateCount);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  counterElements.forEach(el => observer.observe(el));
+}
+
+/* ==========================================================================
+   Finalists Search Functionality (Dynamic Real-Time Filtering)
+   ========================================================================== */
+function initFinalistSearch() {
+  const searchInput = document.getElementById('finalist-search');
+  const tableRows = document.querySelectorAll('.finalist-table tbody tr:not(#finalist-no-results)');
+  const countBadge = document.getElementById('finalist-count-badge');
+  const noResultsRow = document.getElementById('finalist-no-results');
+  const clearBtn = document.getElementById('finalist-search-clear');
+
+  if (!searchInput || tableRows.length === 0) return;
+
+  const totalTeams = tableRows.length;
+
+  // Initialize count badge dynamically
+  if (countBadge) {
+    countBadge.innerHTML = `Showing all <strong>${totalTeams}</strong> Finalist Teams`;
+  }
+
+  const filterTable = () => {
+    const query = searchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    tableRows.forEach(row => {
+      const teamName = (row.getAttribute('data-team') || '').toLowerCase();
+      const leader = (row.getAttribute('data-leader') || '').toLowerCase();
+      const inst = (row.getAttribute('data-inst') || '').toLowerCase();
+
+      const matchesSearch = !query || teamName.includes(query) || leader.includes(query) || inst.includes(query);
+
+      if (matchesSearch) {
+        row.style.display = '';
+        visibleCount++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    if (noResultsRow) {
+      noResultsRow.style.display = visibleCount === 0 ? '' : 'none';
+    }
+
+    if (countBadge) {
+      if (visibleCount === totalTeams) {
+        countBadge.innerHTML = `Showing all <strong>${totalTeams}</strong> Finalist Teams`;
+      } else {
+        countBadge.innerHTML = `Showing <strong>${visibleCount}</strong> of ${totalTeams} Finalist Teams`;
+      }
+    }
+
+    if (clearBtn) {
+      clearBtn.style.display = query.length > 0 ? 'inline-flex' : 'none';
+    }
+  };
+
+  searchInput.addEventListener('input', filterTable);
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      filterTable();
+      searchInput.focus();
+    });
+  }
+}
+
+

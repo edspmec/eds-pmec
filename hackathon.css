@@ -3398,6 +3398,1117 @@ body.dark-mode .hw-chip-spec-pill svg {
   }
 }
 
+/* ==========================================================================
+   FINALISTS ANNOUNCEMENT & FINALIST TEAMS SECTION STYLES
+   ========================================================================== */
+
+/* 1. Navbar Badge & Banner Pill */
+.nav-badge-finalists {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 12px;
+  margin-left: 4px;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.finalist-banner-pill {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #10B981 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+.deadline-pulse-dot-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulse-green 1.8s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 14px #10B981; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.finalist-status-badge {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(10, 95, 194, 0.15) 100%);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 6px 16px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.15);
+}
+
+body.dark-mode .finalist-status-badge {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(18, 196, 232, 0.2) 100%);
+  color: #34D399;
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+/* 2. Finalists Section Base */
+.finalists-section {
+  padding: 60px 0 70px;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 0%, rgba(10, 95, 194, 0.07) 0%, transparent 70%);
+  border-bottom: 1px solid var(--card-border);
+}
+
+body.dark-mode .finalists-section {
+  background: radial-gradient(ellipse at 50% 0%, rgba(18, 196, 232, 0.08) 0%, transparent 70%);
+}
+
+/* 3. Finalists Grand Hero Card */
+.finalists-hero-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.04) 0%, rgba(18, 196, 232, 0.06) 50%, rgba(16, 185, 129, 0.04) 100%);
+  border: 1.5px solid rgba(10, 95, 194, 0.22);
+  border-radius: 20px;
+  padding: 45px 40px;
+  box-shadow: 0 15px 45px rgba(10, 95, 194, 0.08);
+  overflow: hidden;
+  text-align: center;
+}
+
+body.dark-mode .finalists-hero-card {
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.18) 0%, rgba(5, 42, 94, 0.35) 50%, rgba(16, 185, 129, 0.12) 100%);
+  border-color: rgba(53, 228, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 35px rgba(18, 196, 232, 0.15);
+}
+
+.finalists-glow-bg {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 250px;
+  background: radial-gradient(ellipse, rgba(18, 196, 232, 0.22) 0%, rgba(10, 95, 194, 0.05) 50%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.finalists-hero-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.finalists-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.finalists-announce-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(10, 95, 194, 0.3);
+}
+
+.finalists-announce-pill svg {
+  width: 14px;
+  height: 14px;
+}
+
+.finalists-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 30px;
+}
+
+.finalists-date-pill svg {
+  width: 13px;
+  height: 13px;
+  color: var(--primary);
+}
+
+.finalists-main-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.finalists-headline-wrap {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 18px 24px;
+  max-width: 780px;
+  margin: 0 auto 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+body.dark-mode .finalists-headline-wrap {
+  background: rgba(14, 27, 46, 0.7);
+}
+
+.finalists-lead-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.15), rgba(255, 197, 61, 0.25));
+  color: #D97706;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+body.dark-mode .finalists-lead-badge {
+  color: #FBBF24;
+}
+
+.finalists-tagline {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+body.dark-mode .finalists-tagline {
+  color: var(--secondary);
+}
+
+.finalists-event-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.finalists-hero-desc {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 35px;
+  line-height: 1.6;
+}
+
+.finalists-hero-desc strong {
+  color: var(--text-primary);
+}
+
+/* 4. Key Metrics Grid */
+.finalists-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.finalists-metric-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.finalists-metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(10, 95, 194, 0.12);
+  border-color: rgba(10, 95, 194, 0.3);
+}
+
+.finalists-metric-card.stat-highlight-card {
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.06) 0%, rgba(18, 196, 232, 0.08) 100%);
+  border: 1.5px solid rgba(10, 95, 194, 0.3);
+}
+
+body.dark-mode .finalists-metric-card.stat-highlight-card {
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.25) 0%, rgba(18, 196, 232, 0.2) 100%);
+  border-color: rgba(53, 228, 255, 0.4);
+}
+
+.metric-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(10, 95, 194, 0.25);
+}
+
+.metric-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.metric-icon-box.cyan-icon {
+  background: linear-gradient(135deg, #0284C7, #06B6D4);
+}
+
+.metric-icon-box.gold-icon {
+  background: linear-gradient(135deg, #D97706, #F59E0B);
+}
+
+.metric-data {
+  flex: 1;
+}
+
+.metric-number-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+body.dark-mode .stat-number {
+  color: var(--glow);
+  text-shadow: 0 0 16px rgba(53, 228, 255, 0.5);
+}
+
+.stat-val-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.metric-sub {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* 5. Finalist Teams Header & Controls */
+.finalist-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(10, 95, 194, 0.08);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+body.dark-mode .finalist-section-badge {
+  background: rgba(18, 196, 232, 0.15);
+  color: var(--secondary);
+}
+
+.finalist-controls-card {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.finalist-search-box {
+  flex: 1;
+  min-width: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.finalist-search-box .search-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.finalist-search-box input {
+  width: 100%;
+  padding: 10px 40px 10px 42px;
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.finalist-search-box input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(10, 95, 194, 0.15);
+  background: var(--card-bg);
+}
+
+.btn-clear-search {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.btn-clear-search:hover {
+  color: var(--text-primary);
+}
+
+.btn-clear-search svg {
+  width: 16px;
+  height: 16px;
+}
+
+.finalist-filter-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.finalist-filter-box .filter-icon {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.finalist-filter-box select {
+  padding: 10px 32px 10px 36px;
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  appearance: auto;
+  transition: border-color 0.2s;
+}
+
+.finalist-filter-box select:focus {
+  border-color: var(--primary);
+}
+
+.finalist-count-pill {
+  background: rgba(10, 95, 194, 0.08);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+body.dark-mode .finalist-count-pill {
+  background: rgba(18, 196, 232, 0.12);
+  color: #FFFFFF;
+}
+
+.finalist-count-pill strong {
+  color: var(--primary);
+}
+
+body.dark-mode .finalist-count-pill strong {
+  color: var(--glow);
+}
+
+/* 6. Finalist Table Styling */
+.finalist-table-wrapper {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 45px;
+}
+
+.finalist-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.finalist-table thead {
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.08) 0%, rgba(18, 196, 232, 0.06) 100%);
+  border-bottom: 1.5px solid var(--card-border);
+}
+
+body.dark-mode .finalist-table thead {
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.3) 0%, rgba(5, 42, 94, 0.4) 100%);
+  border-bottom-color: rgba(53, 228, 255, 0.2);
+}
+
+.finalist-table th {
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.finalist-table th svg {
+  width: 15px;
+  height: 15px;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: var(--primary);
+}
+
+body.dark-mode .finalist-table th svg {
+  color: var(--secondary);
+}
+
+.finalist-table th.th-team {
+  width: 28%;
+}
+
+.finalist-table th.th-leader {
+  width: 24%;
+}
+
+.finalist-table th.th-institution {
+  width: 48%;
+}
+
+.finalist-table tbody tr {
+  border-bottom: 1px solid var(--card-border);
+  transition: background-color 0.2s ease;
+}
+
+.finalist-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.finalist-table tbody tr:hover {
+  background-color: rgba(10, 95, 194, 0.035);
+}
+
+body.dark-mode .finalist-table tbody tr:hover {
+  background-color: rgba(18, 196, 232, 0.08);
+}
+
+.finalist-table td {
+  padding: 16px 20px;
+  vertical-align: middle;
+}
+
+.team-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.team-serial-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+body.dark-mode .team-serial-pill {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--glow);
+  border-color: rgba(53, 228, 255, 0.2);
+}
+
+.team-name-text {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--primary);
+}
+
+body.dark-mode .team-name-text {
+  color: #FFFFFF;
+}
+
+.leader-name-cell, .inst-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.leader-name-cell {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.93rem;
+}
+
+.inst-name-cell {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.cell-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.td-no-results {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.no-results-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+}
+
+.no-results-content svg {
+  width: 38px;
+  height: 38px;
+  color: var(--text-muted);
+}
+
+/* 7. Next Steps for Finalists Card */
+.finalist-next-steps-card {
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.05) 0%, rgba(16, 185, 129, 0.06) 100%);
+  border: 1.5px solid rgba(10, 95, 194, 0.25);
+  border-radius: 18px;
+  padding: 35px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+body.dark-mode .finalist-next-steps-card {
+  background: linear-gradient(135deg, rgba(10, 95, 194, 0.18) 0%, rgba(16, 185, 129, 0.12) 100%);
+  border-color: rgba(53, 228, 255, 0.3);
+}
+
+.next-steps-header {
+  margin-bottom: 20px;
+}
+
+.next-steps-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.next-steps-tag svg {
+  width: 12px;
+  height: 12px;
+}
+
+.next-steps-header h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.next-steps-event-title {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.next-steps-intro {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.next-steps-stages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.stage-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.stage-card-highlight {
+  border: 1.5px solid rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(16, 185, 129, 0.04) 100%);
+}
+
+.stage-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.stage-num-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: rgba(10, 95, 194, 0.1);
+  color: var(--primary);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.stage-num-badge.badge-onsite {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+body.dark-mode .stage-num-badge.badge-onsite {
+  color: #34D399;
+}
+
+.stage-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.stage-mode-pill svg {
+  width: 12px;
+  height: 12px;
+}
+
+.mode-online {
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284C7;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+body.dark-mode .mode-online {
+  color: #38BDF8;
+}
+
+.mode-onsite {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+body.dark-mode .mode-onsite {
+  color: #34D399;
+}
+
+.stage-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.stage-date-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+body.dark-mode .stage-date-row {
+  color: var(--glow);
+}
+
+.stage-date-row svg {
+  width: 15px;
+  height: 15px;
+}
+
+.stage-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.stage-structure-notice {
+  background: var(--card-bg);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin-bottom: 22px;
+  line-height: 1.45;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.stage-structure-notice svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* 8. Registration Details Inside Next Steps */
+.finalist-reg-details-box {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  margin-bottom: 20px;
+}
+
+.reg-deadline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 16px;
+}
+
+.reg-deadline-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.reg-deadline-label svg {
+  width: 16px;
+  height: 16px;
+  color: #DC2626;
+}
+
+.reg-deadline-date {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #DC2626;
+}
+
+.reg-fees-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.reg-fee-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fee-type {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.fee-amount {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.fee-amount small {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.fee-ieee-item .fee-type, .fee-ieee-item .fee-amount {
+  color: var(--primary);
+}
+
+body.dark-mode .fee-ieee-item .fee-amount {
+  color: var(--glow);
+}
+
+.reg-fee-note {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.reg-fee-note svg {
+  width: 14px;
+  height: 14px;
+  color: #10B981;
+  display: inline;
+  vertical-align: middle;
+}
+
+.reg-email-notice-box {
+  background: rgba(10, 95, 194, 0.07);
+  border: 1.5px dashed var(--primary);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+body.dark-mode .reg-email-notice-box {
+  background: rgba(18, 196, 232, 0.1);
+  border-color: var(--secondary);
+}
+
+.reg-email-notice-box svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+body.dark-mode .reg-email-notice-box svg {
+  color: var(--secondary);
+}
+
+/* 9. Important Notice Box */
+.finalist-important-notice-box {
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.12) 0%, rgba(255, 197, 61, 0.08) 100%);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.notice-box-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(245, 166, 35, 0.2);
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.dark-mode .notice-box-icon {
+  color: #FBBF24;
+}
+
+.notice-box-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.notice-box-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #B45309;
+  margin-bottom: 4px;
+}
+
+body.dark-mode .notice-box-text strong {
+  color: #FBBF24;
+}
+
+.notice-box-text p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* 10. Responsive Breakpoints for Finalists */
+@media (max-width: 992px) {
+  .finalists-main-title {
+    font-size: 2.2rem;
+  }
+
+  .finalists-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .next-steps-stages-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .finalists-hero-card {
+    padding: 30px 18px;
+  }
+
+  .finalists-main-title {
+    font-size: 1.75rem;
+  }
+
+  .finalists-tagline {
+    font-size: 1.1rem;
+  }
+
+  .finalists-hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .finalist-controls-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px;
+  }
+
+  .finalist-filter-box select {
+    width: 100%;
+  }
+
+  .finalist-count-pill {
+    text-align: center;
+  }
+
+  /* Transform table into responsive cards on mobile */
+  .finalist-table thead {
+    display: none;
+  }
+
+  .finalist-table, .finalist-table tbody, .finalist-table tr, .finalist-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .finalist-table tbody tr {
+    padding: 16px 14px;
+    border-bottom: 1.5px solid var(--card-border);
+  }
+
+  .finalist-table td {
+    padding: 6px 0;
+    border: none;
+  }
+
+  .finalist-table td.td-team {
+    padding-bottom: 8px;
+  }
+
+  .team-name-text {
+    font-size: 1.05rem;
+  }
+
+  .leader-name-cell, .inst-name-cell {
+    font-size: 0.88rem;
+  }
+
+  .reg-fees-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .finalist-next-steps-card {
+    padding: 24px 16px;
+  }
+}
+
+
 
 
 
