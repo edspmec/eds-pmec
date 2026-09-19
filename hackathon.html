@@ -1912,47 +1912,64 @@
       </div>
     </section>
 
-    <!-- Timeline & Eligibility -->
-    <section id="timeline" class="section">
-      <div class="container grid-2 align-start">
+    <!-- Timeline Section -->
+    <section id="timeline" class="section section-gray">
+      <div class="container max-900">
 
-        <!-- PMEC Style Notices Timeline -->
-        <div class="timeline-section reveal">
-          <div class="section-title-wrapper">
-            <i data-lucide="calendar" class="section-title-icon"></i>
-            <h3>Event Timeline</h3>
+        <div class="section-header text-center reveal" style="margin-bottom: 35px;">
+          <div class="finalist-section-badge">
+            <i data-lucide="calendar"></i> OFFICIAL ROADMAP
           </div>
+          <h2 style="font-size: 2.2rem; margin-top: 10px;">Event Timeline</h2>
+          <p style="font-size: 1.02rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+            Official milestones and stage progression schedule for IEEE Edge AI Hackathon 2026
+          </p>
+        </div>
 
-          <div class="notice-timeline">
+        <!-- PMEC Style Notices Timeline (Spacious Centered Layout) -->
+        <div class="timeline-section reveal">
+          <div class="notice-timeline spacious-timeline">
             <!-- Timeline Item 1: Round 0 -->
             <div class="notice-item">
               <div class="notice-badge-container">
                 <span class="notice-dot"></span>
               </div>
-              <div class="notice-card">
-                <div class="notice-card-top">
-                  <h4>Round 0 – Abstract Submission</h4>
-                  <span class="timeline-free-tag" style="background: rgba(239, 68, 68, 0.1); color: #EF4444; border-color: rgba(239, 68, 68, 0.25);"><i data-lucide="check-circle-2"></i> CLOSED</span>
+              <div class="notice-card spacious-card">
+                <div class="notice-card-header-row">
+                  <div class="notice-title-group">
+                    <h4>Round 0 – Abstract Submission</h4>
+                    <span class="tag-closed"><i data-lucide="check-circle-2"></i> CLOSED</span>
+                  </div>
+                  <div class="notice-date-badge date-closed">
+                    <i data-lucide="calendar-x"></i>
+                    <strong>15 September 2026</strong>
+                  </div>
                 </div>
-                <div class="timeline-deadline-wrap">
-                  <span class="notice-status text-red"><strong>15 September 2026 — Closed</strong></span>
-                  <span class="timeline-fee-note">Abstract submissions for Round 0 have successfully concluded.</span>
-                </div>
+                <p class="timeline-sub-info">
+                  Nationwide abstract submissions for Round 0 have concluded and evaluations are complete.
+                </p>
               </div>
             </div>
 
             <!-- Timeline Item 2: Shortlisted Teams -->
             <div class="notice-item">
               <div class="notice-badge-container">
-                <span class="notice-dot"></span>
+                <span class="notice-dot dot-success"></span>
               </div>
-              <div class="notice-card">
-                <div class="notice-card-top">
-                  <h4>Round 0 – Result Announcement</h4>
-                  <span class="timeline-stage-tag" style="background: rgba(16, 185, 129, 0.12); color: #10B981; border-color: rgba(16, 185, 129, 0.25);"><i data-lucide="check-circle-2"></i> FINALISTS ANNOUNCED</span>
+              <div class="notice-card spacious-card card-success">
+                <div class="notice-card-header-row">
+                  <div class="notice-title-group">
+                    <h4>Round 0 – Result Announcement</h4>
+                    <span class="tag-announced"><i data-lucide="check-circle-2"></i> FINALISTS ANNOUNCED</span>
+                  </div>
+                  <div class="notice-date-badge date-success">
+                    <i data-lucide="calendar-check"></i>
+                    <strong>18 September 2026</strong>
+                  </div>
                 </div>
-                <span class="notice-status text-green"><strong>18 September 2026 — Announced</strong></span>
-                <p class="timeline-sub-info">Shortlisted teams selected for the Final Round. <a href="#finalists" style="color: var(--primary); font-weight: 600; text-decoration: underline;">View Finalist Teams →</a></p>
+                <p class="timeline-sub-info">
+                  Shortlisted finalist teams selected for the Final Round. <a href="#finalists" class="timeline-link">View Finalist Teams →</a>
+                </p>
               </div>
             </div>
 
@@ -1961,13 +1978,21 @@
               <div class="notice-badge-container">
                 <span class="notice-dot pulse-dot"></span>
               </div>
-              <div class="notice-card">
-                <div class="notice-card-top">
-                  <h4>Round 1 – Software Simulation</h4>
-                  <span class="timeline-mode-tag" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; border: none; font-weight: 700;"><i data-lucide="activity"></i> CURRENT STAGE</span>
+              <div class="notice-card spacious-card card-active">
+                <div class="notice-card-header-row">
+                  <div class="notice-title-group">
+                    <h4>Round 1 – Software Simulation</h4>
+                    <span class="tag-current"><i data-lucide="activity"></i> CURRENT STAGE</span>
+                    <span class="stage-mode-pill mode-online"><i data-lucide="globe"></i> Mode: Online</span>
+                  </div>
+                  <div class="notice-date-badge date-active">
+                    <i data-lucide="calendar"></i>
+                    <strong>18 September – 4 October 2026</strong>
+                  </div>
                 </div>
-                <span class="notice-status text-blue"><strong>18 September – 4 October 2026</strong></span>
-                <p class="timeline-sub-info"><strong>Mode: Online</strong> • Toolchain simulation, algorithm development, and remote evaluation. All finalist teams participate without elimination.</p>
+                <p class="timeline-sub-info">
+                  <strong>Mode: Online</strong> • Toolchain simulation, algorithm development, and remote evaluation. All finalist teams participate without elimination.
+                </p>
               </div>
             </div>
 
@@ -1976,13 +2001,20 @@
               <div class="notice-badge-container">
                 <span class="notice-dot"></span>
               </div>
-              <div class="notice-card">
-                <div class="notice-card-top">
-                  <h4>Round 2 – Hardware Implementation &amp; Final Evaluation</h4>
-                  <span class="timeline-mode-tag">Mode: Onsite</span>
+              <div class="notice-card spacious-card">
+                <div class="notice-card-header-row">
+                  <div class="notice-title-group">
+                    <h4>Round 2 – Hardware Implementation &amp; Final Evaluation</h4>
+                    <span class="stage-mode-pill mode-onsite"><i data-lucide="map-pin"></i> Mode: Onsite</span>
+                  </div>
+                  <div class="notice-date-badge date-upcoming">
+                    <i data-lucide="calendar"></i>
+                    <strong>4–6 October 2026</strong>
+                  </div>
                 </div>
-                <span class="notice-status text-blue"><strong>4–6 October 2026</strong></span>
-                <p class="timeline-sub-info"><strong>Mode: Onsite at PMEC, Berhampur, Odisha</strong> • Live hardware deployment and jury evaluation.</p>
+                <p class="timeline-sub-info">
+                  <strong>Mode: Onsite at PMEC, Berhampur, Odisha</strong> • Live hardware deployment, physical prototype demonstrations, and jury evaluation.
+                </p>
               </div>
             </div>
 
@@ -1991,68 +2023,33 @@
               <div class="notice-badge-container">
                 <span class="notice-dot"></span>
               </div>
-              <div class="notice-card">
-                <div class="notice-card-top">
-                  <h4>Valedictory &amp; Prize Distribution</h4>
-                  <span class="timeline-prize-tag"><i data-lucide="trophy"></i> ₹45,000 POOL</span>
+              <div class="notice-card spacious-card card-gold">
+                <div class="notice-card-header-row">
+                  <div class="notice-title-group">
+                    <h4>Valedictory &amp; Prize Distribution</h4>
+                    <span class="timeline-prize-tag"><i data-lucide="trophy"></i> ₹45,000 POOL</span>
+                  </div>
+                  <div class="notice-date-badge date-gold">
+                    <i data-lucide="award"></i>
+                    <strong>6 October 2026</strong>
+                  </div>
                 </div>
-                <span class="notice-status text-green"><strong>6 October 2026</strong></span>
-                <p class="timeline-sub-info">Grand valedictory ceremony, award presentations, and distribution of merit certificates.</p>
+                <p class="timeline-sub-info">
+                  Grand valedictory ceremony, prize and merit certificate distributions, and hardware innovation awards.
+                </p>
               </div>
             </div>
           </div>
 
-          <!-- Shortlisted Team Result Notice Block -->
-          <div class="results-announcement-callout">
+          <!-- Result Notice Callout -->
+          <div class="results-announcement-callout reveal" style="margin-top: 25px;">
             <div class="results-callout-icon">
               <i data-lucide="trophy"></i>
             </div>
             <div class="results-callout-content">
               <strong>🎉 Finalist Teams Announced!</strong>
-              <p>Following nationwide Round 0 abstract evaluations, Shortlisted teams are advancing to the Final Round. Explore the complete list in the <a href="#finalists" style="color: var(--primary); font-weight: 700; text-decoration: underline;">Finalist Teams Section</a>.</p>
+              <p>Following nationwide Round 0 abstract evaluations, shortlisted teams are advancing to the Final Round. Explore the complete list in the <a href="#finalists" style="color: var(--primary); font-weight: 700; text-decoration: underline;">Finalist Teams Section</a>.</p>
             </div>
-          </div>
-        </div>
-
-        <!-- Eligibility Card -->
-        <div class="eligibility-card reveal delay-1">
-          <div class="section-title-wrapper">
-            <i data-lucide="user-check" class="section-title-icon"></i>
-            <h3>Eligibility Criteria</h3>
-          </div>
-
-          <div class="eligibility-body">
-            <ul class="eligibility-list">
-              <li>
-                <i data-lucide="award"></i>
-                <div>
-                  <strong>Open to all Degree Students</strong>
-                  <p>Students from any degree can participate i.e., B.Tech, M.Tech, PhD.</p>
-                </div>
-              </li>
-              <li>
-                <i data-lucide="users"></i>
-                <div>
-                  <strong>Individual / Team Participation</strong>
-                  <p>Register as a team to collaborate on hardware and software implementation tracks.</p>
-                </div>
-              </li>
-              <li>
-                <i data-lucide="user-plus"></i>
-                <div>
-                  <strong>Maximum Team Size: 5 Members</strong>
-                  <p>Teams must contain 3 to 5 members to distribute work across architecture, programming and hardware
-                    implementation.</p>
-                </div>
-              </li>
-              <li>
-                <i data-lucide="graduation-cap"></i>
-                <div>
-                  <strong>All Branches are Welcomed</strong>
-                  <p>No restriction on departments—ECE, CSE, EE, and ME branches can form multidisciplinary teams.</p>
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
 
