@@ -4422,7 +4422,7 @@ body.dark-mode .notice-box-text strong {
 /* 10. Responsive Breakpoints for Finalists */
 @media (max-width: 992px) {
   .finalists-main-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem !important;
   }
 
   .finalists-metrics-grid {
@@ -4436,67 +4436,161 @@ body.dark-mode .notice-box-text strong {
   }
 }
 
+/* Ensure Finalists Section & Table are always 100% visible on all devices */
+.finalists-section,
+.finalists-section .reveal,
+.finalist-table-wrapper,
+.finalist-controls-card,
+.finalists-metrics-grid,
+.finalist-next-steps-card {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
 @media (max-width: 768px) {
-  .finalists-hero-card {
-    padding: 30px 18px;
+  .finalists-section {
+    padding: 60px 0 40px;
   }
 
-  .finalists-main-title {
-    font-size: 1.75rem;
+  .finalists-header-compact h2 {
+    font-size: 1.8rem !important;
   }
 
-  .finalists-tagline {
-    font-size: 1.1rem;
-  }
-
-  .finalists-hero-desc {
-    font-size: 0.95rem;
+  .finalists-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .finalist-controls-card {
     flex-direction: column;
     align-items: stretch;
-    padding: 14px;
+    padding: 12px 14px;
+    gap: 10px;
+    margin-bottom: 16px;
   }
 
-  .finalist-filter-box select {
+  .finalist-search-box {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .finalist-search-box input {
+    font-size: 0.95rem;
+    padding: 12px 38px 12px 40px;
     width: 100%;
   }
 
   .finalist-count-pill {
     text-align: center;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 0.82rem;
   }
 
   /* Transform table into responsive cards on mobile */
+  .finalist-table-wrapper {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 25px;
+    overflow: visible;
+  }
+
+  .finalist-table {
+    display: block;
+    width: 100%;
+  }
+
   .finalist-table thead {
     display: none;
   }
 
-  .finalist-table, .finalist-table tbody, .finalist-table tr, .finalist-table td {
+  .finalist-table tbody {
     display: block;
     width: 100%;
   }
 
   .finalist-table tbody tr {
-    padding: 16px 14px;
-    border-bottom: 1.5px solid var(--card-border);
+    display: block;
+    width: 100%;
+    background: var(--card-bg);
+    border: 1.5px solid var(--card-border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  body.dark-mode .finalist-table tbody tr {
+    background: rgba(13, 27, 62, 0.75);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 
   .finalist-table td {
-    padding: 6px 0;
+    display: block;
+    width: 100%;
+    padding: 4px 0;
     border: none;
   }
 
   .finalist-table td.td-team {
-    padding-bottom: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  body.dark-mode .finalist-table td.td-team {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .team-name-cell {
+    gap: 8px;
   }
 
   .team-name-text {
-    font-size: 1.05rem;
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.01em;
   }
 
-  .leader-name-cell, .inst-name-cell {
+  body.dark-mode .team-name-text {
+    color: #38bdf8;
+  }
+
+  .leader-name-cell {
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 3px 0;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .inst-name-cell {
     font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding: 3px 0;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.45;
+  }
+
+  .inst-name-cell svg,
+  .leader-name-cell svg {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    color: var(--primary);
+  }
+
+  body.dark-mode .inst-name-cell svg,
+  body.dark-mode .leader-name-cell svg {
+    color: var(--secondary);
   }
 
   .reg-fees-grid {

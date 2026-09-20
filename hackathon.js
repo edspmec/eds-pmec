@@ -20,8 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Always return to the top (home section) on page load/refresh
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  // Handle hash scrolling if present, otherwise start at top on refresh
+  if (window.location.hash) {
+    const targetEl = document.querySelector(window.location.hash);
+    if (targetEl) {
+      setTimeout(() => {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  } else {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
 });
 
 /* ==========================================================================
@@ -118,23 +127,24 @@ function initHeaderScroll() {
     // Scroll Progress Bar
     if (scrollProgress) {
       const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = windowHeight > 0 ? (scrollPos / windowHeight) * 100 : 0;
-      scrollProgress.style.width = `${progress}%`;
+      if (windowHeight > 0) {
+        const progressPercentage = (scrollPos / windowHeight) * 100;
+        scrollProgress.style.width = `${progressPercentage}%`;
+      }
     }
 
-    // Back to Top Button visibility
+    // Back to Top Button
     if (backToTopBtn) {
-      if (scrollPos > 300) {
-        backToTopBtn.classList.add('active');
+      if (scrollPos > 400) {
+        backToTopBtn.classList.add('visible');
       } else {
-        backToTopBtn.classList.remove('active');
+        backToTopBtn.classList.remove('visible');
       }
     }
   });
 
   if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    backToTopBtn.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -144,31 +154,36 @@ function initHeaderScroll() {
 }
 
 /* ==========================================================================
-   4. FAQ Accordion Functionality
+   4. FAQ Accordion
    ========================================================================== */
 function initFAQAccordion() {
-  const faqQuestions = document.querySelectorAll('.faq-question');
-  
-  faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-      const item = question.parentElement;
-      const answer = question.nextElementSibling;
-      const isActive = item.classList.contains('active');
+  const faqItems = document.querySelectorAll('.faq-item');
 
-      // Close all other active accordion panels
-      document.querySelectorAll('.faq-item').forEach(otherItem => {
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    if (!questionBtn) return;
+
+    questionBtn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('active');
+
+      // Close all other FAQs
+      faqItems.forEach(otherItem => {
         if (otherItem !== item) {
           otherItem.classList.remove('active');
-          otherItem.querySelector('.faq-answer').style.maxHeight = null;
+          const otherAnswer = otherItem.querySelector('.faq-answer');
+          if (otherAnswer) otherAnswer.style.maxHeight = null;
         }
       });
 
-      if (isActive) {
-        item.classList.remove('active');
-        answer.style.maxHeight = null;
-      } else {
+      // Toggle current FAQ
+      if (!isOpen) {
         item.classList.add('active');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
+        const answer = item.querySelector('.faq-answer');
+        if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+      } else {
+        item.classList.remove('active');
+        const answer = item.querySelector('.faq-answer');
+        if (answer) answer.style.maxHeight = null;
       }
     });
   });
@@ -182,8 +197,8 @@ function initScrollAnimations() {
   if (reveals.length === 0) return;
 
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.01,
+    rootMargin: '100px 0px 50px 0px'
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
@@ -195,7 +210,14 @@ function initScrollAnimations() {
     });
   }, observerOptions);
 
-  reveals.forEach(reveal => observer.observe(reveal));
+  reveals.forEach(reveal => {
+    // Immediately activate if already in viewport or near top
+    const rect = reveal.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 150) {
+      reveal.classList.add('active');
+    }
+    observer.observe(reveal);
+  });
 }
 
 /* ==========================================================================
