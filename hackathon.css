@@ -2513,6 +2513,35 @@ body.dark-mode .deadline-badge-pill.closed-pill {
   box-shadow: 0 0 6px #10B981;
 }
 
+.deadline-pulse-dot-gold {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FDE68A;
+  box-shadow: 0 0 8px #F59E0B;
+  animation: deadlinePulse 1.4s infinite;
+}
+
+.reward-top-banner {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(16, 185, 129, 0.08) 100%) !important;
+  border-bottom: 1.5px solid rgba(245, 158, 11, 0.35) !important;
+  border-top: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+body.dark-mode .reward-top-banner {
+  background: linear-gradient(135deg, rgba(30, 22, 10, 0.9) 0%, rgba(13, 27, 62, 0.92) 50%, rgba(5, 42, 94, 0.85) 100%) !important;
+  border-bottom: 1.5px solid rgba(245, 158, 11, 0.45) !important;
+  border-top: 1px solid rgba(245, 158, 11, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(245, 158, 11, 0.1) !important;
+}
+
+.reward-banner-pill {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.4) !important;
+}
+
 @keyframes deadlinePulse {
   0% { transform: scale(0.9); opacity: 0.8; }
   50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 10px #FFFFFF; }
