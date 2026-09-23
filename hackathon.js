@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCircuitCanvas();
   initFinalistCounters();
   initFinalistSearch();
+  initAnnouncementCarousel();
 
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
@@ -542,5 +543,122 @@ function initFinalistSearch() {
     });
   }
 }
+
+/* ==========================================================================
+   Announcement Carousel (Auto-Sliding Multi-Announcement Ticker)
+   ========================================================================== */
+function initAnnouncementCarousel() {
+  const carouselEl = document.getElementById('announcement-carousel');
+  if (!carouselEl) return;
+
+  const slides = carouselEl.querySelectorAll('.announcement-slide');
+  const dots = carouselEl.querySelectorAll('.dot-indicator');
+  const prevBtn = document.getElementById('announcement-prev');
+  const nextBtn = document.getElementById('announcement-next');
+
+  if (slides.length === 0) return;
+
+  let currentIndex = 0;
+  let slideTimer = null;
+  const slideIntervalTime = 4500; // 4.5 seconds per slide
+
+  const showSlide = (index) => {
+    if (index < 0) {
+      index = slides.length - 1;
+    } else if (index >= slides.length) {
+      index = 0;
+    }
+
+    currentIndex = index;
+
+    slides.forEach((slide, i) => {
+      if (i === currentIndex) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  };
+
+  const startAutoPlay = () => {
+    stopAutoPlay();
+    slideTimer = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, slideIntervalTime);
+  };
+
+  const stopAutoPlay = () => {
+    if (slideTimer) {
+      clearInterval(slideTimer);
+      slideTimer = null;
+    }
+  };
+
+  // Nav buttons
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      showSlide(currentIndex - 1);
+      startAutoPlay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      showSlide(currentIndex + 1);
+      startAutoPlay();
+    });
+  }
+
+  // Dots
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const slideIndex = parseInt(dot.getAttribute('data-slide'), 10);
+      if (!isNaN(slideIndex)) {
+        showSlide(slideIndex);
+        startAutoPlay();
+      }
+    });
+  });
+
+  // Pause on hover
+  carouselEl.addEventListener('mouseenter', stopAutoPlay);
+  carouselEl.addEventListener('mouseleave', startAutoPlay);
+
+  // Touch Swipe Support for Mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carouselEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoPlay();
+  }, { passive: true });
+
+  carouselEl.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeDistance = touchStartX - touchEndX;
+    if (Math.abs(swipeDistance) > 40) {
+      if (swipeDistance > 0) {
+        // Swiped Left -> Next slide
+        showSlide(currentIndex + 1);
+      } else {
+        // Swiped Right -> Prev slide
+        showSlide(currentIndex - 1);
+      }
+    }
+    startAutoPlay();
+  }, { passive: true });
+
+  // Start initial auto-play
+  startAutoPlay();
+}
+
 
 

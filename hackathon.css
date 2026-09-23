@@ -2522,24 +2522,218 @@ body.dark-mode .deadline-badge-pill.closed-pill {
   animation: deadlinePulse 1.4s infinite;
 }
 
-.reward-top-banner {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(16, 185, 129, 0.08) 100%) !important;
-  border-bottom: 1.5px solid rgba(245, 158, 11, 0.35) !important;
-  border-top: 1px solid rgba(245, 158, 11, 0.2) !important;
+/* ==========================================================================
+   Top Sliding Announcement Carousel
+   ========================================================================== */
+.top-announcement-carousel {
+  background: linear-gradient(135deg, rgba(13, 27, 62, 0.95) 0%, rgba(5, 42, 94, 0.92) 50%, rgba(15, 23, 42, 0.95) 100%);
+  border-bottom: 1.5px solid rgba(56, 189, 248, 0.3);
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  padding: 10px 0 8px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.08);
+  backdrop-filter: blur(10px);
 }
 
-body.dark-mode .reward-top-banner {
-  background: linear-gradient(135deg, rgba(30, 22, 10, 0.9) 0%, rgba(13, 27, 62, 0.92) 50%, rgba(5, 42, 94, 0.85) 100%) !important;
-  border-bottom: 1.5px solid rgba(245, 158, 11, 0.45) !important;
-  border-top: 1px solid rgba(245, 158, 11, 0.25) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(245, 158, 11, 0.1) !important;
+body.light-mode .top-announcement-carousel,
+body:not(.dark-mode) .top-announcement-carousel {
+  background: linear-gradient(135deg, rgba(240, 249, 255, 0.98) 0%, rgba(224, 242, 254, 0.95) 50%, rgba(243, 232, 255, 0.95) 100%);
+  border-bottom: 1.5px solid rgba(2, 132, 199, 0.25);
+  border-top: 1px solid rgba(2, 132, 199, 0.12);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
+.announcement-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.announcement-slides-container {
+  flex: 1;
+  position: relative;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.announcement-slide {
+  display: none;
+  opacity: 0;
+  transform: translateX(18px);
+  transition: opacity 0.38s ease, transform 0.38s ease;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.announcement-slide.active {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Nav Control Buttons */
+.announcement-nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #38bdf8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  backdrop-filter: blur(4px);
+  padding: 0;
+}
+
+body.light-mode .announcement-nav-btn,
+body:not(.dark-mode) .announcement-nav-btn {
+  background: rgba(2, 132, 199, 0.1);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: #0284C7;
+}
+
+.announcement-nav-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38bdf8;
+  color: #FFFFFF;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.announcement-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Slide Indicator Dots */
+.announcement-dots {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+
+.dot-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-mode .dot-indicator,
+body:not(.dark-mode) .dot-indicator {
+  background: rgba(2, 132, 199, 0.25);
+}
+
+.dot-indicator.active {
+  width: 22px;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+/* Badge Pills */
 .reward-banner-pill {
   background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
   color: #FFFFFF !important;
   font-weight: 800 !important;
   box-shadow: 0 2px 12px rgba(245, 158, 11, 0.4) !important;
+}
+
+.finalist-banner-pill {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 12px rgba(2, 132, 199, 0.4) !important;
+}
+
+.merch-banner-pill {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4) !important;
+}
+
+.kit-banner-pill {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 12px rgba(5, 150, 105, 0.4) !important;
+}
+
+/* Pulse Dots */
+.deadline-pulse-dot-cyan {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22D3EE;
+  box-shadow: 0 0 8px #22D3EE;
+  animation: deadlinePulse 1.4s infinite;
+}
+
+.deadline-pulse-dot-purple {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #C084FC;
+  box-shadow: 0 0 8px #C084FC;
+  animation: deadlinePulse 1.4s infinite;
+}
+
+.deadline-pulse-dot-emerald {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #34D399;
+  box-shadow: 0 0 8px #34D399;
+  animation: deadlinePulse 1.4s infinite;
+}
+
+/* Banner CTAs */
+.banner-btn-gold {
+  background: linear-gradient(135deg, #F59E0B, #D97706) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+.banner-btn-cyan {
+  background: linear-gradient(135deg, #0284C7, #0369A1) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+.banner-btn-purple {
+  background: linear-gradient(135deg, #8B5CF6, #6D28D9) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4) !important;
+  font-weight: 700 !important;
+}
+
+.banner-btn-green {
+  background: linear-gradient(135deg, #059669, #047857) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4) !important;
+  font-weight: 700 !important;
 }
 
 .nav-new-pill {
@@ -6103,6 +6297,65 @@ body:not(.dark-mode) .merch-notice-text strong {
     font-size: 1.85rem;
   }
 }
+
+/* ==========================================================================
+   Responsive Styles for Top Sliding Announcement Carousel
+   ========================================================================== */
+@media (max-width: 992px) {
+  .announcement-slide {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-announcement-carousel {
+    padding: 10px 0 16px 0;
+  }
+
+  .announcement-nav-btn {
+    display: none; /* Keep clean full-width on small screens with dots */
+  }
+
+  .announcement-slides-container {
+    min-height: auto;
+  }
+
+  .announcement-slide {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .deadline-main-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .deadline-sep {
+    display: none;
+  }
+
+  .deadline-btn-group {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    margin-top: 2px;
+  }
+
+  .deadline-btn-group .btn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 7px 12px;
+  }
+
+  .announcement-dots {
+    bottom: 2px;
+  }
+}
+
 
 
 
