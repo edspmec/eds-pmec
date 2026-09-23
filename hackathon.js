@@ -551,29 +551,25 @@ function initAnnouncementCarousel() {
   const carouselEl = document.getElementById('announcement-carousel');
   if (!carouselEl) return;
 
-  const track = document.getElementById('announcement-slides-track');
   const slides = carouselEl.querySelectorAll('.announcement-slide');
   const dots = carouselEl.querySelectorAll('.dot-indicator');
   const prevBtn = document.getElementById('announcement-prev');
   const nextBtn = document.getElementById('announcement-next');
   const progressBar = document.getElementById('announcement-progress-bar');
 
-  if (!track || slides.length === 0) return;
+  if (slides.length === 0) return;
 
   let currentIndex = 0;
   let slideTimer = null;
-  const slideIntervalTime = 4200; // 4.2 seconds per slide
-  let isHovered = false;
+  const slideIntervalTime = 4000; // 4 seconds per slide
 
-  const resetProgressBar = () => {
+  const triggerProgressBar = () => {
     if (!progressBar) return;
     progressBar.style.transition = 'none';
     progressBar.style.width = '0%';
-    void progressBar.offsetWidth;
-    if (!isHovered) {
-      progressBar.style.transition = `width ${slideIntervalTime}ms linear`;
-      progressBar.style.width = '100%';
-    }
+    void progressBar.offsetWidth; // Force reflow
+    progressBar.style.transition = `width ${slideIntervalTime}ms linear`;
+    progressBar.style.width = '100%';
   };
 
   const showSlide = (index) => {
@@ -584,9 +580,6 @@ function initAnnouncementCarousel() {
     }
 
     currentIndex = index;
-
-    // Smooth horizontal slide transform
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
     slides.forEach((slide, i) => {
       if (i === currentIndex) {
@@ -604,20 +597,20 @@ function initAnnouncementCarousel() {
       }
     });
 
-    resetProgressBar();
+    triggerProgressBar();
   };
 
   const startAutoPlay = () => {
-    stopAutoPlay();
-    isHovered = false;
-    resetProgressBar();
+    if (slideTimer) {
+      clearInterval(slideTimer);
+    }
+    triggerProgressBar();
     slideTimer = setInterval(() => {
       showSlide(currentIndex + 1);
     }, slideIntervalTime);
   };
 
   const stopAutoPlay = () => {
-    isHovered = true;
     if (slideTimer) {
       clearInterval(slideTimer);
       slideTimer = null;
@@ -631,14 +624,16 @@ function initAnnouncementCarousel() {
 
   // Nav buttons
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       showSlide(currentIndex - 1);
       startAutoPlay();
     });
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       showSlide(currentIndex + 1);
       startAutoPlay();
     });
@@ -646,7 +641,8 @@ function initAnnouncementCarousel() {
 
   // Dots
   dots.forEach(dot => {
-    dot.addEventListener('click', () => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
       const slideIndex = parseInt(dot.getAttribute('data-slide'), 10);
       if (!isNaN(slideIndex)) {
         showSlide(slideIndex);
@@ -661,29 +657,29 @@ function initAnnouncementCarousel() {
 
   // Touch Swipe Support for Mobile
   let touchStartX = 0;
-  let touchEndX = 0;
-
   carouselEl.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    stopAutoPlay();
+    if (e.changedTouches && e.changedTouches.length > 0) {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoPlay();
+    }
   }, { passive: true });
 
   carouselEl.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const swipeDistance = touchStartX - touchEndX;
-    if (Math.abs(swipeDistance) > 35) {
-      if (swipeDistance > 0) {
-        // Swiped Left -> Next slide
-        showSlide(currentIndex + 1);
-      } else {
-        // Swiped Right -> Prev slide
-        showSlide(currentIndex - 1);
+    if (e.changedTouches && e.changedTouches.length > 0) {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 30) {
+        if (diff > 0) {
+          showSlide(currentIndex + 1);
+        } else {
+          showSlide(currentIndex - 1);
+        }
       }
     }
     startAutoPlay();
   }, { passive: true });
 
-  // Start initial auto-play and slide display
+  // Initialize first slide and start auto-play
   showSlide(0);
   startAutoPlay();
 }
