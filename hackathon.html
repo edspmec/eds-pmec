@@ -52,7 +52,7 @@
         <a href="#winner-reward" class="nav-link">Reward <span class="nav-new-pill">NEW</span></a>
         <a href="#finalists" class="nav-link">Finalists</a>
         <a href="#timeline" class="nav-link">Timeline</a>
-        <a href="#merch" class="nav-link">Merch</a>
+        <a href="#merch" class="nav-link">Merch<span class="nav-new-pill">NEW</span></a>
         <a href="problem-statements.html" target="_blank" class="nav-link">Problem Statements <i
             data-lucide="arrow-up-right"
             style="width: 12px; height: 12px; display: inline-align; vertical-align: middle;"></i></a>
@@ -85,6 +85,11 @@
     <!-- Top Announcement: Sliding Announcements Banner Carousel -->
     <div class="top-announcement-carousel reveal" id="announcement-carousel"
       aria-label="Latest Hackathon Announcements">
+      <!-- Dynamic Auto-Scroll Progress Bar -->
+      <div class="announcement-progress-track">
+        <div class="announcement-progress-bar" id="announcement-progress-bar"></div>
+      </div>
+
       <div class="container announcement-carousel-wrapper">
 
         <!-- Prev Button -->
@@ -93,154 +98,156 @@
           <i data-lucide="chevron-left"></i>
         </button>
 
-        <!-- Slides Container -->
-        <div class="announcement-slides-container">
+        <!-- Dynamic Slides Viewport & Track -->
+        <div class="announcement-slides-viewport">
+          <div class="announcement-slides-track" id="announcement-slides-track">
 
-          <!-- Slide 0: Winner Reward -->
-          <div class="announcement-slide active" data-index="0">
-            <div class="deadline-badge-col">
-              <div class="deadline-badge-pill reward-banner-pill">
-                <span class="deadline-pulse-dot-gold"></span>
-                <i data-lucide="gift" class="deadline-icon"></i>
-                <span>⚡ NEW REWARD ANNOUNCED</span>
+            <!-- Slide 0: Winner Reward -->
+            <div class="announcement-slide active" data-index="0">
+              <div class="deadline-badge-col">
+                <div class="deadline-badge-pill reward-banner-pill">
+                  <span class="deadline-pulse-dot-gold"></span>
+                  <i data-lucide="gift" class="deadline-icon"></i>
+                  <span>⚡ NEW REWARD ANNOUNCED</span>
+                </div>
+              </div>
+              <div class="deadline-details">
+                <div class="deadline-main-row">
+                  <span class="deadline-urgent-lead" style="color: #FBBF24;">🏆 RENESAS QUICKCONNECT BEGINNERS KIT
+                    V2.0</span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box">
+                    <span class="deadline-lbl">FOR:</span>
+                    <strong style="color: #38BDF8;">Winners Across All 3 Tracks</strong>
+                  </span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box"
+                    style="background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.25);">
+                    <i data-lucide="shield-check"
+                      style="width: 14px; height: 14px; color: #34d399; vertical-align: middle; margin-right: 4px;"></i>
+                    <strong style="color: #34d399; font-size: 0.85rem;">Sponsored by Renesas Electronics</strong>
+                  </span>
+                </div>
+              </div>
+              <div class="deadline-btn-group">
+                <a href="#winner-reward" class="btn btn-primary deadline-cta-btn banner-btn-gold">
+                  View Reward <i data-lucide="sparkles"></i>
+                </a>
+                <a href="#finalists" class="btn btn-secondary deadline-cta-btn">
+                  Finalists <i data-lucide="arrow-down"></i>
+                </a>
               </div>
             </div>
-            <div class="deadline-details">
-              <div class="deadline-main-row">
-                <span class="deadline-urgent-lead" style="color: #FBBF24;">🏆 RENESAS QUICKCONNECT BEGINNERS KIT
-                  V2.0</span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box">
-                  <span class="deadline-lbl">FOR:</span>
-                  <strong style="color: #38BDF8;">Winners Across All 3 Tracks</strong>
-                </span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box"
-                  style="background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.25);">
-                  <i data-lucide="shield-check"
-                    style="width: 14px; height: 14px; color: #34d399; vertical-align: middle; margin-right: 4px;"></i>
-                  <strong style="color: #34d399; font-size: 0.85rem;">Sponsored by Renesas Electronics</strong>
-                </span>
+
+            <!-- Slide 1: Grand Finalists Announcement -->
+            <div class="announcement-slide" data-index="1">
+              <div class="deadline-badge-col">
+                <div class="deadline-badge-pill finalist-banner-pill">
+                  <span class="deadline-pulse-dot-cyan"></span>
+                  <i data-lucide="trophy" class="deadline-icon"></i>
+                  <span>🎉 FINALISTS ANNOUNCED</span>
+                </div>
+              </div>
+              <div class="deadline-details">
+                <div class="deadline-main-row">
+                  <span class="deadline-urgent-lead" style="color: #22D3EE;">📋 37 GRAND FINALIST TEAMS SELECTED</span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box">
+                    <span class="deadline-lbl">TEAMS:</span>
+                    <strong style="color: #FCD34D;">From Premier Institutions Across India</strong>
+                  </span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box"
+                    style="background: rgba(56, 189, 248, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.25);">
+                    <i data-lucide="calendar"
+                      style="width: 14px; height: 14px; color: #38BDF8; vertical-align: middle; margin-right: 4px;"></i>
+                    <strong style="color: #38BDF8; font-size: 0.85rem;">Offline Finals: 4–6 Oct 2026</strong>
+                  </span>
+                </div>
+              </div>
+              <div class="deadline-btn-group">
+                <a href="#finalists" class="btn btn-primary deadline-cta-btn banner-btn-cyan">
+                  View Finalists <i data-lucide="users"></i>
+                </a>
+                <a href="#timeline" class="btn btn-secondary deadline-cta-btn">
+                  Timeline <i data-lucide="clock"></i>
+                </a>
               </div>
             </div>
-            <div class="deadline-btn-group">
-              <a href="#winner-reward" class="btn btn-primary deadline-cta-btn banner-btn-gold">
-                View Reward <i data-lucide="sparkles"></i>
-              </a>
-              <a href="#finalists" class="btn btn-secondary deadline-cta-btn">
-                Finalists <i data-lucide="arrow-down"></i>
-              </a>
+
+            <!-- Slide 2: Official Edge AI Merchandise -->
+            <div class="announcement-slide" data-index="2">
+              <div class="deadline-badge-col">
+                <div class="deadline-badge-pill merch-banner-pill">
+                  <span class="deadline-pulse-dot-purple"></span>
+                  <i data-lucide="shirt" class="deadline-icon"></i>
+                  <span>👕 OFFICIAL EVENT MERCH</span>
+                </div>
+              </div>
+              <div class="deadline-details">
+                <div class="deadline-main-row">
+                  <span class="deadline-urgent-lead" style="color: #C084FC;">⚡ OFFICIAL T-SHIRT &amp; JERSEY</span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box">
+                    <span class="deadline-lbl">PRICE:</span>
+                    <strong style="color: #38BDF8; font-size: 1.05rem;">₹599</strong>
+                  </span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box"
+                    style="background: rgba(168, 85, 247, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.25);">
+                    <i data-lucide="sparkles"
+                      style="width: 14px; height: 14px; color: #C084FC; vertical-align: middle; margin-right: 4px;"></i>
+                    <strong style="color: #C084FC; font-size: 0.85rem;">Coming Soon • Details Shared Soon</strong>
+                  </span>
+                </div>
+              </div>
+              <div class="deadline-btn-group">
+                <a href="#merch" class="btn btn-primary deadline-cta-btn banner-btn-purple">
+                  Explore Merch <i data-lucide="sparkles"></i>
+                </a>
+                <a href="#merch" class="btn btn-secondary deadline-cta-btn">
+                  Notice <i data-lucide="info"></i>
+                </a>
+              </div>
             </div>
+
+            <!-- Slide 3: Hardware Prototyping Kit Details -->
+            <div class="announcement-slide" data-index="3">
+              <div class="deadline-badge-col">
+                <div class="deadline-badge-pill kit-banner-pill">
+                  <span class="deadline-pulse-dot-emerald"></span>
+                  <i data-lucide="cpu" class="deadline-icon"></i>
+                  <span>🔬 HARDWARE REWARD</span>
+                </div>
+              </div>
+              <div class="deadline-details">
+                <div class="deadline-main-row">
+                  <span class="deadline-urgent-lead" style="color: #34D399;">⚡ QUICKCONNECT STUDIO™ &amp; SENSOR
+                    BOARDS</span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box">
+                    <strong style="color: #E2E8F0;">Rapid Cloud &amp; Microcontroller Prototyping</strong>
+                  </span>
+                  <span class="deadline-sep">|</span>
+                  <span class="deadline-results-box"
+                    style="background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.25);">
+                    <i data-lucide="check-circle-2"
+                      style="width: 14px; height: 14px; color: #34d399; vertical-align: middle; margin-right: 4px;"></i>
+                    <strong style="color: #34d399; font-size: 0.85rem;">3 Winning Teams Reward</strong>
+                  </span>
+                </div>
+              </div>
+              <div class="deadline-btn-group">
+                <a href="#winner-reward" class="btn btn-primary deadline-cta-btn banner-btn-green">
+                  Kit Details <i data-lucide="cpu"></i>
+                </a>
+                <a href="#prizes-section" class="btn btn-secondary deadline-cta-btn">
+                  Prizes <i data-lucide="award"></i>
+                </a>
+              </div>
+            </div>
+
           </div>
-
-          <!-- Slide 1: Grand Finalists Announcement -->
-          <div class="announcement-slide" data-index="1">
-            <div class="deadline-badge-col">
-              <div class="deadline-badge-pill finalist-banner-pill">
-                <span class="deadline-pulse-dot-cyan"></span>
-                <i data-lucide="trophy" class="deadline-icon"></i>
-                <span>🎉 FINALISTS ANNOUNCED</span>
-              </div>
-            </div>
-            <div class="deadline-details">
-              <div class="deadline-main-row">
-                <span class="deadline-urgent-lead" style="color: #22D3EE;">📋 37 GRAND FINALIST TEAMS SELECTED</span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box">
-                  <span class="deadline-lbl">TEAMS:</span>
-                  <strong style="color: #FCD34D;">From Premier Institutions Across India</strong>
-                </span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box"
-                  style="background: rgba(56, 189, 248, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.25);">
-                  <i data-lucide="calendar"
-                    style="width: 14px; height: 14px; color: #38BDF8; vertical-align: middle; margin-right: 4px;"></i>
-                  <strong style="color: #38BDF8; font-size: 0.85rem;">Offline Finals: 4–6 Oct 2026</strong>
-                </span>
-              </div>
-            </div>
-            <div class="deadline-btn-group">
-              <a href="#finalists" class="btn btn-primary deadline-cta-btn banner-btn-cyan">
-                View Finalists <i data-lucide="users"></i>
-              </a>
-              <a href="#timeline" class="btn btn-secondary deadline-cta-btn">
-                Timeline <i data-lucide="clock"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Slide 2: Official Edge AI Merchandise -->
-          <div class="announcement-slide" data-index="2">
-            <div class="deadline-badge-col">
-              <div class="deadline-badge-pill merch-banner-pill">
-                <span class="deadline-pulse-dot-purple"></span>
-                <i data-lucide="shirt" class="deadline-icon"></i>
-                <span>👕 OFFICIAL EVENT MERCH</span>
-              </div>
-            </div>
-            <div class="deadline-details">
-              <div class="deadline-main-row">
-                <span class="deadline-urgent-lead" style="color: #C084FC;">⚡ OFFICIAL T-SHIRT &amp; JERSEY</span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box">
-                  <span class="deadline-lbl">PRICE:</span>
-                  <strong style="color: #38BDF8; font-size: 1.05rem;">₹599</strong>
-                </span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box"
-                  style="background: rgba(168, 85, 247, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(168, 85, 247, 0.25);">
-                  <i data-lucide="sparkles"
-                    style="width: 14px; height: 14px; color: #C084FC; vertical-align: middle; margin-right: 4px;"></i>
-                  <strong style="color: #C084FC; font-size: 0.85rem;">Coming Soon • Details Shared Soon</strong>
-                </span>
-              </div>
-            </div>
-            <div class="deadline-btn-group">
-              <a href="#merch" class="btn btn-primary deadline-cta-btn banner-btn-purple">
-                Explore Merch <i data-lucide="sparkles"></i>
-              </a>
-              <a href="#merch" class="btn btn-secondary deadline-cta-btn">
-                Notice <i data-lucide="info"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Slide 3: Hardware Prototyping Kit Details -->
-          <div class="announcement-slide" data-index="3">
-            <div class="deadline-badge-col">
-              <div class="deadline-badge-pill kit-banner-pill">
-                <span class="deadline-pulse-dot-emerald"></span>
-                <i data-lucide="cpu" class="deadline-icon"></i>
-                <span>🔬 HARDWARE REWARD</span>
-              </div>
-            </div>
-            <div class="deadline-details">
-              <div class="deadline-main-row">
-                <span class="deadline-urgent-lead" style="color: #34D399;">⚡ QUICKCONNECT STUDIO™ &amp; SENSOR
-                  BOARDS</span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box">
-                  <strong style="color: #E2E8F0;">Rapid Cloud &amp; Microcontroller Prototyping</strong>
-                </span>
-                <span class="deadline-sep">|</span>
-                <span class="deadline-results-box"
-                  style="background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.25);">
-                  <i data-lucide="check-circle-2"
-                    style="width: 14px; height: 14px; color: #34d399; vertical-align: middle; margin-right: 4px;"></i>
-                  <strong style="color: #34d399; font-size: 0.85rem;">3 Winning Teams Reward</strong>
-                </span>
-              </div>
-            </div>
-            <div class="deadline-btn-group">
-              <a href="#winner-reward" class="btn btn-primary deadline-cta-btn banner-btn-green">
-                Kit Details <i data-lucide="cpu"></i>
-              </a>
-              <a href="#prizes-section" class="btn btn-secondary deadline-cta-btn">
-                Prizes <i data-lucide="award"></i>
-              </a>
-            </div>
-          </div>
-
         </div>
 
         <!-- Next Button -->

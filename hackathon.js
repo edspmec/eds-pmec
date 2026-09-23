@@ -545,22 +545,36 @@ function initFinalistSearch() {
 }
 
 /* ==========================================================================
-   Announcement Carousel (Auto-Sliding Multi-Announcement Ticker)
+   Announcement Carousel (Dynamic Auto-Scrolling Multi-Announcement Ticker)
    ========================================================================== */
 function initAnnouncementCarousel() {
   const carouselEl = document.getElementById('announcement-carousel');
   if (!carouselEl) return;
 
+  const track = document.getElementById('announcement-slides-track');
   const slides = carouselEl.querySelectorAll('.announcement-slide');
   const dots = carouselEl.querySelectorAll('.dot-indicator');
   const prevBtn = document.getElementById('announcement-prev');
   const nextBtn = document.getElementById('announcement-next');
+  const progressBar = document.getElementById('announcement-progress-bar');
 
-  if (slides.length === 0) return;
+  if (!track || slides.length === 0) return;
 
   let currentIndex = 0;
   let slideTimer = null;
-  const slideIntervalTime = 4500; // 4.5 seconds per slide
+  const slideIntervalTime = 4200; // 4.2 seconds per slide
+  let isHovered = false;
+
+  const resetProgressBar = () => {
+    if (!progressBar) return;
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    void progressBar.offsetWidth;
+    if (!isHovered) {
+      progressBar.style.transition = `width ${slideIntervalTime}ms linear`;
+      progressBar.style.width = '100%';
+    }
+  };
 
   const showSlide = (index) => {
     if (index < 0) {
@@ -570,6 +584,9 @@ function initAnnouncementCarousel() {
     }
 
     currentIndex = index;
+
+    // Smooth horizontal slide transform
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
     slides.forEach((slide, i) => {
       if (i === currentIndex) {
@@ -586,19 +603,29 @@ function initAnnouncementCarousel() {
         dot.classList.remove('active');
       }
     });
+
+    resetProgressBar();
   };
 
   const startAutoPlay = () => {
     stopAutoPlay();
+    isHovered = false;
+    resetProgressBar();
     slideTimer = setInterval(() => {
       showSlide(currentIndex + 1);
     }, slideIntervalTime);
   };
 
   const stopAutoPlay = () => {
+    isHovered = true;
     if (slideTimer) {
       clearInterval(slideTimer);
       slideTimer = null;
+    }
+    if (progressBar) {
+      const computedWidth = window.getComputedStyle(progressBar).width;
+      progressBar.style.transition = 'none';
+      progressBar.style.width = computedWidth;
     }
   };
 
@@ -644,7 +671,7 @@ function initAnnouncementCarousel() {
   carouselEl.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
     const swipeDistance = touchStartX - touchEndX;
-    if (Math.abs(swipeDistance) > 40) {
+    if (Math.abs(swipeDistance) > 35) {
       if (swipeDistance > 0) {
         // Swiped Left -> Next slide
         showSlide(currentIndex + 1);
@@ -656,7 +683,8 @@ function initAnnouncementCarousel() {
     startAutoPlay();
   }, { passive: true });
 
-  // Start initial auto-play
+  // Start initial auto-play and slide display
+  showSlide(0);
   startAutoPlay();
 }
 
