@@ -2542,6 +2542,21 @@ body.dark-mode .reward-top-banner {
   box-shadow: 0 2px 12px rgba(245, 158, 11, 0.4) !important;
 }
 
+.nav-new-pill {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #FFFFFF !important;
+  margin-left: 3px;
+  vertical-align: middle;
+  line-height: 1.2;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+  letter-spacing: 0.5px;
+}
+
 @keyframes deadlinePulse {
   0% { transform: scale(0.9); opacity: 0.8; }
   50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 10px #FFFFFF; }
