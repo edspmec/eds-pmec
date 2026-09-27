@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFinalistCounters();
   initFinalistSearch();
   initAnnouncementCarousel();
+  initLiveCountdown();
 
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
@@ -683,6 +684,129 @@ function initAnnouncementCarousel() {
   showSlide(0);
   startAutoPlay();
 }
+
+/* ==========================================================================
+   Live Hackathon Countdown & Automated State Switcher
+   - State 1: Upcoming (Now -> Oct 4, 2026 09:00 IST) -> "HACKATHON BEGINS IN"
+   - State 2: Live (Oct 4, 2026 09:00 IST -> Oct 6, 2026 18:00 IST) -> "🔴 HACKATHON LIVE"
+   - State 3: Concluded (After Oct 6, 2026 18:00 IST) -> "🏁 HACKATHON CONCLUDED"
+   ========================================================================== */
+function initLiveCountdown() {
+  const daysEl = document.getElementById('countdown-days');
+  const hoursEl = document.getElementById('countdown-hours');
+  const minutesEl = document.getElementById('countdown-minutes');
+  const secondsEl = document.getElementById('countdown-seconds');
+  const titleEl = document.getElementById('countdown-main-title');
+  const subtitleEl = document.getElementById('countdown-subtitle');
+  const statusPillEl = document.getElementById('countdown-status-pill');
+  const statusTextEl = document.getElementById('countdown-status-text');
+  const timerDisplay = document.getElementById('countdown-timer-display');
+  const liveDisplay = document.getElementById('countdown-live-display');
+  const concludedDisplay = document.getElementById('countdown-concluded-display');
+
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  // Hackathon Schedule (Indian Standard Time, UTC+05:30)
+  // Starts: October 4, 2026 at 09:00:00 IST
+  // Ends: October 6, 2026 at 18:00:00 IST
+  const startDate = new Date('2026-10-04T09:00:00+05:30').getTime();
+  const endDate = new Date('2026-10-06T18:00:00+05:30').getTime();
+
+  function pad(num) {
+    return num < 10 ? '0' + num : '' + num;
+  }
+
+  function animateChange(element, newVal) {
+    if (element.innerText !== newVal) {
+      element.innerText = newVal;
+      element.classList.remove('num-tick');
+      void element.offsetWidth; // Force CSS reflow
+      element.classList.add('num-tick');
+    }
+  }
+
+  function updateCountdown() {
+    const now = Date.now();
+
+    if (now < startDate) {
+      // ----------------------------------------------------
+      // STATE 1: COUNTDOWN TO HACKATHON
+      // ----------------------------------------------------
+      const diff = startDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      animateChange(daysEl, pad(days));
+      animateChange(hoursEl, pad(hours));
+      animateChange(minutesEl, pad(minutes));
+      animateChange(secondsEl, pad(seconds));
+
+      if (timerDisplay) timerDisplay.style.display = 'flex';
+      if (liveDisplay) liveDisplay.style.display = 'none';
+      if (concludedDisplay) concludedDisplay.style.display = 'none';
+
+      if (titleEl) {
+        titleEl.innerHTML = `<span class="countdown-title-icon">⚡</span> HACKATHON BEGINS IN`;
+      }
+      if (subtitleEl) {
+        subtitleEl.innerText = 'The stage is set for 42 finalist teams across India. Hardware Implementation & Final Evaluation kicks off soon!';
+      }
+      if (statusPillEl) {
+        statusPillEl.className = 'countdown-status-pill upcoming';
+      }
+      if (statusTextEl) {
+        statusTextEl.innerText = 'OFFICIAL EVENT COUNTDOWN';
+      }
+    } else if (now >= startDate && now < endDate) {
+      // ----------------------------------------------------
+      // STATE 2: HACKATHON IS LIVE NOW (Oct 4 - Oct 6, 2026)
+      // ----------------------------------------------------
+      if (timerDisplay) timerDisplay.style.display = 'none';
+      if (concludedDisplay) concludedDisplay.style.display = 'none';
+      if (liveDisplay) liveDisplay.style.display = 'flex';
+
+      if (titleEl) {
+        titleEl.innerHTML = `🔴 HACKATHON LIVE`;
+      }
+      if (subtitleEl) {
+        subtitleEl.innerText = 'Hardware Implementation & Final Evaluation are currently underway at PMEC, Berhampur!';
+      }
+      if (statusPillEl) {
+        statusPillEl.className = 'countdown-status-pill live';
+      }
+      if (statusTextEl) {
+        statusTextEl.innerText = '🔴 HACKATHON IS LIVE NOW';
+      }
+    } else {
+      // ----------------------------------------------------
+      // STATE 3: HACKATHON CONCLUDED (After Oct 6, 2026)
+      // ----------------------------------------------------
+      if (timerDisplay) timerDisplay.style.display = 'none';
+      if (liveDisplay) liveDisplay.style.display = 'none';
+      if (concludedDisplay) concludedDisplay.style.display = 'flex';
+
+      if (titleEl) {
+        titleEl.innerHTML = `🏁 HACKATHON CONCLUDED`;
+      }
+      if (subtitleEl) {
+        subtitleEl.innerText = 'Heartiest congratulations to all 42 finalist teams, winners, mentors, and sponsors!';
+      }
+      if (statusPillEl) {
+        statusPillEl.className = 'countdown-status-pill concluded';
+      }
+      if (statusTextEl) {
+        statusTextEl.innerText = 'EVENT CONCLUDED';
+      }
+    }
+  }
+
+  // Update immediately and then every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
 
 
 

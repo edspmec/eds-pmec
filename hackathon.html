@@ -280,10 +280,12 @@
             <span class="highlight-text">Hackathon 2026</span>
           </h1>
           <div class="hero-badges-row">
-            <div class="status-badge finalist-status-badge">🎉 FINALIST TEAMS ANNOUNCED</div>
-            <div class="free-entry-badge results-badge">
-              <i data-lucide="calendar"></i> <strong>FINAL ROUND: 4–6 OCT 2026</strong>
-            </div>
+            <a href="#finalists" class="status-badge finalist-status-badge" style="text-decoration: none; cursor: pointer;">
+              🎉 42 FINALIST TEAMS SELECTED
+            </a>
+            <a href="#live-countdown" class="free-entry-badge results-badge" style="text-decoration: none; cursor: pointer;">
+              <i data-lucide="clock"></i> <strong>4–6 OCT 2026 • LIVE COUNTDOWN ↓</strong>
+            </a>
           </div>
 
           <p class="hero-description">
@@ -317,6 +319,135 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LIVE HACKATHON COUNTDOWN (4 • 5 • 6 OCTOBER 2026)
+         ========================================================================== -->
+    <section id="live-countdown" class="section live-countdown-section">
+      <div class="container">
+        <div class="live-countdown-card reveal">
+          <div class="countdown-ambient-glow" aria-hidden="true"></div>
+          <div class="countdown-ambient-orb" aria-hidden="true"></div>
+
+          <!-- Top Meta Row: Official Event Dates & Status Badge -->
+          <div class="countdown-top-bar">
+            <div class="countdown-event-dates">
+              <i data-lucide="calendar" class="dates-icon"></i>
+              <strong class="dates-main">4 • 5 • 6 OCTOBER 2026</strong>
+              <span class="dates-sep">|</span>
+              <span class="dates-venue">PMEC, Berhampur</span>
+            </div>
+
+            <div id="countdown-status-pill" class="countdown-status-pill upcoming">
+              <span class="countdown-pulse-dot"></span>
+              <span id="countdown-status-text">OFFICIAL EVENT COUNTDOWN</span>
+            </div>
+          </div>
+
+          <!-- Headline (Switches dynamically: HACKATHON BEGINS IN / 🔴 HACKATHON LIVE / 🏁 HACKATHON CONCLUDED) -->
+          <div class="countdown-header-group">
+            <h2 id="countdown-main-title" class="countdown-main-title">
+              <span class="countdown-title-icon">⚡</span> HACKATHON BEGINS IN
+            </h2>
+            <p id="countdown-subtitle" class="countdown-subtitle">
+              The stage is set for 42 finalist teams across India. Hardware Implementation &amp; Final Evaluation kicks off soon!
+            </p>
+          </div>
+
+          <!-- State 1: Huge Animated Counter -->
+          <div id="countdown-timer-display" class="countdown-timer-display">
+            <!-- Days Unit -->
+            <div class="countdown-unit-box">
+              <div class="countdown-digit-plate">
+                <span id="countdown-days" class="countdown-num">06</span>
+              </div>
+              <span class="countdown-unit-label">DAYS</span>
+            </div>
+
+            <div class="countdown-colon-sep">:</div>
+
+            <!-- Hours Unit -->
+            <div class="countdown-unit-box">
+              <div class="countdown-digit-plate">
+                <span id="countdown-hours" class="countdown-num">12</span>
+              </div>
+              <span class="countdown-unit-label">HOURS</span>
+            </div>
+
+            <div class="countdown-colon-sep">:</div>
+
+            <!-- Minutes Unit -->
+            <div class="countdown-unit-box">
+              <div class="countdown-digit-plate">
+                <span id="countdown-minutes" class="countdown-num">41</span>
+              </div>
+              <span class="countdown-unit-label">MINUTES</span>
+            </div>
+
+            <div class="countdown-colon-sep">:</div>
+
+            <!-- Seconds Unit -->
+            <div class="countdown-unit-box sec-highlight-box">
+              <div class="countdown-digit-plate">
+                <span id="countdown-seconds" class="countdown-num sec-num">23</span>
+              </div>
+              <span class="countdown-unit-label sec-label">SECONDS</span>
+            </div>
+          </div>
+
+          <!-- State 2: Live Hackathon View (Auto-switched on event days) -->
+          <div id="countdown-live-display" class="countdown-state-panel live-panel" style="display: none;">
+            <div class="live-signal-badge">
+              <span class="live-signal-beacon"></span>
+              <span class="live-signal-text">FINAL ROUND IN PROGRESS</span>
+            </div>
+            <h3 class="live-state-headline">🔴 HACKATHON IS LIVE NOW!</h3>
+            <p class="live-state-desc">
+              Hardware Implementation, Embedded AI Prototyping &amp; Final Evaluation are currently underway at Parala Maharaja Engineering College (PMEC), Berhampur.
+            </p>
+            <div class="live-actions-row">
+              <a href="#finalists" class="btn btn-primary live-action-btn">
+                <i data-lucide="users"></i> View All 42 Teams
+              </a>
+              <a href="#timeline" class="btn btn-secondary live-action-btn">
+                <i data-lucide="clock"></i> Hackathon Schedule
+              </a>
+            </div>
+          </div>
+
+          <!-- State 3: Concluded View (Auto-switched after hackathon ends) -->
+          <div id="countdown-concluded-display" class="countdown-state-panel concluded-panel" style="display: none;">
+            <div class="concluded-trophy-badge">
+              <i data-lucide="trophy"></i>
+              <span>EVENT COMPLETED</span>
+            </div>
+            <h3 class="concluded-state-headline">🏁 HACKATHON CONCLUDED</h3>
+            <p class="concluded-state-desc">
+              The IEEE Edge AI Hackathon 2026 has officially concluded. Heartiest congratulations to all 42 finalist teams, winners, mentors, and sponsors!
+            </p>
+            <div class="concluded-actions-row">
+              <a href="#finalists" class="btn btn-primary concluded-action-btn">
+                <i data-lucide="award"></i> View Finalists &amp; Results
+              </a>
+            </div>
+          </div>
+
+          <!-- Bottom Venue & Quick Link Bar -->
+          <div class="countdown-footer-bar">
+            <div class="countdown-venue-info">
+              <i data-lucide="map-pin"></i>
+              <span>Parala Maharaja Engineering College (PMEC), Sitalapalli, Berhampur, Odisha</span>
+            </div>
+            <div class="countdown-quick-actions">
+              <a href="#finalists" class="countdown-action-link">
+                View 42 Finalist Teams <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
