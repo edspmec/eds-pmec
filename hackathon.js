@@ -494,7 +494,7 @@ function initFinalistSearch() {
 
   // Initialize count badge dynamically
   if (countBadge) {
-    countBadge.innerHTML = `Showing all <strong>${totalTeams}</strong> Finalist Teams`;
+    countBadge.innerHTML = `Showing all <strong>${totalTeams}</strong> Final Round Teams`;
   }
 
   const filterTable = () => {
@@ -522,9 +522,9 @@ function initFinalistSearch() {
 
     if (countBadge) {
       if (visibleCount === totalTeams) {
-        countBadge.innerHTML = `Showing all <strong>${totalTeams}</strong> Finalist Teams`;
+        countBadge.innerHTML = `Showing all <strong>${totalTeams}</strong> Final Round Teams`;
       } else {
-        countBadge.innerHTML = `Showing <strong>${visibleCount}</strong> of ${totalTeams} Finalist Teams`;
+        countBadge.innerHTML = `Showing <strong>${visibleCount}</strong> of ${totalTeams} Final Round Teams`;
       }
     }
 
