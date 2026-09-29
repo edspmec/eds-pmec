@@ -2522,6 +2522,21 @@ body.dark-mode .deadline-badge-pill.closed-pill {
   animation: deadlinePulse 1.4s infinite;
 }
 
+.deadline-pulse-dot-cyan {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #35E4FF;
+  box-shadow: 0 0 8px #35E4FF;
+  animation: deadlinePulse 1.4s infinite;
+}
+
+.contact-banner-pill {
+  background: linear-gradient(135deg, #0A5FC2 0%, #12C4E8 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 14px rgba(18, 196, 232, 0.45) !important;
+}
+
 /* ==========================================================================
    Top Sliding Announcement Carousel
    ========================================================================== */
