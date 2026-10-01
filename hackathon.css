@@ -7732,67 +7732,70 @@ body:not(.dark-mode) .huge-tab-pill-badge {
 .live-event-banner {
   background: linear-gradient(90deg, rgba(10, 25, 47, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
   border-bottom: 1px solid rgba(18, 196, 232, 0.25);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 95;
-  padding: 10px 0;
+  padding: 8px 0;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-.live-event-bar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+.live-event-banner-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  flex-wrap: nowrap !important;
 }
 
-.live-status-pill-wrap {
+.live-banner-left {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .live-status-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
+  gap: 7px;
+  padding: 5px 12px;
   border-radius: 9999px;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .live-status-pill.upcoming {
-  background: rgba(14, 165, 233, 0.15);
+  background: rgba(14, 165, 233, 0.12);
   color: #38BDF8;
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
 }
 
 .live-status-pill.live {
-  background: rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.15);
   color: #F87171;
-  border: 1px solid rgba(239, 68, 68, 0.5);
-  box-shadow: 0 0 16px rgba(239, 68, 68, 0.35);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
 }
 
 .live-status-pill.concluded {
-  background: rgba(16, 185, 129, 0.18);
+  background: rgba(16, 185, 129, 0.15);
   color: #34D399;
-  border: 1px solid rgba(52, 211, 153, 0.4);
+  border: 1px solid rgba(52, 211, 153, 0.35);
 }
 
 .live-pulse-dot {
-  width: 9px;
-  height: 9px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: currentColor;
-  box-shadow: 0 0 8px currentColor;
+  box-shadow: 0 0 6px currentColor;
   animation: pulseBeacon 1.4s infinite ease-in-out;
 }
 
@@ -7802,73 +7805,75 @@ body:not(.dark-mode) .huge-tab-pill-badge {
   100% { transform: scale(0.9); opacity: 0.6; }
 }
 
-.live-event-info-wrap {
+.live-event-title-group {
   display: flex;
   align-items: center;
-  flex: 1 1 auto;
-  min-width: 260px;
-}
-
-.live-event-main-line {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  font-size: 0.92rem;
-  color: #E2E8F0;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .live-event-name {
   color: #FFFFFF;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .live-event-sep {
-  color: rgba(148, 163, 184, 0.5);
+  color: rgba(148, 163, 184, 0.4);
   font-weight: 700;
+  font-size: 0.82rem;
 }
 
 .live-event-date-venue {
   color: #94A3B8;
+  font-size: 0.82rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .live-today-activity {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: rgba(245, 158, 11, 0.15);
   border: 1px solid rgba(245, 158, 11, 0.35);
   color: #FBBF24;
-  padding: 3px 10px;
+  padding: 2px 8px;
   border-radius: 6px;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
-.live-event-action-wrap {
+.live-banner-right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .live-quick-countdown {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 5px 12px;
+  gap: 7px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 4px 10px;
   border-radius: 8px;
   font-family: var(--font-mono, monospace);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
+  white-space: nowrap;
 }
 
 .live-quick-countdown .countdown-tag {
-  color: #94A3B8;
-  font-size: 0.75rem;
+  color: #64748B;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -7876,34 +7881,35 @@ body:not(.dark-mode) .huge-tab-pill-badge {
 .live-quick-countdown .countdown-val {
   color: #38BDF8;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 .btn-live-schedule {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: 5px;
+  padding: 5px 12px;
   border-radius: 8px;
   background: linear-gradient(135deg, #0A5FC2, #12C4E8);
   color: #FFFFFF !important;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 10px rgba(18, 196, 232, 0.3);
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(18, 196, 232, 0.25);
+  transition: all 0.2s ease;
 }
 
 .btn-live-schedule:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(18, 196, 232, 0.5);
+  box-shadow: 0 4px 12px rgba(18, 196, 232, 0.4);
   color: #FFFFFF !important;
 }
 
 .btn-live-schedule i {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
 }
 
 /* ==========================================================================
@@ -8609,21 +8615,40 @@ body:not(.dark-mode) .huge-tab-pill-badge {
   }
 }
 
+@media (max-width: 1024px) {
+  .live-event-banner-container {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+  .live-banner-right {
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .live-event-banner {
     padding: 10px 0;
   }
-  .live-event-bar-inner {
+  .live-event-banner-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .live-banner-left {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
   }
-  .live-event-info-wrap {
-    width: 100%;
+  .live-event-title-group {
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  .live-event-action-wrap {
-    width: 100%;
-    justify-content: space-between;
+  .live-banner-right {
+    margin-left: 0;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   .schedule-day-tabs {
     grid-template-columns: 1fr;

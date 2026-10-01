@@ -85,22 +85,19 @@
     <!-- ==========================================================================
          🔴 LIVE EVENT UPDATE / STATUS NOTIFICATION COMPONENT (Requirement 3)
          ========================================================================== -->
-    <div id="live-event-banner" class="live-event-banner reveal" role="region" aria-label="Live Event Update">
+    <div id="live-event-banner" class="live-event-banner" role="region" aria-label="Live Event Update">
       <div class="container live-event-banner-container">
-        <!-- Status Pill -->
-        <div class="live-status-pill-wrap">
+        <!-- Left: Status Pill + Event Info -->
+        <div class="live-banner-left">
           <div id="live-status-pill" class="live-status-pill upcoming">
             <span class="live-pulse-dot"></span>
             <span id="live-status-text">🚀 HACKATHON STARTS SOON</span>
           </div>
-        </div>
 
-        <!-- Event Details Text -->
-        <div class="live-event-info-wrap">
-          <div class="live-event-main-line">
+          <div class="live-event-title-group">
             <strong class="live-event-name">EDGE AI HACKATHON 2026</strong>
             <span class="live-event-sep">•</span>
-            <span class="live-event-date-venue">04–06 OCTOBER 2026 • PMEC, BERHAMPUR</span>
+            <span class="live-event-date-venue">04–06 OCT 2026 • PMEC, BERHAMPUR</span>
             <span class="live-event-sep" id="live-today-sep" style="display:none;">•</span>
             <span id="live-today-activity" class="live-today-activity" style="display:none;">
               <i data-lucide="zap"></i> <span id="live-today-text">TODAY: DESIGN &amp; IMPLEMENTATION</span>
@@ -108,14 +105,14 @@
           </div>
         </div>
 
-        <!-- Countdown / Quick Action -->
-        <div class="live-event-action-wrap">
+        <!-- Right: Digital Countdown + View Schedule CTA -->
+        <div class="live-banner-right">
           <div id="live-quick-countdown" class="live-quick-countdown">
-            <span class="countdown-tag">COUNTDOWN:</span>
+            <span class="countdown-tag">STARTS IN:</span>
             <span id="live-quick-timer" class="countdown-val">--d : --h : --m : --s</span>
           </div>
           <a href="#schedule" class="btn-live-schedule">
-            <span>VIEW SCHEDULE</span> <i data-lucide="arrow-right"></i>
+            <span>Schedule</span> <i data-lucide="arrow-right"></i>
           </a>
         </div>
       </div>
@@ -248,42 +245,6 @@
               </div>
             </div>
 
-            <!-- Slide 3: Hardware Prototyping Kit Details -->
-            <div class="announcement-slide" data-index="3">
-              <div class="deadline-badge-col">
-                <div class="deadline-badge-pill kit-banner-pill">
-                  <span class="deadline-pulse-dot-emerald"></span>
-                  <i data-lucide="cpu" class="deadline-icon"></i>
-                  <span>🔬 HARDWARE REWARD</span>
-                </div>
-              </div>
-              <div class="deadline-details">
-                <div class="deadline-main-row">
-                  <span class="deadline-urgent-lead" style="color: #34D399;">⚡ QUICKCONNECT STUDIO™ &amp; SENSOR
-                    BOARDS</span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box">
-                    <strong style="color: #E2E8F0;">Rapid Cloud &amp; Microcontroller Prototyping</strong>
-                  </span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box"
-                    style="background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.25);">
-                    <i data-lucide="check-circle-2"
-                      style="width: 14px; height: 14px; color: #34d399; vertical-align: middle; margin-right: 4px;"></i>
-                    <strong style="color: #34d399; font-size: 0.85rem;">3 Winning Teams Reward</strong>
-                  </span>
-                </div>
-              </div>
-              <div class="deadline-btn-group">
-                <a href="#winner-reward" class="btn btn-primary deadline-cta-btn banner-btn-green">
-                  Kit Details <i data-lucide="cpu"></i>
-                </a>
-                <a href="#prizes-section" class="btn btn-secondary deadline-cta-btn">
-                  Prizes <i data-lucide="award"></i>
-                </a>
-              </div>
-            </div>
-
           </div>
         </div>
 
@@ -298,7 +259,6 @@
           <button class="dot-indicator active" data-slide="0" aria-label="Go to Slide 1 (Contact Organizers)"></button>
           <button class="dot-indicator" data-slide="1" aria-label="Go to Slide 2 (Reward)"></button>
           <button class="dot-indicator" data-slide="2" aria-label="Go to Slide 3 (Finalists)"></button>
-          <button class="dot-indicator" data-slide="3" aria-label="Go to Slide 4 (Hardware Kit)"></button>
         </div>
 
       </div>
