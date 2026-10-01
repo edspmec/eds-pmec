@@ -49,16 +49,15 @@
 
       <nav id="nav-menu" class="nav-menu" role="navigation">
         <a href="#hackathon-home" class="nav-link active">Home</a>
-        <a href="#winner-reward" class="nav-link">Reward <span class="nav-new-pill">NEW</span></a>
+        <a href="#schedule" class="nav-link">Schedule <span class="nav-new-pill" style="background: linear-gradient(135deg, #0A5FC2, #12C4E8);">NEW</span></a>
         <a href="#finalists" class="nav-link">Finalists</a>
-        <a href="#timeline" class="nav-link">Timeline</a>
-        <a href="#merch" class="nav-link">Merch <span class="nav-new-pill" style="background: linear-gradient(135deg, #EF4444, #DC2626); box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);">LIVE</span></a>
+        <a href="#winner-reward" class="nav-link">Reward <span class="nav-new-pill">NEW</span></a>
         <a href="problem-statements.html" target="_blank" class="nav-link">Problem Statements <i
             data-lucide="arrow-up-right"
             style="width: 12px; height: 12px; display: inline-align; vertical-align: middle;"></i></a>
         <a href="#linktree" class="nav-link">Linktree</a>
         <a href="#faq" class="nav-link">FAQs</a>
-        <a href="sponsorship.html" class="nav-link">Sponsorship</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <div class="controls-container">
@@ -81,6 +80,45 @@
 
   <!-- Main Content -->
   <main style="padding-top: 80px;">
+
+    <!-- ==========================================================================
+         🔴 LIVE EVENT UPDATE / STATUS NOTIFICATION COMPONENT (Requirement 3)
+         ========================================================================== -->
+    <div id="live-event-banner" class="live-event-banner reveal" role="region" aria-label="Live Event Update">
+      <div class="container live-event-banner-container">
+        <!-- Status Pill -->
+        <div class="live-status-pill-wrap">
+          <div id="live-status-pill" class="live-status-pill upcoming">
+            <span class="live-pulse-dot"></span>
+            <span id="live-status-text">🚀 HACKATHON STARTS SOON</span>
+          </div>
+        </div>
+
+        <!-- Event Details Text -->
+        <div class="live-event-info-wrap">
+          <div class="live-event-main-line">
+            <strong class="live-event-name">EDGE AI HACKATHON 2026</strong>
+            <span class="live-event-sep">•</span>
+            <span class="live-event-date-venue">04–06 OCTOBER 2026 • PMEC, BERHAMPUR</span>
+            <span class="live-event-sep" id="live-today-sep" style="display:none;">•</span>
+            <span id="live-today-activity" class="live-today-activity" style="display:none;">
+              <i data-lucide="zap"></i> <span id="live-today-text">TODAY: DESIGN &amp; IMPLEMENTATION</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Countdown / Quick Action -->
+        <div class="live-event-action-wrap">
+          <div id="live-quick-countdown" class="live-quick-countdown">
+            <span class="countdown-tag">COUNTDOWN:</span>
+            <span id="live-quick-timer" class="countdown-val">--d : --h : --m : --s</span>
+          </div>
+          <a href="#schedule" class="btn-live-schedule">
+            <span>VIEW SCHEDULE</span> <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- Top Announcement: Sliding Announcements Banner Carousel -->
     <div class="top-announcement-carousel reveal" id="announcement-carousel"
@@ -313,16 +351,86 @@
             Edge AI
             <span class="highlight-text">Hackathon 2026</span>
           </h1>
-          <div class="hero-badges-row">
-            <a href="#finalists" class="status-badge finalist-status-badge" style="text-decoration: none; cursor: pointer;">
-              🎉 42 FINALIST TEAMS SELECTED
+
+          <!-- Prominently Communicates 3 Core Facts (Requirement 5) -->
+          <div class="hero-core-facts-bar">
+            <div class="fact-pill">
+              <i data-lucide="calendar"></i>
+              <span><strong>04–06 OCTOBER 2026</strong></span>
+            </div>
+            <div class="fact-pill">
+              <i data-lucide="map-pin"></i>
+              <span><strong>PMEC, BERHAMPUR, ODISHA</strong></span>
+            </div>
+            <div class="fact-pill highlight-pill">
+              <i data-lucide="award"></i>
+              <span><strong>FINAL ROUND: 42 TEAMS</strong></span>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons: Quick Schedule & Brochure (Requirement 6) -->
+          <div class="hero-cta-button-row">
+            <a href="#schedule" class="btn btn-primary hero-schedule-cta">
+              <i data-lucide="calendar"></i> VIEW SCHEDULE →
             </a>
-            <a href="#live-countdown" class="free-entry-badge results-badge" style="text-decoration: none; cursor: pointer;">
-              <i data-lucide="clock"></i> <strong>4–6 OCT 2026 • LIVE COUNTDOWN ↓</strong>
+            <a href="docs/EDGE_AI_Schedule.pdf" download="IEEE_EDGE_AI_Hackathon_2026_Schedule.pdf" target="_blank" class="btn btn-secondary hero-download-cta">
+              <i data-lucide="download"></i> Download Schedule PDF
+            </a>
+            <a href="#venue" class="btn btn-secondary hero-venue-cta">
+              <i data-lucide="map-pin"></i> Venue &amp; Map
             </a>
           </div>
 
-          <!-- HUGE CONTACT ORGANIZERS TAB -->
+          <!-- Event at a Glance Mini Section (Requirement 8) -->
+          <div class="event-glance-section">
+            <div class="event-glance-grid">
+              <div class="glance-card">
+                <span class="glance-emoji">📅</span>
+                <div class="glance-details">
+                  <span class="glance-label">EVENT DATES</span>
+                  <strong>04–06 OCT 2026</strong>
+                  <small>Sunday to Tuesday</small>
+                </div>
+              </div>
+              <div class="glance-card">
+                <span class="glance-emoji">📍</span>
+                <div class="glance-details">
+                  <span class="glance-label">LOCATION</span>
+                  <strong>PMEC, Berhampur</strong>
+                  <small>Dept. of ETC Engineering</small>
+                </div>
+              </div>
+              <div class="glance-card">
+                <span class="glance-emoji">💻</span>
+                <div class="glance-details">
+                  <span class="glance-label">DOMAINS</span>
+                  <strong>Edge AI • FPGA • Embedded</strong>
+                  <small>Hardware Implementation</small>
+                </div>
+              </div>
+              <div class="glance-card">
+                <span class="glance-emoji">🏆</span>
+                <div class="glance-details">
+                  <span class="glance-label">AWARDS</span>
+                  <strong>Final Evaluation &amp; Prizes</strong>
+                  <small>₹45,000 Pool + Renesas Kits</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Finalist Readiness Callout (Recommendation 5) -->
+          <div class="finalist-readiness-box">
+            <div class="readiness-icon-pill">
+              <i data-lucide="sparkles"></i>
+              <span>FINALISTS — GET READY!</span>
+            </div>
+            <p>
+              Your development boards will be provided at the venue. Please bring your required peripherals, sensors, storage devices, connecting cables, and project-specific materials.
+            </p>
+          </div>
+
+          <!-- HUGE CONTACT ORGANIZERS TAB (Requirement 7) -->
           <div class="hero-huge-contact-row">
             <a href="#contact" class="hero-huge-contact-tab" style="text-decoration: none; cursor: pointer;" aria-label="Contact the Organizers">
               <div class="huge-tab-left">
@@ -331,8 +439,8 @@
                   <i data-lucide="headset"></i>
                 </div>
                 <div class="huge-tab-text-group">
-                  <span class="huge-tab-headline">CONTACT ORGANIZERS ↓</span>
-                  <span class="huge-tab-subline">Have Questions? Call Any of Our 14 Organizers Directly</span>
+                  <span class="huge-tab-headline">NEED HELP? CONTACT ORGANIZERS ↓</span>
+                  <span class="huge-tab-subline">Have Questions regarding registration, travel, accommodation or hardware? Call Any of Our 14 Organizers Directly</span>
                 </div>
               </div>
               <div class="huge-tab-right">
@@ -2571,151 +2679,427 @@
       </div>
     </section>
 
-    <!-- Timeline Section -->
-    <section id="timeline" class="section section-gray">
-      <div class="container max-900">
+    <!-- ==========================================================================
+         OFFICIAL EVENT SCHEDULE SECTION (04–06 OCTOBER 2026)
+         ========================================================================== -->
+    <section id="schedule" class="section schedule-section">
+      <!-- Anchor alias so any link to #timeline still scrolls smoothly here -->
+      <span id="timeline" class="schedule-anchor-offset" aria-hidden="true"></span>
 
-        <div class="section-header text-center reveal" style="margin-bottom: 35px;">
-          <div class="finalist-section-badge">
-            <i data-lucide="calendar"></i> OFFICIAL ROADMAP
+      <div class="container max-1000">
+
+        <!-- Section Header -->
+        <div class="section-header text-center reveal">
+          <div class="schedule-badge-pill">
+            <i data-lucide="calendar"></i> OFFICIAL 3-DAY SCHEDULE
           </div>
-          <h2 style="font-size: 2.2rem; margin-top: 10px;">Event Timeline</h2>
-          <p style="font-size: 1.02rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-            Official milestones and stage progression schedule for IEEE Edge AI Hackathon 2026
+          <h2 class="schedule-main-heading">HACKATHON SCHEDULE</h2>
+          <p class="schedule-sub-heading">
+            <strong>IEEE EDGE AI HACKATHON 2026</strong> • 04–06 OCTOBER 2026 • PMEC, Berhampur, Odisha
           </p>
+
+          <!-- Top Download & Venue Actions -->
+          <div class="schedule-header-actions">
+            <a href="docs/EDGE_AI_Schedule.pdf" download="IEEE_EDGE_AI_Hackathon_2026_Schedule.pdf" target="_blank"
+              class="btn btn-primary schedule-dl-btn">
+              <i data-lucide="download"></i> Download Official Schedule (PDF)
+            </a>
+            <a href="#venue" class="btn btn-secondary schedule-map-btn">
+              <i data-lucide="map-pin"></i> Venue &amp; Directions
+            </a>
+          </div>
         </div>
 
-        <!-- PMEC Style Notices Timeline (Spacious Centered Layout) -->
-        <div class="timeline-section reveal">
-          <div class="notice-timeline spacious-timeline">
-            <!-- Timeline Item 1: Round 0 -->
-            <div class="notice-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot"></span>
+        <!-- 3 Clear Date/Day Tabs -->
+        <div class="schedule-tabs-wrapper reveal">
+          <div class="schedule-day-tabs" role="tablist" aria-label="Hackathon Schedule Days">
+            <button class="schedule-day-tab active" role="tab" id="tab-day1" data-panel="panel-day1" aria-selected="true" aria-controls="panel-day1">
+              <div class="tab-date-num">04 OCT</div>
+              <div class="tab-date-info">
+                <span class="tab-weekday">SUNDAY • DAY 1</span>
+                <span class="tab-desc">Registration &amp; Hackathon Begins</span>
               </div>
-              <div class="notice-card spacious-card">
-                <div class="notice-card-header-row">
-                  <div class="notice-title-group">
-                    <h4>Round 0 – Abstract Submission</h4>
-                    <span class="tag-closed"><i data-lucide="check-circle-2"></i> CLOSED</span>
-                  </div>
-                  <div class="notice-date-badge date-closed">
-                    <i data-lucide="calendar-x"></i>
-                    <strong>15 September 2026</strong>
-                  </div>
-                </div>
-                <p class="timeline-sub-info">
-                  Nationwide abstract submissions for Round 0 have concluded and evaluations are complete.
-                </p>
+            </button>
+            <button class="schedule-day-tab" role="tab" id="tab-day2" data-panel="panel-day2" aria-selected="false" aria-controls="panel-day2">
+              <div class="tab-date-num">05 OCT</div>
+              <div class="tab-date-info">
+                <span class="tab-weekday">MONDAY • DAY 2</span>
+                <span class="tab-desc">Inauguration &amp; On-Site Challenge</span>
               </div>
+            </button>
+            <button class="schedule-day-tab" role="tab" id="tab-day3" data-panel="panel-day3" aria-selected="false" aria-controls="panel-day3">
+              <div class="tab-date-num">06 OCT</div>
+              <div class="tab-date-info">
+                <span class="tab-weekday">TUESDAY • DAY 3</span>
+                <span class="tab-desc">Demonstration, Evaluation &amp; Awards</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Schedule Panels Container -->
+        <div class="schedule-panels-container reveal">
+
+          <!-- ==========================================
+               DAY 1: 04 OCTOBER 2026 — SUNDAY
+               ========================================== -->
+          <div id="panel-day1" class="schedule-day-panel active" role="tabpanel" aria-labelledby="tab-day1">
+            <div class="day-panel-banner">
+              <div class="day-banner-text">
+                <h3>04 OCTOBER 2026 — SUNDAY</h3>
+                <p>Desk Registration, Team Verification, Goodies &amp; Hackathon Commencement</p>
+              </div>
+              <span class="day-step-indicator">DAY 1 OF 3</span>
             </div>
 
-            <!-- Timeline Item 2: Shortlisted Teams -->
-            <div class="notice-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot dot-success"></span>
-              </div>
-              <div class="notice-card spacious-card card-success">
-                <div class="notice-card-header-row">
-                  <div class="notice-title-group">
-                    <h4>Round 0 – Result Announcement</h4>
-                    <span class="tag-announced"><i data-lucide="check-circle-2"></i> FINALISTS ANNOUNCED</span>
-                  </div>
-                  <div class="notice-date-badge date-success">
-                    <i data-lucide="calendar-check"></i>
-                    <strong>18 September 2026</strong>
-                  </div>
+            <div class="schedule-items-list">
+              <!-- Item 1 -->
+              <div class="schedule-row-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="clock"></i> 11:00 AM – 12:00 PM</span>
+                  <span class="time-phase-tag phase-reg">REGISTRATION</span>
                 </div>
-                <p class="timeline-sub-info">
-                  Shortlisted finalist teams selected for the Final Round. <a href="#finalists"
-                    class="timeline-link">View Finalist Teams →</a>
-                </p>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Desk Registration starts</h4>
+                  <ul class="activity-bullets">
+                    <li>Team &amp; member verification</li>
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <!-- Timeline Item 3: Round 1 -->
-            <div class="notice-item active-timeline-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot pulse-dot"></span>
-              </div>
-              <div class="notice-card spacious-card card-active">
-                <div class="notice-card-header-row">
-                  <div class="notice-title-group">
-                    <h4>Round 1 – Software Simulation</h4>
-                    <span class="tag-current"><i data-lucide="activity"></i> CURRENT STAGE</span>
-                    <span class="stage-mode-pill mode-online"><i data-lucide="globe"></i> Mode: Online</span>
-                  </div>
-                  <div class="notice-date-badge date-active">
-                    <i data-lucide="calendar"></i>
-                    <strong>18 September – 4 October 2026</strong>
-                  </div>
+              <!-- Item 2 -->
+              <div class="schedule-row-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="clock"></i> 12:00 PM – 01:00 PM</span>
+                  <span class="time-phase-tag phase-reg">ONBOARDING</span>
                 </div>
-                <p class="timeline-sub-info">
-                  <strong>Mode: Online</strong> • Toolchain simulation, algorithm development, and remote evaluation.
-                  All finalist teams participate without elimination.
-                </p>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Desk Registration</h4>
+                  <ul class="activity-bullets">
+                    <li>Goodies &amp; ID card collection</li>
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <!-- Timeline Item 4: Round 2 -->
-            <div class="notice-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot"></span>
-              </div>
-              <div class="notice-card spacious-card">
-                <div class="notice-card-header-row">
-                  <div class="notice-title-group">
-                    <h4>Round 2 – Hardware Implementation &amp; Final Evaluation</h4>
-                    <span class="stage-mode-pill mode-onsite"><i data-lucide="map-pin"></i> Mode: Onsite</span>
-                  </div>
-                  <div class="notice-date-badge date-upcoming">
-                    <i data-lucide="calendar"></i>
-                    <strong>4–6 October 2026</strong>
-                  </div>
+              <!-- Item 3 -->
+              <div class="schedule-row-card meal-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="utensils"></i> 01:00 PM – 02:00 PM</span>
+                  <span class="time-phase-tag phase-meal">LUNCH</span>
                 </div>
-                <p class="timeline-sub-info">
-                  <strong>Mode: Onsite at PMEC, Berhampur, Odisha</strong> • Live hardware deployment, physical
-                  prototype demonstrations, and jury evaluation.
-                </p>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Lunch</h4>
+                  <p class="activity-note">Lunch break for participants and mentors at the campus dining hall.</p>
+                </div>
               </div>
-            </div>
 
-            <!-- Timeline Item 5: Valedictory -->
-            <div class="notice-item">
-              <div class="notice-badge-container">
-                <span class="notice-dot"></span>
-              </div>
-              <div class="notice-card spacious-card card-gold">
-                <div class="notice-card-header-row">
-                  <div class="notice-title-group">
-                    <h4>Valedictory &amp; Prize Distribution</h4>
-                    <span class="timeline-prize-tag"><i data-lucide="trophy"></i> ₹45,000 POOL</span>
-                  </div>
-                  <div class="notice-date-badge date-gold">
-                    <i data-lucide="award"></i>
-                    <strong>6 October 2026</strong>
-                  </div>
+              <!-- Item 4 -->
+              <div class="schedule-row-card milestone-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="zap"></i> 02:00 PM – 08:00 PM</span>
+                  <span class="time-phase-tag phase-hackathon">HACKATHON BEGINS</span>
                 </div>
-                <p class="timeline-sub-info">
-                  Grand valedictory ceremony, prize and merit certificate distributions, and hardware innovation awards.
-                </p>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Hackathon Begins • Design</h4>
+                  <ul class="activity-bullets">
+                    <li>Software design, development &amp; implementation on the required development board</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="schedule-row-card meal-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="utensils"></i> 08:00 PM – 09:00 PM</span>
+                  <span class="time-phase-tag phase-meal">DINNER</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Dinner</h4>
+                  <p class="activity-note">Dinner served for hackathon teams at PMEC campus.</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Result Notice Callout -->
-          <div class="results-announcement-callout reveal" style="margin-top: 25px;">
-            <div class="results-callout-icon">
-              <i data-lucide="trophy"></i>
+          <!-- ==========================================
+               DAY 2: 05 OCTOBER 2026 — MONDAY
+               ========================================== -->
+          <div id="panel-day2" class="schedule-day-panel" role="tabpanel" aria-labelledby="tab-day2">
+            <div class="day-panel-banner">
+              <div class="day-banner-text">
+                <h3>05 OCTOBER 2026 — MONDAY</h3>
+                <p>Inauguration Ceremony, Hardware–Software Integration &amp; On-Site Challenge</p>
+              </div>
+              <span class="day-step-indicator">DAY 2 OF 3</span>
             </div>
-            <div class="results-callout-content">
-              <strong>🎉 Finalist Teams Announced!</strong>
-              <p>Following nationwide Round 0 abstract evaluations, shortlisted teams are advancing to the Final Round.
-                Explore the complete list in the <a href="#finalists"
-                  style="color: var(--primary); font-weight: 700; text-decoration: underline;">Finalist Teams
-                  Section</a>.</p>
+
+            <div class="schedule-items-list">
+              <!-- Item 1 -->
+              <div class="schedule-row-card meal-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="coffee"></i> 07:00 AM – 08:00 AM</span>
+                  <span class="time-phase-tag phase-meal">BREAKFAST</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Breakfast</h4>
+                  <p class="activity-note">Morning breakfast served at the campus dining hall.</p>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="schedule-row-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="cpu"></i> 08:00 AM – 10:00 AM</span>
+                  <span class="time-phase-tag phase-dev">DESIGN</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Design &amp; Implementation</h4>
+                  <ul class="activity-bullets">
+                    <li>Software development</li>
+                    <li>Hardware–software integration</li>
+                    <li>Testing and development</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="schedule-row-card ceremony-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="sparkles"></i> 10:30 AM – 11:00 AM</span>
+                  <span class="time-phase-tag phase-ceremony">INAUGURATION</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Inauguration</h4>
+                  <p class="activity-note">Official Inaugural Ceremony of IEEE Edge AI Hackathon 2026 with PMEC leadership and IEEE dignitaries.</p>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="schedule-row-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="code-2"></i> 11:00 AM – 01:00 PM</span>
+                  <span class="time-phase-tag phase-dev">DESIGN</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Design &amp; Implementation</h4>
+                  <p class="activity-note">Continued prototype modeling, embedded neural network quantization, and hardware deployment.</p>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="schedule-row-card meal-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="utensils"></i> 01:00 PM – 02:00 PM</span>
+                  <span class="time-phase-tag phase-meal">LUNCH</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Lunch</h4>
+                  <p class="activity-note">Lunch break for participants.</p>
+                </div>
+              </div>
+
+              <!-- Item 6 -->
+              <div class="schedule-row-card challenge-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="flame"></i> 02:00 PM – 08:00 PM</span>
+                  <span class="time-phase-tag phase-challenge">ON-SITE CHALLENGE</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Design &amp; Implementation (On-Site Challenge)</h4>
+                  <ul class="activity-bullets">
+                    <li>On-Site Challenge execution</li>
+                    <li>Software development</li>
+                    <li>Hardware–software integration</li>
+                    <li>Testing and development</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 7 -->
+              <div class="schedule-row-card meal-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="utensils"></i> 08:00 PM – 09:00 PM</span>
+                  <span class="time-phase-tag phase-meal">DINNER</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Dinner</h4>
+                  <p class="activity-note">Dinner served at the venue.</p>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- ==========================================
+               DAY 3: 06 OCTOBER 2026 — TUESDAY
+               ========================================== -->
+          <div id="panel-day3" class="schedule-day-panel" role="tabpanel" aria-labelledby="tab-day3">
+            <div class="day-panel-banner finale-banner">
+              <div class="day-banner-text">
+                <h3>06 OCTOBER 2026 — TUESDAY</h3>
+                <p>Final Testing, Demonstration Setup, Jury Evaluation, Results &amp; Valedictory</p>
+              </div>
+              <span class="day-step-indicator finale-step">DAY 3 • GRAND FINALE</span>
+            </div>
+
+            <div class="schedule-items-list">
+              <!-- Item 1 -->
+              <div class="schedule-row-card meal-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="coffee"></i> 07:00 AM – 08:00 AM</span>
+                  <span class="time-phase-tag phase-meal">BREAKFAST</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Breakfast</h4>
+                  <p class="activity-note">Morning breakfast for participants.</p>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="schedule-row-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="bug"></i> 08:00 AM – 10:00 AM</span>
+                  <span class="time-phase-tag phase-prep">FINAL POLISH</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Final Preparation</h4>
+                  <ul class="activity-bullets">
+                    <li>Testing, debugging and final demonstration preparation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="schedule-row-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="layers"></i> 10:00 AM – 11:00 AM</span>
+                  <span class="time-phase-tag phase-prep">SETUP</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Final Demonstration Setup</h4>
+                  <ul class="activity-bullets">
+                    <li>Teams prepare for evaluation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="schedule-row-card evaluation-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="award"></i> 11:00 AM – 02:00 PM</span>
+                  <span class="time-phase-tag phase-eval">JURY EVALUATION</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Final Evaluation</h4>
+                  <ul class="activity-bullets">
+                    <li>Project demonstration</li>
+                    <li>Implementation</li>
+                    <li>Performance evaluation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="schedule-row-card meal-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="utensils"></i> 02:00 PM – 03:00 PM</span>
+                  <span class="time-phase-tag phase-meal">LUNCH</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Lunch</h4>
+                  <ul class="activity-bullets">
+                    <li>Lunch break during the evaluation period</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 6 -->
+              <div class="schedule-row-card results-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="trophy"></i> 03:00 PM – 05:00 PM</span>
+                  <span class="time-phase-tag phase-results">RESULTS</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Final Evaluation / Results</h4>
+                  <ul class="activity-bullets">
+                    <li>Completion of evaluation and results announcement</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Item 7 -->
+              <div class="schedule-row-card valedictory-card">
+                <div class="schedule-time-box">
+                  <span class="time-main"><i data-lucide="gift"></i> 05:00 PM – 06:00 PM</span>
+                  <span class="time-phase-tag phase-valedictory">VALEDICTORY</span>
+                </div>
+                <div class="schedule-content-box">
+                  <h4 class="activity-title">Valedictory &amp; Prize Distribution</h4>
+                  <ul class="activity-bullets">
+                    <li>Closing ceremony and prize distribution</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Official Hackathon Workflow Flowchart -->
+        <div class="hackathon-workflow-strip reveal">
+          <div class="workflow-header-row">
+            <div class="workflow-title-tag">
+              <i data-lucide="git-commit"></i>
+              <strong>HACKATHON WORKFLOW</strong>
+            </div>
+            <span class="workflow-sub-note">04–06 October 2026 Process Pipeline</span>
+          </div>
+          <div class="workflow-step-chain">
+            <span class="wf-step">Registration &amp; Verification</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step">Inauguration</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step">Software Design &amp; Development</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step">Implementation on Dev Board</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step">Hardware–Software Integration</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step">Testing &amp; Debugging</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step">Final Demonstration</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step">Evaluation</span>
+            <span class="wf-arrow">→</span>
+            <span class="wf-step wf-highlight">Prize Distribution</span>
+          </div>
+        </div>
+
+        <!-- Important Clarification Card -->
+        <div class="schedule-clarification-card reveal">
+          <div class="clarification-icon-box">
+            <i data-lucide="info"></i>
+          </div>
+          <div class="clarification-body">
+            <strong>IMPORTANT CLARIFICATION</strong>
+            <p>
+              <strong>“Design”</strong> refers to the software design, development and implementation of the solution on the required development board, including hardware–software integration, testing and optimization.
+            </p>
+            <span class="clarification-footer-note">Note: The schedule above is prepared as the official hackathon schedule for 04–06 October 2026. Activity descriptions clarify the meaning of “Design” based on the event instructions.</span>
+          </div>
+        </div>
+
+        <!-- Schedule Bottom Action Buttons -->
+        <div class="schedule-footer-actions reveal">
+          <a href="docs/EDGE_AI_Schedule.pdf" download="IEEE_EDGE_AI_Hackathon_2026_Schedule.pdf" target="_blank"
+            class="btn btn-primary btn-lg">
+            <i data-lucide="download"></i> Download Full Schedule (PDF)
+          </a>
+          <a href="#venue" class="btn btn-secondary btn-lg">
+            <i data-lucide="map-pin"></i> Venue &amp; Google Map
+          </a>
+          <a href="#contact" class="btn btn-secondary btn-lg">
+            <i data-lucide="headset"></i> Need Help? Contact Organizers
+          </a>
         </div>
 
       </div>
@@ -3517,10 +3901,11 @@
       <div class="container">
         <div class="section-header text-center reveal">
           <span class="organizers-badge-pill">
-            <i data-lucide="headset"></i> Need Help? Reach Out
+            <i data-lucide="headset"></i> Participant Support Helpline
           </span>
-          <h2>CONTACT THE ORGANIZERS</h2>
-          <p>Have a question? Reach out to our organizing team.</p>
+          <h2>Need Help?</h2>
+          <p style="font-size: 1.22rem; font-weight: 700; color: #38BDF8; margin-top: 6px;">Contact the Organizers</p>
+          <p style="color: var(--text-secondary); max-width: 650px; margin: 8px auto 0;">Have queries regarding registration, travel, accommodation, schedule, or hardware? Reach out directly to our organizing team.</p>
         </div>
 
         <div class="organizers-contact-grid reveal">

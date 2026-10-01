@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFinalistSearch();
   initAnnouncementCarousel();
   initLiveCountdown();
+  initLiveNotification();
+  initScheduleTabs();
 
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
@@ -707,9 +709,9 @@ function initLiveCountdown() {
   if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
   // Hackathon Schedule (Indian Standard Time, UTC+05:30)
-  // Starts: October 4, 2026 at 09:00:00 IST
-  // Ends: October 6, 2026 at 18:00:00 IST
-  const startDate = new Date('2026-10-04T09:00:00+05:30').getTime();
+  // Starts: October 4, 2026 at 11:00:00 IST (Desk Registration Starts)
+  // Ends: October 6, 2026 at 18:00:00 IST (Valedictory & Prize Distribution Ends)
+  const startDate = new Date('2026-10-04T11:00:00+05:30').getTime();
   const endDate = new Date('2026-10-06T18:00:00+05:30').getTime();
 
   function pad(num) {
@@ -805,6 +807,146 @@ function initLiveCountdown() {
   // Update immediately and then every second
   updateCountdown();
   setInterval(updateCountdown, 1000);
+}
+
+/* ==========================================================================
+   Live Top Notification Bar (Dynamic State based on Date/Time)
+   - Before Oct 4, 2026 11:00 IST: "🚀 HACKATHON STARTS SOON" + Live countdown
+   - Oct 4 - Oct 6, 2026 18:00 IST: "🔴 HACKATHON LIVE" + Today's Major Activity
+   - After Oct 6, 2026 18:00 IST: "🏆 HACKATHON COMPLETED" + Thank you note
+   ========================================================================== */
+function initLiveNotification() {
+  const pillEl = document.getElementById('live-status-pill');
+  const statusTextEl = document.getElementById('live-status-text');
+  const todaySepEl = document.getElementById('live-today-sep');
+  const todayActivityEl = document.getElementById('live-today-activity');
+  const todayTextEl = document.getElementById('live-today-text');
+  const quickCountdownEl = document.getElementById('live-quick-countdown');
+  const quickTimerEl = document.getElementById('live-quick-timer');
+
+  if (!pillEl) return;
+
+  const eventStart = new Date('2026-10-04T11:00:00+05:30').getTime();
+  const oct4End = new Date('2026-10-04T23:59:59+05:30').getTime();
+  const oct5End = new Date('2026-10-05T23:59:59+05:30').getTime();
+  const eventEnd = new Date('2026-10-06T18:00:00+05:30').getTime();
+
+  function pad(num) {
+    return num < 10 ? '0' + num : '' + num;
+  }
+
+  function updateLiveBar() {
+    const now = Date.now();
+
+    if (now < eventStart) {
+      // STATE 1: Before Oct 4
+      pillEl.className = 'live-status-pill upcoming';
+      if (statusTextEl) {
+        statusTextEl.innerHTML = '<span class="live-pulse-dot"></span> 🚀 HACKATHON STARTS SOON';
+      }
+      if (todaySepEl) todaySepEl.style.display = 'none';
+      if (todayActivityEl) todayActivityEl.style.display = 'none';
+      if (quickCountdownEl) quickCountdownEl.style.display = 'flex';
+
+      const diff = Math.max(0, eventStart - now);
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      if (quickTimerEl) {
+        quickTimerEl.textContent = `${pad(d)}d : ${pad(h)}h : ${pad(m)}m : ${pad(s)}s`;
+      }
+    } else if (now >= eventStart && now < eventEnd) {
+      // STATE 2: During Oct 4 - 6
+      pillEl.className = 'live-status-pill live';
+      if (statusTextEl) {
+        statusTextEl.innerHTML = '<span class="live-pulse-dot"></span> 🔴 HACKATHON LIVE';
+      }
+      if (quickCountdownEl) quickCountdownEl.style.display = 'none';
+      if (todaySepEl) todaySepEl.style.display = 'inline-block';
+      if (todayActivityEl) todayActivityEl.style.display = 'inline-flex';
+
+      if (now <= oct4End) {
+        if (todayTextEl) todayTextEl.textContent = 'TODAY: DESK REGISTRATION & HACKATHON BEGINS (DESIGN)';
+      } else if (now <= oct5End) {
+        if (todayTextEl) todayTextEl.textContent = 'TODAY: INAUGURATION, DESIGN & ON-SITE CHALLENGE';
+      } else {
+        if (todayTextEl) todayTextEl.textContent = 'TODAY: FINAL PREPARATION, EVALUATION & PRIZE CEREMONY';
+      }
+    } else {
+      // STATE 3: After Oct 6
+      pillEl.className = 'live-status-pill concluded';
+      if (statusTextEl) {
+        statusTextEl.innerHTML = '<span class="live-pulse-dot"></span> 🏆 HACKATHON COMPLETED';
+      }
+      if (todaySepEl) todaySepEl.style.display = 'inline-block';
+      if (todayActivityEl) todayActivityEl.style.display = 'inline-flex';
+      if (todayTextEl) todayTextEl.textContent = 'Thank you to all participants, mentors, organizers and partners!';
+      if (quickCountdownEl) quickCountdownEl.style.display = 'none';
+    }
+  }
+
+  updateLiveBar();
+  setInterval(updateLiveBar, 1000);
+}
+
+/* ==========================================================================
+   Hackathon Schedule Day Tabs & Auto-Day Selection
+   ========================================================================== */
+function initScheduleTabs() {
+  const tabs = document.querySelectorAll('.schedule-day-tab');
+  const panels = document.querySelectorAll('.schedule-day-panel');
+  if (!tabs.length || !panels.length) return;
+
+  function selectTab(dayId) {
+    tabs.forEach(tab => {
+      const match = tab.getAttribute('data-day') === dayId;
+      tab.classList.toggle('active', match);
+      tab.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+
+    panels.forEach(panel => {
+      const match = panel.id === `schedule-${dayId}`;
+      panel.classList.toggle('active', match);
+    });
+
+    // Re-trigger lucide icons inside newly active panel if needed
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetDay = tab.getAttribute('data-day');
+      if (targetDay) {
+        selectTab(targetDay);
+      }
+    });
+  });
+
+  // Auto-select Day based on current date
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth(); // 0-indexed, 9 = October
+  const date = now.getDate();
+
+  if (year === 2026 && month === 9) {
+    if (date === 4) {
+      selectTab('day-1');
+    } else if (date === 5) {
+      selectTab('day-2');
+    } else if (date >= 6) {
+      selectTab('day-3');
+    } else {
+      selectTab('day-1');
+    }
+  } else {
+    // Default to Day 1
+    selectTab('day-1');
+  }
 }
 
 
