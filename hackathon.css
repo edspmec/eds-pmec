@@ -955,6 +955,31 @@ body.dark-mode .partner-role.principal-role {
   -webkit-text-fill-color: transparent;
 }
 
+.partner-role.hosting-role {
+  color: #0284C7;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+body.dark-mode .partner-role.hosting-role {
+  color: #38BDF8;
+}
+
+.partner-logo.unstop-logo {
+  max-height: 52px;
+  background: #FFFFFF;
+  padding: 8px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-card:hover .partner-logo.unstop-logo {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(18, 196, 232, 0.35);
+}
+
 /* Principal Sponsor Unique Theme */
 .principal-sponsor-section {
   text-align: center;
