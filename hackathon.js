@@ -868,11 +868,11 @@ function initLiveNotification() {
       if (todayActivityEl) todayActivityEl.style.display = 'inline-flex';
 
       if (now <= oct4End) {
-        if (todayTextEl) todayTextEl.textContent = 'TODAY: DESK REGISTRATION & HACKATHON BEGINS (DESIGN)';
+        if (todayTextEl) todayTextEl.textContent = 'TODAY: DESK REGISTRATION, FORMAL INAUGURATION & HACKATHON BEGINS';
       } else if (now <= oct5End) {
-        if (todayTextEl) todayTextEl.textContent = 'TODAY: INAUGURATION, DESIGN & ON-SITE CHALLENGE';
+        if (todayTextEl) todayTextEl.textContent = 'TODAY: DESIGN & IMPLEMENTATION • EVALUATION - 1 & ON-SITE CHALLENGE';
       } else {
-        if (todayTextEl) todayTextEl.textContent = 'TODAY: FINAL PREPARATION, EVALUATION & PRIZE CEREMONY';
+        if (todayTextEl) todayTextEl.textContent = 'TODAY: FINAL PREPARATION • EVALUATION - 2 (TRACKS 1, 2, 3) & VALEDICTORY';
       }
     } else {
       // STATE 3: After Oct 6
