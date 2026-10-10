@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveCountdown();
   initLiveNotification();
   initScheduleTabs();
+  initPhotoLightbox();
 
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
@@ -92,9 +93,10 @@ function initMobileNav() {
   if (!hamburger || !navMenu) return;
 
   const toggleMenu = () => {
-    hamburger.classList.toggle('open');
+    const isOpen = hamburger.classList.toggle('open');
     navMenu.classList.toggle('open');
-    document.body.classList.toggle('no-scroll');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('no-scroll', isOpen);
   };
 
   hamburger.addEventListener('click', toggleMenu);
@@ -103,8 +105,18 @@ function initMobileNav() {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       navMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('no-scroll');
     });
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('no-scroll');
+    }
   });
 }
 
@@ -947,6 +959,70 @@ function initScheduleTabs() {
     // Default to Day 1
     selectTab('day-1');
   }
+}
+
+/* ==========================================================================
+   Interactive Photo Lightbox Modal
+   ========================================================================== */
+function initPhotoLightbox() {
+  const modal = document.getElementById('photo-lightbox-modal');
+  if (!modal) return;
+
+  const mainImg = modal.querySelector('.lightbox-main-img');
+  const titleEl = modal.querySelector('.lightbox-title');
+  const descEl = modal.querySelector('.lightbox-desc');
+  const closeBtn = modal.querySelector('.lightbox-close-btn');
+
+  function openLightbox(src, title, desc) {
+    if (!src || !mainImg) return;
+    mainImg.src = src;
+    mainImg.alt = title || 'Event Photograph';
+    if (titleEl) titleEl.textContent = title || '';
+    if (descEl) descEl.textContent = desc || '';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Bind to all elements with data-lightbox="true" or class .lightbox-trigger
+  document.querySelectorAll('[data-lightbox="true"], .lightbox-trigger, .winner-img-box, .leadership-img-box, .event-gallery-item, .winner-open-lightbox-btn').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      let targetEl = el;
+      if (el.classList.contains('winner-open-lightbox-btn')) {
+        const card = el.closest('.winner-card');
+        if (card) {
+          const imgBox = card.querySelector('.winner-img-box');
+          if (imgBox) targetEl = imgBox;
+        }
+      }
+      const img = targetEl.querySelector('img') || targetEl;
+      const src = targetEl.getAttribute('data-full-img') || (img ? img.getAttribute('src') : '');
+      const title = targetEl.getAttribute('data-caption-title') || (img ? img.getAttribute('alt') : '');
+      const desc = targetEl.getAttribute('data-caption-desc') || '';
+      openLightbox(src, title, desc);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeLightbox);
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal || e.target.classList.contains('photo-lightbox-modal')) {
+      closeLightbox();
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
 }
 
 

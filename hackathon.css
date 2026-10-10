@@ -72,9 +72,9 @@ body.dark-mode .section-gray {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 50px;
-  align-items: center;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: flex-start;
 }
 
 .hero-content h1 {
@@ -225,10 +225,19 @@ body.dark-mode .sb-achievement-banner strong {
 }
 
 /* 3. Hero Poster Container */
+.hero-poster {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
 .hero-poster .poster-container {
+  width: 100%;
   position: relative;
   border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-lg), 0 15px 35px rgba(0, 98, 155, 0.12);
+  box-shadow: var(--shadow-lg), 0 20px 45px rgba(0, 98, 155, 0.22);
   border: 1px solid var(--card-border);
   animation: float 6s ease-in-out infinite;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
@@ -8618,6 +8627,7 @@ body:not(.dark-mode) .huge-tab-pill-badge {
   }
 }
 
+
 @media (max-width: 480px) {
   .live-quick-countdown {
     display: none !important;
@@ -8627,6 +8637,974 @@ body:not(.dark-mode) .huge-tab-pill-badge {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   POST-EVENT ARCHIVE, WINNERS & EVENT GALLERY (OCTOBER 2026 RESULTS)
+   ========================================================================== */
+
+/* Archive Hero Metrics */
+.archive-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 28px 0 24px 0;
+}
+
+.archive-metric-card {
+  background: rgba(10, 24, 52, 0.78);
+  border: 1px solid rgba(53, 228, 255, 0.22);
+  border-radius: 14px;
+  padding: 18px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body:not(.dark-mode) .archive-metric-card {
+  background: #FFFFFF;
+  border-color: rgba(10, 95, 194, 0.16);
+  box-shadow: 0 4px 18px rgba(10, 95, 194, 0.08);
+}
+
+.archive-metric-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(53, 228, 255, 0.6);
+  box-shadow: 0 8px 24px rgba(53, 228, 255, 0.18);
+}
+
+.archive-metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(18, 196, 232, 0.12);
+  border: 1px solid rgba(53, 228, 255, 0.3);
+  color: #35E4FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body:not(.dark-mode) .archive-metric-icon {
+  background: rgba(10, 95, 194, 0.08);
+  border-color: rgba(10, 95, 194, 0.22);
+  color: #0A5FC2;
+}
+
+.archive-metric-icon i,
+.archive-metric-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.archive-metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-metric-val {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+body:not(.dark-mode) .archive-metric-val {
+  color: #0E1B2E;
+}
+
+.archive-metric-lbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94A3B8;
+  margin-top: 3px;
+}
+
+body:not(.dark-mode) .archive-metric-lbl {
+  color: #64748B;
+}
+
+/* Quick Navigation Sub-Bar */
+.archive-quicknav-bar {
+  background: rgba(6, 16, 36, 0.88);
+  border: 1px solid rgba(53, 228, 255, 0.18);
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin: 0 auto 36px auto;
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+body:not(.dark-mode) .archive-quicknav-bar {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(10, 95, 194, 0.16);
+  box-shadow: 0 8px 24px rgba(10, 95, 194, 0.08);
+}
+
+.archive-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #CBD5E1;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+
+body:not(.dark-mode) .archive-nav-pill {
+  color: #334155;
+  background: rgba(10, 95, 194, 0.04);
+  border-color: rgba(10, 95, 194, 0.12);
+}
+
+.archive-nav-pill:hover,
+.archive-nav-pill.active {
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #0A5FC2, #12C4E8);
+  border-color: transparent;
+  box-shadow: 0 0 14px rgba(18, 196, 232, 0.4);
+  transform: translateY(-1px);
+}
+
+.archive-nav-pill i,
+.archive-nav-pill svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================================================
+   WINNERS & TRACK RESULTS SECTION
+   ========================================================================== */
+.winners-section {
+  position: relative;
+  padding: 70px 0 85px 0;
+  background: linear-gradient(180deg, rgba(6, 16, 36, 0.85) 0%, rgba(10, 24, 52, 0.95) 50%, rgba(6, 16, 36, 1) 100%);
+  border-top: 1px solid rgba(53, 228, 255, 0.16);
+  border-bottom: 1px solid rgba(53, 228, 255, 0.16);
+}
+
+body:not(.dark-mode) .winners-section {
+  background: linear-gradient(180deg, #F8FAFD 0%, #EEF5FC 50%, #E6F0FA 100%);
+  border-top: 1px solid rgba(10, 95, 194, 0.12);
+  border-bottom: 1px solid rgba(10, 95, 194, 0.12);
+}
+
+.winners-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FCD34D;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.25);
+  margin-bottom: 14px;
+}
+
+body:not(.dark-mode) .winners-badge-pill {
+  color: #B45309;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.winners-badge-pill i,
+.winners-badge-pill svg {
+  width: 15px;
+  height: 15px;
+  color: #FBBF24;
+}
+
+.winners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.winner-card {
+  position: relative;
+  background: rgba(10, 24, 52, 0.8);
+  border: 1.5px solid rgba(53, 228, 255, 0.25);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+body:not(.dark-mode) .winner-card {
+  background: #FFFFFF;
+  border-color: rgba(10, 95, 194, 0.18);
+  box-shadow: 0 10px 30px rgba(10, 95, 194, 0.1);
+}
+
+.winner-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(53, 228, 255, 0.8);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 30px rgba(53, 228, 255, 0.28);
+}
+
+body:not(.dark-mode) .winner-card:hover {
+  border-color: rgba(10, 95, 194, 0.5);
+  box-shadow: 0 20px 45px rgba(10, 95, 194, 0.18), 0 0 20px rgba(18, 196, 232, 0.2);
+}
+
+/* Winner Image Box */
+.winner-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #061024;
+  cursor: pointer;
+}
+
+.winner-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+  display: block;
+}
+
+.winner-card:hover .winner-photo {
+  transform: scale(1.06);
+}
+
+.winner-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 16, 36, 0.1) 0%, rgba(6, 16, 36, 0.8) 100%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.3s ease;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.winner-img-box:hover .winner-img-overlay {
+  opacity: 1;
+}
+
+.winner-zoom-btn {
+  background: rgba(10, 24, 52, 0.85);
+  border: 1px solid #35E4FF;
+  color: #35E4FF;
+  padding: 8px 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  box-shadow: 0 0 16px rgba(53, 228, 255, 0.4);
+}
+
+/* Track Top Badge Container & Badges */
+.winner-card-badges-strip {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.winner-track-badge {
+  position: relative;
+  top: auto;
+  left: auto;
+  background: linear-gradient(135deg, #0A5FC2, #12C4E8);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.winner-track-badge i,
+.winner-track-badge svg {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.winner-trophy-badge {
+  position: relative;
+  top: auto;
+  right: auto;
+  margin-left: auto;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.winner-trophy-badge i,
+.winner-trophy-badge svg {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* Winner Card Body */
+.winner-card-body {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.winner-track-title {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+body:not(.dark-mode) .winner-track-title {
+  color: #0E1B2E;
+}
+
+/* Prize Ribbon Pill */
+.winner-prize-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+body:not(.dark-mode) .winner-prize-row {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.winner-prize-amount {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: #FCD34D;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.winner-prize-amount i,
+.winner-prize-amount svg {
+  width: 17px !important;
+  height: 17px !important;
+  color: #F59E0B;
+  flex-shrink: 0;
+}
+
+body:not(.dark-mode) .winner-prize-amount {
+  color: #B45309;
+}
+
+.winner-kit-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+body:not(.dark-mode) .winner-kit-tag {
+  color: #0284C7;
+  background: rgba(10, 95, 194, 0.08);
+  border-color: rgba(10, 95, 194, 0.2);
+}
+
+/* Winner Team & Institute Details */
+.winner-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.winner-meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.winner-meta-item i,
+.winner-meta-item svg {
+  width: 16px;
+  height: 16px;
+  color: #38BDF8;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+body:not(.dark-mode) .winner-meta-item i,
+body:not(.dark-mode) .winner-meta-item svg {
+  color: #0A5FC2;
+}
+
+.winner-meta-lbl {
+  font-weight: 700;
+  color: #94A3B8;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+body:not(.dark-mode) .winner-meta-lbl {
+  color: #64748B;
+}
+
+.winner-meta-val {
+  color: #E2E8F0;
+  font-weight: 600;
+}
+
+body:not(.dark-mode) .winner-meta-val {
+  color: #1E293B;
+}
+
+.winner-meta-placeholder {
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  display: inline-block;
+  font-size: 0.84rem;
+}
+
+body:not(.dark-mode) .winner-meta-placeholder {
+  color: #0284C7;
+  background: rgba(10, 95, 194, 0.06);
+  border-color: rgba(10, 95, 194, 0.3);
+}
+
+.winner-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body:not(.dark-mode) .winner-card-footer {
+  border-top-color: rgba(10, 95, 194, 0.1);
+}
+
+.winner-open-lightbox-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: rgba(18, 196, 232, 0.12);
+  border: 1px solid rgba(53, 228, 255, 0.3);
+  color: #35E4FF;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+body:not(.dark-mode) .winner-open-lightbox-btn {
+  background: rgba(10, 95, 194, 0.08);
+  border-color: rgba(10, 95, 194, 0.25);
+  color: #0A5FC2;
+}
+
+.winner-open-lightbox-btn:hover {
+  background: linear-gradient(135deg, #0A5FC2, #12C4E8);
+  border-color: transparent;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(18, 196, 232, 0.4);
+}
+
+/* ==========================================================================
+   LEADERSHIP & ORGANIZERS SPOTLIGHT SECTION
+   ========================================================================== */
+.leadership-spotlight-section {
+  padding: 65px 0 75px 0;
+  position: relative;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin-top: 36px;
+}
+
+.leadership-card {
+  background: rgba(10, 24, 52, 0.78);
+  border: 1.5px solid rgba(53, 228, 255, 0.22);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+body:not(.dark-mode) .leadership-card {
+  background: #FFFFFF;
+  border-color: rgba(10, 95, 194, 0.16);
+  box-shadow: 0 10px 28px rgba(10, 95, 194, 0.08);
+}
+
+.leadership-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(53, 228, 255, 0.7);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(53, 228, 255, 0.22);
+}
+
+body:not(.dark-mode) .leadership-card:hover {
+  border-color: rgba(10, 95, 194, 0.45);
+  box-shadow: 0 18px 40px rgba(10, 95, 194, 0.15);
+}
+
+.leadership-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #061024;
+  cursor: pointer;
+}
+
+.leadership-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+  display: block;
+}
+
+.leadership-card:hover .leadership-photo {
+  transform: scale(1.05);
+}
+
+.leadership-card-body {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.leadership-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.14);
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+
+body:not(.dark-mode) .leadership-tag-pill {
+  color: #0A5FC2;
+  background: rgba(10, 95, 194, 0.08);
+  border-color: rgba(10, 95, 194, 0.22);
+}
+
+.leadership-title {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+body:not(.dark-mode) .leadership-title {
+  color: #0E1B2E;
+}
+
+.leadership-desc {
+  font-size: 0.95rem;
+  color: #CBD5E1;
+  line-height: 1.62;
+  margin-bottom: 18px;
+}
+
+body:not(.dark-mode) .leadership-desc {
+  color: #334155;
+}
+
+/* ==========================================================================
+   EVENT PHOTO GALLERY SECTION
+   ========================================================================== */
+.event-photo-gallery-section {
+  padding: 65px 0 85px 0;
+  background: linear-gradient(180deg, rgba(6, 16, 36, 0.6) 0%, rgba(10, 24, 52, 0.9) 100%);
+}
+
+body:not(.dark-mode) .event-photo-gallery-section {
+  background: linear-gradient(180deg, #F8FAFD 0%, #EEF4FB 100%);
+}
+
+.event-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.event-gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #061024;
+  border: 1px solid rgba(53, 228, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body:not(.dark-mode) .event-gallery-item {
+  border-color: rgba(10, 95, 194, 0.16);
+  box-shadow: 0 8px 24px rgba(10, 95, 194, 0.08);
+}
+
+.event-gallery-item:hover {
+  transform: translateY(-5px);
+  border-color: #35E4FF;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(53, 228, 255, 0.25);
+}
+
+body:not(.dark-mode) .event-gallery-item:hover {
+  border-color: #0A5FC2;
+  box-shadow: 0 14px 32px rgba(10, 95, 194, 0.18);
+}
+
+.event-gallery-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.event-gallery-item:hover .event-gallery-thumb {
+  transform: scale(1.08);
+}
+
+.event-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 16, 36, 0.2) 0%, rgba(6, 16, 36, 0.88) 100%);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  transition: opacity 0.3s ease;
+  color: #FFFFFF;
+}
+
+.event-gallery-item:hover .event-gallery-overlay {
+  opacity: 1;
+}
+
+.event-gallery-zoom-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(10, 24, 52, 0.85);
+  border: 1px solid #35E4FF;
+  color: #35E4FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-gallery-zoom-icon i,
+.event-gallery-zoom-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.event-gallery-caption-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 3px;
+}
+
+.event-gallery-caption-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #38BDF8;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   GLOBAL INTERACTIVE LIGHTBOX MODAL
+   ========================================================================== */
+.photo-lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(4, 10, 22, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-lightbox-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content-wrap {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(10, 24, 52, 0.95);
+  border: 1.5px solid rgba(53, 228, 255, 0.35);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(53, 228, 255, 0.25);
+  animation: lightboxPop 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes lightboxPop {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-img-area {
+  position: relative;
+  width: 100%;
+  max-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020712;
+  overflow: hidden;
+}
+
+.lightbox-main-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-caption-area {
+  width: 100%;
+  padding: 16px 24px;
+  background: rgba(6, 16, 36, 0.95);
+  border-top: 1px solid rgba(53, 228, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.lightbox-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox-title {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 2px 0;
+}
+
+.lightbox-desc {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(10, 24, 52, 0.85);
+  border: 1px solid #35E4FF;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 14px rgba(53, 228, 255, 0.4);
+}
+
+.lightbox-close-btn:hover {
+  background: #ED1C24;
+  border-color: #ED1C24;
+  transform: rotate(90deg);
+  box-shadow: 0 0 20px rgba(237, 28, 36, 0.6);
+}
+
+.lightbox-close-btn i,
+.lightbox-close-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Rules for Post-Event Archive */
+@media (max-width: 1100px) {
+  .winners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .archive-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .event-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .winners-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+  .event-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .archive-quicknav-bar {
+    border-radius: 16px;
+    padding: 10px;
+  }
+  .archive-nav-pill {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .archive-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .event-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .winner-track-title {
+    font-size: 1.15rem;
+  }
+  .winner-prize-amount {
+    font-size: 1.1rem;
+  }
+  .lightbox-content-wrap {
+    max-height: 96vh;
+    border-radius: 14px;
+  }
+}
+
 
 
 

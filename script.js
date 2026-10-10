@@ -92,21 +92,29 @@ function initMobileNav() {
   if (!hamburger || !navMenu) return;
 
   const toggleMenu = () => {
-    hamburger.classList.toggle('open');
+    const isOpen = hamburger.classList.toggle('open');
     navMenu.classList.toggle('open');
-    document.body.classList.toggle('no-scroll');
+    document.body.classList.toggle('no-scroll', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   };
 
   const closeMenu = () => {
     hamburger.classList.remove('open');
     navMenu.classList.remove('open');
-    document.body.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll', false);
+    hamburger.setAttribute('aria-expanded', 'false');
   };
 
   hamburger.addEventListener('click', toggleMenu);
 
   navLinks.forEach(link => {
     link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      closeMenu();
+    }
   });
 }
 

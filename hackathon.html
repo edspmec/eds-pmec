@@ -48,17 +48,13 @@
       </a>
 
       <nav id="nav-menu" class="nav-menu" role="navigation">
-        <a href="#hackathon-home" class="nav-link active">Home</a>
-        <a href="#schedule" class="nav-link">Schedule <span class="nav-new-pill"
-            style="background: linear-gradient(135deg, #0A5FC2, #12C4E8);">NEW</span></a>
-        <a href="#finalists" class="nav-link">Finalists</a>
-        <a href="#winner-reward" class="nav-link">Reward <span class="nav-new-pill">NEW</span></a>
-        <a href="problem-statements.html" target="_blank" class="nav-link">Problem Statements <i
-            data-lucide="arrow-up-right"
-            style="width: 12px; height: 12px; display: inline-align; vertical-align: middle;"></i></a>
-        <a href="#linktree" class="nav-link">Linktree</a>
-        <a href="#faq" class="nav-link">FAQs</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About EDS</a>
+        <a href="index.html#activities" class="nav-link">Technical Activities</a>
+        <a href="index.html#events" class="nav-link">Events &amp; Achievements</a>
+        <a href="#hackathon-home" class="nav-link active">Hackathon 2026 <span class="nav-new-pill"
+            style="background: linear-gradient(135deg, #10B981, #059669);">CONCLUDED</span></a>
+        <a href="#contact" class="nav-link">Team &amp; Contact</a>
       </nav>
 
       <div class="controls-container">
@@ -83,269 +79,132 @@
   <main style="padding-top: 80px;">
 
     <!-- ==========================================================================
-         🔴 LIVE EVENT UPDATE / STATUS NOTIFICATION COMPONENT (Requirement 3)
+         🏁 POST-EVENT ARCHIVE STATUS BANNER (Event Concluded)
          ========================================================================== -->
-    <div id="live-event-banner" class="live-event-banner" role="region" aria-label="Live Event Update">
+    <div id="live-event-banner" class="live-event-banner concluded" role="region" aria-label="Post-Event Status">
       <div class="container live-event-banner-container">
         <!-- Left: Status Pill + Event Info -->
         <div class="live-banner-left">
-          <div id="live-status-pill" class="live-status-pill upcoming">
-            <span class="live-pulse-dot"></span>
-            <span id="live-status-text">🚀 HACKATHON STARTS SOON</span>
+          <div id="live-status-pill" class="live-status-pill concluded">
+            <i data-lucide="award" style="width: 14px; height: 14px;"></i>
+            <span id="live-status-text">EVENT CONCLUDED • 4–6 OCT 2026</span>
           </div>
 
           <div class="live-event-title-group">
-            <strong class="live-event-name">EDGE AI HACKATHON 2026</strong>
+            <strong class="live-event-name">IEEE EDGE AI HACKATHON 2026</strong>
             <span class="live-event-sep">•</span>
-            <span class="live-event-date-venue">04–06 OCT 2026 • PMEC, BERHAMPUR</span>
-            <span class="live-event-sep" id="live-today-sep" style="display:none;">•</span>
-            <span id="live-today-activity" class="live-today-activity" style="display:none;">
-              <i data-lucide="zap"></i> <span id="live-today-text">TODAY: DESIGN &amp; IMPLEMENTATION</span>
-            </span>
+            <span class="live-event-date-venue">PMEC, BERHAMPUR, ODISHA</span>
+            <span class="live-event-sep">•</span>
+            <span class="live-archive-tag"><i data-lucide="trophy"
+                style="width: 13px; height: 13px; vertical-align: middle;"></i> TRACK WINNERS ANNOUNCED</span>
           </div>
         </div>
 
-        <!-- Right: Digital Countdown + View Schedule CTA -->
+        <!-- Right: Action Buttons -->
         <div class="live-banner-right">
-          <div id="live-quick-countdown" class="live-quick-countdown">
-            <span class="countdown-tag">STARTS IN:</span>
-            <span id="live-quick-timer" class="countdown-val">--d : --h : --m : --s</span>
-          </div>
-          <a href="#schedule" class="btn-live-schedule">
-            <span>Schedule</span> <i data-lucide="arrow-right"></i>
+          <a href="#winners" class="btn-live-schedule archive-accent-btn">
+            <span>View Winners</span> <i data-lucide="trophy"></i>
+          </a>
+          <a href="#gallery" class="btn-live-schedule">
+            <span>Event Gallery</span> <i data-lucide="camera"></i>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Top Announcement: Sliding Announcements Banner Carousel -->
-    <div class="top-announcement-carousel reveal" id="announcement-carousel"
-      aria-label="Latest Hackathon Announcements">
-      <!-- Dynamic Auto-Scroll Progress Bar -->
-      <div class="announcement-progress-track">
-        <div class="announcement-progress-bar" id="announcement-progress-bar"></div>
-      </div>
-
-      <div class="container announcement-carousel-wrapper">
-
-        <!-- Prev Button -->
-        <button class="announcement-nav-btn prev-btn" id="announcement-prev" aria-label="Previous Announcement"
-          type="button">
-          <i data-lucide="chevron-left"></i>
-        </button>
-
-        <!-- Dynamic Slides Viewport & Track -->
-        <div class="announcement-slides-viewport">
-          <div class="announcement-slides-track" id="announcement-slides-track">
-
-            <!-- Slide 0: Contact the Organizers Helpline / Notification -->
-            <div class="announcement-slide active" data-index="0">
-              <div class="deadline-badge-col">
-                <div class="deadline-badge-pill contact-banner-pill">
-                  <span class="deadline-pulse-dot-cyan"></span>
-                  <i data-lucide="headset" class="deadline-icon"></i>
-                  <span>🎧 ORGANIZERS HELPLINE</span>
-                </div>
-              </div>
-              <div class="deadline-details">
-                <div class="deadline-main-row">
-                  <span class="deadline-urgent-lead" style="color: #38BDF8;">📞 CONTACT THE ORGANIZERS</span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box">
-                    <span class="deadline-lbl">DIRECT HELP:</span>
-                    <strong style="color: #FFFFFF;">14 Organizers Available to Assist</strong>
-                  </span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box"
-                    style="background: rgba(18, 196, 232, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(18, 196, 232, 0.28);">
-                    <i data-lucide="phone-call"
-                      style="width: 13px; height: 13px; color: #38BDF8; vertical-align: middle; margin-right: 4px;"></i>
-                    <strong style="color: #38BDF8; font-size: 0.85rem;">Registration, Travel &amp; Queries</strong>
-                  </span>
-                </div>
-              </div>
-              <div class="deadline-btn-group">
-                <a href="#contact" class="btn btn-primary deadline-cta-btn banner-btn-cyan">
-                  CALL ORGANIZERS <i data-lucide="arrow-down"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Slide 1: Winner Reward -->
-            <div class="announcement-slide" data-index="1">
-              <div class="deadline-badge-col">
-                <div class="deadline-badge-pill reward-banner-pill">
-                  <span class="deadline-pulse-dot-gold"></span>
-                  <i data-lucide="gift" class="deadline-icon"></i>
-                  <span>⚡ NEW REWARD ANNOUNCED</span>
-                </div>
-              </div>
-              <div class="deadline-details">
-                <div class="deadline-main-row">
-                  <span class="deadline-urgent-lead" style="color: #FBBF24;">🏆 RENESAS QUICKCONNECT BEGINNERS KIT
-                    V2.0</span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box">
-                    <span class="deadline-lbl">FOR:</span>
-                    <strong style="color: #38BDF8;">Winners Across All 3 Tracks</strong>
-                  </span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box"
-                    style="background: rgba(16, 185, 129, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.25);">
-                    <i data-lucide="shield-check"
-                      style="width: 14px; height: 14px; color: #34d399; vertical-align: middle; margin-right: 4px;"></i>
-                    <strong style="color: #34d399; font-size: 0.85rem;">Sponsored by Renesas Electronics</strong>
-                  </span>
-                </div>
-              </div>
-              <div class="deadline-btn-group">
-                <a href="#winner-reward" class="btn btn-primary deadline-cta-btn banner-btn-gold">
-                  View Reward <i data-lucide="sparkles"></i>
-                </a>
-                <a href="#finalists" class="btn btn-secondary deadline-cta-btn">
-                  Finalists <i data-lucide="arrow-down"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Slide 2: Grand Finalists Announcement (42 Total Teams) -->
-            <div class="announcement-slide" data-index="2">
-              <div class="deadline-badge-col">
-                <div class="deadline-badge-pill finalist-banner-pill">
-                  <span class="deadline-pulse-dot-cyan"></span>
-                  <i data-lucide="trophy" class="deadline-icon"></i>
-                  <span>🏆 42 TEAMS IN FINALS</span>
-                </div>
-              </div>
-              <div class="deadline-details">
-                <div class="deadline-main-row">
-                  <span class="deadline-urgent-lead" style="color: #22D3EE;">🏆 5 MORE TEAMS JOIN THE FINAL
-                    ROUND!</span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box">
-                    <span class="deadline-lbl">SELECTION:</span>
-                    <strong style="color: #FCD34D;">37 Initial + 5 After 2nd Round = 42 Teams</strong>
-                  </span>
-                  <span class="deadline-sep">|</span>
-                  <span class="deadline-results-box"
-                    style="background: rgba(56, 189, 248, 0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.25);">
-                    <i data-lucide="calendar"
-                      style="width: 14px; height: 14px; color: #38BDF8; vertical-align: middle; margin-right: 4px;"></i>
-                    <strong style="color: #38BDF8; font-size: 0.85rem;">Offline Finals: 4–6 Oct 2026</strong>
-                  </span>
-                </div>
-              </div>
-              <div class="deadline-btn-group">
-                <a href="#finalists" class="btn btn-primary deadline-cta-btn banner-btn-cyan">
-                  VIEW ALL 42 TEAMS <i data-lucide="users"></i>
-                </a>
-                <a href="#schedule" class="btn btn-secondary deadline-cta-btn">
-                  Schedule <i data-lucide="clock"></i>
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Next Button -->
-        <button class="announcement-nav-btn next-btn" id="announcement-next" aria-label="Next Announcement"
-          type="button">
-          <i data-lucide="chevron-right"></i>
-        </button>
-
-        <!-- Slide Indicators / Dots -->
-        <div class="announcement-dots" id="announcement-dots" aria-label="Announcement slides navigation">
-          <button class="dot-indicator active" data-slide="0" aria-label="Go to Slide 1 (Contact Organizers)"></button>
-          <button class="dot-indicator" data-slide="1" aria-label="Go to Slide 2 (Reward)"></button>
-          <button class="dot-indicator" data-slide="2" aria-label="Go to Slide 3 (Finalists)"></button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Hackathon Hero Section -->
-    <section id="hackathon-home" class="hackathon-hero">
+    <!-- ==========================================================================
+         POST-EVENT ARCHIVE HERO SECTION
+         ========================================================================== -->
+    <section id="hackathon-home" class="hackathon-hero archive-hero">
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <div class="hero-subtitle-badge blue-badge">
-            <i data-lucide="cpu" style="width: 14px; height: 14px;"></i> IEEE EDS PMEC Student Branch Chapter
+            <i data-lucide="award" style="width: 14px; height: 14px;"></i> Official Post-Event Archive &amp; Results
           </div>
           <h1>
-            Edge AI
+            IEEE Edge AI
             <span class="highlight-text">Hackathon 2026</span>
           </h1>
+
           <div class="hero-badges-row">
-            <a href="#finalists" class="status-badge finalist-status-badge"
-              style="text-decoration: none; cursor: pointer;">
-              🎉 42 FINALIST TEAMS SELECTED
-            </a>
-            <a href="#schedule" class="free-entry-badge results-badge" style="text-decoration: none; cursor: pointer;">
-              <i data-lucide="calendar"></i> <strong>04–06 OCT 2026 • PMEC, BERHAMPUR, ODISHA</strong>
-            </a>
+            <span class="status-badge concluded-status-badge">
+              🏁 EVENT COMPLETED • 4–6 OCTOBER 2026
+            </span>
+            <span class="free-entry-badge results-badge">
+              <i data-lucide="map-pin"></i> <strong>PMEC, BERHAMPUR, ODISHA</strong>
+            </span>
+            <span class="theme-pill-badge">
+              <i data-lucide="sparkles"></i> <strong>INNOVATE • IMPLEMENT • IMPACT</strong>
+            </span>
           </div>
 
-          <!-- HUGE CONTACT ORGANIZERS TAB -->
-          <div class="hero-huge-contact-row">
-            <a href="#contact" class="hero-huge-contact-tab" style="text-decoration: none; cursor: pointer;"
-              aria-label="Contact the Organizers">
-              <div class="huge-tab-left">
-                <span class="huge-tab-pulse-dot"></span>
-                <div class="huge-tab-icon-box">
-                  <i data-lucide="headset"></i>
-                </div>
-                <div class="huge-tab-text-group">
-                  <span class="huge-tab-headline">CONTACT ORGANIZERS ↓</span>
-                  <span class="huge-tab-subline">Have Questions? Call Any of Our 14 Organizers Directly</span>
-                </div>
+          <!-- Key Verified Archive Metrics -->
+          <div class="archive-metrics-grid">
+            <div class="archive-metric-card">
+              <div class="archive-metric-icon"><i data-lucide="users"></i></div>
+              <div class="archive-metric-info">
+                <span class="archive-metric-val">27</span>
+                <span class="archive-metric-lbl">Finalist Teams Across India</span>
               </div>
-              <div class="huge-tab-right">
-                <span class="huge-tab-pill-badge">14 ORGANIZERS ON CALL</span>
-                <div class="huge-tab-arrow-circle">
-                  <i data-lucide="arrow-down"></i>
-                </div>
+            </div>
+            <div class="archive-metric-card">
+              <div class="archive-metric-icon"><i data-lucide="award"></i></div>
+              <div class="archive-metric-info">
+                <span class="archive-metric-val">₹45,000</span>
+                <span class="archive-metric-lbl">Total Cash Prize Pool</span>
               </div>
-            </a>
+            </div>
+            <div class="archive-metric-card">
+              <div class="archive-metric-icon"><i data-lucide="cpu"></i></div>
+              <div class="archive-metric-info">
+                <span class="archive-metric-val">3</span>
+                <span class="archive-metric-lbl">Core Hardware Tracks</span>
+              </div>
+            </div>
+            <div class="archive-metric-card">
+              <div class="archive-metric-icon"><i data-lucide="clock"></i></div>
+              <div class="archive-metric-info">
+                <span class="archive-metric-val">48 Hrs</span>
+                <span class="archive-metric-lbl">Hardware Prototyping</span>
+              </div>
+            </div>
           </div>
-
-          <p class="hero-description">
-            Join the hardware-centric design revolution. Innovate at the edge, design low-power solutions, and implement
-            machine learning applications on modern embedded systems at Parala Maharaja Engineering College.
-          </p>
 
           <div class="organizers-list">
-            <h4>Organized by:</h4>
+            <h4>Organizers &amp; Partners:</h4>
             <ul>
-              <li><i data-lucide="shield-check"></i> <span><strong>Organizer:</strong> IEEE Electron Devices Society
-                  PMEC SBC &amp; IEEE Council on Electronic Design Automation.</span></li>
+              <li><i data-lucide="shield-check"></i> <span><strong>Organizers:</strong> IEEE Electron Devices Society
+                  PMEC SBC, IEEE Council on Electronic Design Automation (CEDA), and Dept. of Electronics &amp;
+                  Telecommunication Engineering, PMEC</span></li>
+              <li><i data-lucide="shield-check"></i> <span><strong>Hosting Partner:</strong> Unstop</span></li>
               <li><i data-lucide="shield-check"></i> <span><strong>Principal Sponsor:</strong> AMD</span></li>
-              <li><i data-lucide="shield-check"></i> <span><strong>Sponsors:</strong> IEEE Bhubaneswar Section, Chips to
-                  Start-up (C2S), ETIOS Society &amp; Dept. Of Electronics and Telecommunication Engineering.</span>
-              </li>
               <li><i data-lucide="shield-check"></i> <span><strong>Technical Sponsors:</strong> Renesas &amp;
                   Microchip</span></li>
+              <li><i data-lucide="shield-check"></i> <span><strong>Sponsors:</strong> IEEE Bhubaneswar Section, Chips to
+                  Startup (C2S), ETIOS Society</span></li>
             </ul>
           </div>
 
           <div class="hero-cta-group">
-            <a href="#schedule" class="btn btn-primary btn-lg">
-              <i data-lucide="calendar"></i> View Schedule →
+            <a href="#winners" class="btn btn-primary btn-lg">
+              <i data-lucide="trophy"></i> View Track Winners
             </a>
-            <a href="docs/EDGE_AI_Schedule.pdf" download="IEEE_EDGE_AI_Hackathon_2026_Schedule.pdf" target="_blank"
-              class="btn btn-secondary btn-lg">
-              <i data-lucide="download"></i> Download Schedule PDF
+            <a href="#event-leadership" class="btn btn-secondary btn-lg">
+              <i data-lucide="users"></i> Leadership &amp; Organizers
+            </a>
+            <a href="#gallery" class="btn btn-secondary btn-lg">
+              <i data-lucide="camera"></i> Event Gallery
             </a>
           </div>
         </div>
 
         <div class="hero-poster reveal delay-1">
           <div class="poster-container">
-            <img src="assets/our_gallery/hackathons/edge_comp_hackathon.png" alt="Edge AI Hackathon 2026 Poster"
-              class="poster-img">
+            <img src="assets/our_gallery/hackathons/edge_comp_hackathon.png"
+              alt="Edge AI Hackathon 2026 Concluded Banner" class="poster-img">
             <div class="poster-overlay">
-              <a href="assets/edge_ai_hackathon/EDGE AI brochure.pdf?v=202607162339" target="_blank"
-                class="btn btn-secondary">
-                <i data-lucide="file-text"></i> View Full Brochure PDF
+              <a href="docs/EDGE_AI_Schedule.pdf" target="_blank" class="btn btn-secondary">
+                <i data-lucide="file-text"></i> View Event Schedule PDF
               </a>
             </div>
           </div>
@@ -354,204 +213,334 @@
     </section>
 
     <!-- ==========================================================================
-         LIVE HACKATHON COUNTDOWN (4 • 5 • 6 OCTOBER 2026)
+         ARCHIVE QUICK NAVIGATION BAR
          ========================================================================== -->
-    <section id="live-countdown" class="section live-countdown-section">
+    <nav class="archive-quicknav-bar" aria-label="Archive Section Navigation">
+      <a href="#winners" class="archive-nav-pill"><i data-lucide="trophy"></i> Winners</a>
+      <a href="#event-leadership" class="archive-nav-pill"><i data-lucide="user-check"></i> Judges &amp; Organizers</a>
+      <a href="#gallery" class="archive-nav-pill"><i data-lucide="camera"></i> Photo Gallery</a>
+      <a href="#winner-reward" class="archive-nav-pill"><i data-lucide="gift"></i> Winner Rewards</a>
+      <a href="#finalists" class="archive-nav-pill"><i data-lucide="users"></i> 27 Finalist Teams</a>
+      <a href="#hardware-platforms" class="archive-nav-pill"><i data-lucide="cpu"></i> Hardware Tracks</a>
+      <a href="#schedule" class="archive-nav-pill"><i data-lucide="clock"></i> Timeline</a>
+      <a href="#partners" class="archive-nav-pill"><i data-lucide="handshake"></i> Partners &amp; Sponsors</a>
+      <a href="#contact" class="archive-nav-pill"><i data-lucide="phone"></i> Organizers Helpline</a>
+    </nav>
+
+    <!-- ==========================================================================
+         🏆 OFFICIAL TRACK WINNERS SECTION
+         ========================================================================== -->
+    <section id="winners" class="section winners-section">
       <div class="container">
-        <div class="live-countdown-card reveal">
-          <div class="countdown-ambient-glow" aria-hidden="true"></div>
-          <div class="countdown-ambient-orb" aria-hidden="true"></div>
-
-          <!-- Top Meta Row: Official Event Dates & Status Badge -->
-          <div class="countdown-top-bar">
-            <div class="countdown-event-dates">
-              <i data-lucide="calendar" class="dates-icon"></i>
-              <strong class="dates-main">4 • 5 • 6 OCTOBER 2026</strong>
-              <span class="dates-sep">|</span>
-              <span class="dates-venue">PMEC, Berhampur</span>
-            </div>
-
-            <div id="countdown-status-pill" class="countdown-status-pill upcoming">
-              <span class="countdown-pulse-dot"></span>
-              <span id="countdown-status-text">OFFICIAL EVENT COUNTDOWN</span>
-            </div>
+        <div class="section-header text-center reveal">
+          <div class="winners-badge-pill">
+            <i data-lucide="award"></i> OFFICIAL RESULTS &amp; FELICITATION
           </div>
+          <h2>Track Winners &amp; Results</h2>
+          <p>Heartiest congratulations to the triumphant teams who engineered state-of-the-art edge AI solutions across
+            our three official hardware tracks.</p>
+        </div>
 
-          <!-- Headline (Switches dynamically: HACKATHON BEGINS IN / 🔴 HACKATHON LIVE / 🏁 HACKATHON CONCLUDED) -->
-          <div class="countdown-header-group">
-            <h2 id="countdown-main-title" class="countdown-main-title">
-              <span class="countdown-title-icon">⚡</span> HACKATHON BEGINS IN
-            </h2>
-            <p id="countdown-subtitle" class="countdown-subtitle">
-              The stage is set for 42 finalist teams across India. Hardware Implementation &amp; Final Evaluation kicks
-              off soon!
-            </p>
-          </div>
-
-          <!-- State 1: Huge Animated Counter -->
-          <div id="countdown-timer-display" class="countdown-timer-display">
-            <!-- Days Unit -->
-            <div class="countdown-unit-box">
-              <div class="countdown-digit-plate">
-                <span id="countdown-days" class="countdown-num">06</span>
+        <div class="winners-grid">
+          <!-- WINNER 1: FPGA TRACK -->
+          <div class="winner-card reveal" data-track="fpga">
+            <div class="winner-img-box" data-lightbox="true"
+              data-full-img="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg"
+              data-caption-title="Track 1: FPGA Acceleration Track Winner Felicitation"
+              data-caption-desc="Winner felicitation for outstanding FPGA-accelerated Edge AI prototyping at IEEE Edge AI Hackathon 2026.">
+              <div class="winner-card-badges-strip">
+                <span class="winner-track-badge"><i data-lucide="cpu"></i> TRACK 1: FPGA</span>
+                <span class="winner-trophy-badge"><i data-lucide="trophy"></i> TRACK WINNER</span>
               </div>
-              <span class="countdown-unit-label">DAYS</span>
-            </div>
-
-            <div class="countdown-colon-sep">:</div>
-
-            <!-- Hours Unit -->
-            <div class="countdown-unit-box">
-              <div class="countdown-digit-plate">
-                <span id="countdown-hours" class="countdown-num">12</span>
+              <img src="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg"
+                alt="Track 1 FPGA Track Winner Felicitation" class="winner-photo" loading="lazy">
+              <div class="winner-img-overlay">
+                <span class="winner-zoom-btn"><i data-lucide="maximize-2"></i> View Full Photo</span>
               </div>
-              <span class="countdown-unit-label">HOURS</span>
             </div>
 
-            <div class="countdown-colon-sep">:</div>
+            <div class="winner-card-body">
+              <h3 class="winner-track-title">Track 1: FPGA Acceleration</h3>
 
-            <!-- Minutes Unit -->
-            <div class="countdown-unit-box">
-              <div class="countdown-digit-plate">
-                <span id="countdown-minutes" class="countdown-num">41</span>
+              <div class="winner-prize-row">
+                <div class="winner-prize-amount">
+                  <i data-lucide="award"></i> ₹20,000 Cash Prize
+                </div>
+                <span class="winner-kit-tag">Renesas Kit + Certificate</span>
               </div>
-              <span class="countdown-unit-label">MINUTES</span>
-            </div>
 
-            <div class="countdown-colon-sep">:</div>
-
-            <!-- Seconds Unit -->
-            <div class="countdown-unit-box sec-highlight-box">
-              <div class="countdown-digit-plate">
-                <span id="countdown-seconds" class="countdown-num sec-num">23</span>
+              <div class="winner-meta-list">
+                <div class="winner-meta-item">
+                  <i data-lucide="trophy" style="color: #F59E0B;"></i>
+                  <div>
+                    <div class="winner-meta-lbl">Winning Team</div>
+                    <div class="winner-meta-val"><strong style="color: #38BDF8; font-size: 1.05rem;">Team Systolic
+                        Squad</strong></div>
+                  </div>
+                </div>
+                <div class="winner-meta-item">
+                  <i data-lucide="building" style="color: #38BDF8;"></i>
+                  <div>
+                    <div class="winner-meta-lbl">Institution</div>
+                    <div class="winner-meta-val">PSG Institute of Technology and Applied Research, Coimbatore</div>
+                  </div>
+                </div>
               </div>
-              <span class="countdown-unit-label sec-label">SECONDS</span>
             </div>
           </div>
 
-          <!-- State 2: Live Hackathon View (Auto-switched on event days) -->
-          <div id="countdown-live-display" class="countdown-state-panel live-panel" style="display: none;">
-            <div class="live-signal-badge">
-              <span class="live-signal-beacon"></span>
-              <span class="live-signal-text">FINAL ROUND IN PROGRESS</span>
+          <!-- WINNER 2: RASPBERRY PI / RENESAS TRACK -->
+          <div class="winner-card reveal delay-1" data-track="rpi-renesas">
+            <div class="winner-img-box" data-lightbox="true"
+              data-full-img="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg"
+              data-caption-title="Track 2: Raspberry Pi / Renesas Track Winner Felicitation"
+              data-caption-desc="Winner felicitation for high-performance embedded AI on Raspberry Pi &amp; Renesas platforms at IEEE Edge AI Hackathon 2026.">
+              <div class="winner-card-badges-strip">
+                <span class="winner-track-badge"><i data-lucide="layers"></i> TRACK 2: RASPBERRY PI</span>
+                <span class="winner-trophy-badge"><i data-lucide="trophy"></i> TRACK WINNER</span>
+              </div>
+              <img src="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg"
+                alt="Track 2 Raspberry Pi and Renesas Track Winner Felicitation" class="winner-photo" loading="lazy">
+              <div class="winner-img-overlay">
+                <span class="winner-zoom-btn"><i data-lucide="maximize-2"></i> View Full Photo</span>
+              </div>
             </div>
-            <h3 class="live-state-headline">🔴 HACKATHON IS LIVE NOW!</h3>
-            <p class="live-state-desc">
-              Hardware Implementation, Embedded AI Prototyping &amp; Final Evaluation are currently underway at Parala
-              Maharaja Engineering College (PMEC), Berhampur.
-            </p>
-            <div class="live-actions-row">
-              <a href="#finalists" class="btn btn-primary live-action-btn">
-                <i data-lucide="users"></i> View All 42 Teams
-              </a>
-              <a href="#timeline" class="btn btn-secondary live-action-btn">
-                <i data-lucide="clock"></i> Hackathon Schedule
-              </a>
+
+            <div class="winner-card-body">
+              <h3 class="winner-track-title">Track 2: Raspberry Pi / Renesas</h3>
+
+              <div class="winner-prize-row">
+                <div class="winner-prize-amount">
+                  <i data-lucide="award"></i> ₹15,000 Cash Prize
+                </div>
+                <span class="winner-kit-tag">Renesas Kit + Certificate</span>
+              </div>
+
+              <div class="winner-meta-list">
+                <div class="winner-meta-item">
+                  <i data-lucide="trophy" style="color: #F59E0B;"></i>
+                  <div>
+                    <div class="winner-meta-lbl">Winning Team</div>
+                    <div class="winner-meta-val"><strong style="color: #38BDF8; font-size: 1.05rem;">Team S.py</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="winner-meta-item">
+                  <i data-lucide="building" style="color: #38BDF8;"></i>
+                  <div>
+                    <div class="winner-meta-lbl">Institution</div>
+                    <div class="winner-meta-val">National Institute of Technology (NIT), Raipur</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- State 3: Concluded View (Auto-switched after hackathon ends) -->
-          <div id="countdown-concluded-display" class="countdown-state-panel concluded-panel" style="display: none;">
-            <div class="concluded-trophy-badge">
-              <i data-lucide="trophy"></i>
-              <span>EVENT COMPLETED</span>
+          <!-- WINNER 3: ESP32 / ARDUINO TRACK -->
+          <div class="winner-card reveal delay-2" data-track="arduino-esp32">
+            <div class="winner-img-box" data-lightbox="true"
+              data-full-img="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg"
+              data-caption-title="Track 3: ESP32 / Arduino Track Winner Felicitation"
+              data-caption-desc="Winner felicitation for ultra-low-power Edge AI and TinyML deployment on ESP32 / Arduino at IEEE Edge AI Hackathon 2026.">
+              <div class="winner-card-badges-strip">
+                <span class="winner-track-badge"><i data-lucide="zap"></i> TRACK 3: ESP32 / ARDUINO</span>
+                <span class="winner-trophy-badge"><i data-lucide="trophy"></i> TRACK WINNER</span>
+              </div>
+              <img src="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg"
+                alt="Track 3 ESP32 and Arduino Track Winner Felicitation" class="winner-photo" loading="lazy">
+              <div class="winner-img-overlay">
+                <span class="winner-zoom-btn"><i data-lucide="maximize-2"></i> View Full Photo</span>
+              </div>
             </div>
-            <h3 class="concluded-state-headline">🏁 HACKATHON CONCLUDED</h3>
-            <p class="concluded-state-desc">
-              The IEEE Edge AI Hackathon 2026 has officially concluded. Heartiest congratulations to all 42 finalist
-              teams, winners, mentors, and sponsors!
-            </p>
-            <div class="concluded-actions-row">
-              <a href="#finalists" class="btn btn-primary concluded-action-btn">
-                <i data-lucide="award"></i> View Finalists &amp; Results
-              </a>
+
+            <div class="winner-card-body">
+              <h3 class="winner-track-title">Track 3: ESP32 / Arduino TinyML</h3>
+
+              <div class="winner-prize-row">
+                <div class="winner-prize-amount">
+                  <i data-lucide="award"></i> ₹10,000 Cash Prize
+                </div>
+                <span class="winner-kit-tag">Renesas Kit + Certificate</span>
+              </div>
+
+              <div class="winner-meta-list">
+                <div class="winner-meta-item">
+                  <i data-lucide="trophy" style="color: #F59E0B;"></i>
+                  <div>
+                    <div class="winner-meta-lbl">Winning Team</div>
+                    <div class="winner-meta-val"><strong style="color: #38BDF8; font-size: 1.05rem;">Team
+                        EdgeNova</strong></div>
+                  </div>
+                </div>
+                <div class="winner-meta-item">
+                  <i data-lucide="building" style="color: #38BDF8;"></i>
+                  <div>
+                    <div class="winner-meta-lbl">Institution</div>
+                    <div class="winner-meta-val">B V Raju Institute of Technology, Narsapur</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- Bottom Venue & Quick Link Bar -->
-          <div class="countdown-footer-bar">
-            <div class="countdown-venue-info">
-              <i data-lucide="map-pin"></i>
-              <span>Parala Maharaja Engineering College (PMEC), Sitalapalli, Berhampur, Odisha</span>
-            </div>
-            <div class="countdown-quick-actions">
-              <a href="#contact" class="countdown-action-link" style="margin-right: 18px;">
-                <i data-lucide="phone-call"
-                  style="width: 14px; height: 14px; vertical-align: middle; margin-right: 4px;"></i> Contact Organizers
-              </a>
-              <a href="#finalists" class="countdown-action-link">
-                View 42 Finalist Teams <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         HOMEPAGE ANNOUNCEMENT: 5 MORE TEAMS JOIN THE FINAL ROUND (42 TOTAL)
+         🎖️ LEADERSHIP, JUDGES & ORGANIZERS SPOTLIGHT SECTION
          ========================================================================== -->
-    <section class="section homepage-round2-announcement-section">
+    <section id="event-leadership" class="section leadership-spotlight-section">
       <div class="container">
-        <div class="homepage-round2-card reveal">
-          <div class="round2-glow-orb" aria-hidden="true"></div>
-          <div class="round2-ambient-particles" aria-hidden="true"></div>
-
-          <div class="round2-card-header">
-            <div class="round2-tag-group">
-              <span class="round2-badge-live">
-                <span class="round2-dot-pulse"></span>
-                <i data-lucide="bell-ring"></i> LATEST EVALUATION UPDATE
-              </span>
-              <span class="round2-badge-phase">
-                <i data-lucide="zap"></i> Selected after 2nd Round Evaluation
-              </span>
-            </div>
-            <h2 class="round2-card-headline">
-              🏆 5 MORE TEAMS JOIN THE FINAL ROUND!
-            </h2>
-            <p class="round2-card-main-msg">
-              Following the 2nd Round Evaluation, 5 additional teams have been selected, bringing the total number of
-              teams selected for the Final Round to 42.
-            </p>
+        <div class="section-header text-center reveal">
+          <div class="winners-badge-pill">
+            <i data-lucide="users"></i> JURY &amp; COMMITTEE
           </div>
+          <h2>Esteemed Leadership, Judges &amp; Organizers</h2>
+          <p>Guided by visionary leadership from PMEC, IEEE Electron Devices Society, and prominent industry evaluation
+            panel.</p>
+        </div>
 
-          <!-- Highlight Progression Equation -->
-          <div class="round2-equation-grid">
-            <div class="equation-box initial-box">
-              <span class="eq-sub">INITIAL SELECTION</span>
-              <span class="eq-num">37</span>
-              <span class="eq-label">INITIAL FINALISTS</span>
+        <div class="leadership-grid">
+          <!-- Spotlight Card 1: Esteemed Judges with Principal PMEC -->
+          <div class="leadership-card reveal">
+            <div class="leadership-img-box" data-lightbox="true"
+              data-full-img="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg"
+              data-caption-title="Esteemed Judges and Leadership with Principal, PMEC"
+              data-caption-desc="Grand evaluation and valedictory session with the jury panel, distinguished dignitaries, and PMEC Principal.">
+              <img src="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg"
+                alt="Esteemed judges and leadership with Principal, PMEC" class="leadership-photo" loading="lazy">
+              <div class="winner-img-overlay">
+                <span class="winner-zoom-btn"><i data-lucide="maximize-2"></i> View Full Photo</span>
+              </div>
             </div>
-            <div class="equation-operator">
-              <i data-lucide="plus"></i>
-            </div>
-            <div class="equation-box additional-box">
-              <span class="eq-sub">2ND ROUND EVALUATION</span>
-              <span class="eq-num">+5</span>
-              <span class="eq-label">ADDITIONAL TEAMS</span>
-            </div>
-            <div class="equation-operator">
-              <i data-lucide="equal"></i>
-            </div>
-            <div class="equation-box final-box">
-              <span class="eq-sub">GRAND TOTAL</span>
-              <span class="eq-num">42</span>
-              <span class="eq-label">FINAL ROUND TEAMS</span>
+            <div class="leadership-card-body">
+              <span class="leadership-tag-pill"><i data-lucide="award"></i> JURY PANEL &amp; INSTITUTIONAL
+                LEADERSHIP</span>
+              <h3 class="leadership-title">Esteemed Judges with Principal, PMEC</h3>
+              <p class="leadership-desc">
+                Distinguished industry mentors, evaluation jury members, faculty coordinators, and the Principal of
+                Parala Maharaja Engineering College during the final round evaluation and valedictory ceremony.
+              </p>
+              <div class="winner-card-footer" style="margin-top: auto; padding-top: 14px;">
+                <button type="button" class="winner-open-lightbox-btn">
+                  <i data-lucide="image"></i> View High-Resolution Photo
+                </button>
+              </div>
             </div>
           </div>
 
-          <div class="round2-card-footer">
-            <p class="round2-supporting-text">
-              <i data-lucide="sparkles"></i> Congratulations to all 42 teams selected for the Final Round of the IEEE
-              Edge AI Hackathon 2026!
-            </p>
-            <div class="round2-cta-wrap">
-              <a href="#finalists" class="btn btn-primary round2-view-btn">
-                VIEW ALL 42 TEAMS <i data-lucide="arrow-right"></i>
-              </a>
+          <!-- Spotlight Card 2: All Organizers -->
+          <div class="leadership-card reveal delay-1">
+            <div class="leadership-img-box" data-lightbox="true"
+              data-full-img="assets/edge_ai_hackathon/pictures/All organizers.jpeg"
+              data-caption-title="IEEE EDS PMEC Organizing Committee &amp; Student Volunteers"
+              data-caption-desc="The organizing team and student coordinators behind the IEEE Edge AI Hackathon 2026.">
+              <img src="assets/edge_ai_hackathon/pictures/All organizers.jpeg"
+                alt="All organizers of IEEE Edge AI Hackathon 2026" class="leadership-photo" loading="lazy">
+              <div class="winner-img-overlay">
+                <span class="winner-zoom-btn"><i data-lucide="maximize-2"></i> View Full Photo</span>
+              </div>
             </div>
+            <div class="leadership-card-body">
+              <span class="leadership-tag-pill"><i data-lucide="shield-check"></i> ORGANIZING COMMITTEE</span>
+              <h3 class="leadership-title">Organizers &amp; Student Branch Volunteers</h3>
+              <p class="leadership-desc">
+                The dedicated student executive committee, department volunteers, and technical leads of IEEE EDS PMEC
+                Student Branch Chapter who spearheaded the 48-hour hardware event seamlessly.
+              </p>
+              <div class="winner-card-footer" style="margin-top: auto; padding-top: 14px;">
+                <button type="button" class="winner-open-lightbox-btn">
+                  <i data-lucide="image"></i> View High-Resolution Photo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         📸 EVENT PHOTO GALLERY (REAL EVENT PHOTOGRAPHS)
+         ========================================================================== -->
+    <section id="gallery" class="section event-photo-gallery-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="winners-badge-pill">
+            <i data-lucide="camera"></i> CAPTURED MOMENTS
+          </div>
+          <h2>Edge AI Hackathon 2026 Photo Archive</h2>
+          <p>Visual highlights of intense hardware prototyping, evaluation sessions, and grand awards celebration.</p>
+        </div>
+
+        <div class="event-gallery-grid">
+          <!-- Photo 1: FPGA Winner -->
+          <div class="event-gallery-item reveal" data-lightbox="true"
+            data-full-img="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg"
+            data-caption-title="Track 1: FPGA Track Felicitation"
+            data-caption-desc="Awarding the champions of Track 1 for FPGA-based embedded neural network acceleration.">
+            <img src="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg" alt="Track 1 FPGA Track Felicitation"
+              class="event-gallery-thumb" loading="lazy">
+            <div class="event-gallery-overlay">
+              <span class="gallery-tag">Winners</span>
+              <span class="gallery-caption">Track 1 — FPGA</span>
+            </div>
+            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
+          </div>
+
+          <!-- Photo 2: RPi Winner -->
+          <div class="event-gallery-item reveal delay-1" data-lightbox="true"
+            data-full-img="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg"
+            data-caption-title="Track 2: Raspberry Pi &amp; Renesas Track Felicitation"
+            data-caption-desc="Awarding the champions of Track 2 for Raspberry Pi &amp; Renesas edge AI deployment.">
+            <img src="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg"
+              alt="Track 2 Raspberry Pi and Renesas Track Felicitation" class="event-gallery-thumb" loading="lazy">
+            <div class="event-gallery-overlay">
+              <span class="gallery-tag">Winners</span>
+              <span class="gallery-caption">Track 2 — Raspberry Pi / Renesas</span>
+            </div>
+            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
+          </div>
+
+          <!-- Photo 3: Arduino Winner -->
+          <div class="event-gallery-item reveal delay-2" data-lightbox="true"
+            data-full-img="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg"
+            data-caption-title="Track 3: ESP32 &amp; Arduino Track Felicitation"
+            data-caption-desc="Awarding the champions of Track 3 for TinyML &amp; ESP32 ultra-low power implementation.">
+            <img src="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg"
+              alt="Track 3 ESP32 and Arduino Track Felicitation" class="event-gallery-thumb" loading="lazy">
+            <div class="event-gallery-overlay">
+              <span class="gallery-tag">Winners</span>
+              <span class="gallery-caption">Track 3 — ESP32 / Arduino</span>
+            </div>
+            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
+          </div>
+
+          <!-- Photo 4: Judges with Principal -->
+          <div class="event-gallery-item reveal" data-lightbox="true"
+            data-full-img="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg"
+            data-caption-title="Esteemed Judges &amp; Leadership with Principal, PMEC"
+            data-caption-desc="Jury panel, distinguished guests, faculty mentors and PMEC Principal at the valedictory ceremony.">
+            <img src="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg"
+              alt="Esteemed Judges and Leadership with Principal, PMEC" class="event-gallery-thumb" loading="lazy">
+            <div class="event-gallery-overlay">
+              <span class="gallery-tag">Leadership</span>
+              <span class="gallery-caption">Judges &amp; Principal PMEC</span>
+            </div>
+            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
+          </div>
+
+          <!-- Photo 5: All Organizers -->
+          <div class="event-gallery-item reveal delay-1" data-lightbox="true"
+            data-full-img="assets/edge_ai_hackathon/pictures/All organizers.jpeg"
+            data-caption-title="IEEE EDS PMEC Organizing Committee"
+            data-caption-desc="Student coordinators, volunteer leads, and faculty advisors celebrating the event's grand success.">
+            <img src="assets/edge_ai_hackathon/pictures/All organizers.jpeg"
+              alt="All organizers of IEEE Edge AI Hackathon 2026" class="event-gallery-thumb" loading="lazy">
+            <div class="event-gallery-overlay">
+              <span class="gallery-tag">Organizers</span>
+              <span class="gallery-caption">Organizing Committee</span>
+            </div>
+            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
           </div>
         </div>
       </div>
@@ -4065,6 +4054,23 @@
   <!-- Script files -->
   <script src="hackathon.js?v=1.2"></script>
   <script src="effects.js"></script>
+  <!-- Photo Lightbox Modal -->
+  <div id="photo-lightbox-modal" class="photo-lightbox-modal" role="dialog" aria-modal="true"
+    aria-label="Photo Lightbox">
+    <button id="lightbox-close" class="lightbox-close-btn" aria-label="Close Lightbox">
+      <i data-lucide="x"></i>
+    </button>
+    <div class="lightbox-dialog">
+      <div class="lightbox-media-wrap">
+        <img id="lightbox-img" src="" alt="Enlarged photo preview" class="lightbox-img">
+      </div>
+      <div class="lightbox-meta">
+        <h3 id="lightbox-title" class="lightbox-title"></h3>
+        <p id="lightbox-desc" class="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
