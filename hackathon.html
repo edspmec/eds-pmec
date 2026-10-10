@@ -83,20 +83,50 @@
          ========================================================================== -->
     <div id="live-event-banner" class="live-event-banner concluded" role="region" aria-label="Post-Event Status">
       <div class="container live-event-banner-container">
-        <!-- Left: Status Pill + Event Info -->
+        <!-- Left: Status Pill -->
         <div class="live-banner-left">
           <div id="live-status-pill" class="live-status-pill concluded">
             <i data-lucide="award" style="width: 14px; height: 14px;"></i>
             <span id="live-status-text">EVENT CONCLUDED • 4–6 OCT 2026</span>
           </div>
+        </div>
 
-          <div class="live-event-title-group">
-            <strong class="live-event-name">IEEE EDGE AI HACKATHON 2026</strong>
-            <span class="live-event-sep">•</span>
-            <span class="live-event-date-venue">PMEC, BERHAMPUR, ODISHA</span>
-            <span class="live-event-sep">•</span>
-            <span class="live-archive-tag"><i data-lucide="trophy"
-                style="width: 13px; height: 13px; vertical-align: middle;"></i> TRACK WINNERS ANNOUNCED</span>
+        <!-- Center: Smooth Infinite Sliding Ticker -->
+        <div class="live-ticker-viewport" aria-label="Announcement Ticker">
+          <div class="live-ticker-track">
+            <div class="ticker-content">
+              <strong class="live-event-name">IEEE EDGE AI HACKATHON 2026</strong>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-date-venue"><i data-lucide="map-pin" style="width: 13px; height: 13px; vertical-align: middle;"></i> PMEC, BERHAMPUR, ODISHA</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-archive-tag"><i data-lucide="trophy" style="width: 13px; height: 13px; vertical-align: middle;"></i> TRACK WINNERS ANNOUNCED</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-highlight">27 FINALIST TEAMS COMPLETED 48-HR PHYSICAL HARDWARE CHALLENGE</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-highlight"><i data-lucide="award" style="width: 13px; height: 13px; vertical-align: middle;"></i> ₹45,000 TOTAL CASH PRIZE POOL AWARDED</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-date-venue">HOSTING PARTNER: UNSTOP</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-date-venue">PRINCIPAL SPONSOR: AMD</span>
+              <span class="live-event-sep">•</span>
+            </div>
+            <!-- Duplicate content for seamless infinite sliding loop -->
+            <div class="ticker-content" aria-hidden="true">
+              <strong class="live-event-name">IEEE EDGE AI HACKATHON 2026</strong>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-date-venue"><i data-lucide="map-pin" style="width: 13px; height: 13px; vertical-align: middle;"></i> PMEC, BERHAMPUR, ODISHA</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-archive-tag"><i data-lucide="trophy" style="width: 13px; height: 13px; vertical-align: middle;"></i> TRACK WINNERS ANNOUNCED</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-highlight">27 FINALIST TEAMS COMPLETED 48-HR PHYSICAL HARDWARE CHALLENGE</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-highlight"><i data-lucide="award" style="width: 13px; height: 13px; vertical-align: middle;"></i> ₹45,000 TOTAL CASH PRIZE POOL AWARDED</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-date-venue">HOSTING PARTNER: UNSTOP</span>
+              <span class="live-event-sep">•</span>
+              <span class="live-event-date-venue">PRINCIPAL SPONSOR: AMD</span>
+              <span class="live-event-sep">•</span>
+            </div>
           </div>
         </div>
 
@@ -164,7 +194,7 @@
             <div class="archive-metric-card">
               <div class="archive-metric-icon"><i data-lucide="clock"></i></div>
               <div class="archive-metric-info">
-                <span class="archive-metric-val">48 Hrs</span>
+                <span class="archive-metric-val">21 Hrs</span>
                 <span class="archive-metric-lbl">Hardware Prototyping</span>
               </div>
             </div>
@@ -186,13 +216,16 @@
           </div>
 
           <div class="hero-cta-group">
-            <a href="#winners" class="btn btn-primary btn-lg">
-              <i data-lucide="trophy"></i> View Track Winners
+            <a href="#winners" class="btn btn-primary">
+              <i data-lucide="trophy"></i> Track Winners
             </a>
-            <a href="#event-leadership" class="btn btn-secondary btn-lg">
-              <i data-lucide="users"></i> Leadership &amp; Organizers
+            <a href="problem-statements.html" class="btn btn-secondary">
+              <i data-lucide="file-code"></i> Problem Statements
             </a>
-            <a href="#gallery" class="btn btn-secondary btn-lg">
+            <a href="#event-leadership" class="btn btn-secondary">
+              <i data-lucide="users"></i> Leadership
+            </a>
+            <a href="#gallery" class="btn btn-secondary">
               <i data-lucide="camera"></i> Event Gallery
             </a>
           </div>
@@ -203,8 +236,8 @@
             <img src="assets/our_gallery/hackathons/edge_comp_hackathon.png"
               alt="Edge AI Hackathon 2026 Concluded Banner" class="poster-img">
             <div class="poster-overlay">
-              <a href="docs/EDGE_AI_Schedule.pdf" target="_blank" class="btn btn-secondary">
-                <i data-lucide="file-text"></i> View Event Schedule PDF
+              <a href="assets/edge_ai_hackathon/EDGE AI brochure.pdf" target="_blank" class="btn btn-secondary">
+                <i data-lucide="file-text"></i> View Event Brochure
               </a>
             </div>
           </div>
@@ -213,19 +246,75 @@
     </section>
 
     <!-- ==========================================================================
-         ARCHIVE QUICK NAVIGATION BAR
+         ARCHIVE QUICK NAVIGATION DIRECTORY DECK
          ========================================================================== -->
-    <nav class="archive-quicknav-bar" aria-label="Archive Section Navigation">
-      <a href="#winners" class="archive-nav-pill"><i data-lucide="trophy"></i> Winners</a>
-      <a href="#event-leadership" class="archive-nav-pill"><i data-lucide="user-check"></i> Judges &amp; Organizers</a>
-      <a href="#gallery" class="archive-nav-pill"><i data-lucide="camera"></i> Photo Gallery</a>
-      <a href="#winner-reward" class="archive-nav-pill"><i data-lucide="gift"></i> Winner Rewards</a>
-      <a href="#finalists" class="archive-nav-pill"><i data-lucide="users"></i> 27 Finalist Teams</a>
-      <a href="#hardware-platforms" class="archive-nav-pill"><i data-lucide="cpu"></i> Hardware Tracks</a>
-      <a href="#schedule" class="archive-nav-pill"><i data-lucide="clock"></i> Timeline</a>
-      <a href="#partners" class="archive-nav-pill"><i data-lucide="handshake"></i> Partners &amp; Sponsors</a>
-      <a href="#contact" class="archive-nav-pill"><i data-lucide="phone"></i> Organizers Helpline</a>
-    </nav>
+    <div class="archive-quicknav-container">
+      <div class="container">
+        <nav class="archive-quicknav-deck" aria-label="Archive Section Navigation">
+          <div class="archive-deck-header">
+            <div class="deck-title-group">
+              <span class="deck-pulse-indicator" aria-hidden="true"></span>
+              <div class="deck-title-text">
+                <i data-lucide="compass"></i>
+                <strong>Event Archive Directory</strong>
+                <span class="deck-title-sub">• Quick navigation across official results, media, &amp; technical tracks</span>
+              </div>
+            </div>
+            <div class="deck-counter-badge">
+              <i data-lucide="layers"></i> 10 Archive Sections
+            </div>
+          </div>
+
+          <div class="archive-deck-pills">
+            <a href="#winners" class="archive-nav-pill pill-gold">
+              <i data-lucide="trophy"></i>
+              <span class="pill-label">Track Winners</span>
+              <span class="pill-badge gold-badge">₹45K Cash</span>
+            </a>
+            <a href="problem-statements.html" class="archive-nav-pill pill-cyan">
+              <i data-lucide="file-code"></i>
+              <span class="pill-label">Problem Statements</span>
+              <span class="pill-badge cyan-badge">36 Statements</span>
+            </a>
+            <a href="#event-leadership" class="archive-nav-pill">
+              <i data-lucide="user-check"></i>
+              <span class="pill-label">Judges &amp; Leadership</span>
+            </a>
+            <a href="#gallery" class="archive-nav-pill">
+              <i data-lucide="camera"></i>
+              <span class="pill-label">Event Gallery</span>
+              <span class="pill-badge">Photos</span>
+            </a>
+            <a href="#winner-reward" class="archive-nav-pill">
+              <i data-lucide="gift"></i>
+              <span class="pill-label">Winner Rewards</span>
+            </a>
+            <a href="#finalists" class="archive-nav-pill">
+              <i data-lucide="users"></i>
+              <span class="pill-label">27 Finalist Teams</span>
+              <span class="pill-badge">Across India</span>
+            </a>
+            <a href="#hardware-platforms" class="archive-nav-pill">
+              <i data-lucide="cpu"></i>
+              <span class="pill-label">Hardware Tracks</span>
+              <span class="pill-badge">3 Tracks</span>
+            </a>
+            <a href="#schedule" class="archive-nav-pill">
+              <i data-lucide="clock"></i>
+              <span class="pill-label">Timeline</span>
+            </a>
+            <a href="#partners" class="archive-nav-pill">
+              <i data-lucide="handshake"></i>
+              <span class="pill-label">Partners &amp; Sponsors</span>
+            </a>
+            <a href="#contact" class="archive-nav-pill">
+              <i data-lucide="phone"></i>
+              <span class="pill-label">Helpline</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
 
     <!-- ==========================================================================
          🏆 OFFICIAL TRACK WINNERS SECTION
@@ -421,11 +510,6 @@
                 Distinguished industry mentors, evaluation jury members, faculty coordinators, and the Principal of
                 Parala Maharaja Engineering College during the final round evaluation and valedictory ceremony.
               </p>
-              <div class="winner-card-footer" style="margin-top: auto; padding-top: 14px;">
-                <button type="button" class="winner-open-lightbox-btn">
-                  <i data-lucide="image"></i> View High-Resolution Photo
-                </button>
-              </div>
             </div>
           </div>
 
@@ -446,13 +530,8 @@
               <h3 class="leadership-title">Organizers &amp; Student Branch Volunteers</h3>
               <p class="leadership-desc">
                 The dedicated student executive committee, department volunteers, and technical leads of IEEE EDS PMEC
-                Student Branch Chapter who spearheaded the 48-hour hardware event seamlessly.
+                Student Branch Chapter who spearheaded the 21-hour hardware event seamlessly.
               </p>
-              <div class="winner-card-footer" style="margin-top: auto; padding-top: 14px;">
-                <button type="button" class="winner-open-lightbox-btn">
-                  <i data-lucide="image"></i> View High-Resolution Photo
-                </button>
-              </div>
             </div>
           </div>
         </div>
