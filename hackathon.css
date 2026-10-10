@@ -8720,7 +8720,6 @@ body:not(.dark-mode) .live-archive-tag {
   .live-ticker-viewport {
     width: 100%;
   }
-}
   .schedule-day-tabs {
     grid-template-columns: 1fr;
     gap: 10px;
