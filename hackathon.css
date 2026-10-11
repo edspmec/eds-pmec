@@ -10260,6 +10260,431 @@ body:not(.dark-mode) .event-gallery-item:hover {
   }
 }
 
+/* ==========================================================================
+   🏅 FINAL MERIT LIST SECTION
+   ========================================================================== */
+
+/* Nav pill variants */
+.archive-nav-pill.pill-emerald {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.08);
+}
+.archive-nav-pill.pill-emerald:hover {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(16, 185, 129, 0.7);
+}
+.pill-badge.emerald-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+/* Section container */
+.merit-list-section {
+  background: var(--bg-primary, #061024);
+  padding: 80px 0;
+}
+
+/* Tagline */
+.merit-tagline {
+  font-size: 1rem;
+  color: var(--text-muted, #8fa5c0);
+  font-style: italic;
+  margin-top: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Event Summary Strip ---- */
+.merit-event-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px 32px;
+  margin: 32px 0 48px;
+  backdrop-filter: blur(10px);
+}
+.merit-summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 28px;
+  text-align: center;
+}
+.merit-summary-num {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.merit-summary-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted, #8fa5c0);
+  font-weight: 600;
+}
+.merit-summary-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* ---- Tracks Grid ---- */
+.merit-tracks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+/* ---- Track Card ---- */
+.merit-track-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.merit-track-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+/* ---- Track Header ---- */
+.merit-track-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.merit-track-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+}
+
+/* FPGA - Purple */
+.track-fpga {
+  background: linear-gradient(135deg, rgba(124,58,237,0.25) 0%, rgba(167,139,250,0.12) 100%);
+  border-bottom: 2px solid rgba(124,58,237,0.4);
+}
+.track-fpga .merit-track-icon {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  box-shadow: 0 0 20px rgba(124,58,237,0.4);
+}
+.track-fpga .merit-track-title { color: #c4b5fd; }
+.track-fpga .merit-track-number { color: #a78bfa; }
+
+/* Raspberry Pi - Green */
+.track-raspi {
+  background: linear-gradient(135deg, rgba(5,150,105,0.25) 0%, rgba(16,185,129,0.12) 100%);
+  border-bottom: 2px solid rgba(16,185,129,0.4);
+}
+.track-raspi .merit-track-icon {
+  background: linear-gradient(135deg, #059669, #10b981);
+  box-shadow: 0 0 20px rgba(16,185,129,0.4);
+}
+.track-raspi .merit-track-title { color: #6ee7b7; }
+.track-raspi .merit-track-number { color: #34d399; }
+
+/* ESP32 - Orange */
+.track-esp32 {
+  background: linear-gradient(135deg, rgba(234,88,12,0.25) 0%, rgba(251,146,60,0.12) 100%);
+  border-bottom: 2px solid rgba(251,146,60,0.4);
+}
+.track-esp32 .merit-track-icon {
+  background: linear-gradient(135deg, #ea580c, #fb923c);
+  box-shadow: 0 0 20px rgba(251,146,60,0.4);
+}
+.track-esp32 .merit-track-title { color: #fed7aa; }
+.track-esp32 .merit-track-number { color: #fb923c; }
+
+/* Track Icon */
+.merit-track-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.merit-track-icon i { width: 24px; height: 24px; }
+
+.merit-track-number {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 2px;
+}
+.merit-track-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+.merit-track-subtitle {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  display: block;
+  margin-top: 2px;
+}
+.merit-teams-count {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6);
+  white-space: nowrap;
+}
+
+/* ---- Table ---- */
+.merit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.merit-table thead tr {
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.merit-table th {
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-muted, #8fa5c0);
+}
+.col-rank { width: 80px; }
+.col-team { }
+
+.merit-row {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.2s ease;
+}
+.merit-row:last-child { border-bottom: none; }
+.merit-row:hover { background: rgba(255,255,255,0.04); }
+
+/* Podium rows */
+.merit-row.rank-1 { background: rgba(251,191,36,0.05); }
+.merit-row.rank-1:hover { background: rgba(251,191,36,0.09); }
+.merit-row.rank-2 { background: rgba(209,213,219,0.04); }
+.merit-row.rank-2:hover { background: rgba(209,213,219,0.08); }
+.merit-row.rank-3 { background: rgba(205,127,50,0.04); }
+.merit-row.rank-3:hover { background: rgba(205,127,50,0.08); }
+
+.merit-table td {
+  padding: 12px 20px;
+  vertical-align: middle;
+}
+
+/* ---- Rank Badge ---- */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 36px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.rank-badge i { width: 13px; height: 13px; }
+.rank-badge.gold {
+  background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(245,158,11,0.1));
+  color: #fbbf24;
+  border-color: rgba(251,191,36,0.35);
+}
+.rank-badge.silver {
+  background: linear-gradient(135deg, rgba(209,213,219,0.18), rgba(156,163,175,0.1));
+  color: #d1d5db;
+  border-color: rgba(209,213,219,0.3);
+}
+.rank-badge.bronze {
+  background: linear-gradient(135deg, rgba(205,127,50,0.2), rgba(180,100,30,0.1));
+  color: #cd7f32;
+  border-color: rgba(205,127,50,0.35);
+}
+
+/* ---- Team Name & Winner Label ---- */
+.team-name {
+  font-weight: 700;
+  color: var(--text-primary, #e2e8f0);
+  font-size: 0.92rem;
+}
+.winner-label {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+.gold-label {
+  background: rgba(251,191,36,0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.3);
+}
+.silver-label {
+  background: rgba(209,213,219,0.12);
+  color: #d1d5db;
+  border: 1px solid rgba(209,213,219,0.25);
+}
+.bronze-label {
+  background: rgba(205,127,50,0.15);
+  color: #cd7f32;
+  border: 1px solid rgba(205,127,50,0.3);
+}
+
+/* ---- Disclaimer Card ---- */
+.merit-disclaimer-card {
+  display: flex;
+  gap: 20px;
+  background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-top: 16px;
+  align-items: flex-start;
+}
+.merit-disclaimer-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(59,130,246,0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+  margin-top: 2px;
+}
+.merit-disclaimer-icon i { width: 20px; height: 20px; }
+.merit-disclaimer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #93c5fd;
+  margin: 0 0 10px;
+}
+.merit-disclaimer-content p {
+  font-size: 0.87rem;
+  color: var(--text-muted, #8fa5c0);
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+.merit-disclaimer-content p:last-child { margin-bottom: 0; }
+.merit-disclaimer-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.82rem !important;
+  color: #93c5fd !important;
+  padding: 10px 14px;
+  background: rgba(59,130,246,0.08);
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6;
+  margin-top: 12px !important;
+}
+.merit-disclaimer-note i { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; }
+
+/* ==========================================================================
+   MERIT LIST — RESPONSIVE
+   ========================================================================== */
+@media (min-width: 900px) {
+  .merit-tracks-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .merit-tracks-grid .merit-track-card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .merit-event-summary {
+    gap: 4px;
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+  .merit-summary-item {
+    padding: 8px 16px;
+    min-width: 80px;
+  }
+  .merit-summary-num { font-size: 1.5rem; }
+  .merit-summary-divider { height: 28px; }
+
+  .merit-track-header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px 16px;
+  }
+  .merit-teams-count { margin-left: 0; }
+
+  .merit-table th,
+  .merit-table td {
+    padding: 10px 14px;
+  }
+
+  .merit-disclaimer-card {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .merit-list-section { padding: 50px 0; }
+
+  .merit-event-summary {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2px;
+    padding: 12px 6px;
+  }
+  .merit-summary-divider { display: none; }
+  .merit-summary-item { padding: 10px 12px; min-width: 90px; }
+  .merit-summary-num { font-size: 1.25rem; }
+
+  .merit-track-header { padding: 14px 12px; }
+  .merit-track-icon { width: 40px; height: 40px; border-radius: 10px; }
+  .merit-track-icon i { width: 18px; height: 18px; }
+  .merit-track-title { font-size: 1rem; }
+
+  .merit-table { font-size: 0.82rem; }
+  .merit-table th,
+  .merit-table td { padding: 9px 10px; }
+  .col-rank { width: 60px; }
+
+  .winner-label { display: block; margin-left: 0; margin-top: 4px; }
+
+  .merit-disclaimer-card { padding: 16px 14px; }
+}
 
 
 
@@ -10271,5 +10696,867 @@ body:not(.dark-mode) .event-gallery-item:hover {
 
 
 
+/* ==========================================================================
+   ? MYSTIC MERIT FLIP CARDS  (.mfc)
+   ========================================================================== */
+
+/* ---- Grid ---- */
+.merit-flip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 24px;
+}
+
+/* ---- Outer wrapper � sets perspective ---- */
+.mfc {
+  perspective: 900px;
+  cursor: pointer;
+  outline: none;
+  height: 170px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---- Inner � the element that actually flips ---- */
+.mfc-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Flip state � toggled by JS on click / hover ---- */
+.mfc:hover .mfc-inner,
+.mfc.flipped .mfc-inner {
+  transform: rotateY(180deg);
+}
+
+/* ---- Shared face rules ---- */
+.mfc-front,
+.mfc-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+/* ---- FRONT FACE ---- */
+.mfc-front {
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.09);
+  backdrop-filter: blur(12px);
+}
+
+/* Subtle animated circuit shimmer on the front */
+.mfc-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 18px,
+      rgba(255,255,255,0.025) 18px, rgba(255,255,255,0.025) 19px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 18px,
+      rgba(255,255,255,0.025) 18px, rgba(255,255,255,0.025) 19px
+    );
+  pointer-events: none;
+}
+
+/* Moving shimmer sweep */
+.mfc-front::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%);
+  animation: mfc-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes mfc-sweep {
+  0%   { left: -60%; }
+  60%  { left: 130%; }
+  100% { left: 130%; }
+}
+
+/* ---- Glowing aura ring for podium cards ---- */
+.mfc-aura {
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  pointer-events: none;
+  animation: mfc-pulse-aura 2.4s ease-in-out infinite;
+}
+.rank-gold .mfc-aura   { background: conic-gradient(from 0deg, #fbbf24, #f59e0b, #fbbf24, #fde68a, #fbbf24); opacity: 0.45; }
+.rank-silver .mfc-aura { background: conic-gradient(from 0deg, #9ca3af, #d1d5db, #9ca3af, #e5e7eb, #9ca3af); opacity: 0.4; }
+.rank-bronze .mfc-aura { background: conic-gradient(from 0deg, #cd7f32, #e8a050, #cd7f32, #f3c07a, #cd7f32); opacity: 0.42; }
+
+@keyframes mfc-pulse-aura {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.65; transform: scale(1.025); }
+}
+
+/* ---- Hexagon sigil ---- */
+.mfc-sigil {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mfc-hex {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 2.5;
+  animation: mfc-hex-spin 8s linear infinite;
+}
+@keyframes mfc-hex-spin {
+  to { transform: rotate(360deg); }
+}
+.mfc-hex polygon {
+  fill: rgba(255,255,255,0.04);
+}
+
+/* Track-colored hex stroke */
+.track-fpga  .mfc-hex { stroke: rgba(167,139,250,0.7); }
+.track-raspi .mfc-hex { stroke: rgba(52,211,153,0.7); }
+.track-esp32 .mfc-hex { stroke: rgba(251,146,60,0.7); }
+
+/* Rank number inside hex */
+.mfc-rank-num {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.track-fpga  .mfc-rank-num { color: #c4b5fd; }
+.track-raspi .mfc-rank-num { color: #6ee7b7; }
+.track-esp32 .mfc-rank-num { color: #fed7aa; }
+
+/* Medal emoji ---- */
+.mfc-medal {
+  font-size: 1.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(255,200,50,0.5));
+}
+
+/* Hint text ---- */
+.mfc-hint {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 2px;
+}
+
+/* ---- BACK FACE ---- */
+.mfc-back {
+  transform: rotateY(180deg);
+  gap: 8px;
+  padding: 14px 12px;
+}
+
+/* Track-themed gradient back */
+.track-fpga .mfc-back  { background: linear-gradient(145deg, rgba(124,58,237,0.35), rgba(109,40,217,0.55)); border: 1px solid rgba(167,139,250,0.35); }
+.track-raspi .mfc-back { background: linear-gradient(145deg, rgba(5,150,105,0.35), rgba(4,120,87,0.55));    border: 1px solid rgba(52,211,153,0.35); }
+.track-esp32 .mfc-back { background: linear-gradient(145deg, rgba(234,88,12,0.35), rgba(194,65,12,0.55));   border: 1px solid rgba(251,146,60,0.35); }
+
+.mfc-back-rank {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.45);
+}
+.mfc-back-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  line-height: 1.25;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Special glow for podium back names */
+.rank-gold .mfc-back-name   { color: #fde68a; text-shadow: 0 0 24px rgba(251,191,36,0.5); }
+.rank-silver .mfc-back-name { color: #e5e7eb; text-shadow: 0 0 20px rgba(209,213,219,0.4); }
+.rank-bronze .mfc-back-name { color: #fcd9a0; text-shadow: 0 0 20px rgba(205,127,50,0.5); }
+
+/* Inherit winner label reused from merit-list-section */
+.mfc-back .winner-label { font-size: 0.65rem; margin-left: 0; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .merit-flip-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 18px; }
+}
+@media (max-width: 600px) {
+  .merit-flip-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 14px; }
+  .mfc { height: 148px; }
+  .mfc-sigil { width: 54px; height: 54px; }
+  .mfc-rank-num { font-size: 1.2rem; }
+  .mfc-back-name { font-size: 0.88rem; }
+}
+@media (max-width: 380px) {
+  .merit-flip-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 10px; }
+  .mfc { height: 132px; }
+}
 
 
+/* ==========================================================================
+   📸 EVENT PHOTO GALLERY V2 — CREATIVE MASONRY & CINEMATIC LIGHTBOX
+   ========================================================================== */
+
+.gallery-section-v2 {
+  position: relative;
+  padding: 100px 0 120px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 15%, rgba(16, 185, 129, 0.06), transparent 60%),
+              radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.05), transparent 60%);
+}
+
+.gallery-bg-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 75%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gallery-tagline {
+  font-size: 1.05rem;
+  color: var(--text-secondary, #94a3b8);
+  max-width: 650px;
+  margin: 12px auto 0;
+  line-height: 1.6;
+}
+
+/* --- Creative Glass Filter Bar --- */
+.gallery-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 38px auto 45px;
+  max-width: 1040px;
+  padding: 6px 10px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+body:not(.dark-mode) .gallery-filter-bar {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+.gfb-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary, #94a3b8);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  font-family: inherit;
+}
+
+.gfb-pill svg, .gfb-pill i {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.gfb-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  transition: all 0.25s ease;
+}
+
+body:not(.dark-mode) .gfb-count {
+  background: rgba(0, 0, 0, 0.06);
+  color: #64748b;
+}
+
+.gfb-pill:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+body:not(.dark-mode) .gfb-pill:hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.gfb-pill.active {
+  color: #fff;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+.gfb-pill.active .gfb-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.gfb-pill:hover svg {
+  transform: scale(1.15);
+}
+
+/* --- Masonry / Bento Grid --- */
+.gallery-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 290px;
+  grid-auto-flow: dense;
+  gap: 20px;
+  margin-top: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid Spans */
+.gcard-wide {
+  grid-column: span 2;
+}
+.gcard-tall {
+  grid-row: span 2;
+}
+.gcard-full {
+  grid-column: span 3;
+}
+
+/* Individual Card */
+.gcard {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              opacity 0.35s ease;
+  transform: translateZ(0);
+}
+
+body:not(.dark-mode) .gcard {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.gcard.hidden-card {
+  display: none !important;
+}
+
+.gcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gcard-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+  will-change: transform;
+}
+
+/* Category Glows on Hover */
+.gcard[data-category="winners"]:hover {
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 16px 36px -10px rgba(245, 158, 11, 0.4);
+}
+.gcard[data-category="presentations"]:hover {
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: 0 16px 36px -10px rgba(59, 130, 246, 0.4);
+}
+.gcard[data-category="leadership"]:hover {
+  border-color: rgba(168, 85, 247, 0.55);
+  box-shadow: 0 16px 36px -10px rgba(168, 85, 247, 0.4);
+}
+.gcard[data-category="venue"]:hover {
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 16px 36px -10px rgba(16, 185, 129, 0.4);
+}
+.gcard[data-category="organizers"]:hover {
+  border-color: rgba(236, 72, 153, 0.55);
+  box-shadow: 0 16px 36px -10px rgba(236, 72, 153, 0.4);
+}
+
+.gcard:hover {
+  transform: translateY(-6px) scale(1.01);
+  z-index: 3;
+}
+
+.gcard:hover .gcard-inner img {
+  transform: scale(1.08);
+  filter: brightness(1.04);
+}
+
+/* --- Card Overlay & Details --- */
+.gcard-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.05) 45%, rgba(0, 0, 0, 0.88) 100%);
+  opacity: 0.92;
+  transition: opacity 0.35s ease, background 0.35s ease;
+  pointer-events: none;
+}
+
+.gcard:hover .gcard-overlay {
+  opacity: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 35%, rgba(0, 0, 0, 0.94) 100%);
+}
+
+.gcard-cat {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.gcard-cat svg, .gcard-cat i {
+  width: 13px;
+  height: 13px;
+}
+
+.winners-cat {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+}
+
+.pres-cat {
+  background: rgba(59, 130, 246, 0.25);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.leader-cat {
+  background: rgba(168, 85, 247, 0.25);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+}
+
+.venue-cat {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+}
+
+.org-cat {
+  background: rgba(236, 72, 153, 0.25);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.5);
+}
+
+.gcard-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform: translateY(4px);
+  transition: transform 0.35s ease;
+}
+
+.gcard:hover .gcard-info {
+  transform: translateY(0);
+}
+
+.gcard-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+.gcard-sub {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.gcard-zoom {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8) rotate(-15deg);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.gcard:hover .gcard-zoom {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.gcard-zoom:hover {
+  background: #10b981;
+  border-color: #10b981;
+  transform: scale(1.12);
+}
+
+.gcard-zoom svg, .gcard-zoom i {
+  width: 18px;
+  height: 18px;
+}
+
+/* No Results Notification */
+.gallery-no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary, #94a3b8);
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.gallery-no-results svg {
+  width: 48px;
+  height: 48px;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   CINEMATIC FULLSCREEN LIGHTBOX MODAL
+   ========================================================================== */
+.glb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(3, 7, 18, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.glb-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  display: flex !important;
+}
+
+.glb-content {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  animation: glbZoomIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes glbZoomIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.glb-image {
+  max-height: 68vh;
+  width: 100%;
+  object-fit: contain;
+  background: #020617;
+  display: block;
+}
+
+.glb-caption {
+  width: 100%;
+  padding: 20px 28px;
+  background: rgba(15, 23, 42, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.glb-cat-pill {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.glb-caption h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.glb-caption p {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 85%;
+}
+
+.glb-counter {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Close & Nav buttons */
+.glb-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 100002;
+}
+
+.glb-close:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  transform: rotate(90deg) scale(1.08);
+}
+
+.glb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 100001;
+}
+
+.glb-nav svg, .glb-close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.glb-prev {
+  left: 24px;
+}
+
+.glb-next {
+  right: 24px;
+}
+
+.glb-nav:hover {
+  background: #10b981;
+  border-color: #10b981;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Lightbox Mobile Adjustments */
+@media (max-width: 900px) {
+  .gallery-masonry {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 250px;
+    gap: 16px;
+  }
+  .gcard-wide,
+  .gcard-full {
+    grid-column: span 2;
+  }
+  .glb-nav {
+    width: 44px;
+    height: 44px;
+  }
+  .glb-prev {
+    left: 12px;
+  }
+  .glb-next {
+    right: 12px;
+  }
+  .glb-caption p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-filter-bar {
+    border-radius: 20px;
+    padding: 8px;
+    gap: 6px;
+  }
+  .gfb-pill {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+  .gallery-masonry {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+  .gcard-wide, .gcard-tall, .gcard-full {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .gcard-inner {
+    height: 260px;
+  }
+  .gcard-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.9) 100%);
+  }
+  .gcard-zoom {
+    opacity: 1;
+    transform: none;
+    width: 36px;
+    height: 36px;
+  }
+  .glb-overlay {
+    padding: 10px;
+  }
+  .glb-close {
+    top: 14px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+  }
+  .glb-nav {
+    top: auto;
+    bottom: 24px;
+    transform: none;
+  }
+  .glb-prev {
+    left: 20px;
+  }
+  .glb-next {
+    right: 20px;
+  }
+  .glb-nav:hover {
+    transform: scale(1.05);
+  }
+  .glb-caption {
+    padding: 16px 20px 70px;
+  }
+  .glb-counter {
+    position: static;
+    display: inline-block;
+    margin-top: 6px;
+  }
+}

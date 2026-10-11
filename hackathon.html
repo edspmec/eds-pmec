@@ -270,7 +270,7 @@
               </div>
             </div>
             <div class="deck-counter-badge">
-              <i data-lucide="layers"></i> 10 Archive Sections
+              <i data-lucide="layers"></i> 11 Archive Sections
             </div>
           </div>
 
@@ -315,6 +315,11 @@
             <a href="#partners" class="archive-nav-pill">
               <i data-lucide="handshake"></i>
               <span class="pill-label">Partners &amp; Sponsors</span>
+            </a>
+            <a href="#merit-list" class="archive-nav-pill pill-emerald">
+              <i data-lucide="list-ordered"></i>
+              <span class="pill-label">Final Merit List</span>
+              <span class="pill-badge emerald-badge">Official</span>
             </a>
             <a href="#contact" class="archive-nav-pill">
               <i data-lucide="phone"></i>
@@ -548,90 +553,448 @@
     </section>
 
     <!-- ==========================================================================
-         📸 EVENT PHOTO GALLERY (REAL EVENT PHOTOGRAPHS)
+         📸 EVENT PHOTO GALLERY — CREATIVE MASONRY
          ========================================================================== -->
-    <section id="gallery" class="section event-photo-gallery-section">
+    <section id="gallery" class="section gallery-section-v2">
+      <div class="gallery-bg-glow" aria-hidden="true"></div>
       <div class="container">
+
+        <!-- Header -->
         <div class="section-header text-center reveal">
-          <div class="winners-badge-pill">
-            <i data-lucide="camera"></i> CAPTURED MOMENTS
+          <div class="section-badge-wrap">
+            <span class="section-badge"><i data-lucide="camera"></i> Captured Moments</span>
           </div>
-          <h2>Edge AI Hackathon 2026 Photo Archive</h2>
-          <p>Visual highlights of intense hardware prototyping, evaluation sessions, and grand awards celebration.</p>
+          <h2 class="section-title">Event Gallery</h2>
         </div>
 
-        <div class="event-gallery-grid">
-          <!-- Photo 1: FPGA Winner -->
-          <div class="event-gallery-item reveal" data-lightbox="true"
-            data-full-img="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg"
-            data-caption-title="Track 1: FPGA Track Felicitation"
-            data-caption-desc="Awarding the champions of Track 1 for FPGA-based embedded neural network acceleration.">
-            <img src="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg" alt="Track 1 FPGA Track Felicitation"
-              class="event-gallery-thumb" loading="lazy">
-            <div class="event-gallery-overlay">
-              <span class="gallery-tag">Winners</span>
-              <span class="gallery-caption">Track 1 — FPGA</span>
+        <!-- Masonry / Bento Grid -->
+        <div class="gallery-masonry" id="gallery-masonry">
+
+          <!-- WINNERS -->
+          <div class="gcard gcard-wide" data-category="winners"
+            data-full="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg"
+            data-title="Track 1 — FPGA Champions"
+            data-cat="Winners"
+            data-desc="Systolic Squad receives the FPGA track trophy for edge AI acceleration on reconfigurable hardware.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/FPGA_Track_Winner.jpeg" alt="FPGA Track Winners" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat winners-cat"><i data-lucide="trophy"></i> Winners</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">FPGA Track Champions</span>
+                  <span class="gcard-sub">Track 1 · Systolic Squad 🥇</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
             </div>
-            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
           </div>
 
-          <!-- Photo 2: RPi Winner -->
-          <div class="event-gallery-item reveal delay-1" data-lightbox="true"
-            data-full-img="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg"
-            data-caption-title="Track 2: Raspberry Pi &amp; Renesas Track Felicitation"
-            data-caption-desc="Awarding the champions of Track 2 for Raspberry Pi &amp; Renesas edge AI deployment.">
-            <img src="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg"
-              alt="Track 2 Raspberry Pi and Renesas Track Felicitation" class="event-gallery-thumb" loading="lazy">
-            <div class="event-gallery-overlay">
-              <span class="gallery-tag">Winners</span>
-              <span class="gallery-caption">Track 2 — Raspberry Pi / Renesas</span>
+          <div class="gcard" data-category="winners"
+            data-full="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg"
+            data-title="Track 2 — Raspberry Pi / Renesas Champions"
+            data-cat="Winners"
+            data-desc="S.py claims the Raspberry Pi &amp; Renesas track title for edge computing innovation.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/RPI_Track_Winner.jpeg" alt="Raspberry Pi Track Winners" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat winners-cat"><i data-lucide="trophy"></i> Winners</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Raspberry Pi / Renesas</span>
+                  <span class="gcard-sub">Track 2 · S.py 🥇</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
             </div>
-            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
           </div>
 
-          <!-- Photo 3: Arduino Winner -->
-          <div class="event-gallery-item reveal delay-2" data-lightbox="true"
-            data-full-img="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg"
-            data-caption-title="Track 3: ESP32 &amp; Arduino Track Felicitation"
-            data-caption-desc="Awarding the champions of Track 3 for TinyML &amp; ESP32 ultra-low power implementation.">
-            <img src="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg"
-              alt="Track 3 ESP32 and Arduino Track Felicitation" class="event-gallery-thumb" loading="lazy">
-            <div class="event-gallery-overlay">
-              <span class="gallery-tag">Winners</span>
-              <span class="gallery-caption">Track 3 — ESP32 / Arduino</span>
+          <div class="gcard" data-category="winners"
+            data-full="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg"
+            data-title="Track 3 — ESP32 / Arduino Champions"
+            data-cat="Winners"
+            data-desc="EdgeNova wins Track 3 with a breakthrough TinyML &amp; ESP32 embedded system deployment.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/Arduino_Track_Winner.jpeg" alt="Arduino Track Winners" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat winners-cat"><i data-lucide="trophy"></i> Winners</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">ESP32 / Arduino</span>
+                  <span class="gcard-sub">Track 3 · EdgeNova 🥇</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
             </div>
-            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
           </div>
 
-          <!-- Photo 4: Judges with Principal -->
-          <div class="event-gallery-item reveal" data-lightbox="true"
-            data-full-img="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg"
-            data-caption-title="Esteemed Judges &amp; Leadership with Principal, PMEC"
-            data-caption-desc="Jury panel, distinguished guests, faculty mentors and PMEC Principal at the valedictory ceremony.">
-            <img src="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg"
-              alt="Esteemed Judges and Leadership with Principal, PMEC" class="event-gallery-thumb" loading="lazy">
-            <div class="event-gallery-overlay">
-              <span class="gallery-tag">Leadership</span>
-              <span class="gallery-caption">Judges &amp; Principal PMEC</span>
+          <!-- PRESENTATIONS -->
+          <div class="gcard gcard-tall" data-category="presentations"
+            data-full="assets/edge_ai_hackathon/pictures/A Team indivisual presenting 1.jpeg"
+            data-title="Individual Team Presentation"
+            data-cat="Presentations"
+            data-desc="A finalist demonstrates their edge AI solution before the expert jury panel.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/A Team indivisual presenting 1.jpeg" alt="Individual presenting" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat pres-cat"><i data-lucide="monitor"></i> Presentation</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Demo Day</span>
+                  <span class="gcard-sub">Final Round Evaluation</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
             </div>
-            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
           </div>
 
-          <!-- Photo 5: All Organizers -->
-          <div class="event-gallery-item reveal delay-1" data-lightbox="true"
-            data-full-img="assets/edge_ai_hackathon/pictures/All organizers.jpeg"
-            data-caption-title="IEEE EDS PMEC Organizing Committee"
-            data-caption-desc="Student coordinators, volunteer leads, and faculty advisors celebrating the event's grand success.">
-            <img src="assets/edge_ai_hackathon/pictures/All organizers.jpeg"
-              alt="All organizers of IEEE Edge AI Hackathon 2026" class="event-gallery-thumb" loading="lazy">
-            <div class="event-gallery-overlay">
-              <span class="gallery-tag">Organizers</span>
-              <span class="gallery-caption">Organizing Committee</span>
+          <div class="gcard" data-category="presentations"
+            data-full="assets/edge_ai_hackathon/pictures/A Team indivisual presenting.jpeg"
+            data-title="Team Presenting to Judges"
+            data-cat="Presentations"
+            data-desc="Finalist team explains their AI inference pipeline and hardware architecture to the jury.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/A Team indivisual presenting.jpeg" alt="Team presenting" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat pres-cat"><i data-lucide="monitor"></i> Presentation</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Jury Evaluation</span>
+                  <span class="gcard-sub">Day 3 — Final Demos</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
             </div>
-            <div class="event-gallery-zoom-icon"><i data-lucide="maximize-2"></i></div>
+          </div>
+
+          <div class="gcard" data-category="presentations"
+            data-full="assets/edge_ai_hackathon/pictures/team presenting final day.jpeg"
+            data-title="Final Day Presentation"
+            data-cat="Presentations"
+            data-desc="Teams showcase polished prototypes on the final day of the IEEE EDGE AI Hackathon 2026.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team presenting final day.jpeg" alt="Final day presentation" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat pres-cat"><i data-lucide="monitor"></i> Presentation</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Final Day</span>
+                  <span class="gcard-sub">Project Demo &amp; Evaluation</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="presentations"
+            data-full="assets/edge_ai_hackathon/pictures/team presenting final day (2).jpeg"
+            data-title="Innovation on Display"
+            data-cat="Presentations"
+            data-desc="Presenting edge AI hardware solutions that push the boundaries of embedded intelligence.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team presenting final day (2).jpeg" alt="Team presenting 2" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat pres-cat"><i data-lucide="monitor"></i> Presentation</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Innovation on Display</span>
+                  <span class="gcard-sub">Final Evaluation Round</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="presentations"
+            data-full="assets/edge_ai_hackathon/pictures/team presenting final day (3).jpeg"
+            data-title="Hardware Prototype Demo"
+            data-cat="Presentations"
+            data-desc="Real-time demonstration of edge inference systems to the expert judging panel.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team presenting final day (3).jpeg" alt="Team presenting 3" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat pres-cat"><i data-lucide="monitor"></i> Presentation</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Hardware Demo</span>
+                  <span class="gcard-sub">Live Inference Showcase</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard gcard-wide" data-category="presentations"
+            data-full="assets/edge_ai_hackathon/pictures/team presenting final day (4).jpeg"
+            data-title="Technical Excellence — Final Stage"
+            data-cat="Presentations"
+            data-desc="Teams bringing their A-game on day 3 — precision, performance, and passion on full display.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team presenting final day (4).jpeg" alt="Final stage presentation" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat pres-cat"><i data-lucide="monitor"></i> Presentation</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Technical Excellence</span>
+                  <span class="gcard-sub">Final Stage · Day 3</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="presentations"
+            data-full="assets/edge_ai_hackathon/pictures/team presenting final day (5).jpeg"
+            data-title="Live Prototype Evaluation"
+            data-cat="Presentations"
+            data-desc="Finalist team showcasing their hardware and AI models live during the final round of evaluations.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team presenting final day (5).jpeg" alt="Live prototype evaluation" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat pres-cat"><i data-lucide="monitor"></i> Presentation</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Live Evaluation</span>
+                  <span class="gcard-sub">Hardware &amp; AI Defense</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- LEADERSHIP -->
+          <div class="gcard gcard-wide" data-category="leadership"
+            data-full="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg"
+            data-title="Esteemed Judges &amp; Principal, PMEC"
+            data-cat="Leadership"
+            data-desc="The distinguished jury panel and PMEC Principal at the valedictory ceremony.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/Esteemed_judges_with_Principal_PMEC.jpeg" alt="Judges with Principal" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat leader-cat"><i data-lucide="user-check"></i> Leadership</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Judges &amp; Principal, PMEC</span>
+                  <span class="gcard-sub">Valedictory Ceremony</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="leadership"
+            data-full="assets/edge_ai_hackathon/pictures/principal presenting memento to ayash sir (jury1) (2).jpeg"
+            data-title="Memento to Jury — Ayash Sir"
+            data-cat="Leadership"
+            data-desc="Principal PMEC felicitating Jury Member Ayash Sir with a token of appreciation.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/principal presenting memento to ayash sir (jury1) (2).jpeg" alt="Memento jury 1" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat leader-cat"><i data-lucide="user-check"></i> Leadership</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Jury Felicitation</span>
+                  <span class="gcard-sub">Memento · Jury Member 1</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="leadership"
+            data-full="assets/edge_ai_hackathon/pictures/principal presenting memento to Rajesh sir (jury2).jpeg"
+            data-title="Memento to Jury — Rajesh Sir"
+            data-cat="Leadership"
+            data-desc="Principal PMEC felicitating Jury Member Rajesh Sir with a token of appreciation.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/principal presenting memento to Rajesh sir (jury2).jpeg" alt="Memento jury 2" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat leader-cat"><i data-lucide="user-check"></i> Leadership</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Jury Felicitation</span>
+                  <span class="gcard-sub">Memento · Jury Member 2</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- VENUE & TEAMS -->
+          <div class="gcard gcard-tall" data-category="venue"
+            data-full="assets/edge_ai_hackathon/pictures/team working at venue.jpeg"
+            data-title="Teams at Work — Hackathon Floor"
+            data-cat="Venue &amp; Teams"
+            data-desc="Participants deep in prototyping, debugging, and iterating on their edge AI systems at the venue.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team working at venue.jpeg" alt="Teams working at venue" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat venue-cat"><i data-lucide="building-2"></i> Venue</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Hackathon Floor</span>
+                  <span class="gcard-sub">Teams Deep in Build Mode</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="venue"
+            data-full="assets/edge_ai_hackathon/pictures/team working at venue (2).jpeg"
+            data-title="Hardware Prototyping in Progress"
+            data-cat="Venue &amp; Teams"
+            data-desc="Teams soldering, wiring, and debugging FPGA and microcontroller boards at their workstations.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team working at venue (2).jpeg" alt="Team working venue 2" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat venue-cat"><i data-lucide="building-2"></i> Venue</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Prototyping in Progress</span>
+                  <span class="gcard-sub">FPGA &amp; MCU Build Sessions</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="venue"
+            data-full="assets/edge_ai_hackathon/pictures/team working at venue (3).jpeg"
+            data-title="Late Night Engineering"
+            data-cat="Venue &amp; Teams"
+            data-desc="Dedicated participants grinding through hardware challenges in the final hours of the hackathon.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/team working at venue (3).jpeg" alt="Team working venue 3" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat venue-cat"><i data-lucide="building-2"></i> Venue</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Late Night Engineering</span>
+                  <span class="gcard-sub">The Grind Never Stops</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="venue"
+            data-full="assets/edge_ai_hackathon/pictures/hacaktathon venue.jpeg"
+            data-title="Hackathon Arena &amp; Main Stage"
+            data-cat="Venue &amp; Teams"
+            data-desc="The grand auditorium and stage at PMEC where 27 finalist teams competed across three hardware tracks.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/hacaktathon venue.jpeg" alt="Hackathon arena and stage" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat venue-cat"><i data-lucide="building-2"></i> Venue</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Hackathon Arena</span>
+                  <span class="gcard-sub">Main Stage · Day 1 to 3</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ORGANIZERS -->
+          <div class="gcard gcard-wide" data-category="organizers"
+            data-full="assets/edge_ai_hackathon/pictures/All organizers.jpeg"
+            data-title="IEEE EDS PMEC Organizing Committee"
+            data-cat="Organizers"
+            data-desc="The entire organizing team — student coordinators, volunteer leads, and faculty advisors.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/All organizers.jpeg" alt="All organizers" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat org-cat"><i data-lucide="users"></i> Organizers</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Organizing Committee</span>
+                  <span class="gcard-sub">IEEE EDS PMEC · Full Team</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="organizers"
+            data-full="assets/edge_ai_hackathon/pictures/Anchor.jpeg"
+            data-title="Event Anchor"
+            data-cat="Organizers"
+            data-desc="The event anchor keeping the energy alive across all three days of the hackathon.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/Anchor.jpeg" alt="Event Anchor" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat org-cat"><i data-lucide="users"></i> Organizers</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Event Anchor</span>
+                  <span class="gcard-sub">3 Days of Energy &amp; Engagement</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="organizers"
+            data-full="assets/edge_ai_hackathon/pictures/anchor 2.png"
+            data-title="Stage Host &amp; Anchor"
+            data-cat="Organizers"
+            data-desc="Stage host steering the proceedings, team transitions, and ceremonies with poise.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/anchor 2.png" alt="Stage Host and Anchor" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat org-cat"><i data-lucide="users"></i> Organizers</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Stage Host &amp; Anchor</span>
+                  <span class="gcard-sub">Event Ceremonies &amp; Coordination</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard" data-category="organizers"
+            data-full="assets/edge_ai_hackathon/pictures/bts of organizers.jpeg"
+            data-title="Behind the Scenes — Team PMEC"
+            data-cat="Organizers"
+            data-desc="The dedicated student volunteer and organizer team working tirelessly behind the scenes to make the hackathon a grand success.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/bts of organizers.jpeg" alt="Behind the scenes organizers" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat org-cat"><i data-lucide="users"></i> Organizers</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Behind the Scenes</span>
+                  <span class="gcard-sub">Core Leads &amp; Logistics</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gcard gcard-full" data-category="organizers"
+            data-full="assets/edge_ai_hackathon/pictures/Dr Raghunandan Swain Sir in validectory cerermony.jpeg"
+            data-title="Dr. Raghunandan Swain — Valedictory Address"
+            data-cat="Organizers"
+            data-desc="Dr. Raghunandan Swain, Faculty Advisor &amp; Event Lead, addressing participants at the closing ceremony.">
+            <div class="gcard-inner">
+              <img src="assets/edge_ai_hackathon/pictures/Dr Raghunandan Swain Sir in validectory cerermony.jpeg" alt="Dr Raghunandan Swain valedictory" loading="lazy">
+              <div class="gcard-overlay">
+                <span class="gcard-cat org-cat"><i data-lucide="users"></i> Organizers</span>
+                <div class="gcard-info">
+                  <span class="gcard-title">Dr. Raghunandan Swain</span>
+                  <span class="gcard-sub">Valedictory Address</span>
+                </div>
+                <button class="gcard-zoom" aria-label="View full image"><i data-lucide="maximize-2"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /gallery-masonry -->
+
+        <div class="gallery-no-results" id="gallery-no-results" style="display:none;">
+          <i data-lucide="image-off"></i><p>No photos in this category.</p>
+        </div>
+
+      </div><!-- /container -->
+
+      <!-- FULLSCREEN LIGHTBOX -->
+      <div id="gallery-lightbox" class="glb-overlay" role="dialog" aria-modal="true" style="display:none;">
+        <button class="glb-close" id="glb-close" aria-label="Close"><i data-lucide="x"></i></button>
+        <button class="glb-nav glb-prev" id="glb-prev" aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+        <button class="glb-nav glb-next" id="glb-next" aria-label="Next"><i data-lucide="chevron-right"></i></button>
+        <div class="glb-content">
+          <img id="glb-img" src="" alt="" class="glb-image">
+          <div class="glb-caption">
+            <span class="glb-cat-pill" id="glb-cat"></span>
+            <h3 id="glb-title"></h3>
+            <p id="glb-desc"></p>
+            <span class="glb-counter" id="glb-counter"></span>
           </div>
         </div>
       </div>
+
     </section>
 
     <!-- ==========================================================================
@@ -3687,6 +4050,609 @@
             </iframe>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         🏅 FINAL MERIT LIST SECTION
+         ========================================================================== -->
+    <section id="merit-list" class="section merit-list-section">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header text-center reveal">
+          <div class="section-badge-wrap">
+            <span class="section-badge"><i data-lucide="list-ordered"></i> Official Results</span>
+          </div>
+          <h2 class="section-title">Final Merit List</h2>
+          <p class="section-subtitle">IEEE EDGE AI HACKATHON 2026</p>
+          <p class="merit-tagline">Celebrating innovation, engineering excellence, and the achievements of participating teams.</p>
+        </div>
+
+        <!-- Event Summary Strip -->
+        <div class="merit-event-summary reveal">
+          <div class="merit-summary-item">
+            <span class="merit-summary-num">170</span>
+            <span class="merit-summary-label">Abstracts Submitted</span>
+          </div>
+          <div class="merit-summary-divider"></div>
+          <div class="merit-summary-item">
+            <span class="merit-summary-num">42</span>
+            <span class="merit-summary-label">Teams Selected</span>
+          </div>
+          <div class="merit-summary-divider"></div>
+          <div class="merit-summary-item">
+            <span class="merit-summary-num">27</span>
+            <span class="merit-summary-label">Finalist Teams</span>
+          </div>
+          <div class="merit-summary-divider"></div>
+          <div class="merit-summary-item">
+            <span class="merit-summary-num">3</span>
+            <span class="merit-summary-label">Hardware Tracks</span>
+          </div>
+          <div class="merit-summary-divider"></div>
+          <div class="merit-summary-item">
+            <span class="merit-summary-num">4–6 Oct</span>
+            <span class="merit-summary-label">Event Dates, 2026</span>
+          </div>
+        </div>
+
+        <!-- Tracks Grid -->
+        <div class="merit-tracks-grid">
+
+          <!-- ===== TRACK 1: FPGA ===== -->
+          <div class="merit-track-card reveal">
+            <div class="merit-track-header track-fpga">
+              <div class="merit-track-icon">
+                <i data-lucide="circuit-board"></i>
+              </div>
+              <div>
+                <span class="merit-track-number">Track 01</span>
+                <h3 class="merit-track-title">FPGA</h3>
+                <span class="merit-track-subtitle">Advanced Reconfigurable Hardware</span>
+              </div>
+              <span class="merit-teams-count">16 Teams</span>
+            </div>
+            <div class="merit-flip-grid">
+
+              <!-- Rank 1 -->
+              <div class="mfc rank-gold" data-rank="1" data-label="🥇 1st Place" tabindex="0" role="button" aria-label="Rank 1 card — click to reveal team name">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">1</span>
+                    </div>
+                    <span class="mfc-medal">🥇</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #1</span>
+                    <span class="mfc-back-name">Systolic Squad</span>
+                    <span class="winner-label gold-label">🥇 1st Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 2 -->
+              <div class="mfc rank-silver" data-rank="2" data-label="🥈 2nd Place" tabindex="0" role="button" aria-label="Rank 2 card — click to reveal">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">2</span>
+                    </div>
+                    <span class="mfc-medal">🥈</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #2</span>
+                    <span class="mfc-back-name">NEXT IN</span>
+                    <span class="winner-label silver-label">🥈 2nd Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 3 -->
+              <div class="mfc rank-bronze" data-rank="3" data-label="🥉 3rd Place" tabindex="0" role="button" aria-label="Rank 3 card — click to reveal">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">3</span>
+                    </div>
+                    <span class="mfc-medal">🥉</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #3</span>
+                    <span class="mfc-back-name">VISTA</span>
+                    <span class="winner-label bronze-label">🥉 3rd Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 4 -->
+              <div class="mfc" data-rank="4" tabindex="0" role="button" aria-label="Rank 4 card">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">4</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #4</span>
+                    <span class="mfc-back-name">Team Sutra-dhar</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 5 -->
+              <div class="mfc" data-rank="5" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">5</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #5</span>
+                    <span class="mfc-back-name">Neurofabric</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 6 -->
+              <div class="mfc" data-rank="6" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">6</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #6</span>
+                    <span class="mfc-back-name">CoreSentinel</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 7 -->
+              <div class="mfc" data-rank="7" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">7</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #7</span>
+                    <span class="mfc-back-name">Auctrix</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 8 -->
+              <div class="mfc" data-rank="8" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">8</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #8</span>
+                    <span class="mfc-back-name">Team &quot;Haassh&quot;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 9 -->
+              <div class="mfc" data-rank="9" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">9</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #9</span>
+                    <span class="mfc-back-name">ZEROSDC</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 10 -->
+              <div class="mfc" data-rank="10" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">10</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #10</span>
+                    <span class="mfc-back-name">Code Cortex</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 11 -->
+              <div class="mfc" data-rank="11" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">11</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #11</span>
+                    <span class="mfc-back-name">TECHBALLERS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 12 -->
+              <div class="mfc" data-rank="12" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">12</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #12</span>
+                    <span class="mfc-back-name">Neuro Sense</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 13 -->
+              <div class="mfc" data-rank="13" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">13</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #13</span>
+                    <span class="mfc-back-name">alt chip</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 14 -->
+              <div class="mfc" data-rank="14" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">14</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #14</span>
+                    <span class="mfc-back-name">TEAM ELECTRO</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 15 -->
+              <div class="mfc" data-rank="15" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">15</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #15</span>
+                    <span class="mfc-back-name">Team Perceptrons</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 16 -->
+              <div class="mfc" data-rank="16" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">16</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #16</span>
+                    <span class="mfc-back-name">CocoMat</span>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /merit-flip-grid -->
+          </div>
+
+          <!-- ===== TRACK 2: Raspberry Pi / Renesas ===== -->
+          <div class="merit-track-card reveal">
+            <div class="merit-track-header track-raspi">
+              <div class="merit-track-icon">
+                <i data-lucide="cpu"></i>
+              </div>
+              <div>
+                <span class="merit-track-number">Track 02</span>
+                <h3 class="merit-track-title">Raspberry Pi / Renesas</h3>
+                <span class="merit-track-subtitle">Edge Computing &amp; SBC Innovation</span>
+              </div>
+              <span class="merit-teams-count">6 Teams</span>
+            </div>
+            <div class="merit-flip-grid">
+
+              <!-- Rank 1 -->
+              <div class="mfc rank-gold" data-rank="1" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">1</span>
+                    </div>
+                    <span class="mfc-medal">🥇</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #1</span>
+                    <span class="mfc-back-name">S.py</span>
+                    <span class="winner-label gold-label">🥇 1st Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 2 -->
+              <div class="mfc rank-silver" data-rank="2" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">2</span>
+                    </div>
+                    <span class="mfc-medal">🥈</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #2</span>
+                    <span class="mfc-back-name">Vector Aid</span>
+                    <span class="winner-label silver-label">🥈 2nd Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 3 -->
+              <div class="mfc rank-bronze" data-rank="3" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">3</span>
+                    </div>
+                    <span class="mfc-medal">🥉</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #3</span>
+                    <span class="mfc-back-name">AcousticMinds</span>
+                    <span class="winner-label bronze-label">🥉 3rd Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 4 -->
+              <div class="mfc" data-rank="4" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">4</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #4</span>
+                    <span class="mfc-back-name">HACKX-V</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 5 -->
+              <div class="mfc" data-rank="5" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">5</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #5</span>
+                    <span class="mfc-back-name">Quantum coders</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 6 -->
+              <div class="mfc" data-rank="6" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">6</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #6</span>
+                    <span class="mfc-back-name">Team Rocket</span>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /merit-flip-grid -->
+          </div>
+
+          <!-- ===== TRACK 3: ESP32 / Arduino ===== -->
+          <div class="merit-track-card reveal">
+            <div class="merit-track-header track-esp32">
+              <div class="merit-track-icon">
+                <i data-lucide="zap"></i>
+              </div>
+              <div>
+                <span class="merit-track-number">Track 03</span>
+                <h3 class="merit-track-title">ESP32 / Arduino</h3>
+                <span class="merit-track-subtitle">Embedded IoT &amp; Smart Devices</span>
+              </div>
+              <span class="merit-teams-count">5 Teams</span>
+            </div>
+            <div class="merit-flip-grid">
+
+              <!-- Rank 1 -->
+              <div class="mfc rank-gold" data-rank="1" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">1</span>
+                    </div>
+                    <span class="mfc-medal">🥇</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #1</span>
+                    <span class="mfc-back-name">EdgeNova</span>
+                    <span class="winner-label gold-label">🥇 1st Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 2 -->
+              <div class="mfc rank-silver" data-rank="2" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">2</span>
+                    </div>
+                    <span class="mfc-medal">🥈</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #2</span>
+                    <span class="mfc-back-name">Team Electro</span>
+                    <span class="winner-label silver-label">🥈 2nd Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 3 -->
+              <div class="mfc rank-bronze" data-rank="3" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-aura"></div>
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">3</span>
+                    </div>
+                    <span class="mfc-medal">🥉</span>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #3</span>
+                    <span class="mfc-back-name">Angrybirds</span>
+                    <span class="winner-label bronze-label">🥉 3rd Place</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 4 -->
+              <div class="mfc" data-rank="4" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">4</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #4</span>
+                    <span class="mfc-back-name">Core4</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rank 5 -->
+              <div class="mfc" data-rank="5" tabindex="0" role="button">
+                <div class="mfc-inner">
+                  <div class="mfc-front">
+                    <div class="mfc-sigil">
+                      <svg viewBox="0 0 80 80" class="mfc-hex"><polygon points="40,4 74,22 74,58 40,76 6,58 6,22"/></svg>
+                      <span class="mfc-rank-num">5</span>
+                    </div>
+                    <span class="mfc-hint">Tap to reveal</span>
+                  </div>
+                  <div class="mfc-back">
+                    <span class="mfc-back-rank">Rank #5</span>
+                    <span class="mfc-back-name">LUMEN</span>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /merit-flip-grid -->
+          </div>
+
+        </div><!-- /merit-tracks-grid -->
+
+        <!-- About the Merit List / Disclaimer -->
+        <div class="merit-disclaimer-card reveal">
+          <div class="merit-disclaimer-icon"><i data-lucide="info"></i></div>
+          <div class="merit-disclaimer-content">
+            <h4 class="merit-disclaimer-title">About the Merit List</h4>
+            <p>This merit list reflects the official final rankings of teams who participated in the IEEE EDGE AI HACKATHON 2026, held at PMEC (Parala Maharaja Engineering College), Berhampur, Odisha, on 4–6 October 2026.</p>
+            <p>Rankings were determined by a panel of expert judges based on technical implementation, innovation, real-world impact, presentation quality, and system completeness.</p>
+            <p class="merit-disclaimer-note"><i data-lucide="shield-check"></i>&nbsp;Marks, scores, percentages, and individual judging breakdowns are not published in compliance with institutional privacy guidelines. Only rank and team name are displayed.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 

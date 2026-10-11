@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Edge AI Hackathon 2026 Page Script
  * Manages theme toggling, accordion menus, timelines, and scroll effects.
  */
@@ -1028,3 +1028,216 @@ function initPhotoLightbox() {
 
 
 
+
+/* ===================================================
+   Mystic Merit Flip Cards � click/tap toggle
+   =================================================== */
+(function () {
+  function initMeritFlipCards() {
+    document.querySelectorAll('.mfc').forEach(function (card) {
+      // Click / tap
+      card.addEventListener('click', function () {
+        card.classList.toggle('flipped');
+      });
+      // Keyboard (Enter / Space)
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('flipped');
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMeritFlipCards);
+  } else {
+    initMeritFlipCards();
+  }
+})();
+
+
+
+/* ===================================================
+   📸 Event Photo Gallery V2 (Filtering & Lightbox)
+   =================================================== */
+(function () {
+  function initGalleryV2() {
+    const filterBar = document.querySelector('.gallery-filter-bar');
+    const cards = Array.from(document.querySelectorAll('.gcard'));
+    const noResults = document.getElementById('gallery-no-results');
+    const lightbox = document.getElementById('gallery-lightbox');
+    if (!cards.length) return;
+
+    // Filter functionality
+    if (filterBar) {
+      filterBar.querySelectorAll('.gfb-pill').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBar.querySelectorAll('.gfb-pill').forEach(function (b) {
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+
+          var visibleCount = 0;
+          cards.forEach(function (card) {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.classList.remove('hidden-card');
+              card.style.display = '';
+              visibleCount++;
+            } else {
+              card.classList.add('hidden-card');
+              card.style.display = 'none';
+            }
+          });
+
+          if (noResults) {
+            noResults.style.display = visibleCount === 0 ? 'flex' : 'none';
+          }
+        });
+      });
+    }
+
+    // Lightbox functionality
+    if (lightbox) {
+      const glbImg = document.getElementById('glb-img');
+      const glbCat = document.getElementById('glb-cat');
+      const glbTitle = document.getElementById('glb-title');
+      const glbDesc = document.getElementById('glb-desc');
+      const glbCounter = document.getElementById('glb-counter');
+      const closeBtn = document.getElementById('glb-close');
+      const prevBtn = document.getElementById('glb-prev');
+      const nextBtn = document.getElementById('glb-next');
+
+      var currentIndex = -1;
+
+      function getVisibleCards() {
+        return cards.filter(function (c) {
+          return !c.classList.contains('hidden-card') && c.style.display !== 'none';
+        });
+      }
+
+      function updateLightbox(index) {
+        var visibleCards = getVisibleCards();
+        if (!visibleCards.length) return;
+        if (index < 0) index = visibleCards.length - 1;
+        if (index >= visibleCards.length) index = 0;
+        currentIndex = index;
+
+        var card = visibleCards[currentIndex];
+        var imgEl = card.querySelector('img');
+        var fullSrc = card.getAttribute('data-full') || (imgEl ? imgEl.getAttribute('src') : '');
+        var title = card.getAttribute('data-title') || '';
+        var cat = card.getAttribute('data-cat') || '';
+        var desc = card.getAttribute('data-desc') || '';
+
+        if (glbImg) {
+          glbImg.style.opacity = '0';
+          setTimeout(function () {
+            glbImg.src = fullSrc;
+            glbImg.alt = title;
+            glbImg.onload = function () {
+              glbImg.style.opacity = '1';
+              glbImg.style.transition = 'opacity 0.25s ease';
+            };
+          }, 80);
+        }
+
+        if (glbTitle) glbTitle.textContent = title;
+        if (glbCat) glbCat.textContent = cat;
+        if (glbDesc) glbDesc.textContent = desc;
+        if (glbCounter) glbCounter.textContent = (currentIndex + 1) + ' / ' + visibleCards.length;
+      }
+
+      function openLightbox(card) {
+        var visibleCards = getVisibleCards();
+        var idx = visibleCards.indexOf(card);
+        if (idx === -1) idx = 0;
+        updateLightbox(idx);
+        lightbox.style.display = 'flex';
+        // force reflow
+        void lightbox.offsetWidth;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        setTimeout(function () {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = '';
+          if (glbImg) glbImg.src = '';
+        }, 300);
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          openLightbox(card);
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          updateLightbox(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          updateLightbox(currentIndex + 1);
+        });
+      }
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox || e.target.classList.contains('glb-overlay')) {
+          closeLightbox();
+        }
+      });
+
+      window.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') updateLightbox(currentIndex - 1);
+        if (e.key === 'ArrowRight') updateLightbox(currentIndex + 1);
+      });
+
+      // Touch swipe gestures
+      var touchStartX = 0;
+      lightbox.addEventListener('touchstart', function (e) {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchStartX = e.changedTouches[0].screenX;
+        }
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', function (e) {
+        if (e.changedTouches && e.changedTouches[0]) {
+          var touchEndX = e.changedTouches[0].screenX;
+          var diffX = touchEndX - touchStartX;
+          if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+              updateLightbox(currentIndex - 1);
+            } else {
+              updateLightbox(currentIndex + 1);
+            }
+          }
+        }
+      }, { passive: true });
+    }
+
+    // Refresh Lucide icons if present
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGalleryV2);
+  } else {
+    initGalleryV2();
+  }
+})();
