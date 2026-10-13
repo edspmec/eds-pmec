@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Edge AI Hackathon 2026 Page Script
  * Manages theme toggling, accordion menus, timelines, and scroll effects.
  */
@@ -1033,17 +1033,40 @@ function initPhotoLightbox() {
    Mystic Merit Flip Cards � click/tap toggle
    =================================================== */
 (function () {
+  function handleCardFlip(card) {
+    var willReveal = !card.classList.contains('flipped');
+    card.classList.toggle('flipped');
+
+    // Celebrate with confetti shower when card flips open to reveal team name
+    if (willReveal) {
+      var rect = card.getBoundingClientRect();
+      var originX = rect.left + rect.width / 2;
+      var originY = rect.top + rect.height / 2;
+
+      var rankTheme = 'standard';
+      if (card.classList.contains('rank-gold')) rankTheme = 'gold';
+      else if (card.classList.contains('rank-silver')) rankTheme = 'silver';
+      else if (card.classList.contains('rank-bronze')) rankTheme = 'bronze';
+
+      var particleCount = (rankTheme === 'gold') ? 65 : (rankTheme === 'silver' || rankTheme === 'bronze' ? 55 : 45);
+
+      if (typeof window.triggerMeritConfetti === 'function') {
+        window.triggerMeritConfetti(originX, originY, rankTheme, particleCount);
+      }
+    }
+  }
+
   function initMeritFlipCards() {
     document.querySelectorAll('.mfc').forEach(function (card) {
       // Click / tap
       card.addEventListener('click', function () {
-        card.classList.toggle('flipped');
+        handleCardFlip(card);
       });
       // Keyboard (Enter / Space)
       card.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          card.classList.toggle('flipped');
+          handleCardFlip(card);
         }
       });
     });
@@ -1239,5 +1262,189 @@ function initPhotoLightbox() {
     document.addEventListener('DOMContentLoaded', initGalleryV2);
   } else {
     initGalleryV2();
+  }
+})();
+
+/* ===================================================
+   🎉 Merit List Celebration, Cheers Counter & Confetti Magic
+   =================================================== */
+(function () {
+  function initMeritCheerCelebration() {
+    var cheerBtn = document.getElementById('cheer-teams-btn');
+    var cheerDisplay = document.getElementById('cheer-count-display');
+    var reactionsBox = document.getElementById('cheer-floating-reactions');
+    var confettiCanvas = document.getElementById('cheer-confetti-canvas');
+    if (!cheerBtn || !cheerDisplay) return;
+
+    // Load persisted cheers or set baseline
+    var baseCheers = 348;
+    var storedCheers = parseInt(localStorage.getItem('hackathon_cheers_count'), 10);
+    if (!storedCheers || storedCheers < baseCheers) {
+      storedCheers = baseCheers;
+    }
+    cheerDisplay.textContent = storedCheers.toLocaleString();
+
+    // Floating reaction phrases
+    var phrases = [
+      "👏 Proud of You!",
+      "🚀 Top 15% in India!",
+      "🔥 Real Hardware Builders!",
+      "💡 True Innovators!",
+      "🏆 Every Finalist is a Winner!",
+      "⚡ Silicon Pioneers!",
+      "❤️ Huge Respect to All 27!",
+      "✨ Future of Edge AI!"
+    ];
+
+    // Confetti Physics Engine
+    var confettiCtx = confettiCanvas ? confettiCanvas.getContext('2d') : null;
+    var particles = [];
+    var animationId = null;
+
+    function resizeCanvas() {
+      if (!confettiCanvas) return;
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    // Color Palettes for different celebratory events
+    var paletteGold = [
+      '#fbbf24', '#f59e0b', '#fef08a', '#ffffff', '#d97706', '#ffe066'
+    ];
+    var paletteSilver = [
+      '#f1f5f9', '#e2e8f0', '#cbd5e1', '#94a3b8', '#38bdf8', '#ffffff'
+    ];
+    var paletteBronze = [
+      '#cd7f32', '#d97706', '#fbbf24', '#b45309', '#f97316', '#fed7aa'
+    ];
+    var paletteRainbow = [
+      '#f59e0b', '#fbbf24', '#10b981', '#34d399',
+      '#60a5fa', '#3b82f6', '#ec4899', '#a855f7',
+      '#ef4444', '#06b6d4'
+    ];
+
+    function spawnConfetti(originX, originY, rankTheme, count) {
+      if (!confettiCanvas || !confettiCtx) return;
+      resizeCanvas();
+      confettiCanvas.style.display = 'block';
+
+      // Pick palette based on rank or general celebration
+      var themeColors = paletteRainbow;
+      if (rankTheme === 'gold') themeColors = paletteGold;
+      else if (rankTheme === 'silver') themeColors = paletteSilver;
+      else if (rankTheme === 'bronze') themeColors = paletteBronze;
+
+      var particleCount = count || 75;
+
+      for (var i = 0; i < particleCount; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * 11 + 4;
+        particles.push({
+          x: originX,
+          y: originY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - Math.random() * 6 - 2, // upward initial impulse
+          size: Math.random() * 7 + 4,
+          color: themeColors[Math.floor(Math.random() * themeColors.length)],
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 15,
+          gravity: 0.35,
+          drag: 0.96,
+          opacity: 1,
+          shape: Math.random() > 0.4 ? 'rect' : 'circle'
+        });
+      }
+
+      if (!animationId) {
+        animateConfetti();
+      }
+    }
+
+    // Expose global trigger for merit list flip cards
+    window.triggerMeritConfetti = function (originX, originY, rankTheme, count) {
+      spawnConfetti(originX, originY, rankTheme, count);
+    };
+
+    function animateConfetti() {
+      if (!confettiCtx || !confettiCanvas) return;
+      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+      for (var i = particles.length - 1; i >= 0; i--) {
+        var p = particles[i];
+        p.vx *= p.drag;
+        p.vy = (p.vy + p.gravity) * p.drag;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rotation += p.rotationSpeed;
+        p.opacity -= 0.012;
+
+        if (p.opacity <= 0 || p.y > confettiCanvas.height + 20) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        confettiCtx.save();
+        confettiCtx.globalAlpha = Math.max(0, p.opacity);
+        confettiCtx.translate(p.x, p.y);
+        confettiCtx.rotate((p.rotation * Math.PI) / 180);
+        confettiCtx.fillStyle = p.color;
+
+        if (p.shape === 'rect') {
+          confettiCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        } else {
+          confettiCtx.beginPath();
+          confettiCtx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+          confettiCtx.fill();
+        }
+
+        confettiCtx.restore();
+      }
+
+      if (particles.length > 0) {
+        animationId = requestAnimationFrame(animateConfetti);
+      } else {
+        animationId = null;
+        if (confettiCanvas) confettiCanvas.style.display = 'none';
+      }
+    }
+
+    // Trigger celebration
+    cheerBtn.addEventListener('click', function (e) {
+      storedCheers++;
+      localStorage.setItem('hackathon_cheers_count', storedCheers);
+      cheerDisplay.textContent = storedCheers.toLocaleString();
+
+      // Trigger Confetti originating from button coordinates
+      var rect = cheerBtn.getBoundingClientRect();
+      var originX = rect.left + rect.width / 2;
+      var originY = rect.top + rect.height / 2;
+      spawnConfetti(originX, originY);
+
+      // Spawn floating reaction pill
+      if (reactionsBox) {
+        var randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+        var pill = document.createElement('div');
+        pill.className = 'floating-pill';
+        pill.textContent = randomPhrase;
+        var randX = (Math.random() - 0.5) * 80;
+        pill.style.setProperty('--rand-x', randX + 'px');
+        reactionsBox.appendChild(pill);
+
+        setTimeout(function () {
+          if (pill.parentNode) pill.parentNode.removeChild(pill);
+        }, 1450);
+      }
+    });
+
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMeritCheerCelebration);
+  } else {
+    initMeritCheerCelebration();
   }
 })();

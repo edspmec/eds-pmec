@@ -39,25 +39,34 @@
   <!-- Header / Navigation -->
   <header id="header" class="header">
     <div class="container">
-      <a href="#hackathon-home" class="logo-container" aria-label="IEEE EDS PMEC Home">
+      <a href="#hackathon-home" class="logo-container" aria-label="Edge AI Hackathon 2026 Home">
         <img src="assets/logos_banners/eds_pmec_logo.png" alt="IEEE EDS Logo" class="logo-img">
         <div class="brand-text">
-          <span class="brand-name">IEEE EDS PMEC</span>
-          <span class="brand-subtitle">Student Chapter</span>
+          <span class="brand-name">EDGE AI 2026</span>
+          <span class="brand-subtitle">IEEE EDS PMEC</span>
         </div>
       </a>
 
       <nav id="nav-menu" class="nav-menu" role="navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="index.html#about" class="nav-link">About EDS</a>
-        <a href="index.html#activities" class="nav-link">Technical Activities</a>
-        <a href="index.html#events" class="nav-link">Events &amp; Achievements</a>
-        <a href="#hackathon-home" class="nav-link active">Hackathon 2026 <span class="nav-new-pill"
-            style="background: linear-gradient(135deg, #10B981, #059669);">CONCLUDED</span></a>
-        <a href="#contact" class="nav-link">Team &amp; Contact</a>
+        <a href="#hackathon-home" class="nav-link active">Overview</a>
+        <a href="#merit-list" class="nav-link">Merit List <span class="nav-new-pill"
+            style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff;">RESULTS</span></a>
+        <a href="#hardware-platforms" class="nav-link">Tracks</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#partners" class="nav-link">Sponsors</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link mobile-only-nav-link">
+          <i data-lucide="arrow-left"></i> Back to Main Site
+        </a>
       </nav>
 
       <div class="controls-container">
+        <!-- Return to Main EDS Website -->
+        <a href="index.html" class="nav-back-site-btn" title="Back to Main IEEE EDS PMEC Website">
+          <i data-lucide="arrow-left"></i>
+          <span>Main Site</span>
+        </a>
+
         <!-- Dark Mode Toggle -->
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
           <!-- Icon will be inserted dynamically by JS -->
@@ -4097,6 +4106,74 @@
           </div>
         </div>
 
+        <!-- Inspiring Finalist Recognition & Cheer Banner -->
+        <div class="merit-cheer-banner reveal">
+          <div class="cheer-banner-glow" aria-hidden="true"></div>
+
+          <div class="cheer-banner-badge-row">
+            <span class="cheer-pill-badge">
+              <i data-lucide="award"></i> A Note of Honor to Every Finalist
+            </span>
+          </div>
+
+          <div class="cheer-banner-content">
+            <h3 class="cheer-headline">
+              To Reach This Arena, You Overcame <span class="highlight-stat">170+ Contender Teams</span> Across India.
+            </h3>
+            <p class="cheer-lead">
+              Rankings only measure a single presentation moment — <strong>your engineering grit defines your future.</strong>
+              If your team name is etched onto this board, you are one of the extraordinary <strong>27 finalist teams</strong> selected from across the country who earned your way to Parala Maharaja Engineering College.
+            </p>
+
+          </div>
+
+          <!-- 3 Affirmation Badges -->
+          <div class="cheer-pillars-grid">
+            <div class="cheer-pillar-card">
+              <div class="cheer-pillar-icon"><i data-lucide="trophy"></i></div>
+              <div class="cheer-pillar-text">
+                <span class="cheer-pillar-title">170+ Teams Screened</span>
+                <span class="cheer-pillar-desc">You conquered the rigorous national abstract &amp; hardware design screening rounds.</span>
+              </div>
+            </div>
+            <div class="cheer-pillar-card">
+              <div class="cheer-pillar-icon"><i data-lucide="cpu"></i></div>
+              <div class="cheer-pillar-text">
+                <span class="cheer-pillar-title">Real Edge Hardware Built</span>
+                <span class="cheer-pillar-desc">Deployed TinyML, FPGA logic, and MCU inference under 21 hours of relentless hacking.</span>
+              </div>
+            </div>
+            <div class="cheer-pillar-card">
+              <div class="cheer-pillar-icon"><i data-lucide="heart-handshake"></i></div>
+              <div class="cheer-pillar-text">
+                <span class="cheer-pillar-title">National Stage Presence</span>
+                <span class="cheer-pillar-desc">Defended innovations live before esteemed evaluators.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Cheer & Confetti Button -->
+          <div class="cheer-interactive-row">
+            <div class="cheer-left-info">
+              <span class="cheer-prompt-text"><i data-lucide="flame"></i> Proud of every participant?</span>
+              <span class="cheer-sub-prompt">Click to shower confetti &amp; celebrate all 27 builder teams!</span>
+            </div>
+            <div class="cheer-btn-wrapper">
+              <button id="cheer-teams-btn" class="cheer-action-btn" type="button" aria-label="Send cheers and fireworks to all teams">
+                <span class="btn-sparkle-icon"><i data-lucide="party-popper"></i></span>
+                <span class="btn-text">Celebrate All Teams!</span>
+                <span class="cheer-count-pill" id="cheer-count-pill">
+                  <i data-lucide="heart" class="heart-pulse"></i>
+                  <span id="cheer-count-display">348</span> Cheers
+                </span>
+              </button>
+              <div id="cheer-floating-reactions" class="floating-reactions-box" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+        <canvas id="cheer-confetti-canvas" style="display:none;"></canvas>
+
         <!-- Tracks Grid -->
         <div class="merit-tracks-grid">
 
@@ -4641,6 +4718,20 @@
           </div>
 
         </div><!-- /merit-tracks-grid -->
+
+        <!-- Inspiring Sign-off Note -->
+        <div class="merit-signoff-card reveal">
+          <div class="signoff-quote-icon"><i data-lucide="quote"></i></div>
+          <div class="signoff-quote-body">
+            <p class="signoff-quote-text">
+              "Scores don’t define engineers; curiosity, persistence, and the courage to build do. Wear your finalist badge with immense pride — the future of Edge AI and Semiconductor innovation belongs to you."
+            </p>
+            <div class="signoff-author">
+              <span class="author-name">— Organizing Committee &amp; Faculty Leadership</span>
+              <span class="author-sub">IEEE EDS PMEC Student Branch Chapter</span>
+            </div>
+          </div>
+        </div>
 
         <!-- About the Merit List / Disclaimer -->
         <div class="merit-disclaimer-card reveal">
