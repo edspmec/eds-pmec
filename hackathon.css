@@ -10905,6 +10905,252 @@ body:not(.dark-mode) .event-gallery-item:hover {
 /* Inherit winner label reused from merit-list-section */
 .mfc-back .winner-label { font-size: 0.65rem; margin-left: 0; }
 
+/* ==========================================================================
+   🌞 MERIT LIST & FLIP CARDS — LIGHT MODE COMPATIBILITY
+   ========================================================================== */
+body:not(.dark-mode) .merit-list-section {
+  background: var(--bg-secondary, #f8fafc);
+}
+
+body:not(.dark-mode) .merit-tagline {
+  color: #64748b;
+}
+
+body:not(.dark-mode) .merit-event-summary {
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+}
+
+body:not(.dark-mode) .merit-summary-divider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+body:not(.dark-mode) .merit-summary-label {
+  color: #64748b;
+}
+
+/* Track Card in Light Mode */
+body:not(.dark-mode) .merit-track-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+}
+
+/* Track Header Colors */
+body:not(.dark-mode) .track-fpga {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-bottom: 2px solid #ddd6fe;
+}
+body:not(.dark-mode) .track-fpga .merit-track-title {
+  color: #4c1d95;
+}
+body:not(.dark-mode) .track-fpga .merit-track-number {
+  color: #6d28d9;
+}
+
+body:not(.dark-mode) .track-raspi {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-bottom: 2px solid #a7f3d0;
+}
+body:not(.dark-mode) .track-raspi .merit-track-title {
+  color: #064e3b;
+}
+body:not(.dark-mode) .track-raspi .merit-track-number {
+  color: #047857;
+}
+
+body:not(.dark-mode) .track-esp32 {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-bottom: 2px solid #fed7aa;
+}
+body:not(.dark-mode) .track-esp32 .merit-track-title {
+  color: #7c2d12;
+}
+body:not(.dark-mode) .track-esp32 .merit-track-number {
+  color: #c2410c;
+}
+
+body:not(.dark-mode) .merit-track-subtitle {
+  color: #475569;
+}
+body:not(.dark-mode) .merit-teams-count {
+  background: rgba(0, 0, 0, 0.06);
+  color: #334155;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Flip Cards Front Faces in Light Mode */
+body:not(.dark-mode) .mfc-front {
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -2px rgba(0, 0, 0, 0.03);
+}
+
+body:not(.dark-mode) .mfc:hover .mfc-front {
+  border-color: rgba(0, 0, 0, 0.16);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark-mode) .mfc-front::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 18px,
+      rgba(0, 0, 0, 0.02) 18px, rgba(0, 0, 0, 0.02) 19px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 18px,
+      rgba(0, 0, 0, 0.02) 18px, rgba(0, 0, 0, 0.02) 19px
+    );
+}
+
+body:not(.dark-mode) .mfc-front::after {
+  background: linear-gradient(105deg, transparent 40%, rgba(0, 0, 0, 0.03) 50%, transparent 60%);
+}
+
+/* Hexagon Sigil */
+body:not(.dark-mode) .mfc-hex polygon {
+  fill: rgba(0, 0, 0, 0.025);
+}
+body:not(.dark-mode) .track-fpga .mfc-hex { stroke: rgba(109, 40, 217, 0.45); }
+body:not(.dark-mode) .track-raspi .mfc-hex { stroke: rgba(5, 150, 105, 0.45); }
+body:not(.dark-mode) .track-esp32 .mfc-hex { stroke: rgba(234, 88, 12, 0.45); }
+
+/* Rank Numbers */
+body:not(.dark-mode) .track-fpga .mfc-rank-num { color: #5b21b6; }
+body:not(.dark-mode) .track-raspi .mfc-rank-num { color: #065f46; }
+body:not(.dark-mode) .track-esp32 .mfc-rank-num { color: #9a3412; }
+
+/* Hint text */
+body:not(.dark-mode) .mfc-hint {
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Podium Highlights in Light Mode */
+body:not(.dark-mode) .rank-gold .mfc-front {
+  background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid #f59e0b;
+  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.28);
+}
+body:not(.dark-mode) .rank-gold .mfc-rank-num { color: #92400e; }
+body:not(.dark-mode) .rank-gold .mfc-hex { stroke: #f59e0b; }
+body:not(.dark-mode) .rank-gold .mfc-aura {
+  background: conic-gradient(from 0deg, #f59e0b, #fbbf24, #f59e0b, #d97706, #f59e0b);
+  opacity: 0.35;
+}
+
+body:not(.dark-mode) .rank-silver .mfc-front {
+  background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 2px solid #94a3b8;
+  box-shadow: 0 8px 24px -4px rgba(100, 116, 139, 0.22);
+}
+body:not(.dark-mode) .rank-silver .mfc-rank-num { color: #1e293b; }
+body:not(.dark-mode) .rank-silver .mfc-hex { stroke: #64748b; }
+body:not(.dark-mode) .rank-silver .mfc-aura {
+  background: conic-gradient(from 0deg, #94a3b8, #cbd5e1, #94a3b8, #64748b, #94a3b8);
+  opacity: 0.35;
+}
+
+body:not(.dark-mode) .rank-bronze .mfc-front {
+  background: linear-gradient(145deg, #fff7ed 0%, #ffedd5 100%);
+  border: 2px solid #ea580c;
+  box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.25);
+}
+body:not(.dark-mode) .rank-bronze .mfc-rank-num { color: #7c2d12; }
+body:not(.dark-mode) .rank-bronze .mfc-hex { stroke: #ea580c; }
+body:not(.dark-mode) .rank-bronze .mfc-aura {
+  background: conic-gradient(from 0deg, #ea580c, #fb923c, #ea580c, #c2410c, #ea580c);
+  opacity: 0.35;
+}
+
+/* Back Face in Light Mode */
+body:not(.dark-mode) .track-fpga .mfc-back {
+  background: linear-gradient(145deg, #5b21b6 0%, #3b0764 100%);
+  border: 1px solid #7c3aed;
+  box-shadow: 0 10px 25px -4px rgba(91, 33, 182, 0.35);
+}
+body:not(.dark-mode) .track-raspi .mfc-back {
+  background: linear-gradient(145deg, #047857 0%, #064e3b 100%);
+  border: 1px solid #10b981;
+  box-shadow: 0 10px 25px -4px rgba(4, 120, 87, 0.35);
+}
+body:not(.dark-mode) .track-esp32 .mfc-back {
+  background: linear-gradient(145deg, #c2410c 0%, #7c2d12 100%);
+  border: 1px solid #ea580c;
+  box-shadow: 0 10px 25px -4px rgba(194, 65, 12, 0.35);
+}
+
+body:not(.dark-mode) .rank-gold .mfc-back {
+  background: linear-gradient(145deg, #b45309 0%, #78350f 100%);
+  border: 2px solid #fbbf24;
+  box-shadow: 0 12px 28px -4px rgba(217, 119, 6, 0.45);
+}
+body:not(.dark-mode) .rank-silver .mfc-back {
+  background: linear-gradient(145deg, #334155 0%, #0f172a 100%);
+  border: 2px solid #cbd5e1;
+  box-shadow: 0 12px 28px -4px rgba(51, 65, 85, 0.45);
+}
+body:not(.dark-mode) .rank-bronze .mfc-back {
+  background: linear-gradient(145deg, #9a3412 0%, #431407 100%);
+  border: 2px solid #f97316;
+  box-shadow: 0 12px 28px -4px rgba(154, 52, 18, 0.45);
+}
+
+body:not(.dark-mode) .mfc-back-rank {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+}
+body:not(.dark-mode) .mfc-back-name {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+body:not(.dark-mode) .rank-gold .mfc-back-name { color: #fef08a; }
+body:not(.dark-mode) .rank-silver .mfc-back-name { color: #f8fafc; }
+body:not(.dark-mode) .rank-bronze .mfc-back-name { color: #fed7aa; }
+
+/* Disclaimer Card in Light Mode */
+body:not(.dark-mode) .merit-disclaimer-card {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+body:not(.dark-mode) .merit-disclaimer-title {
+  color: #1e40af;
+}
+body:not(.dark-mode) .merit-disclaimer-content p {
+  color: #334155;
+}
+body:not(.dark-mode) .merit-disclaimer-note {
+  background: #dbeafe;
+  color: #1e3a8a !important;
+  border-left-color: #2563eb;
+}
+
+/* Fallback Merit Table in Light Mode */
+body:not(.dark-mode) .merit-table thead tr {
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+body:not(.dark-mode) .merit-table th {
+  color: #475569;
+}
+body:not(.dark-mode) .merit-row {
+  border-bottom: 1px solid #e2e8f0;
+}
+body:not(.dark-mode) .merit-row:hover {
+  background: #f8fafc;
+}
+body:not(.dark-mode) .rank-badge {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #cbd5e1;
+}
+body:not(.dark-mode) .team-name {
+  color: #0f172a;
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 900px) {
   .merit-flip-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 18px; }
